@@ -1,3 +1,4 @@
+//ax + by = mdc(a, b)
 int mdce(int a, int b, int *x, int *y){
 	if(!a){
 		*x = 0;

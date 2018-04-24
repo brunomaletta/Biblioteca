@@ -12,8 +12,7 @@ int phi(int n){
 			}
 		}
 
-	if(n > 1)
-		t *= n - 1;
+	if(n > 1) t *= n - 1;
 
 	return t;
 }

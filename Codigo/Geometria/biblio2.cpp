@@ -165,14 +165,14 @@ bool interseg(line r, line s) { // se o seg de r intercepta o seg de s
 	return isinseg(i, r) and isinseg(i, s);
 }
 
-ld polarea(vector<pt> v) {
+ld polarea(vector<pt> v) { // area do poligono
 	ld ret = 0;
 	for (int i = 0; i < sz(v); i++)
 		ret += sarea(npt(0, 0), v[i], v[(i + 1) % sz(v)]);
 	return absf(ret);
 }
 
-vector<pt> convexhull(vector<pt> v) {
+vector<pt> convexhull(vector<pt> v) { // Convex Hull O(n log(n))
 	vector<pt> l, u;
 
 	sort(v.begin(), v.end(), [](pt a, pt b) {

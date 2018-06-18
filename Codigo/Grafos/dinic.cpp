@@ -3,7 +3,6 @@ using namespace std;
 
 #define pb push_back
 #define inf 1e9
-CU
 
 struct edge{
 	int p, c, id; //para, capacidade, id

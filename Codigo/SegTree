@@ -1,8 +1,14 @@
 // SegTree com Lazy Propagation
 // by BM
 //
-// SegTree de soma com update de somar x
-// no range [a, b]
+// SegTree 1-based, vetor 0-based
+// Query: soma do range [a, b]
+// Update: soma x em cada elemento do range [a, b]
+//
+// Complexidades:
+// build - O(n)
+// query - O(log(n))
+// update - O(log(n))
 
 int seg[4 * MAX];
 int lazy[4 * MAX];

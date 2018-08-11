@@ -1,5 +1,4 @@
 // BIT 2D de soma
-// by BM
 //
 // BIT 1-based
 // Para mudar o valor da posicao (x, y) para k,

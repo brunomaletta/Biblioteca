@@ -1,5 +1,4 @@
 // BIT de soma
-// by BM
 //
 // BIT 1-based
 // Para mudar o valor da posicao p para x,

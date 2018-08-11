@@ -1,20 +1,16 @@
 // LCA
-// by BM
 //
 // Assume que um vertice é ancestral dele mesmo, ou seja,
 // se a é ancestral de b, LCA(a, b) = b
+// MAXP = ceil(log(MAX))
 //
 // Complexidades:
 // build - O(n log(n))
 // lca - O(log(n))
 
-
-#define MAX 1010
-#define MAXP 15 // MAXP = log(MAX)
-
 int n;
 vector<vector<int> > g(MAX); // grafo ja montado
-int pai[MAXP][MAX]; // pai[k][i] : (2^k)-esimo pai de i
+int pai[MAXP][MAX];          // pai[k][i] : (2^k)-esimo pai de i
 int level[MAX];
 
 void dfs(int k, int l) {

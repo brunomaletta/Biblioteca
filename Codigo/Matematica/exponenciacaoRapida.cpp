@@ -1,14 +1,28 @@
-int pow(int x, int y, int m){
-	//x elevado a y mod m
-	int a = 1;
-	while(y){
-		if(y & 1){
-			a *= x;
-			a = a % m;
+// Exponenciacao rapida
+//
+// (x^y mod m) em O(log(y))
+
+typedef long long int ll;
+
+ll pow(ll x, ll y, ll m) { // iterativo
+	ll ret = 1;
+	while (y){
+		if (y & 1){
+			ret *= x;
+			ret %= m;
 		}
-		y /= 2;
+		y >>= 1;
 		x *= x;
-		x = x % m;
+		x %= m;
 	}
-	return a;
+	return ret;
+}
+
+ll pow(ll x, ll y, ll m) { // recursivo
+	if (y == 0) return 1;
+
+	ll ret = pow2(x, y / 2, m);
+	ret = (ret * ret) % m;
+	if (y & 1) ret = (ret * x) % m;
+	return ret;
 }

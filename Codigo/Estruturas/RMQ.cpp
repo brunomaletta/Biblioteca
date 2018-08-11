@@ -79,7 +79,7 @@ int query(int p, int l, int r) {
 //
 // Complexidades:
 // build - O(n log(n))
-// query(O(1))
+// quer - O(1)
 
 int n;
 int v[MAX];

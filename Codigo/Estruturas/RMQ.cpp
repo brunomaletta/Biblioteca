@@ -16,7 +16,7 @@ int bl[MAX2];
 void build() {
 	q = (int) sqrt(n);
   
-  // computa cada bloco
+ 	 // computa cada bloco
 	for (int i = 0; i <= q; i++) {
 		bl[i] = INF;
 		for (int j = 0; j < q and q * i + j < n; j++)

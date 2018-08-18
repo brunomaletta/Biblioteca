@@ -4,6 +4,9 @@
 // Com SQRT-decomposition
 //
 // MAX2 = sqrt(MAX)
+//
+// O bloco da posicao x eh
+// sempre x/q
 // 
 // Complexidades:
 // build - O(n)
@@ -28,17 +31,13 @@ int query(int a, int b) {
 	int ret = INF;
 
 	// linear no bloco de a
-	while (a < b and a % q)
-		ret = min(ret, v[a++]);
+	for (; a <= b and a % q; a++) ret = min(ret, v[a]);
 
 	// bloco por bloco
-	while (a + q < b) {
-		ret = min(ret, bl[a / q]);
-		a += q;
-	}
+	for (; a + q <= b; a += q) ret = min(ret, bl[a / q]);
 
 	// linear no bloco de b
-	while (a <= b) ret = min(ret, v[a++]);
+	for (; a <= b; a++) ret = min(ret, v[a]);
 
 	return ret;
 }

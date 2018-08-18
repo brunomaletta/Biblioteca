@@ -14,6 +14,7 @@ int bit[MAX];
 int v[MAX];
 
 void build() {
+	bit[0] = 0;
 	for (int i = 1; i <= n; i++) bit[i] = v[i - 1];
 
 	for (int i = 1; i <= n; i++) {
@@ -33,7 +34,7 @@ void poe(int x, int p) {
 // soma [1, p]
 int query(int p) {
 	int ret = 0;
-	while (p > 0) {
+	while (p) {
 		ret += bit[p];
 		p -= p & -p;
 	}
@@ -42,6 +43,5 @@ int query(int p) {
 
 // soma [a, b]
 int sum(int a, int b) {
-	if (a == 1) return query(b);
 	return query(b) - query(a - 1);
 }

@@ -28,9 +28,9 @@ void poe(int x, int y, int k) {
 int query(int x, int y) {
 	int ret = 0;
 	int y2 = y;
-	while (x > 0) {
+	while (x) {
 		y = y2;
-		while (y > 0) {
+		while (y) {
 			ret += bit[x][y];
 			y -= y & -y;
 		}

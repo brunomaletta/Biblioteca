@@ -34,8 +34,8 @@ bool prime(ll n) {
 		d /= 2;
 	}
 
-  // com esses primos, o teste funciona garantido para n <= 3*10^18
-  // funciona para n <= 3*10^24 com os primos ate 41
+ 	// com esses primos, o teste funciona garantido para n <= 3*10^18
+	// funciona para n <= 3*10^24 com os primos ate 41
 	int a[9] = {2, 3, 5, 7, 11, 13, 17, 19, 23};
 	for (int i = 0; i < 9; i++) {
 		if (a[i] >= n) break;

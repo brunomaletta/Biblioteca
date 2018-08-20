@@ -32,7 +32,7 @@ ll pow(ll x, ll y, ll m) {
 }
 
 // teste de primalidade de
-// Miller-rabin
+// Miller-Rabin
 bool prime(ll n) {
 	if (n < 2) return 0;
 	if (n <= 3) return 1;

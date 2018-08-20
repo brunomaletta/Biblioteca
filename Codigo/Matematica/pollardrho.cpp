@@ -3,6 +3,7 @@
 // A fatoracao nao sai necessariamente ordenada
 // O algoritmo rho encontra um fator de n,
 // e funciona muito bem quando n possui um fator pequeno
+// Eh recomendado chamar srand(time(NULL)) na main
 //
 // Complexidades:
 // prime - O(log^2(n))
@@ -102,7 +103,6 @@ ll rho(ll n) {
 // acha os divisores primos de n,
 // nao necessariamente ordenados
 vector<ll> fact(ll n) {
-	srand(time(NULL));
 	vector<ll> ret;
 	if (n == 1) return ret;
 	if (prime(n)) ret.pb(n);

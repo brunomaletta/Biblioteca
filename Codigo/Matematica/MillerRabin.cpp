@@ -2,7 +2,7 @@
 //
 // Testa se n eh primo, n <= 3 * 10^18
 //
-// O(log^3(n))
+// O(log^2(n))
 
 ll mul(ll x, ll y, ll m) {
 	if (!y) return 0;
@@ -44,7 +44,7 @@ bool prime(ll n) {
 
 		bool deu = 1;
 		for (int j = 0; j < r - 1; j++) {
-			x = pow(x, 2, n);
+			x = mul(x, x, n);
 			if (x == n - 1) {
 				deu = 0;
 				break;

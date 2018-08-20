@@ -1,4 +1,4 @@
-// Teste de primalidade de Miller_rabin
+// Teste de primalidade de Miller-Rabin
 //
 // Testa se n eh primo, n <= 3 * 10^18
 //

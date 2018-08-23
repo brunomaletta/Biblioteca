@@ -1,7 +1,7 @@
 // LCA
 //
-// Assume que um vertice é ancestral dele mesmo, ou seja,
-// se a é ancestral de b, LCA(a, b) = b
+// Assume que um vertice eh ancestral dele mesmo, ou seja,
+// se a eh ancestral de b, LCA(a, b) = b
 // MAXP = ceil(log(MAX))
 //
 // Complexidades:

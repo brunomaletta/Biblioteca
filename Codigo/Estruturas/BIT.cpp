@@ -2,7 +2,7 @@
 //
 // BIT 1-based, v 0-based
 // Para mudar o valor da posicao p para x,
-// faça: poe(x - sum(p, p), p)
+// faca: poe(x - sum(p, p), p)
 //
 // Complexidades:
 // build - O(n)

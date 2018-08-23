@@ -2,7 +2,7 @@
 //
 // BIT 1-based
 // Para mudar o valor da posicao (x, y) para k,
-// faça: poe(x, y, k - sum(x, y, x, y))
+// faca: poe(x, y, k - sum(x, y, x, y))
 //
 // Complexidades:
 // build - O(n^2 log^2(n))

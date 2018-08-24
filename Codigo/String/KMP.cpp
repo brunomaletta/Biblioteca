@@ -1,0 +1,36 @@
+//KMP
+//
+//Tudo 0-based
+//primeiro chama a funcao process com o padrao
+//depois chama match com (texto, padrao)
+
+//Complexidade:
+//process -> O(m)
+//match -> O(n + m)
+
+int p[N];
+
+void process(string &s){
+	int i = 0, j = -1;
+	p[0] = -1;
+	while(i < s.size()){
+		while(j >= 0 and s[i] != s[j]) j = p[j];
+		i++; j++;
+		p[i] = j;
+	}
+}
+
+int match(string &s, string &t){
+	int r = 0;
+	process(t);
+	int i = 0, j = 0;
+	while(i < s.size()){
+		while(j >= 0 and s[i] != t[j]) j = p[j];
+		i++; j++;
+		if(j == t.size()){
+			j = p[j];
+			r++;
+		}
+	}
+	return r;
+}

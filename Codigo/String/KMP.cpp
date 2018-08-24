@@ -1,9 +1,10 @@
 //KMP
 //
 //Tudo 0-based
-//primeiro chama a funcao process com o padrao
-//depois chama match com (texto, padrao)
-
+//Primeiro chama a funcao process com o padrao
+//Depois chama match com (texto, padrao)
+//Vai retornar o numero de ocorrencias do padrao
+//
 //Complexidade:
 //process -> O(m)
 //match -> O(n + m)

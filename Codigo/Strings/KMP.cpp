@@ -1,13 +1,13 @@
 //KMP
 //
-//Tudo 0-based
-//Primeiro chama a funcao process com o padrao
-//Depois chama match com (texto, padrao)
-//Vai retornar o numero de ocorrencias do padrao
+// Primeiro chama a funcao process com o padrao
+// Depois chama match com (texto, padrao)
+// Vai retornar o numero de ocorrencias do padrao
 //
-//Complexidade:
-//process -> O(m)
-//match -> O(n + m)
+// Complexidades:
+// process - O(m)
+// match - O(n + m)
+// n = |texto| e m = |padrao|
 
 int p[N];
 

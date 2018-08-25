@@ -1,9 +1,9 @@
 // Jogo de Nim
 //
-// calcula movimento otimo
-// do jogo classico de Nim
-// assume que o estado atual
-// eh perdedor
+// calcula movimento otimo do jogo classico de Nim
+// assume que o estado atual eh perdedor
+// funcao move retorna um par com a pilha (0 indexed)
+// e quanto deve ser tirado dela
 //
 // MAX2 = teto do log do maior elemento
 // possivel nas pilhas
@@ -12,7 +12,7 @@
 
 int v[MAX], n;
 
-ii move() {
+pair<int, int> move() {
 	int x = 0;
 	for (int j = 0; j < n; j++) x ^= v[j];
 
@@ -26,5 +26,5 @@ ii move() {
 	}
 
 	x ^= v[p];
-	return mp(p, v[p] - x);
+	return make_pair(p, v[p] - x);
 }

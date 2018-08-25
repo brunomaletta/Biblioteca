@@ -1,4 +1,4 @@
-//KMP
+// KMP
 //
 // Primeiro chama a funcao process com o padrao
 // Depois chama match com (texto, padrao)

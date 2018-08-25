@@ -1,10 +1,10 @@
 // Bellman-Ford
 //
-// calcula a menor distancia
+// Calcula a menor distancia
 // entre a e todos os vertices e
 // detecta ciclo negativo
-// retorna 1 se ha ciclo negativo
-// nao precisa representar o grafo,
+// Retorna 1 se ha ciclo negativo
+// Nao precisa representar o grafo,
 // soh armazenar as arestas
 //
 // O(nm)

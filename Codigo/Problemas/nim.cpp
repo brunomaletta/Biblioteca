@@ -1,8 +1,8 @@
 // Jogo de Nim
 //
-// calcula movimento otimo do jogo classico de Nim
-// assume que o estado atual eh perdedor
-// funcao move retorna um par com a pilha (0 indexed)
+// Calcula movimento otimo do jogo classico de Nim
+// Assume que o estado atual eh perdedor
+// Funcao move retorna um par com a pilha (0 indexed)
 // e quanto deve ser tirado dela
 //
 // MAX2 = teto do log do maior elemento

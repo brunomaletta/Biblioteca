@@ -1,11 +1,14 @@
-#include <bits/stdc++.h>
-using namespace std;
-
-#define pb push_back
-#define inf 1e9
+//Algoritmo de Dinic para fluxo maximo
+//
+//tem que definir o tamanho de g e de lev como o numero
+//de vertices do grafo e depois char o a funcao fluxo
+//
+//Complexidade:
+//Caso geral: O(E^2 * E)
+//Grafo bipartido O(sqrt(V)*E)
 
 struct edge{
-	int p, c, id; //para, capacidade, id
+	int p, c, id; //destino, capacidade, id
 	edge() {p = c = id = 0;}
 	edge(int p, int c, int id):p(p), c(c), id(id){}
 };
@@ -27,6 +30,7 @@ bool bfs(int s, int t){
 		lev[i] = -1;
 	lev[s] = 0;
 
+	//bfs saindo de s
 	queue <int> q;
 	q.push(s);
 	while(q.size()){
@@ -34,6 +38,7 @@ bool bfs(int s, int t){
 
 		for(int i = 0; i < g[u].size(); i++){
 			edge e = g[u][i];
+			//se ja foi visitado ou nao tem capacidade nao visita
 			if(lev[e.p] != -1 || !e.c)
 				continue;
 			lev[e.p] = lev[u] + 1;
@@ -54,10 +59,12 @@ int dfs(int v, int s, int f){
 	for(int i = 0; i < g[v].size(); i++){
 		edge e = g[v][i]; int u = e.p;
 
+		//visita se tiver capacidadade e se ta no proximo nivel
 		if(lev[u] != lev[v] + 1 || !e.c)
 			continue;
 
 		int tenta = dfs(u, s, min(flu, e.c));
+		//se passou alguma coisa altera as capacidades
 		if(tenta){
 			flu -= tenta;
 			g[v][i].c -= tenta;
@@ -65,6 +72,7 @@ int dfs(int v, int s, int f){
 		}
 	}
 
+	//se passou tudo tira da lista dos possiveis
 	if(flu == f)
 		lev[v] = -1;
 	return f - flu;

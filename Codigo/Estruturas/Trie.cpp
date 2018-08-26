@@ -1,14 +1,21 @@
-#include <bits/stdc++.h>
-using namespace std;
-#define N 1048576
+//Trie
+//
+//N deve ser maior ou igual ao numero de nos da trie
+//fim indica se alguma palavra acaba nesse no
+//
+//Complexidade:
+//Inserir e conferir string S -> O(|S|)
 
 int trie[N][26];
 int fim[N];
 int nx = 1;
 
 void insere(string &s, int p, int l, int at){
+	//se nao chegou no fim da palavra termina de inserir
 	if(p != l){
 		int c = s[p] - 'a';
+		//se nao existe um no que representa esse prefixo + c
+		//cria o no 
 		if(!trie[at][c])
 			trie[at][c] = nx++;
 		insere(s, p+1, l, trie[at][c]);
@@ -18,6 +25,7 @@ void insere(string &s, int p, int l, int at){
 }
 
 int check(string &s, int p, int l, int at){
+	//Cansei de comentar, Cabra, se vira
 	if(p != l){
 		int c = s[p] - 'a';
 		if(trie[at][c])
@@ -26,17 +34,4 @@ int check(string &s, int p, int l, int at){
 			return 0;
 	}
 	return fim[at];
-}
-
-int main(int argc, char const *argv[])
-{
-	string s; int a;
-	while(cin >> a >> s){
-		if(a == 1)
-			insere(s, 0, s.size(), 0);
-		else
-			printf("%i\n", check(s, 0, s.size(), 0));
-	}
-	
-	return 0;
 }

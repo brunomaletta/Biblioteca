@@ -2,7 +2,8 @@
 //
 // Testa se n eh primo, n <= 3 * 10^18
 //
-// O(log^2(n))
+// O(log(n)), considerando multiplicacao
+// e exponenciacao constantes
 
 // multiplicacao e exponenciacao rapidas
 ll mul(ll x, ll y, ll m); // x*y mod m

@@ -19,11 +19,11 @@ bool bellman_ford(int a) {
 	d[a] = 0;
 
 	for (int i = 0; i <= n; i++)
-		for (int j : ar) {
-			if (d[j.second] > d[j.first] + w[j]) {
+		for (int j = 0; j < m; j++) {
+			if (d[ar[j].second] > d[ar[j].first] + w[j]) {
 				if (i == n) return 1;
 
-				d[j.second] = d[j.first] + w[j];
+				d[ar[j].second] = d[ar[j].first] + w[j];
 			}
 		}
 

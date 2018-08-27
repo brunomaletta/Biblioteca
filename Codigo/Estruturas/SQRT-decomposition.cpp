@@ -1,4 +1,4 @@
-// SQRT-decomposition para RMQ
+// RMQ com SQRT-decomposition
 //
 // 0-indexed
 // MAX2 = sqrt(MAX)

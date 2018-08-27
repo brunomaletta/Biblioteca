@@ -1,5 +1,6 @@
 // Fatoracao pelo algoritmo Rho de Pollard
 //
+// Usa o algoritmo de deteccao de ciclo de Brent
 // A fatoracao nao sai necessariamente ordenada
 // O algoritmo rho encontra um fator de n,
 // e funciona muito bem quando n possui um fator pequeno
@@ -49,6 +50,8 @@ bool prime(ll n) {
  	// com esses primos, o teste funciona garantido para n <= 3*10^18
 	// funciona para n <= 3*10^24 com os primos ate 41
 	int a[9] = {2, 3, 5, 7, 11, 13, 17, 19, 23};
+	// outra possibilidade para n <= 2^64:
+	//int a[7] = {2, 325, 9375, 28178, 450775, 9780504, 1795265022};
 	for (int i = 0; i < 9; i++) {
 		if (a[i] >= n) break;
 		ll x = pow(a[i], d, n);
@@ -76,6 +79,7 @@ ll rho(ll n) {
 
 	while (1) {
 		ll x = 2, y = 2;
+		ll ciclo = 2, i = 0;
 
 		// tenta com essa constante
 		ll c = (rand() / (double) RAND_MAX) * (n - 1) + 1;
@@ -83,34 +87,31 @@ ll rho(ll n) {
 		ll d = 1;
 
 		while (d == 1) {
+			// algoritmo de Brent
+			if (++i == ciclo) ciclo *= 2, y = x;
 			x = (pow(x, 2, n) + c) % n;
-			y = (pow(y, 2, n) + c) % n;
-			y = (pow(y, 2, n) + c) % n;
+
+			// x = y -> ciclo
+			// tenta com outra constante
+			if (x == y) break;
 
 			d = mdc(abs(x - y), n);
-
-			// |x-y| = 0 -> ciclo
-			// tenta com outra constante
-			if (d == n) break;
 		}
 
 		// sucesso -> retorna o divisor
-		if (d != n) return d;
+		if (x != y) return d;
 	}
-
 }
+
 
 // acha os divisores primos de n,
 // nao necessariamente ordenados
-vector<ll> fact(ll n) {
-	vector<ll> ret;
-	if (n == 1) return ret;
-	if (prime(n)) ret.pb(n);
+void fact(ll n, vector<ll>& v) {
+	if (n == 1) return;
+	if (prime(n)) v.pb(n);
 	else {
 		ll d = rho(n);
-		ret = fact(d);
-		vector<ll> ret2 = fact(n / d);
-		ret.insert(ret.end(), ret2.begin(), ret2.end());
-		return ret;
+		fact(d, v);
+		fact(n / d, v);
 	}
 }

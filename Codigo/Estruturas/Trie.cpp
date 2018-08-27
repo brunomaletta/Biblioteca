@@ -24,7 +24,6 @@ void insere(string &s, int p, int l, int at){
 }
 
 int check(string &s, int p, int l, int at){
-	// Cansei de comentar, Cabra, se vira
 	if(p != l){
 		int c = s[p] - 'a';
 		if(trie[at][c]) return check(s, p+1, l, trie[at][c]);

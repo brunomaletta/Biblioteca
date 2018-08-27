@@ -6,14 +6,10 @@ typedef long long int ll;
 
 ll pow(ll x, ll y, ll m) { // iterativo
 	ll ret = 1;
-	while (y){
-		if (y & 1){
-			ret *= x;
-			ret %= m;
-		}
+	while (y) {
+		if (y & 1) ret = (ret * x) % m;
 		y >>= 1;
-		x *= x;
-		x %= m;
+		x = (x * x) % m;
 	}
 	return ret;
 }

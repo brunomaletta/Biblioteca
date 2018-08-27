@@ -1,10 +1,10 @@
-//Trie
+// Trie
 //
-//N deve ser maior ou igual ao numero de nos da trie
-//fim indica se alguma palavra acaba nesse no
+// N deve ser maior ou igual ao numero de nos da trie
+// fim indica se alguma palavra acaba nesse no
 //
-//Complexidade:
-//Inserir e conferir string S -> O(|S|)
+// Complexidade:
+// Inserir e conferir string S -> O(|S|)
 
 int trie[N][26];
 int fim[N];

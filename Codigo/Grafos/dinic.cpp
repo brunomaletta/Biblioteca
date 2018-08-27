@@ -4,7 +4,7 @@
 // de vertices do grafo e depois char o a funcao fluxo
 //
 // Complexidade:
-// Caso geral: O(E^2 * E)
+// Caso geral: O(V^2 * E)
 // Grafo bipartido O(sqrt(V)*E)
 
 struct edge{

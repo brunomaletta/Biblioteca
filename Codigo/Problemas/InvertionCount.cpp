@@ -4,27 +4,11 @@
 
 int n;
 int v[MAX];
-int bit[MAX];
 
-void build() {
-	for (int i = 0; i <= n; i++) bit[i] = 0;
-}
-
-void poe(int p) {
-	while (p <= n) {
-		bit[p]++;
-		p += p & -p;
-	}
-}
-
-int query(int p) {
-	int ret = 0;
-	while (p) {
-		ret += bit[p];
-		p -= p & -p;
-	}
-	return ret;
-}
+// bit de soma
+void build();
+void poe(int p);
+int query(int p);
 
 // converte valores do array pra
 // numeros de 1 a n

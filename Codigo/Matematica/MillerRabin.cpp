@@ -4,23 +4,8 @@
 //
 // O(log^2(n))
 
-ll mul(ll x, ll y, ll m) {
-	if (!y) return 0;
-
-	ll ret = mul(x, y >> 1, m);
-	ret = (ret + ret) % m;
-	if (y & 1) ret = (ret + x) % m;
-	return ret;
-}
-
-ll pow(ll x, ll y, ll m) {
-	if (!y) return 1;
-
-	ll ret = pow(x, y >> 1, m);
-	ret = mul(ret, ret, m);
-	if (y & 1) ret = mul(ret, x, m);
-	return ret;
-}
+ll mul(ll x, ll y, ll m);
+ll pow(ll x, ll y, ll m);
 
 bool prime(ll n) {
 	if (n < 2) return 0;

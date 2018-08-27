@@ -6,9 +6,9 @@
 // e funciona muito bem quando n possui um fator pequeno
 // Eh recomendado chamar srand(time(NULL)) na main
 //
-// Complexidades:
-// rho - esperado O(n^(1/4) log(n)) no pior caso
-// fact - esperado menos que O(n^(1/4) log^2(n)) no pior caso
+// Complexidades (considerando mul e pow constantes):
+// rho - esperado O(n^(1/4)) no pior caso
+// fact - esperado menos que O(n^(1/4) log(n)) no pior caso
 
 ll mdc(ll a, ll b);
 ll mul(ll a, ll b, ll m);

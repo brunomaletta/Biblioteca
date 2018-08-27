@@ -4,8 +4,9 @@
 //
 // O(log^2(n))
 
-ll mul(ll x, ll y, ll m);
-ll pow(ll x, ll y, ll m);
+// multiplicacao e exponenciacao rapidas
+ll mul(ll x, ll y, ll m); // x*y mod m
+ll pow(ll x, ll y, ll m); // x^y mod m
 
 bool prime(ll n) {
 	if (n < 2) return 0;
@@ -32,7 +33,7 @@ bool prime(ll n) {
 
 		bool deu = 1;
 		for (int j = 0; j < r - 1; j++) {
-			x = mul(x, x, n);
+			x = pow(x, 2, n);
 			if (x == n - 1) {
 				deu = 0;
 				break;

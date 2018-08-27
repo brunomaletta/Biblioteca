@@ -15,10 +15,10 @@ int level[MAX];
 
 void dfs(int k, int l) {
 	level[k] = l;
-	for (int i = 0; i < (int) g[k].size(); i++)
-		if (level[g[k][i]] == -1) {
-			pai[0][g[k][i]] = k;
-			dfs(g[k][i], l + 1);
+	for (int i : g[k])
+		if (level[i] == -1) {
+			pai[0][i] = k;
+			dfs(i, l + 1);
 		}
 }
 

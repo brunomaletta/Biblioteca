@@ -39,11 +39,9 @@ bool bfs(int s, int t){
 		for(int i = 0; i < g[u].size(); i++){
 			edge e = g[u][i];
 			// se ja foi visitado ou nao tem capacidade nao visita
-			if(lev[e.p] != -1 || !e.c)
-				continue;
+			if(lev[e.p] != -1 || !e.c) continue;
 			lev[e.p] = lev[u] + 1;
-			if(e.p == t)
-				return true;
+			if(e.p == t) return true;
 			q.push(e.p);
 		}
 	}
@@ -52,16 +50,14 @@ bool bfs(int s, int t){
 }
 
 int dfs(int v, int s, int f){
-	if(v == s || !f)
-		return f;
+	if(v == s || !f) return f;
 
 	int flu = f;
 	for(int i = 0; i < g[v].size(); i++){
 		edge e = g[v][i]; int u = e.p;
 
 		// visita se tiver capacidadade e se ta no proximo nivel
-		if(lev[u] != lev[v] + 1 || !e.c)
-			continue;
+		if(lev[u] != lev[v] + 1 || !e.c) continue;
 
 		int tenta = dfs(u, s, min(flu, e.c));
 		// se passou alguma coisa altera as capacidades
@@ -73,15 +69,13 @@ int dfs(int v, int s, int f){
 	}
 
 	// se passou tudo tira da lista dos possiveis
-	if(flu == f)
-		lev[v] = -1;
+	if(flu == f) lev[v] = -1;
 	return f - flu;
 }
 
 int fluxo(int s, int t){
 	int r = 0;
-	while(bfs(s, t))
-		r += dfs(s, t, inf);
+	while(bfs(s, t)) r += dfs(s, t, inf);
 	return r;
 }
 

@@ -14,8 +14,7 @@ int query(int p);
 // numeros de 1 a n
 void conv() {
 	vector<int> a;
-	for (int i = 0; i < n; i++)
-		a.push_back(v[i]);
+	for (int i = 0; i < n; i++) a.push_back(v[i]);
 
 	sort(a.begin(), a.end());
 

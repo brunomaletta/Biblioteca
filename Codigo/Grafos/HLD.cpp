@@ -24,7 +24,7 @@ int head[MAX]; // cabeca de cada chain
 int num[MAX]; // numeracao do vertice na segtree
 int vec[MAX]; // v[i] : custo de u para pai[u], u = num[i]
 vector<vector<int> > ind(MAX); // index da aresta
-int ponta[MAX]; // vertice de baixo da aresta i
+int ponta[MAX]; // vertice de baixo da aresta
 int vis[MAX];
 int chains;
 int pos; // posicao atual na seg tree (na hora de montar a HLD)

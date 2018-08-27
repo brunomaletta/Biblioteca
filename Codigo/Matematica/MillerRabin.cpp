@@ -16,10 +16,7 @@ bool prime(ll n) {
 
 	ll d = n - 1;
 	int r = 0;
-	while (d % 2 == 0) {
-		r++;
-		d /= 2;
-	}
+	while (d % 2 == 0) r++, d /= 2;
 
  	// com esses primos, o teste funciona garantido para n <= 3*10^18
 	// funciona para n <= 3*10^24 com os primos ate 41
@@ -35,10 +32,7 @@ bool prime(ll n) {
 		bool deu = 1;
 		for (int j = 0; j < r - 1; j++) {
 			x = pow(x, 2, n);
-			if (x == n - 1) {
-				deu = 0;
-				break;
-			}
+			if (x == n - 1) deu = 0, break;
 		}
 		if (deu) return 0;
 	}

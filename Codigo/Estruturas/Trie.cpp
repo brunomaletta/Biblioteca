@@ -19,15 +19,14 @@ void insere(string &s, int p, int l, int at){
 		if(!trie[at][c]) trie[at][c] = nx++;
 		insere(s, p+1, l, trie[at][c]);
 	}
-	else
-		fim[at] = 1;
+	else fim[at] = 1;
 }
 
 int check(string &s, int p, int l, int at){
 	if(p != l){
 		int c = s[p] - 'a';
 		if(trie[at][c]) return check(s, p+1, l, trie[at][c]);
-		else return 0;
+		return 0;
 	}
 	return fim[at];
 }

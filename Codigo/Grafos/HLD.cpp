@@ -30,35 +30,10 @@ int chains;
 int pos; // posicao atual na seg tree (na hora de montar a HLD)
 int seg[4 * MAX];
 
-int build_seg(int p, int l, int r) {
-	if (l == r) return seg[p] = vec[l];
-
-	int m = (l + r) / 2;
-	return seg[p] = max(build_seg(2 * p + 1, l, m),
-			build_seg(2 * p + 2, m + 1, r));
-}
-
-int query_seg(int p, int l, int r) {
-	// to totalmente dentro
-	if (l >= a and r <= b) return seg[p];
-	// to fora
-	if (r < a or l > b) return -INF;
-
-	int m = (l + r) / 2;
-	return max(query_seg(2 * p + 1, l, m),
-			query_seg(2 * p + 2, m + 1, r));
-}
-
-int update_seg(int p, int l, int r) {
-	// cheguei
-	if (l == a and r == a) return seg[p] = x;
-	// to fora
-	if (r < a or l > b) return seg[p];
-
-	int m = (l + r) / 2;
-	return seg[p] = max(update_seg(2 * p + 1, l, m),
-			update_seg(2 * p + 2, m + 1, r));
-}
+// seg tree de maximo com update pontual
+int build_seg(int p, int l, int r);
+int query_seg(int p, int l, int r);
+int update_seg(int p, int l, int r);
 
 void dfs(int k) {
 	vis[k] = 1;

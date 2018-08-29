@@ -1,3 +1,7 @@
+// Algoritmo de Tarjan para SCC
+//
+// O(n + m)
+
 int n;
 vector<vector<int> > g(MAX);
 stack<int> S;

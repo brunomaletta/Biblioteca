@@ -13,22 +13,16 @@
 // query_hld - O(log^2 (n))
 // update_hld - O(log(n))
 
-// [a, b] usado na seg tree | x : valor de update
-int n, a, b, x;
-vector<vector<int> > g(MAX); 
-vector<vector<int> > w(MAX);
+int n, a, b, x; // [a, b] usado na seg tree | x : valor de update
+vector<vector<int> > g(MAX), w(MAX);
 int subsize[MAX]; // tamanho da sub-arvore
-int pai[MAX];
-int chain[MAX];
-int head[MAX]; // cabeca de cada chain
+int pai[MAX], chain[MAX], head[MAX]; // cabeca de cada chain
 int num[MAX]; // numeracao do vertice na segtree
 int vec[MAX]; // v[i] : custo de u para pai[u], u = num[i]
 vector<vector<int> > ind(MAX); // index da aresta
 int ponta[MAX]; // vertice de baixo da aresta
-int vis[MAX];
-int chains;
+int vis[MAX], chains, seg[4 * MAX];
 int pos; // posicao atual na seg tree (na hora de montar a HLD)
-int seg[4 * MAX];
 
 // seg tree de maximo com update pontual
 int build_seg(int p, int l, int r);
@@ -119,7 +113,7 @@ int query_hld(int u, int v) {
 	if (u == v) return ret;
 
 	// query final
-	if (num[u] < num[v]) swap(u, v);
+	if (num[u] < num[v]) swap(u, v); // LCA eh v
 
 	a = num[v] + 1, b = num[u];
 	ret = max(ret, query_seg(0, 0, n - 1));

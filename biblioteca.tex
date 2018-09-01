@@ -1,0 +1,217 @@
+\documentclass[12pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{amssymb,amsmath}
+\usepackage{comment}
+\usepackage{datetime}
+\usepackage[pdfusetitle]{hyperref}
+\usepackage[all]{xy}
+\usepackage{graphicx}
+\addtolength{\parskip}{.5\baselineskip}
+\newcommand{\nc}{\newcommand}
+
+%aqui comeca o que eu fiz de verdade, o resto veio e eu to com medo de tirar
+\usepackage{listings} %biblioteca pro codigo
+\usepackage{color}    %deixa o codigo colorido bonitinho
+\usepackage[landscape, left=1cm, right=1cm, top=1cm, bottom=2cm]{geometry} %pra deixar a margem do jeito que o brasil gosta
+
+\definecolor{gray}{rgb}{0.4, 0.4, 0.4} %cor pros comentarios
+%\renewcommand{\footnotesize}{\small} %isso eh pra mudar o tamanho da fonte do codigo
+\setlength{\columnseprule}{0.2pt} %barra separando as duas colunas
+\setlength{\columnsep}{15pt} %distancia do texto ate a barra
+
+\lstset{ %opcoes pro codigo
+breaklines=true,
+keywordstyle=\color{red},
+commentstyle=\color{gray},
+basicstyle=\footnotesize,
+language=C++,
+numbers=none,
+rulecolor=\color{black},
+showstringspaces=false
+stringstyle=\color{blue},
+tabsize=2,
+%basicstyle=\ttfamily\footnotesize % fonte
+}
+
+\title{Biblioteca dos Brunos [UFMG]}
+\author{Bruno Demattos \& Bruno Monteiro}
+
+
+\begin{document}
+\twocolumn
+\date{} %tira a data
+\maketitle
+%Biblioteca para participar da Maratona de Programação. Este é um trabalho em progresso.
+
+
+\renewcommand{\contentsname}{Índice} %troca o nome do indice para indice
+\tableofcontents
+
+
+%a partir daqui comeca o conteudo mesmo
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+% ESTRUTURAS
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Estruturas}
+
+\subsection{BIT}
+\lstinputlisting[firstline=3]{Estruturas/BIT.cpp}
+
+\subsection{BIT 2D}
+\lstinputlisting[firstline=3]{Estruturas/BIT2D.cpp}
+
+\subsection{SQRT-decomposition}
+\lstinputlisting[firstline=3]{Estruturas/SQRT-decomposition.cpp}
+
+\subsection{Seg-Tree}
+\lstinputlisting[firstline=3]{Estruturas/SegTree.cpp}
+
+\subsection{Sparse-Table}
+\lstinputlisting[firstline=3]{Estruturas/SparseTable.cpp}
+
+\subsection{Trie}
+\lstinputlisting[firstline=3]{Estruturas/Trie.cpp}
+
+\subsection{Union-Find}
+\lstinputlisting[firstline=3]{Estruturas/UnionFind.cpp}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+% GRAFOS
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Grafos}
+
+\subsection{Bellman-Ford}
+\lstinputlisting[firstline=3]{Grafos/BellmanFord.cpp}
+
+\subsection{Floyd-Warshall}
+\lstinputlisting[firstline=3]{Grafos/FloydWarshall.cpp}
+
+\subsection{Heavy-Light decomposition}
+\lstinputlisting[firstline=3]{Grafos/HLD.cpp}
+
+\subsection{LCA}
+\lstinputlisting[firstline=3]{Grafos/LCA.cpp}
+
+\subsection{LCA com RMQ}
+\lstinputlisting[firstline=3]{Grafos/LCAcomRMQ.cpp}
+
+\subsection{Dijkstra}
+\lstinputlisting[firstline=3]{Grafos/dijkstra.cpp}
+
+\subsection{Dinic}
+\lstinputlisting[firstline=3]{Grafos/dinic.cpp}
+
+\subsection{Kosaraju}
+\lstinputlisting[firstline=3]{Grafos/kosaraju.cpp}
+
+\subsection{Kruskal}
+\lstinputlisting[firstline=3]{Grafos/kruskal.cpp}
+
+\subsection{Ponte}
+\lstinputlisting[firstline=3]{Grafos/ponte.cpp}
+
+\subsection{Tarjan}
+\lstinputlisting[firstline=3]{Grafos/tarjan.cpp}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+% MATEMATICA
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Matemática}
+
+\subsection{Crivo de Erastosthenes}
+\lstinputlisting[firstline=3]{Matematica/crivo.cpp}
+
+\subsection{Exponenciação rápida}
+\lstinputlisting[firstline=3]{Matematica/exponenciacaoRapida.cpp}
+
+\subsection{Euclides}
+\lstinputlisting[firstline=3]{Matematica/mdc.cpp}
+
+\subsection{Euclides extendido}
+\lstinputlisting[firstline=3]{Matematica/mdcExtendido.cpp}
+
+\subsection{Miller-Rabin}
+\lstinputlisting[firstline=3]{Matematica/MillerRabin.cpp}
+
+\subsection{Pollard's Rho}
+\lstinputlisting[firstline=3]{Matematica/pollardrho.cpp}
+
+\subsection{Totiente}
+\lstinputlisting[firstline=3]{Matematica/totiente.cpp}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+% PROBLEMAS
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Problemas}
+
+\subsection{Invertion Count}
+\lstinputlisting[firstline=3]{Problemas/InvertionCount.cpp}
+
+\subsection{LIS}
+\lstinputlisting[firstline=3]{Problemas/lis.cpp}
+
+\subsection{Nim}
+\lstinputlisting[firstline=3]{Problemas/nim.cpp}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+% STRINGS
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{String}
+
+\subsection{KMP}
+\lstinputlisting[firstline=3]{Strings/KMP.cpp}
+
+\subsection{Z}
+\lstinputlisting[firstline=3]{Strings/z.cpp}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+% EXTRA
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Extra}
+
+\subsection{Template}
+\lstinputlisting{template.cpp}
+
+\subsection{Vimrc}
+\begin{lstlisting}
+set ts=4 si ai sw=2 number mouse=a
+syntax on
+\end{lstlisting}
+
+
+
+
+
+\end{document}

@@ -56,9 +56,9 @@ int query(int p, int l, int r) {
 	prop(p, l, r);
 
 	// to totalmente dentro
-	if (l >= a and r <= b) return seg[p];
+	if (a <= l and r <= b) return seg[p];
 	// to fora
-	if (r < a or l > b) return 0;
+	if (b < l or r < a) return 0;
 
 	int m = (l + r) / 2;
 	return query(2 * p, l, m) + query(2 * p + 1, m + 1, r);
@@ -69,9 +69,9 @@ int update(int p, int l, int r) {
 	prop(p, l, r);
 
 	// to totalmente dentro
-	if (l >= a and r <= b) return lazy_op(p, l, r);
+	if (a <= l and r <= b) return lazy_op(p, l, r);
 	// to fora
-	if (r < a or l > b) return seg[p];
+	if (b < l or r < a) return seg[p];
 
 	int m = (l + r) / 2;
 	return seg[p] = update(2 * p, l, m) + update(2 * p + 1, m + 1, r);

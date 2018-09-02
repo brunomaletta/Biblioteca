@@ -8,50 +8,40 @@
 // build - O(n log(n))
 // lca - O(log(n))
 
-int n;
-vector<vector<int> > g(MAX); // grafo ja montado
-int pai[MAX2][MAX];          // pai[k][i] : (2^k)-esimo pai de i
-int level[MAX];
+vector<vector<int> > g(MAX);
+int n, p;
+int pai[MAX2][MAX];
+int in[MAX], out[MAX];
 
-void dfs(int k, int l) {
-	level[k] = l;
+void dfs(int k) {
+	in[k] = p++;
 	for (int i = 0; i < (int) g[k].size(); i++)
-		if (level[g[k][i]] == -1) {
-			pai[0][g[k][i]] = k;
-			dfs(g[k][i], l + 1);
-		}
+		if (in[g[k][i]] == -1)
+			pai[0][g[k][i]] = k, dfs(g[k][i]);
+	out[k] = p++;
 }
 
 void build(int raiz) {
 	for (int i = 0; i < n; i++) pai[0][i] = i;
-	for (int i = 0; i < n; i++) level[i] = -1;
-
-	dfs(raiz, 0);
+	p = 0, memset(in, -1, sizeof in);
+	dfs(raiz);
 
 	// pd dos pais
-	for (int k = 1; k < MAX2; k++)
-		for (int i = 0; i < n; i++)
-			pai[k][i] = pai[k - 1][pai[k - 1][i]];
+	for (int k = 1; k < MAX2; k++) for (int i = 0; i < n; i++)
+		pai[k][i] = pai[k - 1][pai[k - 1][i]];
+}
+
+bool anc(int a, int b) { // se a eh ancestral de b
+	return in[a] <= in[b] and out[a] >= out[b];
 }
 
 int lca(int a, int b) {
-	if (level[a] < level[b]) swap(a, b);
+	if (anc(a, b)) return a;
+	if (anc(b, a)) return b;
 
-	// iguala altura
-	for (int k = MAXP - 1; k >= 0; k--)
-		if (level[pai[k][a]] > level[b])
-			a = pai[k][a];
-
-	if (level[a] != level[b]) a = pai[0][a];
-
-	// sobe ate o lca
+	// sobe a
 	for (int k = MAX2 - 1; k >= 0; k--)
-		if (pai[k][a] != pai[k][b]) {
-			a = pai[k][a];
-			b = pai[k][b];
-		}
+		if (!anc(pai[k][a], b)) a = pai[k][a];
 
-	if (a != b) a = pai[0][a];
-
-	return a;
+	return pai[0][a];
 }

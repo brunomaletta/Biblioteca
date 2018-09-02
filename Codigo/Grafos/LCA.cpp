@@ -45,7 +45,7 @@ int lca(int a, int b) {
 	if (level[a] != level[b]) a = pai[0][a];
 
 	// sobe ate o lca
-	for (int k = MAXP - 1; k >= 0; k--)
+	for (int k = MAX2 - 1; k >= 0; k--)
 		if (pai[k][a] != pai[k][b]) {
 			a = pai[k][a];
 			b = pai[k][b];

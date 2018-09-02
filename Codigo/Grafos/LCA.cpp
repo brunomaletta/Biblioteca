@@ -29,7 +29,7 @@ void build(int raiz) {
 	dfs(raiz, 0);
 
 	// pd dos pais
-	for (int k = 1; k < MAXP; k++)
+	for (int k = 1; k < MAX2; k++)
 		for (int i = 0; i < n; i++)
 			pai[k][i] = pai[k - 1][pai[k - 1][i]];
 }

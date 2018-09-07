@@ -67,8 +67,8 @@ void hld(int k, int custo) {
 	hld(f, prox_custo);
 
 	// comeca novas chains
-	for (int i = 0; i < (int) g[k].size(); i++) if (!vis[g[k][i]])
-		if (g[k][i] != f) {
+	for (int i = 0; i < (int) g[k].size(); i++)
+		if (!vis[g[k][i]] and g[k][i] != f) {
 			chains++;
 			head[chains - 1] = g[k][i];
 			hld(g[k][i], w[k][i]);

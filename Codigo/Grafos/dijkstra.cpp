@@ -19,10 +19,9 @@ void dijsktra(int a) {
 	Q.push(make_pair(0, a));
 
 	while (Q.size()) {
-		int u = Q.top().second;
-		if (-Q.top().first > d[u]) continue;
+		int u = Q.top().second, dist = -Q.top().first;
 		Q.pop();
-		
+		if (dist > d[u]) continue;
 
 		for (int i = 0; i < (int) g[u].size(); i++) {
 			int v = g[u][i];

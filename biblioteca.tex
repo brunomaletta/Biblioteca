@@ -1,4 +1,4 @@
-\documentclass[12pt]{article}
+\documentclass[12pt, a4paper, twoside]{article}
 \usepackage[T1]{fontenc}
 \usepackage[utf8]{inputenc}
 \usepackage{amssymb,amsmath}
@@ -8,7 +8,6 @@
 \usepackage[all]{xy}
 \usepackage{graphicx}
 \addtolength{\parskip}{.5\baselineskip}
-\newcommand{\nc}{\newcommand}
 
 %aqui comeca o que eu fiz de verdade, o resto veio e eu to com medo de tirar
 \usepackage{listings} %biblioteca pro codigo
@@ -42,7 +41,6 @@ tabsize=2,
 \twocolumn
 \date{} %tira a data
 \maketitle
-%Biblioteca para participar da Maratona de Programação. Este é um trabalho em progresso.
 
 
 \renewcommand{\contentsname}{Índice} %troca o nome do indice para indice
@@ -106,6 +104,9 @@ tabsize=2,
 
 \subsection{LCA com RMQ}
 \lstinputlisting[firstline=3]{Grafos/LCAcomRMQ.cpp}
+
+\subsection{Centroid decomposition}
+\lstinputlisting[firstline=3]{Grafos/centroid.cpp}
 
 \subsection{Dijkstra}
 \lstinputlisting[firstline=3]{Grafos/dijkstra.cpp}
@@ -209,9 +210,5 @@ tabsize=2,
 set ts=4 si ai sw=2 number mouse=a
 syntax on
 \end{lstlisting}
-
-
-
-
 
 \end{document}

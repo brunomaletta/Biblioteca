@@ -21,7 +21,7 @@ vector<int> get_z(string s) {
         if (i + z[i] - 1 > r) l = i, r = i + z[i] - 1;
     }
 
-    return ret;
+    return z;
 }
 
 // quantas vezes p aparece em s

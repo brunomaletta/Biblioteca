@@ -5,6 +5,7 @@
 // O algoritmo rho encontra um fator de n,
 // e funciona muito bem quando n possui um fator pequeno
 // Eh recomendado chamar srand(time(NULL)) na main
+// A funcao pow deve chamar mul, para nao dar overflow
 //
 // Complexidades (considerando mul e pow constantes):
 // rho - esperado O(n^(1/4)) no pior caso

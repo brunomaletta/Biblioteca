@@ -1,8 +1,8 @@
 // SegTree recursiva com Lazy Propagation
 //
 // SegTree 1-based, vetor 0-based
-// Query: soma do range [a, b]
-// Update: soma x em cada elemento do range [a, b]
+// Query: soma do range [a, b], 1-based
+// Update: soma x em cada elemento do range [a, b], 1-based
 //
 // Complexidades:
 // build - O(n)

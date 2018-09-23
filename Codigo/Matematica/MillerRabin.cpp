@@ -32,7 +32,10 @@ bool prime(ll n) {
 		bool deu = 1;
 		for (int j = 0; j < r - 1; j++) {
 			x = pow(x, 2, n);
-			if (x == n - 1) deu = 0, break;
+			if (x == n - 1) {
+				deu = 0;
+				break;
+			}
 		}
 		if (deu) return 0;
 	}

@@ -1,4 +1,4 @@
-// SegTree com Lazy Propagation
+// SegTree recursiva com Lazy Propagation
 //
 // SegTree 1-based, vetor 0-based
 // Query: soma do range [a, b]

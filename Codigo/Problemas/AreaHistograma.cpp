@@ -10,7 +10,7 @@ typedef long long ll;
 ll area(vector<int> v) {
 	ll ret = 0;
 	stack<int> s;
-	// valores inicial pra dar tudo certo
+	// valores iniciais pra dar tudo certo
 	v.insert(v.begin(), -1);
 	v.insert(v.end(), -1);
 	s.push(0);

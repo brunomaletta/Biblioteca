@@ -1,4 +1,4 @@
-// Invertion Count
+// Inversion Count
 //
 // O(n log(n))
 

@@ -4,7 +4,7 @@ using namespace std;
 
 #define sc(a) scanf("%d",&a)
 #define sc2(a,b) sc(a), sc(b)
-#define sc3(a,b,c) s2(a, b), sc(c)
+#define sc3(a,b,c) sc2(a, b), sc(c)
 #define pri(x) printf("%d\n",x)
 #define mp make_pair
 #define pb push_back

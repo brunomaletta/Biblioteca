@@ -27,5 +27,6 @@ int query(int a, int b) {
 }
 
 void update(int p, int x) {
-	for (seg[p += n] = x; p /= 2;) seg[p] = seg[2*p] + seg[2*p+1];
+	seg[p += n] = x;
+	while (p /= 2) seg[p] = seg[2*p] + seg[2*p+1];
 }

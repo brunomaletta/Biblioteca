@@ -20,7 +20,7 @@ int find(int k) {
 	return v[k] == k ? k : v[k] = find(v[k]);
 }
 
-void une(int a, int b) { // |a| <= |b|
+void une(int a, int b) {
 	a = find(a);
 	b = find(b);
 	if (size[a] > size[b]) swap(a, b);

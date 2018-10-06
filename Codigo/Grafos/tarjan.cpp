@@ -34,7 +34,7 @@ int dfs(int k) {
 }
 
 void tarjan() {
-	for (int i = 0; i < n; i++) vis[i] = 0;
+	memset(vis, 0, sizeof(vis));
 
 	p = 0;
 	for (int i = 0; i < n; i++) if (!vis[i]) dfs(i);

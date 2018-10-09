@@ -7,6 +7,8 @@
 // Caso geral: O(V^2 * E)
 // Grafo bipartido O(sqrt(V)*E)
 
+#define INF 0x3f3f3f3f
+
 struct edge{
 	int p, c, id; // destino, capacidade, id
 	edge() {p = c = id = 0;}
@@ -75,7 +77,7 @@ int dfs(int v, int s, int f){
 
 int fluxo(int s, int t){
 	int r = 0;
-	while(bfs(s, t)) r += dfs(s, t, inf);
+	while(bfs(s, t)) r += dfs(s, t, INF);
 	return r;
 }
 

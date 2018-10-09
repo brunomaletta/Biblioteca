@@ -1,2 +1,2 @@
 CXX = g++
-CXXFLAGS = -O2 -Wall -Wshadow -std=c++11
+CXXFLAGS = -O2 -Wall -Wshadow -std=c++11 -Wno-unused-result

@@ -16,8 +16,10 @@ int in[MAX], out[MAX];
 void dfs(int k) {
 	in[k] = p++;
 	for (int i = 0; i < (int) g[k].size(); i++)
-		if (in[g[k][i]] == -1)
-			pai[0][g[k][i]] = k, dfs(g[k][i]);
+		if (in[g[k][i]] == -1) {
+			pai[0][g[k][i]] = k;
+			dfs(g[k][i]);
+		}
 	out[k] = p++;
 }
 

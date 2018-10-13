@@ -10,7 +10,6 @@
 
 int n;
 int bit[MAX][MAX];
-int M[MAX][MAX];
 
 void poe(int x, int y, int k) {
 	int y2 = y;

@@ -1,9 +1,9 @@
 // SegTree Iterativa
 //
-// SegTree 1-based
+// Consultas 0-based
 // Valores iniciais devem estar em (seg[n], ... , seg[2*n-1])
-// Query: soma do range [a, b], 0-based
-// Update: muda o valor da posicao p para x, 0-based
+// Query: soma do range [a, b]
+// Update: muda o valor da posicao p para x
 //
 // Complexidades:
 // build - O(n)

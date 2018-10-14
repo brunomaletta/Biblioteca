@@ -18,18 +18,16 @@ int seg[2*MAX][2*MAX];
 int n;
 
 void build() {
-	for (int x = n; x < 2*n; x++)
-		for (int y = n - 1; y; y--)
-			seg[x][y] = seg[x][2*y] + seg[x][2*y+1];
-
-	for (int x = n - 1; x; x--) {
+	// constroi vetores-base dos nos da seg-tree maior
+	for (int x = n - 1; x; x--)
 		for (int y = n; y < 2*n; y++)
 			seg[x][y] = seg[2*x][y] + seg[2*x+1][y];
-
+	// constroi todas as seg-trees
+	for (int x = 0; x < 2*n; x++)
 		for (int y = n - 1; y; y--)
 			seg[x][y] = seg[x][2*y] + seg[x][2*y+1];
-	}
 }
+
 
 int query(int x1, int y1, int x2, int y2) {
 	int ret = 0;
@@ -59,9 +57,10 @@ void update(int x, int y, int val) {
 	int y_ = y + n;
 	for (x += n; x; x /= 2) {
 		y = y_;
+		// valor-base da seg tree
 		if (x >= n) seg[x][y] = val;
 		else seg[x][y] = seg[2*x][y] + seg[2*x+1][y];
-
+		// propaga para cima
 		while (y /= 2) seg[x][y] = seg[x][2*y] + seg[x][2*y+1];
 	}
 }

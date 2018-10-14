@@ -55,7 +55,7 @@ void update(int x, int y, int val) {
 	int y_ = y + n;
 	for (x += n; x; x /= 2) {
 		y = y_;
-		if (x >= n) seg[x][y] += val;
+		if (x >= n) seg[x][y] = val;
 		else seg[x][y] = seg[2*x][y] + seg[2*x+1][y];
 
 		while (y /= 2) seg[x][y] = seg[x][2*y] + seg[x][2*y+1];

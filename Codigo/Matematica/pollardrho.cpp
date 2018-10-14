@@ -1,5 +1,6 @@
 // Fatoracao pelo algoritmo Rho de Pollard
 //
+// Codigo completo: https://pastebin.com/A2VdJ4zK
 // Usa o algoritmo de deteccao de ciclo de Brent
 // A fatoracao nao sai necessariamente ordenada
 // O algoritmo rho encontra um fator de n,

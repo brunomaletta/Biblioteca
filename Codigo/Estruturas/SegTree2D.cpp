@@ -18,7 +18,7 @@ int seg[2*MAX][2*MAX];
 int n;
 
 void build() {
-	// constroi vetores-base dos nos da seg-tree maior
+	// constroi as folhas de cada seg-tree
 	for (int x = n - 1; x; x--)
 		for (int y = n; y < 2*n; y++)
 			seg[x][y] = seg[2*x][y] + seg[2*x+1][y];
@@ -57,7 +57,7 @@ void update(int x, int y, int val) {
 	int y_ = y + n;
 	for (x += n; x; x /= 2) {
 		y = y_;
-		// valor-base da seg tree
+		// atualiza folha da seg-tree
 		if (x >= n) seg[x][y] = val;
 		else seg[x][y] = seg[2*x][y] + seg[2*x+1][y];
 		// propaga para cima

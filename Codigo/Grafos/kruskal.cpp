@@ -2,11 +2,10 @@
 //
 // Gera AGM a partir do vetor de arestas
 //
-// O(m log(m))
+// O(m log(n))
 
 int n;
 vector<pair<int, pair<int, int> > > ar; // vetor de arestas
-vector<int> agm;                        // agm[i] eh 1 sse a i-esima aresta ta na AGM
 int v[MAX];
 
 // Union-Find em O(log(n))
@@ -22,7 +21,7 @@ void kruskal() {
 		int a = ar[i].s.f, b = ar[i].s.s;
 		if (find(a) != find(b)) {
 			une(a, b);
-			agm.pb(1);
-		} else agm.pb(0);
+			// aresta faz parte da AGM
+		}
 	}
 }

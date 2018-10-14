@@ -22,6 +22,7 @@ void build() {
 	for (int x = n - 1; x; x--)
 		for (int y = n; y < 2*n; y++)
 			seg[x][y] = seg[2*x][y] + seg[2*x+1][y];
+	
 	// constroi todas as seg-trees
 	for (int x = 0; x < 2*n; x++)
 		for (int y = n - 1; y; y--)

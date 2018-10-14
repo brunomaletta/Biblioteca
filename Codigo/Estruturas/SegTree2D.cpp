@@ -5,6 +5,10 @@
 // Query: soma do retangulo ((x1, y1), (x2, y2))
 // Update: muda o valor da posicao (x, y) para val
 //
+// Para query com distancia de manhattan <= d, faca
+// nx = x+y, ny = x-y
+// Update em (nx, ny), query em ((nx-d, ny-d), (nx+d, ny+d))
+//
 // Complexidades:
 // build - O(n^2)
 // query - O(log^2(n))

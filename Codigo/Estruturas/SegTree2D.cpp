@@ -26,8 +26,7 @@ void build() {
 }
 
 int query(int x1, int y1, int x2, int y2) {
-	int ret = 0;
-	int y3 = y1 + n, y4 = y2 + n;
+	int ret = 0, y3 = y1 + n, y4 = y2 + n;
 	for (x1 += n, x2 += n; x1 <= x2; ++x1 /= 2, --x2 /= 2)
 		for (y1 = y3, y2 = y4; y1 <= y2; ++y1 /= 2, --y2 /= 2) {
 			if (x1%2 == 1 and y1%2 == 1) ret += seg[x1][y1];
@@ -35,7 +34,6 @@ int query(int x1, int y1, int x2, int y2) {
 			if (x2%2 == 0 and y1%2 == 1) ret += seg[x2][y1];
 			if (x2%2 == 0 and y2%2 == 0) ret += seg[x2][y2];
 		}
-
 	return ret;
 }
 

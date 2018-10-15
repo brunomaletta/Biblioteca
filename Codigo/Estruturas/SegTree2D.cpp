@@ -34,6 +34,7 @@ int query(int x1, int y1, int x2, int y2) {
 			if (x2%2 == 0 and y1%2 == 1) ret += seg[x2][y1];
 			if (x2%2 == 0 and y2%2 == 0) ret += seg[x2][y2];
 		}
+	
 	return ret;
 }
 

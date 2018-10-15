@@ -25,7 +25,6 @@ void build() {
 	}
 }
 
-
 int query(int x1, int y1, int x2, int y2) {
 	int ret = 0;
 	int y3 = y1 + n, y4 = y2 + n;

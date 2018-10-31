@@ -2,7 +2,7 @@
 //
 // BIT 1-based, v 0-based
 // Para mudar o valor da posicao p para x,
-// faca: poe(x - sum(p, p), p)
+// faca: poe(x - query(p, p), p)
 //
 // Complexidades:
 // build - O(n)
@@ -25,23 +25,17 @@ void build() {
 
 // soma x na posicao p
 void poe(int x, int p) {
-	while (p <= n) {
-		bit[p] += x;
-		p += p & -p;
-	}
+	for (; p <= n; p += p & -p) bit[p] += x;
 }
 
 // soma [1, p]
-int query(int p) {
+int pref(int p) {
 	int ret = 0;
-	while (p) {
-		ret += bit[p];
-		p -= p & -p;
-	}
+	for (; p; p -= p & -p) ret += bit[p];
 	return ret;
 }
 
 // soma [a, b]
-int sum(int a, int b) {
+int query(int a, int b) {
 	return query(b) - query(a - 1);
 }

@@ -12,36 +12,21 @@ int n;
 int bit[MAX][MAX];
 
 void poe(int x, int y, int k) {
-	int y2 = y;
-	while (x <= n) {
-		y = y2;
-		while (y <= n) {
+	for (int y2 = y; x <= n; x += x & -x)
+		for (y = y2; y <= n; y += y & -y)
 			bit[x][y] += k;
-			y += y & -y;
-		}
-		x += x & -x;
-	}
 }
 
-int query(int x, int y) {
+int sum(int x, int y) {
 	int ret = 0;
-	int y2 = y;
-	while (x) {
-		y = y2;
-		while (y) {
+	for (int y2 = y; x; x -= x & -x)
+		for (y = y2; y; y -= y & -y)
 			ret += bit[x][y];
-			y -= y & -y;
-		}
-		x -= x & -x;
-	}
+
 	return ret;
 }
 
-int sum(int x, int y, int z, int w) {
-	int ret = query(z, w);
-	if (x > 1) ret -= query(x - 1, w);
-	if (y > 1) ret -= query(z, y - 1);
-	if (x > 1 and y > 1) ret += query(x - 1, y - 1);
-
-	return ret;
+int query(int x, int y, int z, int w) {
+	return sum(z, w) - sum(x-1, w)
+		- sum(z, y-1) + sum(x-1, y-1);
 }

@@ -6,7 +6,6 @@ int n;
 int v[MAX];
 
 // bit de soma
-void build();
 void poe(int p);
 int query(int p);
 

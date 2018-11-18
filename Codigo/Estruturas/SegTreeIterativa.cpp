@@ -19,9 +19,9 @@ void build() {
 
 int query(int a, int b) {
 	int ret = 0;
-	for(a += n, b += n; a <= b; a /= 2, b /= 2) {
-		if (a % 2 == 1) ret += seg[a++];
-		if (b % 2 == 0) ret += seg[b--];
+	for(a += n, b += n; a <= b; ++a /= 2, --b /= 2) {
+		if (a % 2 == 1) ret += seg[a];
+		if (b % 2 == 0) ret += seg[b];
 	}
 	return ret;
 }

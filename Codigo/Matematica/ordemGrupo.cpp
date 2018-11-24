@@ -11,15 +11,13 @@ int expo(int a, int b, int m); // (a^b)%m em O(log(b))
 
 // acha todos os divisores ordenados em O(sqrt(n))
 vector<int> div(int n) {
-	vi ret1, ret2;
-
+	vector<int> ret1, ret2;
 	for (int i = 1; i*i <= n; i++) if (n % i == 0) {
 		ret1.pb(i);
 		if (i*i != n) ret2.pb(n/i);
 	}
 
 	for (int i = ret2.size()-1; i+1; i--) ret1.pb(ret2[i]);
-
 	return ret1;
 }
 

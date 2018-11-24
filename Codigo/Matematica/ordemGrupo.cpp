@@ -24,7 +24,7 @@ vector<int> div(int n) {
 }
 
 int ordem(int a, int n) {
-	vi v = div(tot(n));
+	vector<int> v = div(tot(n));
 	for (int i : v) if (expo(a, i, n) == 1) return i;
 	return -1;
 }

@@ -32,7 +32,7 @@ pair<int, int> move() {
  
     insere(cara);
  
-    return mp(cara, tirei);
+    return make_pair(cara, tirei);
 }
 
 // Acha o movimento otimo baseado
@@ -45,5 +45,5 @@ pair<int, int> move() {
 	for (int i = 0; i < n; i++) x ^= v[i];
 
 	for (int i = 0; i < n; i++) if ((v[i]^x) < v[i])
-		return mp(i, v[i] - (v[i]^x));
+		return make_pair(i, v[i] - (v[i]^x));
 }

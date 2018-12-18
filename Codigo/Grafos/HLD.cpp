@@ -26,30 +26,21 @@ void build_seg();
 int query_seg(int a, int b);
 void update_seg(int p, int x);
 
-int dfs(int k, int p = -1) {
-	sz[k] = 1;
-	for (int i = 0; i < g[k].size(); i++) if (g[k][i] != p){
-		sobe[g[k][i]] = w[k][i]; pai[g[k][i]] = k;
-		sz[k] += dfs(g[k][i], k);
+void hld(int k, int p = -1, int f = 1) {
+	sz[k] = 1; v[in[k] = t++] = sobe[k];
+	for (auto& i : g[k]) if (i.f != p) {
+		sobe[i.f] = i.s; pai[i.f] = k;
+		head[i.f] = (i == g[k][0] ? head[k] : i.f);
+		hld(i.f, k, f); sz[k] += sz[i.f];
 
-		if (sz[g[k][i]] > sz[g[k][0]])
-			swap(g[k][i], g[k][0]), swap(w[k][i], w[k][0]);
-	}
-	return sz[k];
-}
-
-void hld(int k, int p = -1) {
-	v[in[k] = t++] = sobe[k];
-	for (int i : g[k]) if (i != p) {
-		head[i] = (i == g[k][0] ? head[k] : i);
-		hld(i, k);
+		if (sz[i.f] > sz[g[k][0].f]) swap(i, g[k][0]);
 	}
 	out[k] = t;
+	if (p*f == -1) hld(head[k] = k, -1, t = 0);
 }
 
 void build(int root = 0) {
-	head[root] = root;
-	dfs(root);
+	t = 0;
 	hld(root);
 	build_seg();
 }

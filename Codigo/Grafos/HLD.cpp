@@ -16,7 +16,10 @@
 // query_subtree - O(log(n))
 // update - O(log(n))
 
-vector<vector<int> > g(MAX), w(MAX);
+#define f first
+#define s second
+
+vector<vector<pair<int, int> > > g(MAX);
 int in[MAX], out[MAX], sz[MAX];
 int sobe[MAX], pai[MAX];
 int head[MAX], v[MAX], t;

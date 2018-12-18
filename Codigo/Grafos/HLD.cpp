@@ -30,7 +30,7 @@ int query_seg(int a, int b);
 void update_seg(int p, int x);
 
 void hld(int k, int p = -1, int f = 1) {
-	sz[k] = 1; v[in[k] = t++] = sobe[k];
+	v[in[k] = t++] = sobe[k]; sz[k] = 1;
 	for (auto& i : g[k]) if (i.f != p) {
 		sobe[i.f] = i.s; pai[i.f] = k;
 		head[i.f] = (i == g[k][0] ? head[k] : i.f);

@@ -1,39 +1,31 @@
-//2-SAT
+// 2-SAT
 //
-//Retorna true se eh possivel definir valores
-//Retorna false caso contrario
+// Retorna se eh possivel atribuir valores
+// Grafo tem que caber 2n vertices
+// add(x, y) adiciona implicacao x -> y
+// Para adicionar uma clausula (x ou y)
+// chamar add(nao(x), y)
+// Se x tem que ser verdadeiro, chamar add(nao(x), x)
+// O tarjan deve computar o componente conexo
+// de cada vertice em comp
 //
-//Em n coloca o numero de variaveis e m = 2*n
-//grafo em g e o inverso em G
-//para adicionar a clausula (x ou y) chama add(x, y)
-//se x tem que ser verdadeiro chama add(x, x)
-//nao(x) retorna x negado
-//o kosaraju tem que colocar a quem pertence o vertice i em r
-//
-//Complexidade: O(|V| + |E|)
+// O(|V|+|E|)
 
+vector<vector<int> > g(MAX);
+int n;
 
-int nao(int x){
-	return (x + n) % m;
-}
+int nao(int x){ return (x + n) % (2*n); }
 
+// x -> y  =  !x ou y
 void add(int x, int y){
-	//nao x implica y
-	g[nao(x)].push_back(y);
-	G[y].push_back(nao(x));
-
-	//nao y implica em x
-	g[nao(y)].push_back(x);
-	G[x].push_back(nao(y));
+	g[x].pb(y);
+	// contraposicao
+	g[nao(y)].pb(nao(x));
 }
 
 bool doisSAT(){
-	kosaraju();
-	int ok = 1;
-
-	for(int i = 0; i < n; i++)
-		if(r[i] == r[i+n])
-			ok = 0;
-
-	return ok;
+	tarjan();
+	for (int i = 0; i < m; i++)
+		if (comp[i] == comp[nao(i)]) return 0;
+	return 1;
 }

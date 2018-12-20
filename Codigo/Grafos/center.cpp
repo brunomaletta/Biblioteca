@@ -14,30 +14,27 @@ int d[2][MAX];
 
 // retorna ultimo vertice visitado
 int bfs(int k, int x) {
-        queue<int> q;
-        q.push(k);
-        vis[k] = 1;
-        d[x][k] = 0;
-        int last = k;
-        
-       	while (q.size()) {
-        	int u = q.front(); q.pop();
-	        last = u;
-	        for (int i : g[u]) if (!vis[i]) {
-        		vis[i] = 1;
-        		q.push(i);
-        		d[x][i] = d[x][u] + 1;
-        	}
+        queue<int> q; q.push(k);
+	memset(vis, 0, sizeof(vis));
+	vis[k] = 1;
+	d[x][k] = 0;
+	int last = k;
+	
+	while (q.size()) {
+		int u = q.front(); q.pop();
+		last = u;
+		for (int i : g[u]) if (!vis[i]) {
+			is[i] = 1;
+			q.push(i);
+			d[x][i] = d[x][u] + 1;
+		}
 	}
 	return last;
 }
 
 pair<int, int> center() {
-        memset(vis, 0, sizeof(vis));
 	int a = bfs(0, 0);
-	memset(vis, 0, sizeof(vis));
 	int b = bfs(a, 1);
-	memset(vis, 0, sizeof(vis));
 	bfs(b, 0);
 	int c, mi = INF;
 	for (int i = 0; i < n; i++) if (max(d[0][i], d[1][i]) < mi) {

@@ -33,7 +33,7 @@ int query(int p, int l, int r) {
 	if (b < l or r < a) return 0;
 
 	int m = (l+r)/2;
-	return query(2 * p, l, m) + query(2 * p + 1, m + 1, r);
+	return query(2*p, l, m) + query(2*p+1, m+1, r);
 }
 
 int update(int p, int l, int r) {

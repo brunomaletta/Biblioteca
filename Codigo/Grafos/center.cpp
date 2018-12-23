@@ -24,7 +24,7 @@ int bfs(int k, int x) {
 		int u = q.front(); q.pop();
 		last = u;
 		for (int i : g[u]) if (!vis[i]) {
-			is[i] = 1;
+			vis[i] = 1;
 			q.push(i);
 			d[x][i] = d[x][u] + 1;
 		}

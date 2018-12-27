@@ -1,7 +1,7 @@
 // LCA com binary lifting
 //
 // Assume que um vertice eh ancestral dele mesmo, ou seja,
-// se a eh ancestral de b, LCA(a, b) = b
+// se a eh ancestral de b, lca(a, b) = a
 // MAX2 = ceil(log(MAX))
 //
 // Complexidades:

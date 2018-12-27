@@ -1,7 +1,7 @@
 // LCA com HLD
 //
 // Assume que um vertice eh ancestral dele mesmo, ou seja,
-// se a eh ancestral de b, LCA(a, b) = b
+// se a eh ancestral de b, lca(a, b) = a
 // Para buildar pasta chamar build(root)
 //
 // Complexidades:

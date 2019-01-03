@@ -7,7 +7,7 @@
 // fact fatora um numero <= lim
 // A fatoracao sai ordenada
 //
-// crivo - O(n log(log(lim)))
+// crivo - O(n log(log(n)))
 // fact - O(log(n))
 
 int divi[MAX];

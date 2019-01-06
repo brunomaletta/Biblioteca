@@ -24,7 +24,6 @@ void build(int k, int p = -1, int f = 1) {
 	if (p*f == -1) t = 0, h[k] = k, build(k, -1, 0);
 }
 
-
 int lca(int a, int b) {
 	if (in[a] < in[b]) swap(a, b);
 	return h[a] == h[b] ? b : lca(pai[h[a]], b);

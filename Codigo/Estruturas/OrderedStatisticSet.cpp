@@ -15,8 +15,9 @@ ord_set<int> s;
 for (auto i : s) cout << i << endl;
 cout << s.size() << endl;
 // k-esimo maior elemento O(log|s|):
+// k=0: menor elemento
 cout << *s.find_by_order(k) << endl;
-// quantos sao menors do que k O(log|s|):
+// quantos sao menores do que k O(log|s|):
 cout << s.order_of_key(k) << endl;
 
 // Para fazer um multiset, tem que

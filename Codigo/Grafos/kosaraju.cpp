@@ -7,7 +7,7 @@ vector<vector<int> > g(MAX);
 vector<vector<int> > gi(MAX); // grafo invertido
 int vis[MAX];
 stack<int> S;
-int comp[MAX];                // componente conexo de cada vertice
+int comp[MAX]; // componente conexo de cada vertice
 
 void dfs(int k) {
 	vis[k] = 1;

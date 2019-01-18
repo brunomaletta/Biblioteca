@@ -21,20 +21,22 @@
 
 \lstset{ %opcoes pro codigo
 breaklines=true,
-keywordstyle=\color{red},
+keywordstyle=\color{blue},
 commentstyle=\color{gray},
 basicstyle=\footnotesize,
+breakatwhitespace=true,
 language=C++,
+%frame=single, % nao sei se gosto disso ou nao
 numbers=none,
 rulecolor=\color{black},
 showstringspaces=false
 stringstyle=\color{blue},
-tabsize=2,
-%basicstyle=\ttfamily\footnotesize % fonte
+tabsize=4,
+basicstyle=\ttfamily\footnotesize % fonte
 }
 
-\title{Biblioteca dos Brunos [UFMG]}
-\author{Bruno Demattos \& Bruno Monteiro}
+\title{? [UFMG]}
+\author{Bruno Monteiro}
 
 
 \begin{document}
@@ -65,11 +67,23 @@ tabsize=2,
 \subsection{BIT 2D}
 \lstinputlisting[firstline=3]{Estruturas/BIT2D.cpp}
 
+\subsection{Mergesort Tree}
+\lstinputlisting[firstline=3]{Estruturas/MergeSortTree.cpp}
+
+\subsection{Order Statistic Set}
+\lstinputlisting[firstline=3]{Estruturas/OrderStatisticSet.cpp}
+
 \subsection{SQRT-decomposition}
 \lstinputlisting[firstline=3]{Estruturas/SQRT-decomposition.cpp}
 
 \subsection{Seg-Tree}
 \lstinputlisting[firstline=3]{Estruturas/SegTree.cpp}
+
+\subsection{Seg-Tree 2D}
+\lstinputlisting[firstline=3]{Estruturas/SegTree2D.cpp}
+
+\subsection{Seg-Tree Iterativa}
+\lstinputlisting[firstline=3]{Estruturas/SegTreeIterativa.cpp}
 
 \subsection{Sparse-Table}
 \lstinputlisting[firstline=3]{Estruturas/SparseTable.cpp}
@@ -90,20 +104,29 @@ tabsize=2,
 
 \section{Grafos}
 
+\subsection{2-SAT}
+\lstinputlisting[firstline=3]{Grafos/2SAT.cpp}
+
 \subsection{Bellman-Ford}
 \lstinputlisting[firstline=3]{Grafos/BellmanFord.cpp}
 
 \subsection{Floyd-Warshall}
 \lstinputlisting[firstline=3]{Grafos/FloydWarshall.cpp}
 
-\subsection{Heavy-Light decomposition}
+\subsection{Heavy-Light Decomposition}
 \lstinputlisting[firstline=3]{Grafos/HLD.cpp}
 
 \subsection{LCA}
 \lstinputlisting[firstline=3]{Grafos/LCA.cpp}
 
+\subsection{LCA com HLD}
+\lstinputlisting[firstline=3]{Grafos/LCAcomHLD.cpp}
+
 \subsection{LCA com RMQ}
 \lstinputlisting[firstline=3]{Grafos/LCAcomRMQ.cpp}
+
+\subsection{Tree Center}
+\lstinputlisting[firstline=3]{Grafos/center.cpp}
 
 \subsection{Centroid decomposition}
 \lstinputlisting[firstline=3]{Grafos/centroid.cpp}
@@ -136,6 +159,9 @@ tabsize=2,
 
 \section{Matemática}
 
+\subsection{Miller-Rabin}
+\lstinputlisting[firstline=3]{Matematica/MillerRabin.cpp}
+
 \subsection{Crivo de Erastosthenes}
 \lstinputlisting[firstline=3]{Matematica/crivo.cpp}
 
@@ -148,8 +174,8 @@ tabsize=2,
 \subsection{Euclides extendido}
 \lstinputlisting[firstline=3]{Matematica/mdcExtendido.cpp}
 
-\subsection{Miller-Rabin}
-\lstinputlisting[firstline=3]{Matematica/MillerRabin.cpp}
+\subsection{Ordem Grupo}
+\lstinputlisting[firstline=3]{Matematica/ordemGrupo.cpp}
 
 \subsection{Pollard's Rho}
 \lstinputlisting[firstline=3]{Matematica/pollardrho.cpp}
@@ -167,8 +193,11 @@ tabsize=2,
 
 \section{Problemas}
 
-\subsection{Invertion Count}
-\lstinputlisting[firstline=3]{Problemas/InvertionCount.cpp}
+\subsection{Inversion Count}
+\lstinputlisting[firstline=3]{Problemas/InversionCount.cpp}
+
+\subsection{Area Histograma}
+\lstinputlisting[firstline=3]{Problemas/AreaHistograma.cpp}
 
 \subsection{LIS}
 \lstinputlisting[firstline=3]{Problemas/lis.cpp}
@@ -189,6 +218,9 @@ tabsize=2,
 \subsection{KMP}
 \lstinputlisting[firstline=3]{Strings/KMP.cpp}
 
+\subsection{Hash}
+\lstinputlisting[]{Strings/hashing.cpp}
+
 \subsection{Z}
 \lstinputlisting[firstline=3]{Strings/z.cpp}
 
@@ -202,13 +234,13 @@ tabsize=2,
 
 \section{Extra}
 
+\subsection{vimrc}
+\lstinputlisting{vimrc.txt}
+
+\subsection{Makefile}
+\lstinputlisting{makefile.txt}
+
 \subsection{Template}
 \lstinputlisting{template.cpp}
-
-\subsection{Vimrc}
-\begin{lstlisting}
-set ts=4 si ai sw=2 number mouse=a
-syntax on
-\end{lstlisting}
 
 \end{document}

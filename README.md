@@ -1,2 +1,2 @@
-# Colinha
-Cola para maratona de programação do time //sem comentarios - Chico + ?
+# Biblioteca
+Colinha para maratona de programação do time..... tá dicícil arrumar time

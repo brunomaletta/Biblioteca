@@ -4,7 +4,7 @@
 // Um valor inicial em (x, y) deve ser colocado em seg[x+n][y+n]
 // Query: soma do retangulo ((x1, y1), (x2, y2))
 // Update: muda o valor da posicao (x, y) para val
-// Não pergunte como que essa coisa funciona
+// Nao pergunte como que essa coisa funciona
 //
 // Para query com distancia de manhattan <= d, faca
 // nx = x+y, ny = x-y

@@ -3,7 +3,7 @@
 // String deve ter valores [1, x]
 // p deve ser o menor primo maior que x
 // Para evitar colisao: testar mais de um
-// mod; só comparar strings do mesmo tamanho
+// mod; so comparar strings do mesmo tamanho
 //
 // Complexidades:
 // build - O(|s|)

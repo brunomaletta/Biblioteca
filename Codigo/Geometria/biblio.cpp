@@ -275,3 +275,12 @@ pt getcenter(pt a, pt b, pt c) { // centro da circunferencia dado 3 pontos
 	return inter(line(b, b + rotate90(a - b)),
 			 line(c, c + rotate90(a - c)));
 }
+
+// comparador pro set para fazer sweep angle com segmentos
+double ang;
+struct cmp {
+	bool operator () (const line& a, const line& b) {
+		line r = line(pt(0, 0), rotate(pt(1, 0), ang));
+		return norm(inter(r, a)) < norm(inter(r, b));
+	}
+};

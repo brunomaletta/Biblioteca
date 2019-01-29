@@ -20,29 +20,16 @@ bool prime(ll n); // Miller-Rabin O(log^2(n))
 ll rho(ll n) {
 	if (n == 1 or prime(n)) return n;
 	if (n % 2 == 0) return 2;
-
 	while (1) {
 		ll x = 2, y = 2;
 		ll ciclo = 2, i = 0;
-
-		// tenta com essa constante
-		ll c = (rand() / (double) RAND_MAX) * (n - 1) + 1;
-		// divisor
-		ll d = 1;
-
+		ll c = (rand()/(double)RAND_MAX)*(n-1) 	+ 1, d = 1
 		while (d == 1) {
-			// algoritmo de Brent
 			if (++i == ciclo) ciclo *= 2, y = x;
 			x = (pow(x, 2, n) + c) % n;
-
-			// x = y -> ciclo
-			// tenta com outra constante
 			if (x == y) break;
-
 			d = mdc(abs(x - y), n);
 		}
-
-		// sucesso -> retorna o divisor
 		if (x != y) return d;
 	}
 }

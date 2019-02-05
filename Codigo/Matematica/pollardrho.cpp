@@ -6,15 +6,13 @@
 // O algoritmo rho encontra um fator de n,
 // e funciona muito bem quando n possui um fator pequeno
 // Eh recomendado chamar srand(time(NULL)) na main
-// A funcao pow deve chamar mul, para nao dar overflow
 //
-// Complexidades (considerando mul e pow constantes):
+// Complexidades (considerando mul constante):
 // rho - esperado O(n^(1/4)) no pior caso
 // fact - esperado menos que O(n^(1/4) log(n)) no pior caso
 
 ll mdc(ll a, ll b);
 ll mul(ll a, ll b, ll m);
-ll pow(ll a, ll b, ll m);
 bool prime(ll n); // Miller-Rabin O(log^2(n))
 
 ll rho(ll n) {
@@ -26,7 +24,7 @@ ll rho(ll n) {
 		ll c = (rand()/(double)RAND_MAX)*(n-1) 	+ 1, d = 1
 		while (d == 1) {
 			if (++i == ciclo) ciclo *= 2, y = x;
-			x = (pow(x, 2, n) + c) % n;
+			x = (mul(x, x, n) + c) % n;
 			if (x == y) break;
 			d = mdc(abs(x - y), n);
 		}

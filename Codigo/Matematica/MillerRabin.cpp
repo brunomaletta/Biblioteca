@@ -5,9 +5,8 @@
 // O(log(n)), considerando multiplicacao
 // e exponenciacao constantes
 
-// multiplicacao e exponenciacao rapidas
+// multiplicacao modular
 ll mul(ll x, ll y, ll m); // x*y mod m
-ll pow(ll x, ll y, ll m); // x^y mod m
 
 bool prime(ll n) {
 	if (n < 2) return 0;
@@ -31,7 +30,7 @@ bool prime(ll n) {
 
 		bool deu = 1;
 		for (int j = 0; j < r - 1; j++) {
-			x = pow(x, 2, n);
+			x = mul(x, x, n);
 			if (x == n - 1) {
 				deu = 0;
 				break;

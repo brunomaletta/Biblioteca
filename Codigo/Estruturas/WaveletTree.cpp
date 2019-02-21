@@ -1,6 +1,7 @@
 // Wavelet Tree
 //
-// Usa ???? de memoria
+// Usa O(sigma + n log(sigma)) de memoria,
+// onde sigma = MAXN - MINN
 // query(i, j) retorna o numero de elementos de
 // v[i, j) que pertencem a [x, y]
 // kth(i, j, k) retorna o elemento que estaria

@@ -8,7 +8,7 @@
 // na poscicao k de v[i, j), se ele fosse ordenado
 //
 // Complexidades:
-// build - O(sigma)
+// build - O(n log(sigma))
 // query - O(log(sigma))
 // kth   - O(log(sigma))
 

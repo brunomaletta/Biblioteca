@@ -1,5 +1,15 @@
 // Wavelet Tree
 //
+// Usa ???? de memoria
+// query(i, j) retorna o numero de elementos de
+// v[i, j) que pertencem a [x, y]
+// kth(i, j, k) retorna o elemento que estaria
+// na poscicao k de v[i, j), se ele fosse ordenado
+//
+// Complexidades:
+// build - O(sigma)
+// query - O(log(sigma))
+// kth   - O(log(sigma))
 
 int n, v[MAX], x, y;
 vvi esq(4*(MAXN-MINN));

@@ -5,7 +5,7 @@
 // query(i, j) retorna o numero de elementos de
 // v[i, j) que pertencem a [x, y]
 // kth(i, j, k) retorna o elemento que estaria
-// na poscicao k de v[i, j), se ele fosse ordenado
+// na poscicao k-1 de v[i, j), se ele fosse ordenado
 //
 // Complexidades:
 // build - O(n log(sigma))

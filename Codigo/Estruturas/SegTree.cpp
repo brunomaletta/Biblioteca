@@ -23,7 +23,7 @@ int build(int p, int l, int r) {
 
 void prop(int p, int l, int r) {
 	seg[p] += lazy[p] * (r-l+1);
-	if (l != r) lazy[2*p] += x, lazy[2*p+1] += x;
+	if (l != r) lazy[2*p] += lazy[p], lazy[2*p+1] += lazy[p];
 	lazy[p] = 0;
 }
 

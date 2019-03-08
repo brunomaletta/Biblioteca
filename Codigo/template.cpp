@@ -2,25 +2,21 @@
 
 using namespace std;
 
+#define _ ios_base::sync_with_stdio(0);cin.tie(0);
+#define endl '\n'
 #define sc(a) scanf("%d",&a)
 #define sc2(a,b) sc(a), sc(b)
-#define sc3(a,b,c) sc2(a, b), sc(c)
 #define pri(x) printf("%d\n",x)
-#define mp make_pair
-#define pb push_back
 #define f first
 #define s second
-#define BUFF ios::sync_with_stdio(0)
+#define pb push_back
 
 typedef long long ll;
 typedef pair<int, int> ii;
-typedef vector<int> vi;
-typedef vector<vi> vvi;
-typedef vector<ii> vii;
 
 const int INF = 0x3f3f3f3f;
+const ll LINF = 0x3f3f3f3f3f3f3f3f;
 
-int main() {
-	
-	return 0;
+int main(){ _
+	exit(0);
 }

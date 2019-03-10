@@ -7,6 +7,7 @@
 
 // multiplicacao modular
 ll mul(ll x, ll y, ll m); // x*y mod m
+ll exp(ll x, ll y, ll m); // x^y mod m;
 
 bool prime(ll n) {
 	if (n < 2) return 0;
@@ -25,7 +26,7 @@ bool prime(ll n) {
 
 	for (int i = 0; i < 9; i++) {
 		if (a[i] >= n) break;
-		ll x = pow(a[i], d, n);
+		ll x = exp(a[i], d, n);
 		if (x == 1 or x == n - 1) continue;
 
 		bool deu = 1;

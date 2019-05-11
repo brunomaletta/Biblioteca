@@ -35,8 +35,8 @@ tabsize=4,
 basicstyle=\ttfamily\footnotesize % fonte
 }
 
-\title{? [UFMG]}
-\author{Bruno Monteiro}
+\title{BlackSackProblem [UFMG]}
+\author{Bruno Monteiro, Pedro Papa e Rafael Grandsire}
 
 
 \begin{document}
@@ -61,11 +61,29 @@ basicstyle=\ttfamily\footnotesize % fonte
 
 \section{Estruturas}
 
+\subsection{SegTree}
+\lstinputlisting[firstline=3]{Estruturas/SegTree/SegTree.cpp}
+
+\subsection{SegTree 2D}
+\lstinputlisting[firstline=3]{Estruturas/SegTree/SegTree2D.cpp}
+
+\subsection{SegTree Esparça}
+\lstinputlisting[firstline=3]{Estruturas/SegTree/SegTreeEspaca.cpp}
+
+\subsection{SegTree Iterativa}
+\lstinputlisting[firstline=3]{Estruturas/SegTree/SegTreeIterativa.cpp}
+
+\subsection{SegTree Iterativa com Lazy}
+\lstinputlisting[firstline=3]{Estruturas/SegTree/SegTreeIterativaComLazy.cpp}
+
 \subsection{BIT}
 \lstinputlisting[firstline=3]{Estruturas/BIT.cpp}
 
 \subsection{BIT 2D}
 \lstinputlisting[firstline=3]{Estruturas/BIT2D.cpp}
+
+\subsection{DSU Persistente}
+\lstinputlisting[firstline=3]{Estruturas/DSUPersistente.cpp}
 
 \subsection{Mergesort Tree}
 \lstinputlisting[firstline=3]{Estruturas/MergeSortTree.cpp}
@@ -73,27 +91,20 @@ basicstyle=\ttfamily\footnotesize % fonte
 \subsection{Order Statistic Set}
 \lstinputlisting[firstline=3]{Estruturas/OrderStatisticSet.cpp}
 
+\subsection{Sparse-Table}
+\lstinputlisting[firstline=3]{Estruturas/SparseTable.cpp}
+
 \subsection{SQRT-decomposition}
 \lstinputlisting[firstline=3]{Estruturas/SQRT-decomposition.cpp}
 
-\subsection{Seg-Tree}
-\lstinputlisting[firstline=3]{Estruturas/SegTree.cpp}
-
-\subsection{Seg-Tree 2D}
-\lstinputlisting[firstline=3]{Estruturas/SegTree2D.cpp}
-
-\subsection{Seg-Tree Iterativa}
-\lstinputlisting[firstline=3]{Estruturas/SegTreeIterativa.cpp}
-
-\subsection{Sparse-Table}
-\lstinputlisting[firstline=3]{Estruturas/SparseTable.cpp}
+\subsection{Treap}
+\lstinputlisting[firstline=1]{Estruturas/treap.cpp}
 
 \subsection{Trie}
 \lstinputlisting[firstline=3]{Estruturas/Trie.cpp}
 
-\subsection{Union-Find}
-\lstinputlisting[firstline=3]{Estruturas/UnionFind.cpp}
-
+\subsection{Wavelet-Tree}
+\lstinputlisting[firstline=3]{Estruturas/WaveletTree.cpp}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%
@@ -113,8 +124,11 @@ basicstyle=\ttfamily\footnotesize % fonte
 \subsection{Floyd-Warshall}
 \lstinputlisting[firstline=3]{Grafos/FloydWarshall.cpp}
 
-\subsection{Heavy-Light Decomposition}
-\lstinputlisting[firstline=3]{Grafos/HLD.cpp}
+\subsection{Heavy-Light Decomposition Vértice}
+\lstinputlisting[firstline=3]{Grafos/HLD-vertice.cpp}
+
+\subsection{Heavy-Light Decomposition Aresta}
+\lstinputlisting[firstline=3]{Grafos/HLD-aresta.cpp}
 
 \subsection{LCA}
 \lstinputlisting[firstline=3]{Grafos/LCA.cpp}
@@ -134,8 +148,11 @@ basicstyle=\ttfamily\footnotesize % fonte
 \subsection{Dijkstra}
 \lstinputlisting[firstline=3]{Grafos/dijkstra.cpp}
 
-\subsection{Dinic}
+\subsection{Dinic Dilson}
 \lstinputlisting[firstline=3]{Grafos/dinic.cpp}
+
+\subsection{Dinic Bruno}
+\lstinputlisting[firstline=3]{Grafos/dinicBruno.cpp}
 
 \subsection{Kosaraju}
 \lstinputlisting[firstline=3]{Grafos/kosaraju.cpp}
@@ -166,13 +183,16 @@ basicstyle=\ttfamily\footnotesize % fonte
 \lstinputlisting[firstline=3]{Matematica/crivo.cpp}
 
 \subsection{Exponenciação rápida}
-\lstinputlisting[firstline=3]{Matematica/exponenciacaoRapida.cpp}
+\lstinputlisting[firstline=3]{Matematica/fastPow.cpp}
 
 \subsection{Euclides}
 \lstinputlisting[firstline=3]{Matematica/mdc.cpp}
 
 \subsection{Euclides extendido}
 \lstinputlisting[firstline=3]{Matematica/mdcExtendido.cpp}
+
+\subsection{Inverso Modular}
+\lstinputlisting[firstline=3]{Matematica/ModInverse.cpp}
 
 \subsection{Ordem Grupo}
 \lstinputlisting[firstline=3]{Matematica/ordemGrupo.cpp}
@@ -193,14 +213,26 @@ basicstyle=\ttfamily\footnotesize % fonte
 
 \section{Problemas}
 
-\subsection{Inversion Count}
-\lstinputlisting[firstline=3]{Problemas/InversionCount.cpp}
-
 \subsection{Area Histograma}
 \lstinputlisting[firstline=3]{Problemas/AreaHistograma.cpp}
 
-\subsection{LIS}
+\subsection{Convex Hull Trick}
+\lstinputlisting[firstline=3]{Problemas/CHT.cpp}
+
+\subsection{Inversion Count}
+\lstinputlisting[firstline=3]{Problemas/InversionCount.cpp}
+
+\subsection{LIS 1}
 \lstinputlisting[firstline=3]{Problemas/lis.cpp}
+
+\subsection{LIS 2}
+\lstinputlisting[firstline=3]{Problemas/lis2.cpp}
+
+\subsection{Merge Sort}
+\lstinputlisting[firstline=3]{Problemas/MergeSort.cpp}
+
+\subsection{MO}
+\lstinputlisting[firstline=3]{Problemas/mo.cpp}
 
 \subsection{Nim}
 \lstinputlisting[firstline=3]{Problemas/nim.cpp}
@@ -215,11 +247,17 @@ basicstyle=\ttfamily\footnotesize % fonte
 
 \section{String}
 
+\subsection{Hashing}
+\lstinputlisting[]{Strings/hashing.cpp}
+
 \subsection{KMP}
 \lstinputlisting[firstline=3]{Strings/KMP.cpp}
 
-\subsection{Hash}
-\lstinputlisting[]{Strings/hashing.cpp}
+\subsection{SuffixArray 1}
+\lstinputlisting[]{Strings/SuffixArray.cpp}
+
+\subsection{SuffixArray 2}
+\lstinputlisting[]{Strings/SuffixArrayRafael.cpp}
 
 \subsection{Z}
 \lstinputlisting[firstline=3]{Strings/z.cpp}

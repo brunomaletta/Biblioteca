@@ -1,2 +1,2 @@
 # Biblioteca
-Colinha para maratona de programação do time..... tá dicícil arrumar time
+Colinha para maratona de programação do time [UFMG] BlackSack Problem (Bruno, Rafael & Papa)

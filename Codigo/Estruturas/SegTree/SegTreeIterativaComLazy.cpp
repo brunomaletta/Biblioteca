@@ -10,8 +10,8 @@
 // query - O(log(n))
 // update - O(log(n))
 
-int seg[2 * MAX];
-int lazy[2 * MAX];
+int seg[2*MAX];
+int lazy[2*MAX];
 int n;
 
 void build() {

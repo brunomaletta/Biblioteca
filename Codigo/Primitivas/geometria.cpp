@@ -103,7 +103,7 @@ bool ccw(pt p, pt q, pt r) { // se p, q, r sao ccw
 
 pt rotate(pt p, ld th) { // rotaciona o ponto th radianos
 	return pt(p.x * cos(th) - p.y * sin(th),
-		    p.x * sin(th) + p.y * cos(th));
+			p.x * sin(th) + p.y * cos(th));
 }
 
 pt rotate90(pt p) { // rotaciona 90 graus
@@ -165,7 +165,7 @@ pt inter(line r, line s) { // r inter s
 bool interseg(line r, line s) { // se o seg de r intercepta o seg de s
 	if (paraline(r, s)) {
 		return isinseg(r.p, s) or isinseg(r.q, s)
-		    or isinseg(s.p, r) or isinseg(s.q, r);
+			or isinseg(s.p, r) or isinseg(s.q, r);
 	}
 
 	pt i = inter(r, s);
@@ -184,7 +184,7 @@ ld disttoseg(pt p, line r) { // distancia do ponto ao seg
 
 ld distseg(line a, line b) { // distancia entre seg
 	if (interseg(a, b)) return 0;
-	
+
 	ld ret = DINF;
 	ret = min(ret, disttoseg(a.p, b));
 	ret = min(ret, disttoseg(a.q, b));
@@ -240,7 +240,7 @@ ld distpol(vector<pt> v1, vector<pt> v2) { // distancia entre poligonos
 
 	for (int i = 0; i < sz(v1); i++) for (int j = 0; j < sz(v2); j++)
 		ret = min(ret, distseg(line(v1[i], v1[(i + 1) % sz(v1)]),
-					     line(v2[j], v2[(j + 1) % sz(v2)])));
+					line(v2[j], v2[(j + 1) % sz(v2)])));
 	return ret;
 }
 
@@ -273,7 +273,32 @@ pt getcenter(pt a, pt b, pt c) { // centro da circunferencia dado 3 pontos
 	b = (a + b) / 2;
 	c = (a + c) / 2;
 	return inter(line(b, b + rotate90(a - b)),
-			 line(c, c + rotate90(a - c)));
+			line(c, c + rotate90(a - c)));
+}
+
+
+circle minCirc(vector<PT> v) { // minimum enclosing circle
+	int n = v.size();
+	random_shuffle(v.begin(), v.end());
+	PT p = PT(0.0, 0.0);
+	circle ret = circle(p, 0.0);
+	for(int i = 0; i < n; i++) {
+		if(!inside(ret, v[i])) {
+			ret = circle(v[i], 0);
+			for(int j = 0; j < i; j++) {
+				if(!inside(ret, v[j])) {
+					ret = circle((v[i] + v[j]) / 2.0, sqrt(dist2(v[i], v[j])) / 2.0);
+					for(int k = 0; k < j; k++) {
+						if(!inside(ret, v[k])) {
+							p = bestOf3(v[i], v[j], v[k]);
+							ret = circle(p, sqrt(dist2(p, v[i])));
+						}
+					}
+				}
+			}
+		}
+	}
+	return ret;
 }
 
 // comparador pro set para fazer sweep angle com segmentos

@@ -15,8 +15,7 @@
 // query - O(log^2(n))
 // update - O(log^2(n))
 
-int seg[2*MAX][2*MAX];
-int n;
+int seg[2*MAX][2*MAX], n;
 
 void build() {
 	for (int x = 2*n; x; x--) for (int y = 2*n; y; y--) {

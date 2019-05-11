@@ -1,6 +1,6 @@
 // MergeSort Tree
 //
-// query(1, 0, n-1) retorna numero de
+// query(a, b, val) retorna numero de
 // elementos em [a, b] <= val
 // Usa O(n log(n)) de memoria
 //
@@ -10,9 +10,8 @@
 
 #define ALL(x) x.begin(),x.end()
 
-int v[MAX];
+int v[MAX], n;
 vector<vector<int> > tree(4*MAX);
-int n, a, b val;
 
 void build(int p, int l, int r) {
 	if (l == r) return tree[p].push_back(cr[l]);
@@ -21,10 +20,10 @@ void build(int p, int l, int r) {
 	merge(ALL(tree[2*p]), ALL(tree[2*p+1]), back_inserter(tree[p]));
 }
 
-int query(int p, int l, int r) {
+int query(int a, int b, int val, int p=1, int l=0, int r=n-1) {
 	if (b < l or r < a) return 0; // to fora
 	if (a <= l and r <= b) // to totalmente dentro
 		return lower_bound(ALL(tree[p]), val+1) - tree[p].begin();
 	int m = (l+r)/2;
-	return query(2*p, l, m) + query(2*p+1, m+1, r);
+	return query(a, b, val, 2*p, l, m) + query(a, b, val, 2*p+1, m+1, r);
 }

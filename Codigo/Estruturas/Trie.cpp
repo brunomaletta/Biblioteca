@@ -6,27 +6,56 @@
 // Complexidade:
 // Inserir e conferir string S -> O(|S|)
 
-int trie[N][26];
-int fim[N];
-int nx = 1;
+// usar static trie T
+// T.insert(s) para inserir
+// T.find(s) para ver se ta
+// T.prefix(s) printa as strings
+// que tem s como prefixo
 
-void insere(string &s, int p, int l, int at){
-	// se nao chegou no fim da palavra termina de inserir
-	if(p != l){
-		int c = s[p] - 'a';
-		// se nao existe um no que representa esse prefixo + c
-		// cria o no 
-		if(!trie[at][c]) trie[at][c] = nx++;
-		insere(s, p+1, l, trie[at][c]);
+struct trie{
+	map<char, int> t[MAX+5];
+	int p;
+	trie(){
+		p = 1;
 	}
-	else fim[at] = 1;
-}
-
-int check(string &s, int p, int l, int at){
-	if(p != l){
-		int c = s[p] - 'a';
-		if(trie[at][c]) return check(s, p+1, l, trie[at][c]);
-		return 0;
+	void insert(string s){
+		s += '$';
+		int i = 0;
+		for (char c : s){
+			auto it = t[i].find(c);
+			if (it == t[i].end())
+				i = t[i][c] = p++;
+			else
+				i = it->second;
+		}
 	}
-	return fim[at];
-}
+	bool find(string s){
+		s += '$';
+		int i = 0;
+		for (char c : s){
+			auto it = t[i].find(c);
+			if (it == t[i].end()) return false;
+			i = it->second;
+		}
+		return true;
+	}
+	void prefix(string &l, int i){
+		if (t[i].find('$') != t[i].end())
+			cout << "  " << l << endl;	
+		for (auto p : t[i]){
+			l += p.first;
+			prefix(l, p.second, k);
+			l.pop_back();
+		}
+	}
+	void prefix(string s){
+		int i = 0;
+		for (char c : s){
+			auto it = t[i].find(c);
+			if (it == t[i].end()) return;
+			i = it->second;
+		}
+		int k = 0;
+		prefix(s, i, k);
+	}
+};

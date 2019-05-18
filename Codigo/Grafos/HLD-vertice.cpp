@@ -10,9 +10,6 @@
 // query_subtree - O(log(n))
 // update_subtree - O(log(n))
 
-#define f first
-#define s second
-
 namespace seg {
 	ll seg[4*MAX], lazy[4*MAX];
 	int n, *v;
@@ -54,19 +51,19 @@ namespace seg {
 };
 
 namespace hld {
-	vector<pair<int, int> > g[MAX];
+	vector<int> g[MAX];
 	int in[MAX], out[MAX], sz[MAX];
 	int peso[MAX], pai[MAX];
 	int h[MAX], v[MAX], t;
 
 	void build_hld(int k, int p = -1, int f = 1) {
 		v[in[k] = t++] = peso[k]; sz[k] = 1;
-		for (auto& i : g[k]) if (i.f != p) {
-			pai[i.f] = k;
-			h[i.f] = (i == g[k][0] ? h[k] : i.f);
-			build_hld(i.f, k, f); sz[k] += sz[i.f];
+		for (auto& i : g[k]) if (i != p) {
+			pai[i] = k;
+			h[i] = (i == g[k][0] ? h[k] : i);
+			build_hld(i, k, f); sz[k] += sz[i];
 
-			if (sz[i.f] > sz[g[k][0].f]) swap(i, g[k][0]);
+			if (sz[i] > sz[g[k][0]]) swap(i, g[k][0]);
 		}
 		out[k] = t;
 		if (p*f == -1) build_hld(h[k] = k, -1, t = 0);

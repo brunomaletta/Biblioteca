@@ -33,3 +33,17 @@ long long merge_sort(int l, int r, vector<int> &t){
 	}
 	return ans;
 }
+
+//inversions to turn r into l
+template<typename T> ll inv_count(vector<T> &l, vector<T> &r){
+	int n = l.size();
+	map<T, int> occ;
+	map<pair<T, int>, int> rk;
+	for (int i = 0; i < n; i++)
+		rk[make_pair(l[i], occ[l[i]]++)] = i;
+	occ.clear();
+	vector<int> v(n);
+	for (int i = 0; i < n; i++)
+		v[i] = rk[make_pair(r[i], occ[r[i]]++)];
+	return merge_sort(0, n-1, v);
+}

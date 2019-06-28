@@ -19,12 +19,12 @@ template<int P, int MOD> struct str_hash {
 	vector<ll> h, power;
 	str_hash(string s_): n(s_.size()), s(s_), h(n), power(n){
 		power[0] = 1;
-		for (int i = 1; i < n; i++) power[i] = power[i-1]*p % m;
+		for (int i = 1; i < n; i++) power[i] = power[i-1]*P % MOD;
 		h[0] = s[0];
-		for (int i = 1; i < n; i++) h[i] = (h[i-1]*p + s[i]) % m;
+		for (int i = 1; i < n; i++) h[i] = (h[i-1]*P + s[i]) % MOD;
 	}
 	ll operator()(int i, int j){
 		if (!i) return h[j];
-		return (h[j] - h[i-1]*power[j-i+1] % m + m) % m;
+		return (h[j] - h[i-1]*power[j-i+1] % MOD + MOD) % MOD;
 	}
 };

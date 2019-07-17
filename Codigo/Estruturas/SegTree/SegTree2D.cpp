@@ -10,6 +10,9 @@
 // nx = x+y, ny = x-y
 // Update em (nx, ny), query em ((nx-d, ny-d), (nx+d, ny+d))
 //
+// Se for de min/max, pode tirar os if's da 'query', e fazer
+// sempre as 4 operacoes. Fica mais rapido
+//
 // Complexidades:
 // build - O(n^2)
 // query - O(log^2(n))

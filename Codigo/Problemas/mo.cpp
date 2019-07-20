@@ -12,6 +12,15 @@ void remove(int pos){
 	counter -= (occ[a[pos]] == 0);
 }
 
+vector<pii> query(q);
+vector<pair<pii, int>> s(q);
+for (int i = 0; i < q; i++){
+	int l, r;
+	scanf("%d%d", &l, &r);
+	l--; r--;
+	query[i] = pii(l, r);
+	s[i] = {{l/SQ, r}, i};
+}
 sort(s.begin(), s.end()); //sort queries
 for (int i = 0; i < q; i++){
 	int iq = s[i].second;

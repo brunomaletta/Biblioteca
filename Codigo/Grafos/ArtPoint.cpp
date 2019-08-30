@@ -36,3 +36,7 @@ void dfs_art(int v, int p, int &d){
 		if (k > 1) is_art[v] = true;
 	}
 }
+
+int d = 0;
+memset(in, -1, sizeof in);
+dfs_art(1, -1, d);

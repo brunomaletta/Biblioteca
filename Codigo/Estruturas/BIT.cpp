@@ -40,7 +40,7 @@ int pref(int p) {
 
 // soma [a, b]
 int query(int a, int b) {
-	return query(b) - query(a - 1);
+	return pref(b) - pref(a - 1);
 }
 
 int l_bound(ll x) {

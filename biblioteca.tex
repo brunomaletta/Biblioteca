@@ -35,7 +35,7 @@ tabsize=4,
 basicstyle=\ttfamily\footnotesize % fonte
 }
 
-\title{BlackSackProblem [UFMG]}
+\title{Rábalabaxúrias [UFMG]}
 \author{Bruno Monteiro, Pedro Papa e Rafael Grandsire}
 
 
@@ -49,26 +49,64 @@ basicstyle=\ttfamily\footnotesize % fonte
 \tableofcontents
 
 
-%a partir daqui comeca o conteudo mesmo
 
 
-
-%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%
 %
-% ESTRUTURAS
+% Strings
 %
-%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%
+
+\section{Strings}
+
+\subsection{Hashing}
+\lstinputlisting[firstline=3]{Strings/hashing.cpp}
+
+\subsection{KMP}
+\lstinputlisting[firstline=3]{Strings/kmp.cpp}
+
+\subsection{Z}
+\lstinputlisting[firstline=3]{Strings/z.cpp}
+
+\subsection{Suffix Array}
+\lstinputlisting[firstline=3]{Strings/SuffixArray.cpp}
+
+\subsection{Suffix Array Rafael}
+\lstinputlisting[firstline=3]{Strings/SuffixArrayRafael.cpp}
+
+
+
+%%%%%%%%%%%%%%%%%%%%
+%
+% Estruturas
+%
+%%%%%%%%%%%%%%%%%%%%
 
 \section{Estruturas}
 
-\subsection{SegTree}
-\lstinputlisting[firstline=3]{Estruturas/SegTree/SegTree.cpp}
+\subsection{BIT 2D}
+\lstinputlisting[firstline=3]{Estruturas/BIT2D.cpp}
 
-\subsection{SegTree 2D}
-\lstinputlisting[firstline=3]{Estruturas/SegTree/SegTree2D.cpp}
+\subsection{Wavelet Tree}
+\lstinputlisting[firstline=3]{Estruturas/WaveletTree.cpp}
 
-\subsection{SegTree Esparça}
-\lstinputlisting[firstline=3]{Estruturas/SegTree/SegTreeEspaca.cpp}
+\subsection{MergeSort Tree}
+\lstinputlisting[firstline=3]{Estruturas/MergeSortTree.cpp}
+
+\subsection{Order Statistic Set}
+\lstinputlisting[firstline=3]{Estruturas/OrderStatisticSet.cpp}
+
+\subsection{SQRT decomposition}
+\lstinputlisting[firstline=3]{Estruturas/SQRT-decomposition.cpp}
+
+\subsection{Treap}
+\lstinputlisting[firstline=3]{Estruturas/treap.cpp}
+
+\subsection{SparseTable}
+\lstinputlisting[firstline=3]{Estruturas/SparseTable.cpp}
+
+\subsection{DSU Persistente}
+\lstinputlisting[firstline=3]{Estruturas/DSUPersistente.cpp}
 
 \subsection{SegTree Iterativa}
 \lstinputlisting[firstline=3]{Estruturas/SegTree/SegTreeIterativa.cpp}
@@ -76,209 +114,204 @@ basicstyle=\ttfamily\footnotesize % fonte
 \subsection{SegTree Iterativa com Lazy}
 \lstinputlisting[firstline=3]{Estruturas/SegTree/SegTreeIterativaComLazy.cpp}
 
+\subsection{SegTree Espaca}
+\lstinputlisting[firstline=3]{Estruturas/SegTree/SegTreeEspaca.cpp}
+
+\subsection{SegTree}
+\lstinputlisting[firstline=3]{Estruturas/SegTree/SegTree.cpp}
+
+\subsection{SegTree 2D}
+\lstinputlisting[firstline=3]{Estruturas/SegTree/SegTree2D.cpp}
+
 \subsection{BIT}
 \lstinputlisting[firstline=3]{Estruturas/BIT.cpp}
-
-\subsection{BIT 2D}
-\lstinputlisting[firstline=3]{Estruturas/BIT2D.cpp}
-
-\subsection{DSU Persistente}
-\lstinputlisting[firstline=3]{Estruturas/DSUPersistente.cpp}
-
-\subsection{Mergesort Tree}
-\lstinputlisting[firstline=3]{Estruturas/MergeSortTree.cpp}
-
-\subsection{Order Statistic Set}
-\lstinputlisting[firstline=3]{Estruturas/OrderStatisticSet.cpp}
-
-\subsection{Sparse-Table}
-\lstinputlisting[firstline=3]{Estruturas/SparseTable.cpp}
-
-\subsection{SQRT-decomposition}
-\lstinputlisting[firstline=3]{Estruturas/SQRT-decomposition.cpp}
-
-\subsection{Treap}
-\lstinputlisting[firstline=1]{Estruturas/treap.cpp}
 
 \subsection{Trie}
 \lstinputlisting[firstline=3]{Estruturas/Trie.cpp}
 
-\subsection{Wavelet-Tree}
-\lstinputlisting[firstline=3]{Estruturas/WaveletTree.cpp}
 
 
-%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%
 %
-% GRAFOS
+% Matematica
 %
-%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%
 
-\section{Grafos}
+\section{Matematica}
 
-\subsection{2-SAT}
-\lstinputlisting[firstline=3]{Grafos/2SAT.cpp}
-
-\subsection{Bellman-Ford}
-\lstinputlisting[firstline=3]{Grafos/BellmanFord.cpp}
-
-\subsection{Floyd-Warshall}
-\lstinputlisting[firstline=3]{Grafos/FloydWarshall.cpp}
-
-\subsection{Heavy-Light Decomposition Vértice}
-\lstinputlisting[firstline=3]{Grafos/HLD-vertice.cpp}
-
-\subsection{Heavy-Light Decomposition Aresta}
-\lstinputlisting[firstline=3]{Grafos/HLD-aresta.cpp}
-
-\subsection{LCA}
-\lstinputlisting[firstline=3]{Grafos/LCA.cpp}
-
-\subsection{LCA com HLD}
-\lstinputlisting[firstline=3]{Grafos/LCAcomHLD.cpp}
-
-\subsection{LCA com RMQ}
-\lstinputlisting[firstline=3]{Grafos/LCAcomRMQ.cpp}
-
-\subsection{Tree Center}
-\lstinputlisting[firstline=3]{Grafos/center.cpp}
-
-\subsection{Centroid decomposition}
-\lstinputlisting[firstline=3]{Grafos/centroid.cpp}
-
-\subsection{Dijkstra}
-\lstinputlisting[firstline=3]{Grafos/dijkstra.cpp}
-
-\subsection{Dinic Dilson}
-\lstinputlisting[firstline=3]{Grafos/dinic.cpp}
-
-\subsection{Dinic Bruno}
-\lstinputlisting[firstline=3]{Grafos/dinicBruno.cpp}
-
-\subsection{Kosaraju}
-\lstinputlisting[firstline=3]{Grafos/kosaraju.cpp}
-
-\subsection{Kruskal}
-\lstinputlisting[firstline=3]{Grafos/kruskal.cpp}
-
-\subsection{Ponte}
-\lstinputlisting[firstline=3]{Grafos/ponte.cpp}
-
-\subsection{Tarjan}
-\lstinputlisting[firstline=3]{Grafos/tarjan.cpp}
-
-
-
-%%%%%%%%%%%%%%%%%%%%%%%%%
-%
-% MATEMATICA
-%
-%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\section{Matemática}
-
-\subsection{Miller-Rabin}
-\lstinputlisting[firstline=3]{Matematica/MillerRabin.cpp}
-
-\subsection{Crivo de Erastosthenes}
+\subsection{Crivo}
 \lstinputlisting[firstline=3]{Matematica/crivo.cpp}
 
-\subsection{Exponenciação rápida}
-\lstinputlisting[firstline=3]{Matematica/fastPow.cpp}
-
-\subsection{Euclides}
-\lstinputlisting[firstline=3]{Matematica/mdc.cpp}
-
-\subsection{Euclides extendido}
+\subsection{MDC Extendido}
 \lstinputlisting[firstline=3]{Matematica/mdcExtendido.cpp}
-
-\subsection{Inverso Modular}
-\lstinputlisting[firstline=3]{Matematica/ModInverse.cpp}
 
 \subsection{Ordem Grupo}
 \lstinputlisting[firstline=3]{Matematica/ordemGrupo.cpp}
 
+\subsection{Mod Inverse}
+\lstinputlisting[firstline=3]{Matematica/ModInverse.cpp}
+
+\subsection{Miller-Rabin}
+\lstinputlisting[firstline=3]{Matematica/MillerRabin.cpp}
+
 \subsection{Pollard's Rho}
 \lstinputlisting[firstline=3]{Matematica/pollardrho.cpp}
+
+\subsection{Fast Pow}
+\lstinputlisting[firstline=3]{Matematica/fastPow.cpp}
 
 \subsection{Totiente}
 \lstinputlisting[firstline=3]{Matematica/totiente.cpp}
 
+\subsection{Div. Pol.}
+\lstinputlisting[firstline=3]{Matematica/divPol.cpp}
 
 
-%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%
 %
-% PROBLEMAS
+% Problemas
 %
-%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%
 
 \section{Problemas}
-
-\subsection{Area Histograma}
-\lstinputlisting[firstline=3]{Problemas/AreaHistograma.cpp}
-
-\subsection{Convex Hull Trick}
-\lstinputlisting[firstline=3]{Problemas/CHT.cpp}
-
-\subsection{Inversion Count}
-\lstinputlisting[firstline=3]{Problemas/InversionCount.cpp}
-
-\subsection{LIS 1}
-\lstinputlisting[firstline=3]{Problemas/lis.cpp}
-
-\subsection{LIS 2}
-\lstinputlisting[firstline=3]{Problemas/lis2.cpp}
-
-\subsection{Merge Sort}
-\lstinputlisting[firstline=3]{Problemas/MergeSort.cpp}
 
 \subsection{MO}
 \lstinputlisting[firstline=3]{Problemas/mo.cpp}
 
-\subsection{Nim}
+\subsection{MergeSort}
+\lstinputlisting[firstline=3]{Problemas/MergeSort.cpp}
+
+\subsection{Min. Circ. Vasek}
+\lstinputlisting[firstline=3]{Problemas/minCircVasek.cpp}
+
+\subsection{nim}
 \lstinputlisting[firstline=3]{Problemas/nim.cpp}
 
+\subsection{LIS}
+\lstinputlisting[firstline=3]{Problemas/lis.cpp}
+
+\subsection{InversionCount}
+\lstinputlisting[firstline=3]{Problemas/InversionCount.cpp}
+
+\subsection{Min Fixed Range}
+\lstinputlisting[firstline=3]{Problemas/min_fixed_range.cpp}
+
+\subsection{LIS 2}
+\lstinputlisting[firstline=3]{Problemas/lis2.cpp}
+
+\subsection{Min. Circ.}
+\lstinputlisting[firstline=3]{Problemas/minCirc.cpp}
+
+\subsection{Area Histograma}
+\lstinputlisting[firstline=3]{Problemas/AreaHistograma.cpp}
+
+\subsection{CHT}
+\lstinputlisting[firstline=3]{Problemas/CHT.cpp}
 
 
-%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%
 %
-% STRINGS
+% Papa
 %
-%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%
 
-\section{String}
+\section{Papa}
 
-\subsection{Hashing}
-\lstinputlisting[]{Strings/hashing.cpp}
+\subsection{LIS Rec Resp}
+\lstinputlisting[firstline=1]{Papa/LIS_rec_resp.cpp}
 
-\subsection{KMP}
-\lstinputlisting[firstline=3]{Strings/KMP.cpp}
+\subsection{Aho Corasick}
+\lstinputlisting[firstline=1]{Papa/aho_corasick.cpp}
 
-\subsection{SuffixArray 1}
-\lstinputlisting[]{Strings/SuffixArray.cpp}
+\subsection{Baby-step Giant-step}
+\lstinputlisting[firstline=1]{Papa/Baby-step_giant-step.cpp}
 
-\subsection{SuffixArray 2}
-\lstinputlisting[]{Strings/SuffixArrayRafael.cpp}
-
-\subsection{Z}
-\lstinputlisting[firstline=3]{Strings/z.cpp}
+\subsection{BIT Persistent}
+\lstinputlisting[firstline=1]{Papa/BIT_Persistent.cpp}
 
 
 
-%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%
+%
+% Grafos
+%
+%%%%%%%%%%%%%%%%%%%%
+
+\section{Grafos}
+
+\subsection{LCA com HLD}
+\lstinputlisting[firstline=3]{Grafos/LCA-HLD/LCAcomHLD.cpp}
+
+\subsection{HLD-aresta}
+\lstinputlisting[firstline=3]{Grafos/LCA-HLD/HLD-aresta.cpp}
+
+\subsection{HLD-vertice}
+\lstinputlisting[firstline=3]{Grafos/LCA-HLD/HLD-vertice.cpp}
+
+\subsection{LCA com RMQ}
+\lstinputlisting[firstline=3]{Grafos/LCA-HLD/LCAcomRMQ.cpp}
+
+\subsection{HLD sem Update}
+\lstinputlisting[firstline=3]{Grafos/LCA-HLD/HLDsemUpdate.cpp}
+
+\subsection{LCA}
+\lstinputlisting[firstline=3]{Grafos/LCA-HLD/LCA.cpp}
+
+\subsection{Blossom}
+\lstinputlisting[firstline=3]{Grafos/blossom.cpp}
+
+\subsection{Tarjan}
+\lstinputlisting[firstline=3]{Grafos/tarjan.cpp}
+
+\subsection{Floyd-Warshall}
+\lstinputlisting[firstline=3]{Grafos/FloydWarshall.cpp}
+
+\subsection{Dinic Bruno}
+\lstinputlisting[firstline=3]{Grafos/dinicBruno.cpp}
+
+\subsection{Dijkstra}
+\lstinputlisting[firstline=3]{Grafos/dijkstra.cpp}
+
+\subsection{Art. Point}
+\lstinputlisting[firstline=3]{Grafos/ArtPoint.cpp}
+
+\subsection{Kruskal}
+\lstinputlisting[firstline=3]{Grafos/kruskal.cpp}
+
+\subsection{Bellman-Ford}
+\lstinputlisting[firstline=3]{Grafos/BellmanFord.cpp}
+
+\subsection{Centroid}
+\lstinputlisting[firstline=3]{Grafos/centroid.cpp}
+
+\subsection{Center}
+\lstinputlisting[firstline=3]{Grafos/center.cpp}
+
+\subsection{Dinic Dilson}
+\lstinputlisting[firstline=3]{Grafos/dinicDilson.cpp}
+
+\subsection{Kosaraju}
+\lstinputlisting[firstline=3]{Grafos/kosaraju.cpp}
+
+\subsection{2 SAT}
+\lstinputlisting[firstline=3]{Grafos/2SAT.cpp}
+
+
+%%%%%%%%%%%%%%%%%%%%
 %
 % EXTRA
 %
-%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\section{Extra}
+%%%%%%%%%%%%%%%%%%%%
 
 \subsection{vimrc}
-\lstinputlisting{vimrc.txt}
+\lstinputlisting[firstline=1]{vimrc}
 
 \subsection{Makefile}
-\lstinputlisting{makefile.txt}
+\lstinputlisting[firstline=1]{makefile}
 
 \subsection{Template}
-\lstinputlisting{template.cpp}
+\lstinputlisting[firstline=1]{template.cpp}
 
 \end{document}

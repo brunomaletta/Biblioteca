@@ -12,22 +12,14 @@
 
 ll mdc(ll a, ll b) { return !b ? a : mdc(b, a % b); }
 
-ll mul(ll x, ll y, ll m) {
-	if (!y) return 0;
-
-	ll ret = mul(x, y >> 1, m);
-	ret = (ret + ret) % m;
-	if (y & 1) ret = (ret + x) % m;
-	return ret;
+ll mul(ll a, ll b, ll m) {
+	return (a*b-ll(a*(long double)b/m+0.5)*m+m)%m;	
 }
 
-ll exp(ll x, ll y, ll m) {
-	if (!y) return 1;
-
-	ll ret = exp(x, y >> 1, m);
-	ret = mul(ret, ret, m);
-	if (y & 1) ret = mul(ret, x, m);
-	return ret;
+ll exp(ll a, ll b, ll m) {
+	if (!b) return 1;
+	ll ans = exp(mul(a, a, m), b/2, m);
+	return b%2 ? mul(a, ans) : ans;
 }
 
 bool prime(ll n) {

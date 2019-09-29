@@ -15,10 +15,7 @@ ll pow(ll x, ll y, ll m) { // iterativo
 }
 
 ll pow(ll x, ll y, ll m) { // recursivo
-	if (y == 0) return 1;
-
-	ll ret = pow(x, y / 2, m);
-	ret = (ret * ret) % m;
-	if (y & 1) ret = (ret * x) % m;
-	return ret;
+	if (!y) return 1;
+	ll ans = pow(x*x, y/2, m);
+	return y%2 ? x*ans : ans;
 }

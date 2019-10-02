@@ -14,7 +14,7 @@ int v[MAX], n;
 vector<vector<int> > tree(4*MAX);
 
 void build(int p, int l, int r) {
-	if (l == r) return tree[p].push_back(cr[l]);
+	if (l == r) return tree[p].push_back(v[l]);
 	int m = (l+r)/2;
 	build(2*p, l, m), build(2*p+1, m+1, r);
 	merge(ALL(tree[2*p]), ALL(tree[2*p+1]), back_inserter(tree[p]));

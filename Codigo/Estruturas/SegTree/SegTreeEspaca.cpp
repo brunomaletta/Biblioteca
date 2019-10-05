@@ -8,20 +8,21 @@
 // query - O(log^2(n))
 // update - O(log^2(n))
 
+typedef long long ll;
+
 namespace seg {
-	unordered_map<int, int> t;
-	unordered_map<int, int> lazy;
+	unordered_map<ll, int> t, laz;
 
 	void build() { t.clear(), lazy.clear(); }
 
-	void prop(int p, int l, int r) {
+	void prop(ll p, int l, int r) {
 		if (!lazy[p]) return;
 		t[p] = r-l+1-t[p];
 		if (l != r) lazy[2*p]^=lazy[p], lazy[2*p+1]^=lazy[p];
 		lazy[p] = 0;
 	}
 
-	int query(int a, int b, int p=1, int l=0, int r=N-1) {
+	int query(int a, int b, ll p=1, int l=0, int r=N-1) {
 		prop(p, l, r);
 		if (b < l or r < a) return 0;
 		if (a <= l and r <= b) return t[p];
@@ -30,7 +31,7 @@ namespace seg {
 		return query(a, b, 2*p, l, m)+query(a, b, 2*p+1, m+1, r);
 	}
 
-	int update(int a, int b, int p=1, int l=0, int r=N-1) {
+	int update(int a, int b, ll p=1, int l=0, int r=N-1) {
 		prop(p, l, r);
 		if (b < l or r < a) return t[p];
 		if (a <= l and r <= b) {

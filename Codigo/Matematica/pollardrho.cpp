@@ -19,7 +19,7 @@ ll mul(ll a, ll b, ll m) {
 ll exp(ll a, ll b, ll m) {
 	if (!b) return 1;
 	ll ans = exp(mul(a, a, m), b/2, m);
-	return b%2 ? mul(a, ans) : ans;
+	return b%2 ? mul(a, ans, m) : ans;
 }
 
 bool prime(ll n) {

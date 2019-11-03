@@ -1,3 +1,7 @@
+// Max flow com lower bound nas capacidades
+//
+// O(dinic)
+
 struct lb_max_flow : dinic {
 	vector<int> d;
 	vector<int> e;

@@ -1,7 +1,7 @@
 // Dinic (Bruno)
 //
 // O(n^2 m)
-// Grafo bipartido -> O(sqrt(n)*m)
+// Grafo com capacidades 1 -> O(sqrt(n)*m)
 
 struct dinic{
 	struct edge {

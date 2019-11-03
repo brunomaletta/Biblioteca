@@ -1,0 +1,49 @@
+\documentclass[12pt, a4paper, twoside]{article}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{amssymb,amsmath}
+\usepackage{comment}
+\usepackage{datetime}
+\usepackage[pdfusetitle]{hyperref}
+\usepackage[all]{xy}
+\usepackage{graphicx}
+\addtolength{\parskip}{.5\baselineskip}
+
+%aqui comeca o que eu fiz de verdade, o resto veio e eu to com medo de tirar
+\usepackage{listings} %biblioteca pro codigo
+\usepackage{color}    %deixa o codigo colorido bonitinho
+\usepackage[landscape, left=1cm, right=1cm, top=1cm, bottom=2cm]{geometry} %pra deixar a margem do jeito que o brasil gosta
+
+\definecolor{gray}{rgb}{0.4, 0.4, 0.4} %cor pros comentarios
+%\renewcommand{\footnotesize}{\small} %isso eh pra mudar o tamanho da fonte do codigo
+\setlength{\columnseprule}{0.2pt} %barra separando as duas colunas
+\setlength{\columnsep}{15pt} %distancia do texto ate a barra
+
+\lstset{ %opcoes pro codigo
+breaklines=true,
+keywordstyle=\color{blue},
+commentstyle=\color{gray},
+basicstyle=\footnotesize,
+breakatwhitespace=true,
+language=C++,
+%frame=single, % nao sei se gosto disso ou nao
+numbers=none,
+rulecolor=\color{black},
+showstringspaces=false
+stringstyle=\color{blue},
+tabsize=4,
+basicstyle=\ttfamily\footnotesize % fonte
+}
+
+\title{Rábalabaxúrias [UFMG]}
+\author{Bruno Monteiro, Pedro Papa e Rafael Grandsire}
+
+
+\begin{document}
+\twocolumn
+\date{} %tira a data
+\maketitle
+
+
+\renewcommand{\contentsname}{Índice} %troca o nome do indice para indice
+\tableofcontents

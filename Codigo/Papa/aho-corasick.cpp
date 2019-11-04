@@ -1,3 +1,5 @@
+// Aho Corasick
+
 const int N=100010;
 const int M=26;
 //N= tamanho da trie, M tamanho do alfabeto

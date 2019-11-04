@@ -1,4 +1,4 @@
-// String matching com Algoritmo Z
+// Algoritmo Z
 //
 // Complexidades:
 // z - O(|s|)

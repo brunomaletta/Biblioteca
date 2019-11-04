@@ -1,6 +1,8 @@
-//FFT exemplos na main
+// FFT
 //
-//Soma O(n) & Multiplicacao O(nlogn)
+// Exemplos na main
+//
+// Soma O(n) & Multiplicacao O(nlogn)
 
 const int MAX = 5e5;
 const int MAX2 = (1 << 20);//(1 << (ceil(log2(MAX)) + 1)) + 1

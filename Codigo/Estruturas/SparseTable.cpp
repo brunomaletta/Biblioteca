@@ -1,5 +1,6 @@
-// RMQ com sparse table
+// Sparse Table
 //
+// Resolve RMQ
 // MAX2 = log(MAX)
 //
 // Complexidades:

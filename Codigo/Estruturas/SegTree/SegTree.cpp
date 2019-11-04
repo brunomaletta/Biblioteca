@@ -1,5 +1,6 @@
-// SegTree recursiva com Lazy Propagation
+// SegTree
 //
+// Recursiva com Lazy Propagation
 // Query: soma do range [a, b]
 // Update: soma x em cada elemento do range [a, b]
 //

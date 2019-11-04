@@ -1,4 +1,4 @@
-// Algoritmo Blossom - matching maximo em grafo geral
+// Blossom - matching maximo em grafo geral
 //
 // O(n^3)
 // Se for bipartido, nao precisa da funcao

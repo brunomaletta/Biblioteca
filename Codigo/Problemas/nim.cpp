@@ -1,4 +1,4 @@
-// Jogo de Nim
+// Nim
 //
 // Calcula movimento otimo do jogo classico de Nim
 // Assume que o estado atual eh perdedor

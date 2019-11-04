@@ -1,5 +1,8 @@
-//Resolve Logaritmo Discreto a^x = b mod m, m primo em O(sqrt(n)*hash(n))
-//Meet In The Middle, decompondo x = i * ceil(sqrt(n)) -j, i,j<=ceil(sqrt(n))
+// Baby step Giant step
+// 
+// Resolve Logaritmo Discreto a^x = b mod m, m primo em O(sqrt(n)*hash(n))
+// Meet In The Middle, decompondo x = i * ceil(sqrt(n)) -j, i,j<=ceil(sqrt(n))
+
 int babyStep(int a,int b,int m)
 {
 	unordered_map<int,int> mapp;

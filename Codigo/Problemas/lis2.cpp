@@ -1,4 +1,4 @@
-// Longest Increasing Subsequence
+// LIS2
 //
 // O(n log(n))
 

@@ -1,6 +1,6 @@
-// BIT de soma
+// BIT
 //
-// BIT 1-based, v 0-based
+// BIT de soma 1-based, v 0-based
 // Para mudar o valor da posicao p para x,
 // faca: poe(x - query(p, p), p)
 // l_bound(x) retorna o menor p tal que

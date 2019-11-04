@@ -1,4 +1,4 @@
-// Union-Find Persistente
+// DSU Persistente
 //
 // Complexidades:
 // build - O(n)

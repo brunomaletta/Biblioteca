@@ -1,5 +1,6 @@
-// RMQ com SQRT-decomposition
+// SQRT-decomposition
 //
+// Resolve RMQ
 // 0-indexed
 // MAX2 = sqrt(MAX)
 //

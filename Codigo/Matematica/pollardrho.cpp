@@ -1,4 +1,4 @@
-// Fatoracao pelo algoritmo Rho de Pollard
+// Pollard's Rho Alg
 //
 // Usa o algoritmo de deteccao de ciclo de Brent
 // A fatoracao nao sai necessariamente ordenada

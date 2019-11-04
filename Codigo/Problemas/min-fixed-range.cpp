@@ -1,3 +1,5 @@
+// Min fixed range
+//
 // https://codeforces.com/contest/1195/problem/E
 //
 // O(n)

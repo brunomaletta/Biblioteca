@@ -1,4 +1,4 @@
-// Algoritmo de Tarjan para SCC
+// Tarjan para SCC
 //
 // O(n + m)
 

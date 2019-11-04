@@ -1,4 +1,4 @@
-// Order Statistic Set do GCC
+// Order Statistic Set
 //
 // Funciona do C++11 pra cima
 

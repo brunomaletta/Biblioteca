@@ -1,4 +1,4 @@
-// Longest Increasing Subsequence
+// LIS1
 //
 // Calcula uma LIS
 // Para ter o tamanho basta fazer lis().size()

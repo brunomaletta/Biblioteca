@@ -15,8 +15,18 @@ void printa_arquivo(string s, bool skip = false) {
 	}
 }
 
+string getName(string s) {
+	ifstream fin(s.c_str());
+	string line;
+	getline(fin, line);
+	return line.substr(3);
+}
+
 void printa_listing(string sub, string f, bool skip = false) {
-	cout << "\\subsection{" << sub << "}\n";
+	cout << "\\subsection{";
+	if (skip) cout << getName(f);
+	else cout << sub;
+	cout << "}\n";
 	cout << "\\begin{lstlisting}\n";
 	printa_arquivo(f, skip);
 	cout << "\\end{lstlisting}\n\n";

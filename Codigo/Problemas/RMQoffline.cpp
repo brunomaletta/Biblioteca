@@ -1,4 +1,4 @@
-// RMQ com D&C
+// RMQ com Divide and Conquer
 //
 // Responde todas as queries em
 // O(n log(n))

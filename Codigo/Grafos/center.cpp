@@ -1,4 +1,4 @@
-// Calcula centro da arvore
+// Centro da Arvore
 //
 // Centro eh o vertice que minimiza
 // a maior distancia dele pra alguem

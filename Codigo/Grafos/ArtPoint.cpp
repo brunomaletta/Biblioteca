@@ -1,4 +1,4 @@
-// Algoritmo de tarjan
+// Tarjan para Pontes
 //
 // Computa pontos de articulacao
 // e pontes

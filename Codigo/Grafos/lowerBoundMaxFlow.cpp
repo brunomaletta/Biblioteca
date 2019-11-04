@@ -1,4 +1,7 @@
-// Max flow com lower bound nas capacidades
+// Max flow com lower bound
+//
+// Manda passar pelo menos 'lb' de fluxo
+// em cada aresta
 //
 // O(dinic)
 

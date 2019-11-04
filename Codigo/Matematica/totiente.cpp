@@ -1,4 +1,4 @@
-// Funcao totiente de Euler
+// Totiente
 //
 // O(sqrt(n))
 

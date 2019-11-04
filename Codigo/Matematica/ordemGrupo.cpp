@@ -1,5 +1,6 @@
-// Calcula a ordem de a em Zn
+// Ordem de elemento do grupo
 //
+// Calcula a ordem de a em Z_n
 // O grupo Zn eh ciclico sse n = 
 // 1, 2, 4, p^k ou 2 p^k, p primo impar
 // Retorna -1 se nao achar

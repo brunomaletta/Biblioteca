@@ -1,4 +1,4 @@
-// Distinct Range Query with Update
+// Distinct Range Query com Update
 //
 // build - O(n log^2(n))
 // query - O(log^2(n))

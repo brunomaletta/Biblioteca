@@ -1,4 +1,4 @@
-// Mininum Enclosing Circle
+// Mininum Enclosing Circle Vasek
 //
 // O(n) com alta probabilidade
 

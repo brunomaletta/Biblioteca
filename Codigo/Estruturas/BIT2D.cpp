@@ -1,6 +1,6 @@
-// BIT 2D de soma
+// BIT 2D
 //
-// BIT 1-based
+// BIT de soma 1-based
 // Para mudar o valor da posicao (x, y) para k,
 // faca: poe(x, y, k - sum(x, y, x, y))
 //

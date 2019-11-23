@@ -4,9 +4,8 @@
 //
 // O(n)
 
-int n;
+int n, subsize[MAX];
 vector<vector<int> > g(MAX);
-int subsize[MAX];
 
 void dfs(int k, int p=-1) {
 	subsize[k] = 1;
@@ -18,9 +17,8 @@ void dfs(int k, int p=-1) {
 
 int centroid(int k, int p=-1, int size=-1) {
 	if (size == -1) size = subsize[k];
-	for (int i : g[k]) if (i != p and i != rem)
-		if (subsize[i] > size/2)
-			return centroid(i, k, size, t);
+	for (int i : g[k]) if (i != p) if (subsize[i] > size/2)
+		return centroid(i, k, size, t);
 	return k;
 }
 

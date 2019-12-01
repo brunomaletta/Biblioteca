@@ -1,64 +1,73 @@
 // SegTree Iterativa com Lazy Propagation
 //
-// SegTree 1-based
-// Valores iniciais devem estar em (seg[n], ... , seg[2*n-1])
-// Query: soma do range [a, b], 0-based
-// Update: soma x em cada elemento do range [a, b], 0-based
+// Query: soma do range [a, b]
+// Update: soma x em cada elemento do range [a, b]
+// Para mudar, mudar as funcoes junta, poe e query
+// LOG = ceil(log2(MAX))
 //
 // Complexidades:
 // build - O(n)
 // query - O(log(n))
 // update - O(log(n))
 
-int seg[2*MAX];
-int lazy[2*MAX];
-int n;
+namespace seg {
+	ll seg[2*MAX], lazy[2*MAX];
+	int n;
 
-void build() {
-	for (int i = n - 1; i; i--) seg[i] = seg[2*i] + seg[2*i+1];
-	memset(lazy, 0, sizeof(lazy));
-}
+	ll junta(ll a, ll b) {
+		return a+b;
+	}
 
-// soma x na posicao p de tamanho tam
-void poe(int p, int x, int tam) {
-	seg[p] += x * tam;
-	if (p < n) lazy[p] += x;
-}
+	// soma x na posicao p de tamanho tam
+	void poe(int p, ll x, int tam, bool prop=1) {
+		seg[p] += x*tam;
+		if (prop and p < n) lazy[p] += x;
+	}
 
-// atualiza todos os pais da folha p
-void sobe(int p) {
-	for (int tam = 2; p /= 2; tam *= 2)
-		seg[p] = seg[2*p] + seg[2*p+1] + lazy[p] * tam;
-}
-
-// propaga o caminho da raiz ate a folha p
-void prop(int p) {
-	int tam = 1 << 29;
-	for (int s = 30; s; s--, tam /= 2) {
-		int i = p >> s;
-		if (lazy[i]) {
-			poe(2*i, lazy[i], tam);
-			poe(2*i+1, lazy[i], tam);
-			lazy[i] = 0;
+	// atualiza todos os pais da folha p
+	void sobe(int p) {
+		for (int tam = 2; p /= 2; tam *= 2) {
+			seg[p] = junta(seg[2*p], seg[2*p+1]);
+			poe(p, lazy[p], tam, 0);
 		}
 	}
-}
 
-int query(int a, int b) {
-	prop(a += n), prop(b += n);
-	int ret = 0;
-	for(; a <= b; a /= 2, b /= 2) {
-		if (a % 2 == 1) ret += seg[a++];
-		if (b % 2 == 0) ret += seg[b--];
+	// propaga o caminho da raiz ate a folha p
+	void prop(int p) {
+		int tam = 1 << (LOG-1);
+		for (int s = LOG; s; s--, tam /= 2) {
+			int i = p >> s;
+			if (lazy[i]) {
+				poe(2*i, lazy[i], tam);
+				poe(2*i+1, lazy[i], tam);
+				lazy[i] = 0;
+			}
+		}
 	}
-	return ret;
-}
 
-void update(int a, int b, int x) {
-	int a2 = a += n, b2 = b += n, tam = 1;
-	for (; a <= b; a /= 2, b /= 2, tam *= 2) {
-		if (a % 2 == 1) poe(a++, x, tam);
-		if (b % 2 == 0) poe(b--, x, tam);
+	void build(int n2, int* v) {
+		n = n2;
+		for (int i = 0; i < n; i++) seg[n+i] = v[i];
+		for (int i = n-1; i; i--) seg[i] = junta(seg[2*i], seg[2*i+1]);
+		for (int i = 0; i < 2*n; i++) lazy[i] = 0;
 	}
-	sobe(a2), sobe(b2);
-}
+
+	ll query(int a, int b) {
+		ll ret = 0;
+		for (prop(a+=n), prop(b+=n); a <= b; ++a/=2, --b/=2) {
+			if (a%2 == 1) ret = junta(ret, seg[a]);
+			if (b%2 == 0) ret = junta(ret, seg[b]);
+		}
+		return ret;
+	}
+
+	void update(int a, int b, int x) {
+		int a2 = a += n, b2 = b += n, tam = 1;
+		for (; a <= b; ++a/=2, --b/=2, tam *= 2) {
+			if (a%2 == 1) poe(a, x, tam);
+			if (b%2 == 0) poe(b, x, tam);
+		}
+		sobe(a2), sobe(b2);
+	}
+};
+

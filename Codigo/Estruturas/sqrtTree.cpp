@@ -22,7 +22,7 @@ namespace sqrtTree {
 			for (int i = L; i <= R; i++) blk[p][i] = cnt, getl[p][i] = l;
 			pref[p][L] = v[L], sulf[p][R] = v[R];
 			for (int i = L+1; i <= R; i++) pref[p][i] = op(pref[p][i-1], v[i]);
-			for (int i = R-1; i >= L; i--) sulf[p][i] = op(sulf[p][i+1], v[i]);
+			for (int i = R-1; i >= L; i--) sulf[p][i] = op(v[i], sulf[p][i+1]);
 			build(p+1, L, R);
 		}
 		for (int i = 0; i < cnt; i++) {
@@ -44,9 +44,9 @@ namespace sqrtTree {
 	int query(int l, int r) {
 		if (l+1 >= r) return l == r ? v[l] : op(v[l], v[r]);
 		int p = invsz[__builtin_clz(0)-__builtin_clz(l^r)-1];
-		int ans = op(sulf[p][l], pref[p][r]);
+		int ans = sulf[p][l];
 		int a = blk[p][l]+1, b = blk[p][r]-1, L = getl[p][l];
 		if (a <= b) ans = op(ans, entre[p][L+(a<<sz[p])+b]);
-		return ans;
+		return op(ans, pref[p][r]);
 	}
 }

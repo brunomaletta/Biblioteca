@@ -72,6 +72,7 @@ int main() {
 		vai(path + string(entry->d_name));
 	}
 
+	cout << "\\pagebreak" << endl;
 	printa_section("Extra");
 
 	dp = opendir(path.c_str());

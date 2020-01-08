@@ -11,8 +11,8 @@
 
 namespace sqrtTree {
 	int n, *v;
-	int pref[6][MAX], sulf[6][MAX], blk[6][MAX], getl[6][MAX];
-	int sz[30], entre[6][MAX];
+	int pref[4][MAX], sulf[4][MAX], blk[4][MAX], getl[4][MAX];
+	int sz[30], entre[4][MAX];
 
 	int op(int a, int b) { return min(a, b); }
 	void build(int p, int l, int r) {
@@ -33,7 +33,7 @@ namespace sqrtTree {
 	}
 	void build(int n2, int* v2) {
 		n = n2, v = v2;
-		for (int p = 0; p < 6; p++) sz[p] = n2 = sqrt(n2);
+		for (int p = 0; p < 4; p++) sz[p] = n2 = sqrt(n2);
 		build(0, 0, n-1);
 	}
 	int query(int l, int r) {

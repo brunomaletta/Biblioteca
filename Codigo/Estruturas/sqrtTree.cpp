@@ -12,7 +12,7 @@
 namespace sqrtTree {
 	int n, *v;
 	int pref[4][MAX], sulf[4][MAX], blk[4][MAX], getl[4][MAX];
-	int sz[30], entre[4][MAX];
+	int sz[4], entre[4][MAX];
 
 	int op(int a, int b) { return min(a, b); }
 	void build(int p, int l, int r) {

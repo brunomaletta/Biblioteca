@@ -33,6 +33,7 @@ namespace sqrtTree {
 	}
 	void build(int n2, int* v2) {
 		n = n2, v = v2;
+		memset(invsz, 0, sizeof(invsz));
 		for (int p = 0; p < 6; p++) {
 			n2 = sqrt(n2);
 			while (n2-(n2&-n2)) n2++;

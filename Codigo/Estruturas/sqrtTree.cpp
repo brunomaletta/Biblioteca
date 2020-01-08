@@ -2,9 +2,9 @@
 //
 // RMQ em O(log log n) com O(n log log n) pra buildar
 // Funciona com qualquer operacao associativa
-// 2x mais rapido pra 1e5 e 5x mais rapido pra 1e6
+// 2x mais rapido pra 1e5 e 7x mais rapido pra 1e6
 // (comparando o tempo de buildar com sparse table)
-// (log log 1e9 < 5)
+// (log log (1e9) < 5, entao a query eh praticamente O(1))
 //
 // build - O(n log log n)
 // query - O(log log n)

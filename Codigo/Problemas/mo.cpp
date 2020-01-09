@@ -1,6 +1,7 @@
 // Mo algorithm - distinct values
-//
-// O(n sqrt(n) + q)
+// 
+// O(s*n*f + q*(n/s)*f) optimize over s, insert/erase = O(f)
+// for s = sqrt(n), O((n+q)*sqrt(n)*f)
 
 const int MAX = 3e4+10;
 const int SQ = sqrt(MAX);

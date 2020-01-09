@@ -2,45 +2,46 @@
 //
 // O(n sqrt(n) + q)
 
-void add(int pos){
-	occ[a[pos]]++;
-	counter += (occ[a[pos]] == 1);
+const int MAX = 3e4+10;
+const int SQ = sqrt(MAX);
+int v[MAX];
+
+int ans, freq[MAX];
+
+void insert(int p){
+	int o = v[p];
+	freq[o]++;
+	ans += (freq[o] == 1);
+}
+void erase(int p){
+	int o = v[p];
+	ans -= (freq[o] == 1);
+	freq[o]--;
 }
 
-void remove(int pos){
-	occ[a[pos]]--;
-	counter -= (occ[a[pos]] == 0);
-}
-
-vector<pii> query(q);
-vector<pair<pii, int>> s(q);
-for (int i = 0; i < q; i++){
-	int l, r;
-	scanf("%d%d", &l, &r);
-	l--; r--;
-	query[i] = pii(l, r);
-	s[i] = {{l/SQ, r}, i};
-}
-sort(s.begin(), s.end()); //sort queries
-for (int i = 0; i < q; i++){
-	int iq = s[i].second;
-	pii q = query[iq];
-	while (L < q.first){
-		remove(L);
-		L++;
-	}	
-	while (L > q.first){
-		L--;
-		add(L);
+vector<int> MO(vector<ii> &q){
+	ans = 0;
+	memset(freq, 0, sizeof freq);
+	int m = q.size();
+	vector<int> ord(m), ret(m);
+	iota(ord.begin(), ord.end(), 0);
+	sort(ord.begin(), ord.end(), [&](int l, int r){
+		int sl = q[l].first/SQ;
+		int sr = q[r].first/SQ;
+		if (sl != sr) return sl < sr;
+		return q[l].second < q[r].second;
+	});
+	int l = 0, r = 0;
+	insert(0);
+	
+	for (int i : ord){
+		int ql, qr;
+		tie(ql, qr) = q[i];
+		while (r < qr) insert(++r);
+		while (l > ql) insert(--l);
+		while (l < ql) erase(l++);
+		while (r > qr) erase(r--);
+		ret[i] = ans;
 	}
-	while (R < q.second){
-		R++;
-		add(R);
-	}
-	while (R > q.second){
-		remove(R);
-		R--;
-	}
-	ans[iq] = counter;
+	return ret;
 }
-

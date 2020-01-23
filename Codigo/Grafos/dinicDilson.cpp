@@ -1,7 +1,7 @@
 // Dinic (Dilson)
 //
 // O(n^2 m)
-// Grafo bipartido -> O(sqrt(n)*m)
+// Grafo com capacidades 1 -> O(sqrt(n)*m)
 
 template <class T> struct dinic {
 	struct edge {

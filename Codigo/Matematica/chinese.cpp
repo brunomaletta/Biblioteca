@@ -1,8 +1,9 @@
 // Teorema Chines do Resto
 //
 // Combina equacoes modulares lineares: x = a (mod m)
-// Elemento neutro eh cr(0, 1), e basta multiplicar a galera
 // O m final eh o lcm dos m's, e a resposta eh unica mod o lcm
+// Os m nao precisam ser coprimos
+// Se nao tiver solucao, o 'a' vai ser -1
 
 ll gcde(ll a, ll b, ll& x, ll& y) {
 	if (!a) {
@@ -22,6 +23,7 @@ ll gcde(ll a, ll b, ll& x, ll& y) {
 struct crt {
 	ll a, m;
 
+	crt() : a(0), m(1) {}
 	crt(ll a_, ll m_) : a(a_), m(m_) {}
 	crt operator * (crt C) {
 		ll x, y;

@@ -97,7 +97,7 @@ namespace beats {
 		seg[p].lazy = 0;
 	}
 	pair<pair<ll, ll>, ll> query(int a, int b, int p=1, int l=0, int r=n-1) {
-		if (b < l or r < a) return {{INF, -INF}, 0};
+		if (b < l or r < a) return {{LINF, -LINF}, 0};
 		if (a <= l and r <= b) return {{seg[p].mi1, seg[p].ma1}, seg[p].sum};
 		prop(p, l, r);
 		int m = (l+r)/2;

@@ -12,4 +12,5 @@ for ((i = 1; ; i++)) do
 		cat out2
 		break;
 	fi
+	echo $1
 done

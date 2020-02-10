@@ -11,9 +11,15 @@
 // build - O(|s|)
 // get_hash - O(1)
 
-typedef long long ll;
+mt19937 rng((int) chrono::steady_clock::now().time_since_epoch().count());
 
-template<int P, int MOD> struct str_hash {
+int uniform(int l, int r){
+	uniform_int_distribution<int> uid(l, r);
+	return uid(rng);
+}
+
+template<int MOD> struct str_hash {
+	static int P;
 	int n;
 	string s;
 	vector<ll> h, power;
@@ -28,3 +34,5 @@ template<int P, int MOD> struct str_hash {
 		return (h[j] - h[i-1]*power[j-i+1] % MOD + MOD) % MOD;
 	}
 };
+template<int MOD> int str_hash<MOD>::P = uniform(27, MOD-1);
+//first parameter must be > |\Sigma|

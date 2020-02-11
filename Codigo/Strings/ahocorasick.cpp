@@ -39,12 +39,11 @@ namespace aho {
 	const int MAXN = 1e5+10;
 
 	int to[MAXN][SIGMA];
-	int link[MAXN], end[MAXN], sz[MAXN];
+	int link[MAXN], end[MAXN];
 	int idx;
 	void init(){
-		#warning dont forget to init before inserting strings
+#warning dont forget to init before inserting strings
 		memset(to, 0, sizeof to);
-		memset(sz, INF, sizeof sz);
 		idx = 1;
 	}
 	void insert(string &s){
@@ -56,17 +55,15 @@ namespace aho {
 			v = w;
 		}
 		end[v] = 1;
-		sz[v] = min(sz[v], int(s.size()));
 	}
 	void build(){
-		#warning dont forget to build after inserting strings
+#warning dont forget to build after inserting strings
 		queue<int> q;
 		q.push(0);
 		while (!q.empty()){
 			int cur = q.front(); q.pop();
 			int l = link[cur];
 			end[cur] |= end[l];
-			sz[cur] = min(sz[cur], sz[l]);
 			for (int i = 0; i < SIGMA; i++){
 				int &w = to[cur][i];
 				if (w){	

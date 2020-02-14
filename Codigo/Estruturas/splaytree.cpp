@@ -60,7 +60,7 @@ template<typename T> struct splaytree {
 		if (!root) return lb ? NULL : root = new node(v);
 		node *x = root, *last = NULL;;
 		while (1) {
-			bool d = v > x->val;
+			bool d = x->val < v;
 			if (!d) last = x;
 			if (x->val == v) break;
 			if (x->ch[d]) x = x->ch[d];
@@ -72,10 +72,11 @@ template<typename T> struct splaytree {
 				break;
 			}
 		}
-		return lb ? splay(last) : splay(x);
+		splay(x);
+		return lb ? splay(last) : x;
 	}
 	int size() { return root ? root->sz : 0; }
-	int count(T v) { return insert(v, 1) and insert(v, 1)->val == v; }
+	int count(T v) { return insert(v, 1) and root->val == v; }
 	node* lower_bound(T v) { return insert(v, 1); }
 	void erase(T v) {
 		if (!count(v)) return;
@@ -98,14 +99,22 @@ template<typename T> struct splaytree {
 	}
 	node* find_by_order(int k) {
 		node* x = root;
-		while (x) {
+		while (1) {
 			if (x->ch[0] and x->ch[0]->sz >= k+1) x = x->ch[0];
 			else {
 				if (x->ch[0]) k -= x->ch[0]->sz;
 				if (!k) return splay(x);
+				if (!x->ch[1]) {
+					splay(x);
+					return NULL;
+				}
 				k--, x = x->ch[1];
 			}
 		}
-		return splay(x);
+	}
+	T min() {
+		node* x = root;
+		while (x->ch[0]) x = x->ch[0]; // max -> ch[1]
+		return splay(x)->val;
 	}
 };

@@ -27,8 +27,8 @@ template<typename T> struct treap {
 		}
 		void update() {
 			sz = 1, sub = val;
-			if (l) sz += l->sz, sub += l->sub;
-			if (r) sz += r->sz, sub += r->sub;
+			if (l) l->prop(), sz += l->sz, sub += l->sub;
+			if (r) r->prop(), sz += r->sz, sub += r->sub;
 		}
 	};
 
@@ -68,7 +68,7 @@ template<typename T> struct treap {
 	T query(int l, int r) {
 		node *L, *M, *R;
 		split(root, M, R, r+1), split(M, L, M, l);
-		T ans = M->val;
+		T ans = M->sub;
 		join(L, M, M), join(M, R, root);
 		return ans;
 	}

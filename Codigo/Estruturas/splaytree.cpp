@@ -1,5 +1,7 @@
 // Splay Tree
 //
+// SEMPRE QUE DESCER NA ARVORE, DAR SPLAY NO
+// NODE MAIS PROFUNDO VISITADO
 // Todas as operacoes sao O(log(n)) amortizado
 // Se quiser colocar mais informacao no node,
 // mudar em 'update'
@@ -13,6 +15,12 @@ template<typename T> struct splaytree {
 			ch[0] = ch[1] = p = NULL;
 			sz = 1;
 			val = v;
+		}
+		void update() {
+			sz = 1;
+			for (int i = 0; i < 2; i++) if (ch[i]) {
+				sz += ch[i]->sz;
+			}
 		}
 	};
 
@@ -29,12 +37,6 @@ template<typename T> struct splaytree {
 		}
 	}
 
-	void update(node* x) {
-		x->sz = 1;
-		for (int i = 0; i < 2; i++) if (x->ch[i]) {
-			x->sz += x->ch[i]->sz;
-		}
-	}
 	void rotate(node* x) { // x vai ficar em cima
 		node *p = x->p, *pp = p->p;
 		if (pp) pp->ch[pp->ch[1] == p] = x;
@@ -42,7 +44,7 @@ template<typename T> struct splaytree {
 		p->ch[!d] = x->ch[d], x->ch[d] = p;
 		if (p->ch[!d]) p->ch[!d]->p = p;
 		x->p = pp, p->p = x;
-		update(p), update(x);
+		p->update(), x->update();
 	}
 	node* splay(node* x) {
 		if (!x) return x;

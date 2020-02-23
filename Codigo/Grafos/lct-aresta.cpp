@@ -1,11 +1,11 @@
 // Link-Cut Tree
 //
-// Valores nos vertices
+// Valores nas arestas
 // make_tree(v, w) cria uma nova arvore com um
 // vertice soh com valor 'w'
 // rootify(v) torna v a raiz de sua arvore
 // query(v, w) retorna a soma do caminho v--w
-// update(v, w, x) soma x nos vertices do caminho v--w
+// update(v, w, x) soma x nas arestas do caminho v--w
 //
 // Todas as operacoes sao O(log(n)) amortizado
 
@@ -14,19 +14,21 @@ namespace lct {
 		int p, path_p, ch[2];
 		ll val, sub;
 		bool rev;
-		int sz;
+		int sz, ar;
 		ll lazy;
 		node() {}
-		node(int v) : p(-1), path_p(-1), val(v), sub(v), rev(0), sz(1), lazy(0) {
+		node(int v, int ar_) :
+		p(-1), path_p(-1), val(v), sub(v), rev(0), sz(ar_), ar(ar_), lazy(0) {
 			ch[0] = ch[1] = -1;
 		}
 	};
 
-	node t[MAX];
+	node t[2*MAX]; // MAXN + MAXQ
+	map<ii, int> aresta;
 
 	void prop(int x) {
 		if (t[x].lazy) {
-			t[x].val += t[x].lazy, t[x].sub += t[x].lazy*t[x].sz;
+			if (t[x].ar) t[x].val += t[x].lazy, t[x].sub += t[x].lazy*t[x].sz;
 			if (t[x].ch[0]+1) t[t[x].ch[0]].lazy += t[x].lazy;
 			if (t[x].ch[1]+1) t[t[x].ch[1]].lazy += t[x].lazy;
 		}
@@ -38,7 +40,7 @@ namespace lct {
 		t[x].lazy = 0, t[x].rev = 0;
 	}
 	void update(int x) {
-		t[x].sz = 1, t[x].sub = t[x].val;
+		t[x].sz = t[x].ar, t[x].sub = t[x].val;
 		for (int i = 0; i < 2; i++) if (t[x].ch[i]+1) {
 			prop(t[x].ch[i]);
 			t[x].sz += t[t[x].ch[i]].sz;
@@ -58,11 +60,8 @@ namespace lct {
 	int splay(int x) {
 		int r = x;
 		vector<int> st = {r};
-		while (t[r].p+1) r = t[r].p, st.push_back(r);
-		while (st.size()) {
-			int u = st.back(); st.pop_back();
-			prop(u);
-		}
+		while (t[r].p+1) st.push_back(r = t[r].p);
+		while (st.size()) prop(st.back()), st.pop_back();
 		while (t[x].p+1) {
 			int p = t[x].p, pp = t[p].p;
 			if (pp == -1) return rotate(x), x;
@@ -90,7 +89,7 @@ namespace lct {
 		}
 		return last;
 	}
-	void make_tree(int v, int w) { t[v] = node(w); }
+	void make_tree(int v, int w=0, int ar=0) { t[v] = node(w, ar); }
 	int find_root(int v) {
 		access(v);
 		while (t[v].ch[0]+1) v = t[v].ch[0];
@@ -106,21 +105,30 @@ namespace lct {
 	}
 	void update(int v, int w, int x) {
 		rootify(w), access(v);
-		t[v].lazy += x;
+		t[v].lazy = x;
 	}
-	void link(int v, int w) {
+	void link_(int v, int w) {
 		rootify(v), access(w);
 		t[w].ch[1] = v, t[v].p = w;
 		update(w);
 	}
-	void cut(int v, int w) {
+	void link(int v, int w, int x) { // v--w com peso x
+		int id = MAX + aresta.size();
+		aresta[make_pair(v, w)] = id;
+		make_tree(id, x, 1);
+		link_(v, id), link_(id, w);
+	}
+	void cut_(int v, int w) {
 		rootify(w), access(v);
 		t[v].ch[0] = t[t[v].ch[0]].p = -1;
 		update(v);
+	}
+	void cut(int v, int w) {
+		int id = aresta[make_pair(v, w)];
+		cut_(v, id), cut_(id, w);
 	}
 	int lca(int v, int w) {
 		access(v);
 		return access(w);
 	}
 }
-

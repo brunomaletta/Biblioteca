@@ -25,10 +25,11 @@ namespace lct {
 
 	node t[2*MAX]; // MAXN + MAXQ
 	map<ii, int> aresta;
+	int sz;
 
 	void prop(int x) {
 		if (t[x].lazy) {
-			if (t[x].ar) t[x].val += t[x].lazy, t[x].sub += t[x].lazy*t[x].sz;
+			t[x].val += t[x].lazy*t[x].ar, t[x].sub += t[x].lazy*t[x].sz;
 			if (t[x].ch[0]+1) t[t[x].ch[0]].lazy += t[x].lazy;
 			if (t[x].ch[1]+1) t[t[x].ch[1]].lazy += t[x].lazy;
 		}
@@ -105,7 +106,7 @@ namespace lct {
 	}
 	void update(int v, int w, int x) {
 		rootify(w), access(v);
-		t[v].lazy = x;
+		t[v].lazy += x;
 	}
 	void link_(int v, int w) {
 		rootify(v), access(w);
@@ -113,7 +114,7 @@ namespace lct {
 		update(w);
 	}
 	void link(int v, int w, int x) { // v--w com peso x
-		int id = MAX + aresta.size();
+		int id = MAX + sz++;
 		aresta[make_pair(v, w)] = id;
 		make_tree(id, x, 1);
 		link_(v, id), link_(id, w);

@@ -1,4 +1,5 @@
-// Suffix Array
+// Suffix Array Linear
+//
 // Complexidades:
 // karkkainen, rnk, kasai - O(n)
 // RMQ::build and RMQ::query - usualy O(n) & O(logn)

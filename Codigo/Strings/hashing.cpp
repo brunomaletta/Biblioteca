@@ -1,10 +1,9 @@
 // String hashing
 //
 // String deve ter valores [1, x]
-// p deve ser o menor primo maior que x
 // Para evitar colisao: testar mais de um
 // mod; so comparar strings do mesmo tamanho
-// ex : str_hash<31, 1e9+7> h(s);
+// ex : str_hash<1e9+7> h(s);
 //      ll val = h(10, 20);
 //
 // Complexidades:
@@ -29,10 +28,10 @@ template<int MOD> struct str_hash {
 		h[0] = s[0];
 		for (int i = 1; i < n; i++) h[i] = (h[i-1]*P + s[i]) % MOD;
 	}
-	ll operator()(int i, int j){//returns hash of substring s[i ... j]
+	ll operator()(int i, int j){ // returna hash da substring s[i..j]
 		if (!i) return h[j];
 		return (h[j] - h[i-1]*power[j-i+1] % MOD + MOD) % MOD;
 	}
 };
 template<int MOD> int str_hash<MOD>::P = uniform(27, MOD-1);
-//first parameter must be > |\Sigma|
+// primeiro parametro deve ser maior que o tamanho do alfabeto

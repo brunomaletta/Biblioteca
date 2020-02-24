@@ -4,8 +4,7 @@
 // ret[2*i] = maior palíndromo centrado em i
 // ret[2*i+1] = maior palíndromo centrado em i e i+1
 //
-// Complexidade:
-// manacher O(n)
+// O(n)
 
 template<typename T> vector<int> manacher(const vector<T> &s) {
 	int l=0,r=-1,n=s.size();

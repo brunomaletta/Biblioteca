@@ -139,11 +139,11 @@ template<typename T> struct splay {
 		find(i);
 		return root->val;
 	}
-	void push_back(T v) {
-		splay<T> r;
-		r.root = new node(v);
-		swap(root, r.root);
-		join(r);
+	void push_back(T v) { // O(1)
+		node* r = new node(v);
+		r->ch[0] = root;
+		if (root) root->p = r;
+		root = r, root->update();
 	}
 	T query(int l, int r) {
 		splay<T> M(split(r+1));

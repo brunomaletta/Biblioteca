@@ -83,6 +83,10 @@ namespace lct {
 		while (t[v].ch[0]+1) v = t[v].ch[0];
 		return splay(v);
 	}
+	bool conn(int v, int w) {
+		access(v), access(w);
+		return v == w ? true : t[v].p != -1;
+	}
 	void rootify(int v) {
 		access(v);
 		t[v].rev ^= 1;
@@ -96,8 +100,8 @@ namespace lct {
 		t[v].lazy += x;
 	}
 	void link_(int v, int w) {
-		rootify(v), access(w);
-		t[w].ch[1] = v, t[v].p = w;
+		rootify(w);
+		t[w].p = v;
 	}
 	void link(int v, int w, int x) { // v--w com peso x
 		int id = MAX + sz++;

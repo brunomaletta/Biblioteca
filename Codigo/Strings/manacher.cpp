@@ -17,7 +17,7 @@ template<typename T> vector<int> manacher(const vector<T> &s) {
 	}
 	l = 0, r = -1;
 	for (int i = 0; i < n; i++) {
-		int k = i > r ? 0 : min(d2[l+r-i+1], r-i+1), k++;
+		int k = (i > r ? 0 : min(d2[l+r-i+1], r-i+1)) + 1;
 		while (i+k <= n && i-k >= 0 && s[i+k-1] == s[i-k]) k++;
 		d2[i] = --k;
 		if (i+k-1 > r) l = i-k, r = i+k-1;
@@ -28,3 +28,4 @@ template<typename T> vector<int> manacher(const vector<T> &s) {
 		ret.push_back(2*d1[i]), ret.push_back(2*d2[i] - 1);
 	return ret;
 }
+

@@ -1,4 +1,4 @@
-// Dinic (Bruno)
+// Dinic
 //
 // O(n^2 m)
 // Grafo com capacidades 1 -> O(sqrt(n)*m)

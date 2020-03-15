@@ -1,5 +1,8 @@
 // DSU Persistente
 //
+// Persistencia parcial, ou seja, tem que ir
+// incrementando o 't' no une
+//
 // Complexidades:
 // build - O(n)
 // find - O(log(n))
@@ -21,7 +24,7 @@ int find(int k, int t) {
 }
 
 void une(int a, int b, int t) {
-	a = find(a); b = find(b);
+	a = find(a, t); b = find(b, t);
 	if (a == b) return;
 	if (sz[a] > sz[b]) swap(a, b);
 

@@ -9,5 +9,5 @@ template<typename T> int lis(vector<T> &v){
 		if (it == ans.end()) ans.push_back(t);
 		else *it = t;
 	}
-	return ans.size()
+	return ans.size();
 }

@@ -3,7 +3,7 @@
 // O(n log(n))
 
 int n;
-vector<vector<int> > g(MAX);
+vector<int> g[MAX];
 int subsize[MAX];
 int rem[MAX];
 int pai[MAX];

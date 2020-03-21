@@ -58,7 +58,7 @@ struct line { // reta
 // PONTO & VETOR
 
 ld dist(pt p, pt q) { // distancia
-	return sqrt(sq(p.x - q.x) + sq(p.y - q.y));
+	return hypot(p.y - q.y, p.x - q.x);
 }
 
 ld dist2(pt p, pt q) { // quadrado da distancia
@@ -278,32 +278,8 @@ pt getcenter(pt a, pt b, pt c) { // centro da circunferencia dado 3 pontos
 			line(c, c + rotate90(a - c)));
 }
 
-
-circle minCirc(vector<PT> v) { // minimum enclosing circle
-	int n = v.size();
-	random_shuffle(v.begin(), v.end());
-	PT p = PT(0.0, 0.0);
-	circle ret = circle(p, 0.0);
-	for(int i = 0; i < n; i++) {
-		if(!inside(ret, v[i])) {
-			ret = circle(v[i], 0);
-			for(int j = 0; j < i; j++) {
-				if(!inside(ret, v[j])) {
-					ret = circle((v[i] + v[j]) / 2.0, sqrt(dist2(v[i], v[j])) / 2.0);
-					for(int k = 0; k < j; k++) {
-						if(!inside(ret, v[k])) {
-							p = bestOf3(v[i], v[j], v[k]);
-							ret = circle(p, sqrt(dist2(p, v[i])));
-						}
-					}
-				}
-			}
-		}
-	}
-	return ret;
-}
-
 // comparador pro set para fazer sweep angle com segmentos
+
 double ang;
 struct cmp {
 	bool operator () (const line& a, const line& b) {

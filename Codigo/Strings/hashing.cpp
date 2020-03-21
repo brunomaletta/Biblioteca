@@ -28,7 +28,7 @@ template<int MOD> struct str_hash {
 		h[0] = s[0];
 		for (int i = 1; i < n; i++) h[i] = (h[i-1]*P + s[i]) % MOD;
 	}
-	ll operator()(int i, int j){ // returna hash da substring s[i..j]
+	ll operator()(int i, int j){ // retorna hash da substring s[i..j]
 		if (!i) return h[j];
 		return (h[j] - h[i-1]*power[j-i+1] % MOD + MOD) % MOD;
 	}

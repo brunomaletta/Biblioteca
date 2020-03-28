@@ -59,6 +59,9 @@ template<typename T> struct splay {
 			root->update();
 		}
 	}
+	splay(const splay& t) {
+		throw logic_error("Nao copiar a splay!");
+	}
 	~splay() {
 		vector<node*> q = {root};
 		while (q.size()) {

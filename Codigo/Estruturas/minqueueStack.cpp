@@ -1,4 +1,4 @@
-// Min queue
+// Min queue - stack
 //
 // Tudo O(1) amortizado
 

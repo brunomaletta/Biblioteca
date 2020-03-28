@@ -27,6 +27,9 @@ template<typename T> struct splaytree {
 	node* root;
 
 	splaytree() { root = NULL; }
+	splaytree(const splaytree& t) {
+		throw logic_error("Nao copiar a splaytree!");
+	}
 	~splaytree() {
 		vector<node*> q = {root};
 		while (q.size()) {

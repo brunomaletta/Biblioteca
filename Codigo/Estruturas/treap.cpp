@@ -35,6 +35,9 @@ template<typename T> struct treap {
 	node* root;
 
 	treap() { root = NULL; }
+	treap(const treap& t) {
+		throw logic_error("Nao copiar a treap!");
+	}
 	~treap() {
 		vector<node*> q = {root};
 		while (q.size()) {

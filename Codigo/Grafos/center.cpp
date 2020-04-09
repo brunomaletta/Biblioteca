@@ -8,7 +8,7 @@
 //
 // O(n+m)
 
-vector<vector<int> > g(MAX);
+vector<int> g[MAX];
 int n, vis[MAX];
 int d[2][MAX];
 

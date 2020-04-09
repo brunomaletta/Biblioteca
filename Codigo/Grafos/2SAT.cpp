@@ -11,7 +11,7 @@
 //
 // O(|V|+|E|)
 
-vector<vector<int> > g(MAX);
+vector<int> g[MAX];
 int n;
 
 int nao(int x){ return (x + n) % (2*n); }

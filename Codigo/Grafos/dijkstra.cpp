@@ -8,8 +8,8 @@
 // O(m log(n))
 
 int n;
-vector<vector<int> > g(MAX);
-vector<vector<int> > w(MAX); // peso das arestas
+vector<int> g[MAX];
+vector<int> w[MAX]; // peso das arestas
 int d[MAX];
 
 void dijsktra(int a) {

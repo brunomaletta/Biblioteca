@@ -11,7 +11,7 @@
 #define ALL(x) x.begin(),x.end()
 
 int v[MAX], n;
-vector<vector<int> > tree(4*MAX);
+vector<int> tree[4*MAX];
 
 void build(int p, int l, int r) {
 	if (l == r) return tree[p].push_back(v[l]);

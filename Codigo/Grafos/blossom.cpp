@@ -4,7 +4,7 @@
 // Se for bipartido, nao precisa da funcao
 // 'contract', e roda em O(nm)
 
-vector<vector<int> > g(MAX);
+vector<int> g[MAX];
 int match[MAX]; // match[i] = com quem i esta matchzado ou -1
 int n, pai[MAX], base[MAX], vis[MAX];
 queue<int> q;

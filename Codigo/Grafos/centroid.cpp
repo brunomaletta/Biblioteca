@@ -5,7 +5,7 @@
 // O(n)
 
 int n, subsize[MAX];
-vector<vector<int> > g(MAX);
+vector<int> g[MAX];
 
 void dfs(int k, int p=-1) {
 	subsize[k] = 1;

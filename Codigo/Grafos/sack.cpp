@@ -6,7 +6,7 @@
 // O(n log(n))
 
 int sz[MAX], cor[MAX], cnt[MAX];
-vector<vector<int> > g(MAX);
+vector<int> g[MAX];
  
 void build(int k, int d=0) {
 	sz[k] = 1;

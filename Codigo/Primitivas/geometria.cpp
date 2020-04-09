@@ -1,32 +1,11 @@
 // Primitivas Geometricas
 
-#include <bits/stdc++.h>
-
-using namespace std;
-
-#define sc(a) scanf("%d", &a)
-#define sc2(a,b) scanf("%d %d", &a, &b)
-#define pri(x) printf("%d\n", x)
-#define prie(x) printf("%d ", x)
-#define sz(x) (int)((x).size())
-#define mp make_pair
-#define pb push_back
-#define f first
-#define s second
-#define sq(x) ((x)*(x))
-#define BUFF ios::sync_with_stdio(false)
-
-typedef long long int ll;
 typedef double ld;
-typedef pair<int, int> ii;
-typedef vector<int> vi;
-typedef vector<vi> vvi;
-typedef vector<ii> vii;
-const int INF = 0x3f3f3f3f;
-const ll LINF = 0x3f3f3f3f3f3f3f3fll;
 const ld DINF = 1e18;
 const ld pi = acos(-1.0);
 const ld eps = 1e-9;
+
+#define sq(x) ((x)*(x))
 
 bool eq(ld a, ld b) {
 	return abs(a - b) <= eps;
@@ -35,10 +14,11 @@ bool eq(ld a, ld b) {
 struct pt { // ponto
 	ld x, y;
 	pt() {}
-	pt(ld x, ld y) : x(x), y(y) {}
+	pt(ld x_, ld y+) : x(x_), y(y_) {}
 	bool operator < (const pt p) const {
 		if (!eq(x, p.x)) return x < p.x;
-		return y < p.y;
+		if (!eq(y, p.y)) return y < p.y;
+		return 0;
 	}
 	bool operator == (const pt p) const {
 		return eq(x, p.x) and eq(y, p.y);
@@ -52,7 +32,7 @@ struct pt { // ponto
 struct line { // reta
 	pt p, q;
 	line() {}
-	line(pt p, pt q) : p(p), q(q) {}
+	line(pt p_, pt q_) : p(p_), q(q_) {}
 };
 
 // PONTO & VETOR
@@ -200,21 +180,21 @@ ld distseg(line a, line b) { // distancia entre seg
 
 ld polper(vector<pt> v) { // perimetro do poligono
 	ld ret = 0;
-	for (int i = 0; i < sz(v); i++)
-		ret += dist(v[i], v[(i + 1) % sz(v)]);
+	for (int i = 0; i < v.size(); i++)
+		ret += dist(v[i], v[(i + 1) % v.size()]);
 	return ret;
 }
 
 ld polarea(vector<pt> v) { // area do poligono
 	ld ret = 0;
-	for (int i = 0; i < sz(v); i++)
-		ret += sarea(pt(0, 0), v[i], v[(i + 1) % sz(v)]);
+	for (int i = 0; i < v.size(); i++)
+		ret += sarea(pt(0, 0), v[i], v[(i + 1) % v.size()]);
 	return abs(ret);
 }
 
 bool onpol(pt p, vector<pt> v) { // se um ponto esta na fronteira do poligono
-	for (int i = 0; i < sz(v); i++)
-		if (isinseg(p, line(v[i], v[(i + 1) % sz(v)]))) return 1;
+	for (int i = 0; i < v.size(); i++)
+		if (isinseg(p, line(v[i], v[(i + 1) % v.size()]))) return 1;
 	return 0;
 }
 
@@ -222,16 +202,16 @@ bool inpol(pt p, vector<pt> v) { // se um ponto pertence ao poligono
 	if (onpol(p, v)) return 1;
 	int c = 0;
 	line r = line(p, pt(DINF, pi * DINF));
-	for (int i = 0; i < sz(v); i++) {
-		line s = line(v[i], v[(i + 1) % sz(v)]);
+	for (int i = 0; i < v.size(); i++) {
+		line s = line(v[i], v[(i + 1) % v.size()]);
 		if (interseg(r, s)) c++;
 	}
 	return c & 1;
 }
 
 bool interpol(vector<pt> v1, vector<pt> v2) { // se dois poligonos se interceptam
-	for (int i = 0; i < sz(v1); i++) if (inpol(v1[i], v2)) return 1;
-	for (int i = 0; i < sz(v2); i++) if (inpol(v2[i], v1)) return 1;
+	for (int i = 0; i < v1.size(); i++) if (inpol(v1[i], v2)) return 1;
+	for (int i = 0; i < v2.size(); i++) if (inpol(v2[i], v1)) return 1;
 	return 0;
 }
 
@@ -240,9 +220,9 @@ ld distpol(vector<pt> v1, vector<pt> v2) { // distancia entre poligonos
 
 	ld ret = DINF;
 
-	for (int i = 0; i < sz(v1); i++) for (int j = 0; j < sz(v2); j++)
-		ret = min(ret, distseg(line(v1[i], v1[(i + 1) % sz(v1)]),
-					line(v2[j], v2[(j + 1) % sz(v2)])));
+	for (int i = 0; i < v1.size(); i++) for (int j = 0; j < v2.size(); j++)
+		ret = min(ret, distseg(line(v1[i], v1[(i + 1) % v1.size()]),
+					line(v2[j], v2[(j + 1) % v2.size()])));
 	return ret;
 }
 
@@ -251,31 +231,56 @@ vector<pt> convexhull(vector<pt> v) { // convex hull
 
 	sort(v.begin(), v.end());
 
-	for (int i = 0; i < sz(v); i++) {
-		while (sz(l) > 1 and !ccw(v[i], l[sz(l) - 1], l[sz(l) - 2]))
+	for (int i = 0; i < v.size(); i++) {
+		while (l.size() > 1 and !ccw(v[i], l.back(), l[l.size() - 2]))
 			l.pop_back();
 		l.pb(v[i]);
 	}
-	for (int i = sz(v) - 1; i >= 0; i--) {
-		while (sz(u) > 1 and !ccw(v[i], u[sz(u) - 1], u[sz(u) - 2]))
+	for (int i = v.size() - 1; i >= 0; i--) {
+		while (u.size() > 1 and !ccw(v[i], u.back(), u[u.size() - 2]))
 			u.pop_back();
 		u.pb(v[i]);
 	}
 
 	l.pop_back(); u.pop_back();
 
-	for (int i = 0; i < sz(u); i++) l.pb(u[i]);
+	for (pt i : u) l.pb(i);
 
 	return l;
 }
 
-// CIRCULO
+// CIRCUNFERENCIA
 
-pt getcenter(pt a, pt b, pt c) { // centro da circunferencia dado 3 pontos
+pt getcenter(pt a, pt b, pt c) { // centro da circunf dado 3 pontos
 	b = (a + b) / 2;
 	c = (a + c) / 2;
 	return inter(line(b, b + rotate90(a - b)),
 			line(c, c + rotate90(a - c)));
+}
+
+vector<pt> circ_line_inter(pt a, pt b, pt c, ld r) { // intersecao da circunf (c, r) e reta ab
+	vector<pt> ret;
+	b = b-a, a = a-c;
+	ld A = dot(b, b);
+	ld B = dot(a, b);
+	ld C = dot(a, a) - r*r;
+	ld D = B*B - A*C;
+	if (D < -eps) return ret;
+	ret.push_back(c+a+b*(-B+sqrt(D+eps))/A);
+	if (D > eps) ret.push_back(c+a+b*(-B-sqrt(D))/A);
+	return ret;
+}
+
+vector<pt> circ_inter(pt a, pt b, ld r, ld R) { // intersecao da circunf (a, r) e (b, R)
+	vector<pt> ret;
+	ld d = dist(a, b);
+	if (d > r+R or d+min(r, R) < max(r, R)) return ret;
+	ld x = (d*d-R*R+r*r)/(2*d);
+	ld y = sqrt(r*r-x*x);
+	pt v = (b-a)/d;
+	ret.push_back(a+v*x + rotate90(v)*y);
+	if (y > 0) ret.push_back(a+v*x - rotate90(v)*y);
+	return ret;
 }
 
 // comparador pro set para fazer sweep angle com segmentos

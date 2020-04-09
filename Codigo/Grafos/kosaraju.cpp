@@ -3,8 +3,8 @@
 // O(n + m)
 
 int n;
-vector<vector<int> > g(MAX);
-vector<vector<int> > gi(MAX); // grafo invertido
+vector<int> g[MAX];
+vector<int> gi[MAX]; // grafo invertido
 int vis[MAX];
 stack<int> S;
 int comp[MAX]; // componente conexo de cada vertice

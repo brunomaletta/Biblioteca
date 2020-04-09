@@ -3,7 +3,7 @@
 // O(n + m)
 
 int n;
-vector<vector<int> > g(MAX);
+vector<int> g[MAX];
 stack<int> s;
 int vis[MAX], comp[MAX];
 int id[MAX], p;

@@ -20,7 +20,7 @@
 // sumk  - O(log(sigma))
 
 int n, v[MAX];
-vector<vector<int> > esq(4*(MAXN-MINN)), pref(4*(MAXN-MINN));
+vector<int> esq[4*(MAXN-MINN)], pref[4*(MAXN-MINN)];
 
 void build(int b = 0, int e = n, int p = 1, int l = MINN, int r = MAXN) {
 	int m = (l+r)/2; esq[p].push_back(0); pref[p].push_back(0);

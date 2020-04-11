@@ -7,8 +7,8 @@ struct pt { // ponto
 	pt() {}
 	pt(int x_, int y_) : x(x_), y(y_) {}
 	bool operator < (const pt p) const {
-		if (x == p.x) return x < p.x;
-		return y < p.y;
+		if (x == p.x) return y < p.y;
+		return x < p.x;
 	}
 	bool operator == (const pt p) const {
 		return x == p.x and y == p.y;

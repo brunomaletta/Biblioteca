@@ -14,7 +14,7 @@ bool eq(ld a, ld b) {
 struct pt { // ponto
 	ld x, y;
 	pt() {}
-	pt(ld x_, ld y+) : x(x_), y(y_) {}
+	pt(ld x_, ld y_) : x(x_), y(y_) {}
 	bool operator < (const pt p) const {
 		if (!eq(x, p.x)) return x < p.x;
 		if (!eq(y, p.y)) return y < p.y;

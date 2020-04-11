@@ -14,7 +14,7 @@ typedef pair<int, int> ii;
 const int INF = 0x3f3f3f3f;
 const ll LINF = 0x3f3f3f3f3f3f3f3fll;
 
-mt19937 rng((int) chrono::steady_clock::now().time_since_epoch().count())
+mt19937 rng((int) chrono::steady_clock::now().time_since_epoch().count());
 
 int main(){ _
 	exit(0);

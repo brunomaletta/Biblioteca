@@ -1,13 +1,13 @@
 // Primitivas Geometricas Inteiras
 
-#define sq(x) ((x)*(x))
+#define sq(x) ((x)*(ll)(x))
 
 struct pt { // ponto
 	int x, y;
 	pt() {}
 	pt(int x_, int y_) : x(x_), y(y_) {}
 	bool operator < (const pt p) const {
-		if (x == p.x) return x < p.x;
+		if (x != p.x) return x < p.x;
 		return y < p.y;
 	}
 	bool operator == (const pt p) const {
@@ -71,7 +71,7 @@ bool lineeq(line r, line s) { // r == s
 }
 
 bool paraline(line r, line s) { // se r e s sao paralelas
-	return paral(r.p - r.q, s.p - s.p);
+	return paral(r.p - r.q, s.p - s.q);
 }
 
 bool isinline(pt p, line r) { // se p pertence a r

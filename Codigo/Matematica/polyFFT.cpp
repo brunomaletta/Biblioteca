@@ -4,6 +4,38 @@
 //
 // Soma O(n) & Multiplicacao O(nlogn)
 
+template<typename T> void fft(vector<T> &a, bool f, int log_n, int N, vector<int> &rev){
+	for (int i = 0; i < N; i++)
+		if (i < rev[i])
+			swap(a[i], a[rev[i]]);
+	int l, r, m;
+
+	vector<T> roots(log_n+1);
+	roots.back() = T::rt(f, N);
+	for (int i = log_n-1; i >= 0; i--)
+		roots[i] = roots[i+1]*roots[i+1];
+
+	vector<T> pts(N);
+	int k = 1;
+	for (int n = 2; n <= N; n *= 2){
+		T root = roots[k++];
+		pts[0] = 1;
+		for (int i = 1; i < n/2; i++)
+			pts[i] = pts[i-1]*root;
+		for (int pos = 0; pos < N; pos += n){
+			l = pos+0, r = pos+n/2, m = 0;
+			while (m < n/2){
+				auto t = pts[m]*a[r];
+				a[r] = a[l] - t;
+				a[l] = a[l] + t;
+				l++; r++; m++;
+			}
+		}
+	}
+	if (f) for(int i = 0; i < N; i++) a[i] = a[i]/N;
+}
+
+
 template<typename T> struct poly : vector<T> {
 	poly(const vector<T> &coef):vector<T>(coef){}
 	poly(unsigned size, T val = 0):vector<T>(size, val){}

@@ -77,8 +77,8 @@ namespace lct {
 	}
 	void make_tree(int v, int w=0, int ar=0) { t[v] = node(w, ar); }
 	int find_root(int v) {
-		access(v);
-		while (t[v].ch[0]+1) v = t[v].ch[0];
+		access(v), prop(v);
+		while (t[v].ch[0]+1) v = t[v].ch[0], prop(v);
 		return splay(v);
 	}
 	bool conn(int v, int w) {

@@ -6,8 +6,16 @@
 // e exponenciacao constantes
 
 // multiplicacao modular
-ll mul(ll x, ll y, ll m); // x*y mod m
-ll exp(ll x, ll y, ll m); // x^y mod m;
+
+ll mul(ll a, ll b, ll m) {
+	return (a*b-ll(a*(long double)b/m+0.5)*m+m)%m;
+}
+
+ll expo(ll a, ll b, ll m) {
+	if (!b) return 1;
+	ll ans = expo(mul(a, a, m), b/2, m);
+	return b%2 ? mul(a, ans, m) : ans;
+}
 
 bool prime(ll n) {
 	if (n < 2) return 0;
@@ -16,17 +24,16 @@ bool prime(ll n) {
 
 	ll d = n - 1;
 	int r = 0;
-	while (d % 2 == 0) r++, d /= 2;
+	while (d % 2 == 0) {
+		r++;
+		d /= 2;
+	}
 
- 	// com esses primos, o teste funciona garantido para n <= 3*10^18
+ 	// com esses primos, o teste funciona garantido para n <= 2^64
 	// funciona para n <= 3*10^24 com os primos ate 41
-	int a[9] = {2, 3, 5, 7, 11, 13, 17, 19, 23};
-	// outra opcao para n <= 2^64:
-	// int a[7] = {2, 325, 9375, 28178, 450775, 9780504, 1795265022};
-
-	for (int i = 0; i < 9; i++) {
-		if (a[i] >= n) break;
-		ll x = exp(a[i], d, n);
+	for (int i : {2, 325, 9375, 28178, 450775, 9780504, 1795265022}) {
+		if (i >= n) break;
+		ll x = expo(i, d, n);
 		if (x == 1 or x == n - 1) continue;
 
 		bool deu = 1;

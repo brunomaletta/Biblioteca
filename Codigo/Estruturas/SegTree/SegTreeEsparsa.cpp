@@ -9,30 +9,40 @@
 // update - O(log^2(n))
 // porem muito ruim da pra fazer O(logn)
 
-typedef long long ll;
-
 namespace seg {
-	unordered_map<ll, int> t, lazy;
+	int t[MAX], lazy[MAX];
+	int L[MAX], R[MAX];
+	int ptr = 2;
+	int get_l(int i){
+		if (L[i] == 0)
+			L[i] = ptr++;
+		return L[i];
+	}
+	int get_r(int i){
+		if (R[i] == 0)
+			R[i] = ptr++;
+		return R[i];
+	}
 
-	void build() { t.clear(), lazy.clear(); }
+	void build() { ptr = 2; }
 
-	void prop(ll p, int l, int r) {
+	void prop(int p, int l, int r) {
 		if (!lazy[p]) return;
 		t[p] = r-l+1-t[p];
-		if (l != r) lazy[2*p]^=lazy[p], lazy[2*p+1]^=lazy[p];
+		if (l != r) lazy[get_l(p)]^=lazy[p], lazy[get_r(p)]^=lazy[p];
 		lazy[p] = 0;
 	}
 
-	int query(int a, int b, ll p=1, int l=0, int r=N-1) {
+	int query(int a, int b, int p=1, int l=0, int r=N-1) {
 		prop(p, l, r);
 		if (b < l or r < a) return 0;
 		if (a <= l and r <= b) return t[p];
 
-		int m = l+r>>1;
-		return query(a, b, 2*p, l, m)+query(a, b, 2*p+1, m+1, r);
+		int m = (l+r)>>1;
+		return query(a, b, get_l(p), l, m)+query(a, b, get_r(p), m+1, r);
 	}
 
-	int update(int a, int b, ll p=1, int l=0, int r=N-1) {
+	int update(int a, int b, int p=1, int l=0, int r=N-1) {
 		prop(p, l, r);
 		if (b < l or r < a) return t[p];
 		if (a <= l and r <= b) {
@@ -40,7 +50,7 @@ namespace seg {
 			prop(p, l, r);
 			return t[p];
 		}
-		int m = l+r>>1;
-		return t[p] = update(a, b, 2*p, l, m)+update(a, b, 2*p+1, m+1, r);
+		int m = (l+r)>>1;
+		return t[p] = update(a, b, get_l(p), l, m)+update(a, b, get_r(p), m+1, r);
 	}
 };

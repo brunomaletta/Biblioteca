@@ -5,13 +5,12 @@
 // O(log(MAXN))
 
 int basis[LOG]; // basis[i] = mask do cara com bit mais significativo i
-int sz; // tamanho da base
+int rk; // tamanho da base
 
 void insert(int mask) {
-	for (int i = LOG - 1; i >= 0; i--) {
-		if ((mask>>i&1) == 0) continue;
+	for (int i = LOG - 1; i >= 0; i--) if (mask>>i&1) {
 		if (!basis[i]) {
-			basis[i] = mask, sz++;
+			basis[i] = mask, rk++;
 			return;
 		}
 		mask ^= basis[i];

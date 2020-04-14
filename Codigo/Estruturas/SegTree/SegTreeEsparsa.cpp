@@ -7,11 +7,12 @@
 // build - O(n)
 // query - O(log^2(n))
 // update - O(log^2(n))
+// porem muito ruim da pra fazer O(logn)
 
 typedef long long ll;
 
 namespace seg {
-	unordered_map<ll, int> t, laz;
+	unordered_map<ll, int> t, lazy;
 
 	void build() { t.clear(), lazy.clear(); }
 

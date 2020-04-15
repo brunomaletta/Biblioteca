@@ -112,9 +112,7 @@ bool onpol(pt p, vector<pt> v) { // se um ponto esta na fronteira do poligono
 
 vector<pt> convexhull(vector<pt> v) { // convex hull
 	vector<pt> l, u;
-
 	sort(v.begin(), v.end());
-
 	for (int i = 0; i < v.size(); i++) {
 		while (l.size() > 1 and !ccw(v[i], l.back(), l[l.size() - 2]))
 			l.pop_back();
@@ -125,11 +123,8 @@ vector<pt> convexhull(vector<pt> v) { // convex hull
 			u.pop_back();
 		u.pb(v[i]);
 	}
-
 	l.pop_back(); u.pop_back();
-
 	for (pt i : u) l.pb(i);
-
 	return l;
 }
 

@@ -16,12 +16,22 @@ struct pt { // ponto
 	pt operator + (const pt p) const { return pt(x+p.x, y+p.y); }
 	pt operator - (const pt p) const { return pt(x-p.x, y-p.y); }
 	pt operator * (const int c) const { return pt(x*c, y*c); }
+	ll operator * (const pt p) const { return x*(ll)p.x + y*(ll)p.y; }
+	ll operator ^ (const pt p) const { return x*(ll)p.y - y*(ll)p.x; }
+	friend istream& operator >> (istream& in, pt& p) {
+		in >> p.x >> p.y;
+		return in;
+	}
 };
 
 struct line { // reta
 	pt p, q;
 	line() {}
 	line(pt p_, pt q_) : p(p_), q(q_) {}
+	friend istream& operator >> (istream& in, line& r) {
+		in >> r.p >> r.q;
+		return in;
+	}
 };
 
 // PONTO & VETOR
@@ -30,16 +40,8 @@ ll dist2(pt p, pt q) { // quadrado da distancia
 	return sq(p.x - q.x) + sq(p.y - q.y);
 }
 
-ll dot(pt u, pt v) { // produto escalar
-	return u.x * (ll)v.x + u.y * (ll)v.y;
-}
-
-ll cross(pt u, pt v) { // norma do produto vetorial
-	return u.x * (ll)v.y - u.y * (ll)v.x;
-}
-
 ll sarea2(pt p, pt q, pt r) { // 2 * area com sinal
-	return cross(q - p, r - q);
+	return (q-p)^(r-q);
 }
 
 bool col(pt p, pt q, pt r) { // se p, q e r sao colin.
@@ -47,7 +49,7 @@ bool col(pt p, pt q, pt r) { // se p, q e r sao colin.
 }
 
 int paral(pt u, pt v) { // se u e v sao paralelos
-	if (cross(u, v) != 0) return 0;
+	if (u^v) return 0;
 	if ((u.x > 0) == (v.x > 0) and (u.y > 0) == (v.y > 0)) return 1;
 	return -1;
 }
@@ -105,7 +107,7 @@ int segpoints(line r) { // numero de pontos inteiros no segmento
 }
 
 double get_t(pt v, line r) { // retorna t tal que t*v pertence a reta r
-	return cross(r.p, r.q) / (double) cross(r.p-r.q, dir);
+	return (r.p^r.q) / (double) ((r.p-r.q)^v);
 }
 
 // POLIGONO
@@ -123,16 +125,16 @@ bool onpol(pt p, vector<pt> v) { // se um ponto esta na fronteira do poligono
 	return 0;
 }
 
-vector<pt> convexhull(vector<pt> v) { // convex hull
+vector<pt> convex_hull(vector<pt> v) { // convex hull
 	vector<pt> l, u;
 	sort(v.begin(), v.end());
 	for (int i = 0; i < v.size(); i++) {
-		while (l.size() > 1 and !ccw(v[i], l.back(), l[l.size() - 2]))
+		while (l.size() > 1 and !ccw(l[l.size()-2], l.back(), v[i]))
 			l.pop_back();
 		l.pb(v[i]);
 	}
 	for (int i = v.size() - 1; i >= 0; i--) {
-		while (u.size() > 1 and !ccw(v[i], u.back(), u[u.size() - 2]))
+		while (u.size() > 1 and !ccw(u[u.size()-2], u.back(), v[i]))
 			u.pop_back();
 		u.pb(v[i]);
 	}
@@ -147,6 +149,23 @@ ll interior_points(vector<pt> v) { // numero de pontos interiores em um poligono
 		b += segpoints(line(v[i], v[(i+1)%v.size()])) - 1;
 	return (polarea2(v) - b) / 2 + 1;
 }
+
+struct convex_pol {
+	vector<pt> pol; // assume que o convex hull tem 3 pts nao colineares
+
+	convex_pol(vector<pt> v) : pol(convex_hull(v)) {}
+	bool is_inside(pt p) { // se o ponto ta dentro do hull - O(log(n))
+		int l = 1, r = pol.size();
+		while (l < r) {
+			int m = (l+r)/2;
+			if (ccw(p, pol[0], pol[m])) l = m+1;
+			else r = m;
+		}
+		if (l == 1) return isinseg(p, line(pol[0], pol[1]));
+		if (l == pol.size()) return false;
+		return (pol[l-1]^pol[l]) >= ((pol[l-1]-pol[l])^p);
+	}
+};
 
 // comparador pro set pra fazer sweep angle com segmentos
 

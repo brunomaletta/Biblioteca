@@ -27,12 +27,22 @@ struct pt { // ponto
 	pt operator - (const pt p) const { return pt(x-p.x, y-p.y); }
 	pt operator * (const ld c) const { return pt(x*c  , y*c  ); }
 	pt operator / (const ld c) const { return pt(x/c  , y/c  ); }
+	ld operator * (const pt p) const { return x*p.x + y*p.y; }
+	ld operator ^ (const pt p) const { return x*p.y - y*p.x; }
+	friend istream& operator >> (istream& in, pt& p) {
+		in >> p.x >> p.y;
+		return in;
+	}
 };
 
 struct line { // reta
 	pt p, q;
 	line() {}
 	line(pt p_, pt q_) : p(p_), q(q_) {}
+	friend istream& operator >> (istream& in, line& r) {
+		in >> r.p >> r.q;
+		return in;
+	}
 };
 
 // PONTO & VETOR
@@ -61,16 +71,8 @@ pt normalize(pt v) { // vetor normalizado
 	return v;
 }
 
-ld dot(pt u, pt v) { // produto escalar
-	return u.x * v.x + u.y * v.y;
-}
-
-ld cross(pt u, pt v) { // norma do produto vetorial
-	return u.x * v.y - u.y * v.x;
-}
-
 ld sarea(pt p, pt q, pt r) { // area com sinal
-	return cross(q - p, r - q) / 2;
+	return ((q-p)^(r-q))/2;
 }
 
 bool col(pt p, pt q, pt r) { // se p, q e r sao colin.
@@ -78,7 +80,7 @@ bool col(pt p, pt q, pt r) { // se p, q e r sao colin.
 }
 
 int paral(pt u, pt v) { // se u e v sao paralelos
-	if (!eq(cross(u, v), 0)) return 0;
+	if (!eq(u^v, 0)) return 0;
 	if ((u.x > eps) == (v.x > eps) and (u.y > eps) == (v.y > eps))
 		return 1;
 	return -1;
@@ -133,13 +135,13 @@ bool isinseg(pt p, line r) { // se p pertence ao seg de r
 }
 
 ld get_t(line r) { // retorna t tal que t*v pertence a reta r
-    return cross(r.p, r.q) / cross(r.p-r.q, dir);
+    return (r.p^r.q) / ((r.p-r.q)^v);
 }
 
 pt proj(pt p, line r) { // projecao do ponto p na reta r
 	if (r.p == r.q) return r.p;
 	r.q = r.q - r.p; p = p - r.p;
-	pt proj = r.q * (dot(p, r.q) / dot(r.q, r.q));
+	pt proj = r.q * ((p*r.q) / (r.q*r.q));
 	return proj + r.p;
 }
 
@@ -235,16 +237,16 @@ ld distpol(vector<pt> v1, vector<pt> v2) { // distancia entre poligonos
 	return ret;
 }
 
-vector<pt> convexhull(vector<pt> v) { // convex hull
+vector<pt> convex_hull(vector<pt> v) { // convex hull
 	vector<pt> l, u;
 	sort(v.begin(), v.end());
 	for (int i = 0; i < v.size(); i++) {
-		while (l.size() > 1 and !ccw(v[i], l.back(), l[l.size() - 2]))
+		while (l.size() > 1 and !ccw(l[l.size()-2], l.back(), v[i]))
 			l.pop_back();
 		l.pb(v[i]);
 	}
 	for (int i = v.size() - 1; i >= 0; i--) {
-		while (u.size() > 1 and !ccw(v[i], u.back(), u[u.size() - 2]))
+		while (u.size() > 1 and !ccw(u[u.size()-2], u.back(), v[i]))
 			u.pop_back();
 		u.pb(v[i]);
 	}
@@ -252,6 +254,23 @@ vector<pt> convexhull(vector<pt> v) { // convex hull
 	for (pt i : u) l.pb(i);
 	return l;
 }
+
+struct convex_pol {
+	vector<pt> pol; // assume que o convex hull tem 3 pts nao colineares
+
+	convex_pol(vector<pt> v) : pol(convex_hull(v)) {}
+	bool is_inside(pt p) { // se o ponto ta dentro do hull - O(log(n))
+		int l = 1, r = pol.size();
+		while (l < r) {
+			int m = (l+r)/2;
+			if (ccw(p, pol[0], pol[m])) l = m+1;
+			else r = m;
+		}
+		if (l == 1) return isinseg(p, line(pol[0], pol[1]));
+		if (l == pol.size()) return false;
+		return (pol[l-1]^pol[l])+eps > ((pol[l-1]-pol[l])^p);
+	}
+};
 
 // CIRCUNFERENCIA
 
@@ -265,9 +284,9 @@ pt getcenter(pt a, pt b, pt c) { // centro da circunf dado 3 pontos
 vector<pt> circ_line_inter(pt a, pt b, pt c, ld r) { // intersecao da circunf (c, r) e reta ab
 	vector<pt> ret;
 	b = b-a, a = a-c;
-	ld A = dot(b, b);
-	ld B = dot(a, b);
-	ld C = dot(a, a) - r*r;
+	ld A = b*b;
+	ld B = a*b;
+	ld C = a*a - r*r;
 	ld D = B*B - A*C;
 	if (D < -eps) return ret;
 	ret.push_back(c+a+b*(-B+sqrt(D+eps))/A);

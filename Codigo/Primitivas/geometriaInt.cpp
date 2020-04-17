@@ -151,10 +151,11 @@ ll interior_points(vector<pt> v) { // numero de pontos interiores em um poligono
 }
 
 struct convex_pol {
-	vector<pt> pol; // assume que o convex hull tem 3 pts nao colineares
+	vector<pt> pol;
 
 	convex_pol(vector<pt> v) : pol(convex_hull(v)) {}
 	bool is_inside(pt p) { // se o ponto ta dentro do hull - O(log(n))
+		if (pol.size() == 1) return p == pol[0];
 		int l = 1, r = pol.size();
 		while (l < r) {
 			int m = (l+r)/2;

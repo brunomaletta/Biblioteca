@@ -134,7 +134,7 @@ bool isinseg(pt p, line r) { // se p pertence ao seg de r
 	return paral(p - r.p, p - r.q) == -1;
 }
 
-ld get_t(line r) { // retorna t tal que t*v pertence a reta r
+ld get_t(pt v, line r) { // retorna t tal que t*v pertence a reta r
     return (r.p^r.q) / ((r.p-r.q)^v);
 }
 
@@ -256,10 +256,11 @@ vector<pt> convex_hull(vector<pt> v) { // convex hull
 }
 
 struct convex_pol {
-	vector<pt> pol; // assume que o convex hull tem 3 pts nao colineares
+	vector<pt> pol;
 
 	convex_pol(vector<pt> v) : pol(convex_hull(v)) {}
 	bool is_inside(pt p) { // se o ponto ta dentro do hull - O(log(n))
+		if (pol.size() == 1) return p == pol[0];
 		int l = 1, r = pol.size();
 		while (l < r) {
 			int m = (l+r)/2;

@@ -56,6 +56,15 @@ bool ccw(pt p, pt q, pt r) { // se p, q, r sao ccw
 	return sarea2(p, q, r) > 0;
 }
 
+int quad(pt p) { // quadrante de um ponto
+   return (p.x<0)^3*(p.y<0);
+}
+
+bool compare_angle(pt p, pt q) { // retorna se ang(p) < ang(q)
+    if (quad(p) != quad(q)) return quad(p) < quad(q);
+    return ccw(q, pt(0, 0), p);
+}
+
 pt rotate90(pt p) { // rotaciona 90 graus
 	return pt(-p.y, p.x);
 }
@@ -93,6 +102,10 @@ bool interseg(line r, line s) { // se o seg de r intercepta o seg de s
 
 int segpoints(line r) { // numero de pontos inteiros no segmento
 	return 1 + __gcd(abs(r.p.x - r.q.x), abs(r.p.y - r.q.y));
+}
+
+double get_t(pt v, line r) { // retorna t tal que t*v pertence a reta r
+	return cross(r.p, r.q) / (double) cross(r.p-r.q, dir);
 }
 
 // POLIGONO
@@ -134,3 +147,12 @@ ll interior_points(vector<pt> v) { // numero de pontos interiores em um poligono
 		b += segpoints(line(v[i], v[(i+1)%v.size()])) - 1;
 	return (polarea2(v) - b) / 2 + 1;
 }
+
+// comparador pro set pra fazer sweep angle com segmentos
+
+pt dir;
+struct cmp {
+    bool operator () (const line& a, const line& b) const {
+        return get_t(dir, a) < get_t(dir, b);
+    }
+};

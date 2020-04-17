@@ -49,6 +49,12 @@ ld norm(pt v) { // norma do vetor
 	return dist(pt(0, 0), v);
 }
 
+ld angle(pt v) { // angulo do vetor com o eixo x
+	ld ang = atan2(v.y, v.x);
+	if (ang < 0) ang += 2*pi;
+	return ang;
+}
+
 pt normalize(pt v) { // vetor normalizado
 	if (!norm(v)) return v;
 	v = v / norm(v);
@@ -72,11 +78,10 @@ bool col(pt p, pt q, pt r) { // se p, q e r sao colin.
 }
 
 int paral(pt u, pt v) { // se u e v sao paralelos
-	u = normalize(u);
-	v = normalize(v);
-	if (eq(u.x, v.x) and eq(u.y, v.y)) return 1;
-	if (eq(u.x, -v.x) and eq(u.y, -v.y)) return -1;
-	return 0;
+	if (!eq(cross(u, v), 0)) return 0;
+	if ((u.x > eps) == (v.x > eps) and (u.y > eps) == (v.y > eps))
+		return 1;
+	return -1;
 }
 
 bool ccw(pt p, pt q, pt r) { // se p, q, r sao ccw
@@ -125,6 +130,10 @@ bool isinline(pt p, line r) { // se p pertence a r
 bool isinseg(pt p, line r) { // se p pertence ao seg de r
 	if (p == r.p or p == r.q) return 1;
 	return paral(p - r.p, p - r.q) == -1;
+}
+
+ld get_t(line r) { // retorna t tal que t*v pertence a reta r
+    return cross(r.p, r.q) / cross(r.p-r.q, dir);
 }
 
 pt proj(pt p, line r) { // projecao do ponto p na reta r
@@ -282,7 +291,7 @@ vector<pt> circ_inter(pt a, pt b, ld r, ld R) { // intersecao da circunf (a, r) 
 
 double ang;
 struct cmp {
-	bool operator () (const line& a, const line& b) {
+	bool operator () (const line& a, const line& b) const {
 		line r = line(pt(0, 0), rotate(pt(1, 0), ang));
 		return norm(inter(r, a)) < norm(inter(r, b));
 	}

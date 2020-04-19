@@ -1,10 +1,9 @@
-//binomial
+// Binomial Distribution
 //
-//
+// binom(n, k, p) retorna a probabilidade de k sucessos
+// numa binomial(n, p)
 
 mt19937 rng((int) chrono::steady_clock::now().time_since_epoch().count());
-
-const int MAX = 3e5+10;
 
 double logfact[MAX];
 void calc(){

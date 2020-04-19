@@ -87,7 +87,7 @@ int paral(pt u, pt v) { // se u e v sao paralelos
 }
 
 bool ccw(pt p, pt q, pt r) { // se p, q, r sao ccw
-	return sarea(p, q, r) > 0;
+	return sarea(p, q, r)-eps > 0;
 }
 
 pt rotate(pt p, ld th) { // rotaciona o ponto th radianos
@@ -156,13 +156,11 @@ pt inter(line r, line s) { // r inter s
 }
 
 bool interseg(line r, line s) { // se o seg de r intercepta o seg de s
-	if (paraline(r, s)) {
-		return isinseg(r.p, s) or isinseg(r.q, s)
-			or isinseg(s.p, r) or isinseg(s.q, r);
-	}
+	if (isinseg(r.p, s) or isinseg(r.q, s)
+		or isinseg(s.p, r) or isinseg(s.q, r)) return 1;
 
-	pt i = inter(r, s);
-	return isinseg(i, r) and isinseg(i, s);
+	return ccw(r.p, r.q, s.p) != ccw(r.p, r.q, s.q) and
+			ccw(s.p, s.q, r.p) != ccw(s.p, s.q, r.q);
 }
 
 ld disttoline(pt p, line r) { // distancia do ponto a reta

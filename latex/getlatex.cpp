@@ -19,7 +19,8 @@ string getName(string s) {
 	ifstream fin(s.c_str());
 	string line;
 	getline(fin, line);
-	return line.substr(3);
+	if (line[2] == ' ') return line.substr(3);
+	return line.substr(2);
 }
 
 void printa_listing(string sub, string f, bool skip = false) {

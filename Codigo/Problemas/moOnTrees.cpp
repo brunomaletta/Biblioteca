@@ -31,7 +31,7 @@ void dfs(int i, int p, int &t){
 	en[i] = t++;
 }
 
-void update(int o){
+void update(int o){//only change this function
 	if (freqv[o] == 1){//insert w[o]
 		ans += (freq[w[o]] == 0);
 		freq[w[o]]++;
@@ -55,7 +55,6 @@ void erase(int p){
 }
 
 vector<tuple<int, int, int>> make_queries(vector<ii> &q_){
-	LCA::build(0);//any LCA alg works
 	vector<tuple<int, int, int>> q;
 	for (auto &it : q_){
 		int l, r;
@@ -69,11 +68,14 @@ vector<tuple<int, int, int>> make_queries(vector<ii> &q_){
 }
 
 vector<int> MO(vector<ii> &q_){
+	LCA::build(0);//any LCA alg works
 	int t = 0;
 	dfs(0, -1, t);
 	auto q = make_queries(q_);
 	ans = 0;
 	memset(freq, 0, sizeof freq);
+	memset(freqv, 0, sizeof freqv);
+	
 	int m = q.size();
 	vector<int> ord(m), ret(m);
 	iota(ord.begin(), ord.end(), 0);

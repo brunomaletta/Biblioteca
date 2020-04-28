@@ -19,8 +19,7 @@ struct pt { // ponto
 	ll operator * (const pt p) const { return x*(ll)p.x + y*(ll)p.y; }
 	ll operator ^ (const pt p) const { return x*(ll)p.y - y*(ll)p.x; }
 	friend istream& operator >> (istream& in, pt& p) {
-		in >> p.x >> p.y;
-		return in;
+		return in >> p.x >> p.y;
 	}
 };
 
@@ -29,8 +28,7 @@ struct line { // reta
 	line() {}
 	line(pt p_, pt q_) : p(p_), q(q_) {}
 	friend istream& operator >> (istream& in, line& r) {
-		in >> r.p >> r.q;
-		return in;
+		return in >> r.p >> r.q;
 	}
 };
 
@@ -73,20 +71,8 @@ pt rotate90(pt p) { // rotaciona 90 graus
 
 // RETA
 
-bool isvert(line r) { // se r eh vertical
-	return r.p.x == r.q.x;
-}
-
-bool lineeq(line r, line s) { // r == s
-	return col(r.p, r.q, s.p) and col(r.p, r.q, s.q);
-}
-
 bool paraline(line r, line s) { // se r e s sao paralelas
 	return paral(r.p - r.q, s.p - s.q);
-}
-
-bool isinline(pt p, line r) { // se p pertence a r
-	return col(p, r.p, r.q);
 }
 
 bool isinseg(pt p, line r) { // se p pertence ao seg de r
@@ -94,7 +80,7 @@ bool isinseg(pt p, line r) { // se p pertence ao seg de r
 	return paral(p - r.p, p - r.q) == -1;
 }
 
-bool interseg(line r, line s) { // se o seg de r intercepta o seg de s
+bool interseg(line r, line s) { // se o seg de r intersecta o seg de s
 	if (isinseg(r.p, s) or isinseg(r.q, s)
 		or isinseg(s.p, r) or isinseg(s.q, r)) return 1;
 
@@ -119,12 +105,6 @@ ll polarea2(vector<pt> v) { // 2 * area do poligono
 	return abs(ret);
 }
 
-bool onpol(pt p, vector<pt> v) { // se um ponto esta na fronteira do poligono
-	for (int i = 0; i < v.size(); i++)
-		if (isinseg(p, line(v[i], v[(i + 1) % v.size()]))) return 1;
-	return 0;
-}
-
 vector<pt> convex_hull(vector<pt> v) { // convex hull
 	vector<pt> l, u;
 	sort(v.begin(), v.end());
@@ -143,7 +123,7 @@ vector<pt> convex_hull(vector<pt> v) { // convex hull
 	return l;
 }
 
-ll interior_points(vector<pt> v) { // numero de pontos interiores em um poligono simples
+ll interior_points(vector<pt> v) { // pontos inteiros dentro de um poligono simples
 	ll b = 0;
 	for (int i = 0; i < v.size(); i++)
 		b += segpoints(line(v[i], v[(i+1)%v.size()])) - 1;
@@ -164,9 +144,51 @@ struct convex_pol {
 		}
 		if (l == 1) return isinseg(p, line(pol[0], pol[1]));
 		if (l == pol.size()) return false;
-		return (pol[l-1]^pol[l]) >= ((pol[l-1]-pol[l])^p);
+		return !ccw(p, pol[l], pol[l-1]);
 	}
 };
+
+bool operator < (const line& a, const line& b) { // comparador pro sweepline
+	if (a.p == b.p) return ccw(a.p, a.q, b.q);
+	if (a.p.x != a.q.x and (b.p.x == b.q.x or a.p.x < b.p.x))
+		return ccw(a.p, a.q, b.p);
+	return ccw(a.p, b.q, b.p);
+}
+
+bool simple(vector<pt> v) { // se um poligono eh simples - O(n log(n))
+	auto intersects = [&](pair<line, int> a, pair<line, int> b) {
+		if ((a.s+1)%v.size() == b.s or (b.s+1)%v.size() == a.s) return false;
+		return interseg(a.f, b.f);
+	};
+	vector<line> seg;
+	vector<pair<pt, pair<int, int>>> w;
+	for (int i = 0; i < v.size(); i++) {
+		pt at = v[i], nxt = v[(i+1)%v.size()];
+		// pontos do segmento devem estar ordenados
+		if (nxt < at) swap(at, nxt);
+		seg.push_back(line(at, nxt));
+		w.push_back({at, {0, i}});
+		w.push_back({nxt, {1, i}});
+
+	}
+	sort(w.begin(), w.end());
+	set<pair<line, int>> se;
+	for (auto i : w) {
+		line at = seg[i.s.s];
+		if (i.s.f == 0) {
+			auto nxt = se.lower_bound({at, i.s.s});
+			if (nxt != se.end() and intersects(*nxt, {at, i.s.s})) return 0;
+			if (nxt != se.begin() and intersects(*(--nxt), {at, i.s.s})) return 0;
+			se.insert({at, i.s.s});
+		} else {
+			auto nxt = se.upper_bound({at, i.s.s}), cur = nxt, prev = --cur;
+			if (nxt != se.end() and prev != se.begin()
+				and intersects(*nxt, *(--prev))) return 0;
+			se.erase(cur);
+		}
+	}
+	return 1;
+}
 
 // comparador pro set pra fazer sweep angle com segmentos
 

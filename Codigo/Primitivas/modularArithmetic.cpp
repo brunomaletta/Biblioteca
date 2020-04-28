@@ -82,3 +82,12 @@ template<int p> struct mod_int {
 };
 
 typedef mod_int<1e9+7> mint;
+
+vector<mint> fatt;
+
+mint fat(int n) {
+	if (n < fatt.size()) return fatt[n];
+	if (!n) fatt.push_back(1);
+	else fatt.push_back(n*fat(n-1));
+	return fatt.back();
+}

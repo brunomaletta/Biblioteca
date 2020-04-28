@@ -30,8 +30,7 @@ struct pt { // ponto
 	ld operator * (const pt p) const { return x*p.x + y*p.y; }
 	ld operator ^ (const pt p) const { return x*p.y - y*p.x; }
 	friend istream& operator >> (istream& in, pt& p) {
-		in >> p.x >> p.y;
-		return in;
+		return in >> p.x >> p.y;
 	}
 };
 
@@ -40,8 +39,7 @@ struct line { // reta
 	line() {}
 	line(pt p_, pt q_) : p(p_), q(q_) {}
 	friend istream& operator >> (istream& in, line& r) {
-		in >> r.p >> r.q;
-		return in;
+		return in >> r.p >> r.q;
 	}
 };
 
@@ -65,12 +63,6 @@ ld angle(pt v) { // angulo do vetor com o eixo x
 	return ang;
 }
 
-pt normalize(pt v) { // vetor normalizado
-	if (!norm(v)) return v;
-	v = v / norm(v);
-	return v;
-}
-
 ld sarea(pt p, pt q, pt r) { // area com sinal
 	return ((q-p)^(r-q))/2;
 }
@@ -87,7 +79,7 @@ int paral(pt u, pt v) { // se u e v sao paralelos
 }
 
 bool ccw(pt p, pt q, pt r) { // se p, q, r sao ccw
-	return sarea(p, q, r)-eps > 0;
+	return sarea(p, q, r) > eps;
 }
 
 pt rotate(pt p, ld th) { // rotaciona o ponto th radianos
@@ -115,18 +107,8 @@ ld getn(line r) { // coef. lin. de r
 	return r.p.y - getm(r) * r.p.x;
 }
 
-bool lineeq(line r, line s) { // r == s
-	return col(r.p, r.q, s.p) and col(r.p, r.q, s.q);
-}
-
 bool paraline(line r, line s) { // se r e s sao paralelas
-	if (isvert(r) and isvert(s)) return 1;
-	if (isvert(r) or isvert(s)) return 0;
-	return eq(getm(r), getm(s));
-}
-
-bool isinline(pt p, line r) { // se p pertence a r
-	return col(p, r.p, r.q);
+	return paral(r.p - r.q, s.p - s.q);
 }
 
 bool isinseg(pt p, line r) { // se p pertence ao seg de r
@@ -155,7 +137,7 @@ pt inter(line r, line s) { // r inter s
 	return pt(x, getm(r) * x + getn(r));
 }
 
-bool interseg(line r, line s) { // se o seg de r intercepta o seg de s
+bool interseg(line r, line s) { // se o seg de r intersecta o seg de s
 	if (isinseg(r.p, s) or isinseg(r.q, s)
 		or isinseg(s.p, r) or isinseg(s.q, r)) return 1;
 
@@ -187,24 +169,11 @@ ld distseg(line a, line b) { // distancia entre seg
 
 // POLIGONO
 
-ld polper(vector<pt> v) { // perimetro do poligono
-	ld ret = 0;
-	for (int i = 0; i < v.size(); i++)
-		ret += dist(v[i], v[(i + 1) % v.size()]);
-	return ret;
-}
-
 ld polarea(vector<pt> v) { // area do poligono
 	ld ret = 0;
 	for (int i = 0; i < v.size(); i++)
 		ret += sarea(pt(0, 0), v[i], v[(i + 1) % v.size()]);
 	return abs(ret);
-}
-
-bool onpol(pt p, vector<pt> v) { // se um ponto esta na fronteira do poligono
-	for (int i = 0; i < v.size(); i++)
-		if (isinseg(p, line(v[i], v[(i + 1) % v.size()]))) return 1;
-	return 0;
 }
 
 bool inpol(pt p, vector<pt> v) { // se um ponto pertence ao poligono
@@ -215,10 +184,10 @@ bool inpol(pt p, vector<pt> v) { // se um ponto pertence ao poligono
 		line s = line(v[i], v[(i + 1) % v.size()]);
 		if (interseg(r, s)) c++;
 	}
-	return c & 1;
+	return c % 2;
 }
 
-bool interpol(vector<pt> v1, vector<pt> v2) { // se dois poligonos se interceptam
+bool interpol(vector<pt> v1, vector<pt> v2) { // se dois poligonos se intersectam
 	for (int i = 0; i < v1.size(); i++) if (inpol(v1[i], v2)) return 1;
 	for (int i = 0; i < v2.size(); i++) if (inpol(v2[i], v1)) return 1;
 	return 0;
@@ -267,9 +236,51 @@ struct convex_pol {
 		}
 		if (l == 1) return isinseg(p, line(pol[0], pol[1]));
 		if (l == pol.size()) return false;
-		return (pol[l-1]^pol[l])+eps > ((pol[l-1]-pol[l])^p);
+		return !ccw(p, pol[l], pol[l-1]);
 	}
 };
+
+bool operator < (const line& a, const line& b) { // comparador pro sweepline
+	if (a.p == b.p) return ccw(a.p, a.q, b.q);
+	if (!eq(a.p.x, a.q.x) and (eq(b.p.x, b.q.x) or a.p.x+eps < b.p.x))
+		return ccw(a.p, a.q, b.p);
+	return ccw(a.p, b.q, b.p);
+}
+
+bool simple(vector<pt> v) { // se um poligono eh simples - O(n log(n))
+	auto intersects = [&](pair<line, int> a, pair<line, int> b) {
+		if ((a.s+1)%v.size() == b.s or (b.s+1)%v.size() == a.s) return false;
+		return interseg(a.f, b.f);
+	};
+	vector<line> seg;
+	vector<pair<pt, pair<int, int>>> w;
+	for (int i = 0; i < v.size(); i++) {
+		pt at = v[i], nxt = v[(i+1)%v.size()];
+		// pontos do segmento devem estar ordenados
+		if (nxt < at) swap(at, nxt);
+		seg.push_back(line(at, nxt));
+		w.push_back({at, {0, i}});
+		w.push_back({nxt, {1, i}});
+
+	}
+	sort(w.begin(), w.end());
+	set<pair<line, int>> se;
+	for (auto i : w) {
+		line at = seg[i.s.s];
+		if (i.s.f == 0) {
+			auto nxt = se.lower_bound({at, i.s.s});
+			if (nxt != se.end() and intersects(*nxt, {at, i.s.s})) return 0;
+			if (nxt != se.begin() and intersects(*(--nxt), {at, i.s.s})) return 0;
+			se.insert({at, i.s.s});
+		} else {
+			auto nxt = se.upper_bound({at, i.s.s}), cur = nxt, prev = --cur;
+			if (nxt != se.end() and prev != se.begin()
+				and intersects(*nxt, *(--prev))) return 0;
+			se.erase(cur);
+		}
+	}
+	return 1;
+}
 
 // CIRCUNFERENCIA
 

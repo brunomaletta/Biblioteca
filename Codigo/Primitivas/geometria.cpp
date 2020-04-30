@@ -261,6 +261,9 @@ bool simple(vector<pt> v) { // se um poligono eh simples - O(n log(n))
 		seg.push_back(line(at, nxt));
 		w.push_back({at, {0, i}});
 		w.push_back({nxt, {1, i}});
+		// casos degenerados estranhos
+		if (isinseg(v[(i+2)%v.size()], line(at, nxt))) return 0;
+		if (isinseg(v[(i+v.size()-1)%v.size()], line(at, nxt))) return 0;
 
 	}
 	sort(w.begin(), w.end());

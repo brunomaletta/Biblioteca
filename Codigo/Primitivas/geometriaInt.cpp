@@ -105,7 +105,7 @@ ll polarea2(vector<pt> v) { // 2 * area do poligono
 	return abs(ret);
 }
 
-vector<pt> convex_hull(vector<pt> v) { // convex hull
+vector<pt> convex_hull(vector<pt> v) { // convex hull - O(n log(n))
 	vector<pt> l, u;
 	sort(v.begin(), v.end());
 	for (int i = 0; i < v.size(); i++) {

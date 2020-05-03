@@ -204,7 +204,7 @@ ld distpol(vector<pt> v1, vector<pt> v2) { // distancia entre poligonos
 	return ret;
 }
 
-vector<pt> convex_hull(vector<pt> v) { // convex hull
+vector<pt> convex_hull(vector<pt> v) { // convex hull - O(n log(n))
 	vector<pt> l, u;
 	sort(v.begin(), v.end());
 	for (int i = 0; i < v.size(); i++) {

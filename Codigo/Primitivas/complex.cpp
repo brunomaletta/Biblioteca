@@ -21,7 +21,9 @@ struct cplx{
 		i = i_;
 		return *this;
 	}
-
+	cplx conj(){
+		return cplx(r, -i);
+	}
 	cplx& operator/=(cplx a){
 		auto a_ = a.inv();
 		return (*this)*=a_;
@@ -39,16 +41,17 @@ struct cplx{
 	friend cplx operator/(cplx a, cplx b){ return a/=b; }
 	friend cplx operator^(cplx a, double e){ return a^=e; }
 
-  //fft 
+	//fft 
 	static int fft_len(int N){
-		//max k such that 2^k | p-1
 		int n = 1, log_n = 0;
 		while (n <= N) { n <<= 1; log_n++; }
 		return log_n;
 	}
 	static cplx rt(bool f, int n, int N){
+		const static double PI = acos(-1);
 		double alpha = (2*PI)/n;
 		if (f) alpha = -alpha;
 		return cplx(cos(alpha), sin(alpha));
 	}
 };
+

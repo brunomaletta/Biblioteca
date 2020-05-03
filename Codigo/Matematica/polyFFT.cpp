@@ -4,39 +4,38 @@
 //
 // Soma O(n) & Multiplicacao O(nlogn)
 
-template<typename T> void fft(vector<T> &a, bool f, int log_n, int N, vector<int> &rev){
+template<typename T> void fft(vector<T> &a, bool f, int N, vector<int> &rev){
 	for (int i = 0; i < N; i++)
 		if (i < rev[i])
 			swap(a[i], a[rev[i]]);
 	int l, r, m;
-
-	vector<T> roots(log_n+1);
-	roots.back() = T::rt(f, N);
-	for (int i = log_n-1; i >= 0; i--)
-		roots[i] = roots[i+1]*roots[i+1];
-
-	vector<T> pts(N);
-	int k = 1;
+	vector<T> roots(N);
 	for (int n = 2; n <= N; n *= 2){
-		T root = roots[k++];
-		pts[0] = 1;
+		T root = T::rt(f, n, N);
+		roots[0] = 1;
 		for (int i = 1; i < n/2; i++)
-			pts[i] = pts[i-1]*root;
+			roots[i] = roots[i-1]*root;
 		for (int pos = 0; pos < N; pos += n){
 			l = pos+0, r = pos+n/2, m = 0;
 			while (m < n/2){
-				auto t = pts[m]*a[r];
+				auto t = roots[m]*a[r];
 				a[r] = a[l] - t;
 				a[l] = a[l] + t;
 				l++; r++; m++;
 			}
 		}
 	}
-	if (f) for(int i = 0; i < N; i++) a[i] = a[i]/N;
+	if (f) {
+		auto invN = T(1)/N;
+		for(int i = 0; i < N; i++) a[i] = a[i]*invN;
+	}
 }
 
 
 template<typename T> struct poly : vector<T> {
+	poly(const vector<int> &coef):vector<T>(coef.size()){
+		for (int i = 0; i < coef.size(); i++) this->at(i) = coef[i];
+	}
 	poly(const vector<T> &coef):vector<T>(coef){}
 	poly(unsigned size, T val = 0):vector<T>(size, val){}
 	poly(){}
@@ -45,7 +44,7 @@ template<typename T> struct poly : vector<T> {
 		for (auto c : *this) {
 			ans = ans+c*curr_x;
 			curr_x = curr_x*x;
-	
+
 		}
 		return ans;
 	}
@@ -62,18 +61,6 @@ template<typename T> struct poly : vector<T> {
 	poly<T> operator-(poly<T> &r){
 		for (auto &it : r) it = -it;
 		return (*this)+r;
-	}
-	void fix(int k){
-		if (k < this->size()) throw logic_error("normalizando errado");
-		while (this->size() < k) this->push_back(0);
-	}
-	pair<poly<T>, poly<T>> split(){
-		const poly<T> &p = *this;
-		poly<T> l, r;
-		for (int i = 0; i < p.size(); i++)
-			if (i&1) l.push_back(p[i]);
-			else r.push_back(p[i]);
-		return {l, r};
 	}
 	poly<T> operator*(const poly<T> r){
 		const poly<T> &l = *this;
@@ -97,22 +84,23 @@ template<typename T> struct poly : vector<T> {
 		for (int i = 0; i < rn; i++) Y[i] = r[i];
 		for (int i = rn; i < n; i++) Y[i] = 0;
 
-		fft(X, false, log_n, n, rev);
-		fft(Y, false, log_n, n, rev);
+		fft(X, false, n, rev);
+		fft(Y, false, n, rev);
 
 		for (int i = 0; i < n; i++)
 			Y[i] = X[i]*Y[i];
 
-		fft(Y, true, log_n, n, rev);
+		fft(Y, true, n, rev);
 		poly<T> ans(N);
 		for (int i = 0; i < N; i++)
 			ans[i] = Y[i];
-		
+
 		//	while (!ans.empty() && ans.back() == 0)
 		//		ans.pop_back();
 		return ans;
 	}
-	pair<poly<T>, T> briot_ruffini(T r){//for p = Q(x - r) + R, returns (Q, R)
+
+	pair<poly<T>, T> briot_ruffini(T r){//for p = Q*(x - r) + R, returns (Q, R)
 		const poly<T> &l = *this;
 		int sz = l.size();
 		if (sz == 0) return {poly<T>(0), 0};
@@ -124,41 +112,42 @@ template<typename T> struct poly : vector<T> {
 		}
 		return {q, q[0]*r + l[0]};
 	}
+	friend ostream& operator<<(ostream &out, const poly<T> &p){
+		if (p.empty()) return out;
+		out << p.at(0);
+		for (int i = 1; i < p.size(); i++)
+			out << " + " << p.at(i) << "x^" << i;
+		out << endl;
+		return out;
+	}
 };
 
+mt19937 rng((int) chrono::steady_clock::now().time_since_epoch().count());
 
-template<typename T> ostream& operator<<(ostream &out, const poly<T> &p){
-	if (p.empty()) return out;
-	out << p.at(0);
-	for (int i = 1; i < p.size(); i++)
-		out << " + " << p.at(i) << "x^" << i;
-	out << endl;
-	return out;
-}
+const int MOD = 998244353;
 
-int main(){ _
-	poly<int> p({-2, -1, 2, 1});
-	poly<int> q({1, 1, 1});
-	poly<int> sum = p+q;
-	poly<int> mult = p*q;//int doesnt support mult, type should be cplx or mod_int<P> 
-	cout << "p: " << p << endl;
-	cout << "q: " << q << endl;
-	cout << "pq: " << mult << endl;
-	for (int i = 1; i <= 50; i++){
-		auto P = p(i), Q = q(i), M = mult(i);
-		cout << P*Q << "\t\tvs\t\t" << M << endl;
-		if (abs(P*Q - M) > 1e-5) throw logic_error("bad implementation :(");
+using mint = mod_int<MOD>;
+
+int main(){
+	uniform_int_distribution<int> uid(0, MOD-1);
+	int n = (1 << mint::fft_len()/2);
+	auto rand_vec = [&](){
+		vector<int> rd(n);
+		for (int &i : rd) i = uid(rng);
+		return rd;
+	};
+
+	poly<mint> p = rand_vec();
+	poly<mint> q = rand_vec();
+	poly<mint> sum = p+q;
+	poly<mint> mult = p*q; 
+	for (int i = 1; i <= 5000; i++){
+		int x = uid(rng);
+		auto P = p(x), Q = q(x), M = mult(x);
+		if (P*Q != M) throw logic_error("bad implementation :(");
 	}
 	cout << "sucesso!" << endl;
 	exit(0);
-	for (int root : {1, -1, 2, -2, 3}){
-		poly<int> t; int r;
-		tie(t, r) = p.briot_ruffini(root);
-		cout << p << "/" << poly<int>({-root, 1});
-		cout << " = " << endl;
-		cout << t << " + " << r << endl;
-		cout << endl;
-	}
 
 	exit(0);
 }

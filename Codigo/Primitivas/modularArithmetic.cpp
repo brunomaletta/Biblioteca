@@ -54,6 +54,8 @@ template<int p> struct mod_int {
 		return in;
 	}
 	friend ostream &operator<<(ostream &out, m a) {
+		return out << a.v;
+	}
 	friend m operator+(m a, m b) { return a+=b; }
 	friend m operator-(m a, m b) { return a-=b; }
 	friend m operator*(m a, m b) { return a*=b; }

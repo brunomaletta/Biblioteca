@@ -14,12 +14,12 @@ namespace seg { ... }
 
 namespace hld {
 	vector<int> g[MAX];
-	int in[MAX], out[MAX], sz[MAX];
+	int pos[MAX], sz[MAX];
 	int peso[MAX], pai[MAX];
 	int h[MAX], v[MAX], t;
 
 	void build_hld(int k, int p = -1, int f = 1) {
-		v[in[k] = t++] = peso[k]; sz[k] = 1;
+		v[pos[k] = t++] = peso[k]; sz[k] = 1;
 		for (auto& i : g[k]) if (i != p) {
 			pai[i] = k;
 			h[i] = (i == g[k][0] ? h[k] : i);
@@ -27,7 +27,6 @@ namespace hld {
 
 			if (sz[i] > sz[g[k][0]]) swap(i, g[k][0]);
 		}
-		out[k] = t;
 		if (p*f == -1) build_hld(h[k] = k, -1, t = 0);
 	}
 	void build(int root = 0) {
@@ -36,29 +35,25 @@ namespace hld {
 		seg::build(t, v);
 	}
 	ll query_path(int a, int b) {
-		if (a == b) return seg::query(in[a], in[a]);
-		if (in[a] < in[b]) swap(a, b);
+		if (pos[a] < pos[b]) swap(a, b);
 
-		if (h[a] == h[b]) return seg::query(in[b], in[a]);
-		return seg::query(in[h[a]], in[a]) + query_path(pai[h[a]], b);
+		if (h[a] == h[b]) return seg::query(pos[b], pos[a]);
+		return seg::query(pos[h[a]], pos[a]) + query_path(pai[h[a]], b);
 	}
 	void update_path(int a, int b, int x) {
-		if (a == b) return (void)seg::update(in[a], in[a], x);
-		if (in[a] < in[b]) swap(a, b);
+		if (pos[a] < pos[b]) swap(a, b);
 
-		if (h[a] == h[b]) return (void)seg::update(in[b], in[a], x);
-		seg::update(in[h[a]], in[a], x); update_path(pai[h[a]], b, x);
+		if (h[a] == h[b]) return (void)seg::update(pos[b], pos[a], x);
+		seg::update(pos[h[a]], pos[a], x); update_path(pai[h[a]], b, x);
 	}
 	ll query_subtree(int a) {
-		if (in[a] == out[a]-1) return seg::query(in[a], in[a]);
-		return seg::query(in[a], out[a]-1);
+		return seg::query(pos[a], pos[a]+sz[a]-1);
 	}
 	void update_subtree(int a, int x) {
-		if (in[a] == out[a]-1) return (void)seg::update(in[a], in[a], x);
-		seg::update(in[a], out[a]-1, x);
+		seg::update(pos[a], pos[a]+sz[a]-1, x);
 	}
 	int lca(int a, int b) {
-		if (in[a] < in[b]) swap(a, b);
+		if (pos[a] < pos[b]) swap(a, b);
 		return h[a] == h[b] ? b : lca(pai[h[a]], b);
 	}
 }

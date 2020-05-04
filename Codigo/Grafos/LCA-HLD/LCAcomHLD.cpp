@@ -9,11 +9,11 @@
 // lca - O(log(n))
 
 vector<vector<int> > g(MAX);
-int in[MAX], h[MAX], sz[MAX];
+int pos[MAX], h[MAX], sz[MAX];
 int pai[MAX], t;
 
 void build(int k, int p = -1, int f = 1) {
-	in[k] = t++; sz[k] = 1;
+	pos[k] = t++; sz[k] = 1;
 	for (int& i : g[k]) if (i != p) {
 		pai[i] = k;
 		h[i] = (i == g[k][0] ? h[k] : i);
@@ -25,6 +25,6 @@ void build(int k, int p = -1, int f = 1) {
 }
 
 int lca(int a, int b) {
-	if (in[a] < in[b]) swap(a, b);
+	if (pos[a] < pos[b]) swap(a, b);
 	return h[a] == h[b] ? b : lca(pai[h[a]], b);
 }

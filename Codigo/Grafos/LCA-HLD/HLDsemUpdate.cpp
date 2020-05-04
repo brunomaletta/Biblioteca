@@ -11,13 +11,13 @@
 
 namespace hld {
 	vector<pair<int, int> > g[MAX];
-	int in[MAX], sz[MAX];
+	int pos[MAX], sz[MAX];
 	int sobe[MAX], pai[MAX];
 	int h[MAX], v[MAX], t;
 	int men[MAX], seg[2*MAX];
 
 	void build_hld(int k, int p = -1, int f = 1) {
-		v[in[k] = t++] = sobe[k]; sz[k] = 1;
+		v[pos[k] = t++] = sobe[k]; sz[k] = 1;
 		for (auto& i : g[k]) if (i.f != p) {
 			sobe[i.f] = i.s; pai[i.f] = k;
 			h[i.f] = (i == g[k][0] ? h[k] : i.f);
@@ -36,10 +36,10 @@ namespace hld {
 	}
 	int query_path(int a, int b) {
 		if (a == b) return INF;
-		if (in[a] < in[b]) swap(a, b);
+		if (pos[a] < pos[b]) swap(a, b);
 
 		if (h[a] != h[b]) return min(men[a], query_path(pai[h[a]], b));
-		int ans = INF, x = in[b]+1+t, y = in[a]+t;
+		int ans = INF, x = pos[b]+1+t, y = pos[a]+t;
 		for (; x <= y; ++x/=2, --y/=2) ans = min({ans, seg[x], seg[y]});
 		return ans;
 	}

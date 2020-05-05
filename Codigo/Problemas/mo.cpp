@@ -30,7 +30,9 @@ vector<int> MO(vector<ii> &q){
 		int sl = q[l].first/SQ;
 		int sr = q[r].first/SQ;
 		if (sl != sr) return sl < sr;
-		return q[l].second < q[r].second;
+		bool b = q[l].second < q[r].second;
+		if (sl&1) b = !b;
+		return b;
 	});
 	int l = 0, r = 0;
 	insert(0);

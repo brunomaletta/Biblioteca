@@ -25,7 +25,7 @@ namespace hld {
 			h[i] = (i == g[k][0] ? h[k] : i);
 			build_hld(i, k, f); sz[k] += sz[i];
 
-			if (sz[i] > sz[g[k][0]]) swap(i, g[k][0]);
+			if (sz[i] > sz[g[k][0]] or g[k][0] == p) swap(i, g[k][0]);
 		}
 		if (p*f == -1) build_hld(h[k] = k, -1, t = 0);
 	}

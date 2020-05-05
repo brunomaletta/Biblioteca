@@ -19,7 +19,7 @@ void build(int k, int p = -1, int f = 1) {
 		h[i] = (i == g[k][0] ? h[k] : i);
 		build(i, k, f); sz[k] += sz[i];
 		
-		if (sz[i] > sz[g[k][0]]) swap(i, g[k][0]);
+		if (sz[i] > sz[g[k][0]] or g[k][0] == p) swap(i, g[k][0]);
 	}
 	if (p*f == -1) t = 0, h[k] = k, build(k, -1, 0);
 }

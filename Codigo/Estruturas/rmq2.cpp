@@ -14,7 +14,7 @@ template<typename T> struct rmq {
 	int op(int x, int y) { return v[x] < v[y] ? x : y; }
 	rmq(vector<T>& v_) {
 		v = v_, n = v.size();
-		b = (__builtin_clz(0)-__builtin_clz(n))/4 + 1;
+		b = (__builtin_clz(1)-__builtin_clz(n)+1)/4 + 1;
 		id.resize(n);
 		table.assign(4*b, vector<int>((n+b-1)/b));
 		entre.assign(1<<b<<b, vector<vector<int>>(b, vector<int>(b, -1)));
@@ -41,7 +41,7 @@ template<typename T> struct rmq {
 		if (i/b == j/b) return v[i/b*b+entre[id[i]][i%b][j%b]];
 		int x = i/b+1, y = j/b-1, ans = i;
 		if (x <= y) {
-			int t = __builtin_clz(0) - __builtin_clz(y-x+1) - 1;
+			int t = __builtin_clz(1) - __builtin_clz(y-x+1);
 			ans = op(ans, op(table[t][x], table[t][y-(1<<t)+1]));
 		}
 		ans = op(ans, op(i/b*b+entre[id[i]][i%b][b-1], j/b*b+entre[id[j]][0][j%b]));

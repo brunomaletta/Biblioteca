@@ -15,10 +15,10 @@ template<typename T> struct rmq {
 	vector<int> mask, t;
 
 	int op(int x, int y) { return v[x] < v[y] ? x : y; }
-	int msb(int x) { { return __builtin_clz(0)-__builtin_clz(x)-1; } }
+	int msb(int x) { return __builtin_clz(1)-__builtin_clz(x); }
 	rmq() {}
-	rmq(const vector<T>& v_) : v(v_), n(v.size()), mask(n), t(2*n) {
-		for (int i = 0, at = 0; i < v.size(); mask[i++] = at |= 1) {
+	rmq(const vector<T>& v_) : v(v_), n(v.size()), mask(n), t(n) {
+		for (int i = 0, at = 0; i < n; mask[i++] = at |= 1) {
 			at = (at<<1)&((1<<b)-1);
 			while (at and op(i, i-msb(at&-at)) == i) at ^= at&-at;
 		}

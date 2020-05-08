@@ -1,6 +1,7 @@
 // Binomial modular
 //
-// Computa C(n, k) mod m em O(m)
+// Computa C(n, k) mod m em O(m + log(m) log(n))
+// = O(rapido)
 
 ll divi[MAX];
 
@@ -88,4 +89,3 @@ ll solve(ll n, ll x, int mod) {
 	}
 	return ans.a;
 }
-

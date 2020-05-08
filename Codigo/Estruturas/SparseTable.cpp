@@ -16,7 +16,7 @@ namespace sparse {
 			m[j][i] = min(m[j-1][i], m[j-1][i+(1<<(j-1))]);
 	}
 	int query(int a, int b) {
-		int j = __builtin_clz(0) - __builtin_clz(b-a+1) - 1;
+		int j = __builtin_clz(1) - __builtin_clz(b-a+1);
 		return min(m[j][a], m[j][b-(1<<j)+1]);
 	}
 }

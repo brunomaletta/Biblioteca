@@ -1,19 +1,17 @@
-// LCA com RMQ
+// Virtual Tree
 //
-// Assume que um vertice eh ancestral dele mesmo, ou seja,
-// se a eh ancestral de b, lca(a, b) = a
-// dist(a, b) retorna a distancia entre a e b
+// Comprime uma arvore dado um conjunto S de vertices, de forma que
+// o conjunto de vertices da arvore comprimida contenha S e seja
+// minimal e fechado sobre a operacao de LCA
+// Se |S| = k, a arvore comprimida tem O(k) vertices
 //
-// Complexidades:
-// build - O(n)
-// lca - O(1)
-// dist - O(1)
+// O(k log(k))
 
 template<typename T> struct rmq {
 	vector<T> v;
 	int n; static const int b = 30;
 	vector<int> mask, t;
-
+ 
 	int op(int x, int y) { return v[x] < v[y] ? x : y; }
 	int msb(int x) { return __builtin_clz(1)-__builtin_clz(x); }
 	rmq() {}
@@ -38,13 +36,13 @@ template<typename T> struct rmq {
 		return ans;
 	}
 };
-
+ 
 namespace lca {
 	vector<int> g[MAX];
 	int v[2*MAX], pos[MAX], dep[2*MAX];
 	int t;
 	rmq<int> RMQ;
-
+ 
 	void dfs(int i, int d = 0, int p = -1) {
 		v[t] = i, pos[i] = t, dep[t++] = d;
 		for (int j : g[i]) if (j != p) {
@@ -55,7 +53,7 @@ namespace lca {
 	void build(int n, int root) {
 		t = 0;
 		dfs(root);
-		RMQ = rmq<int>(vector<int>(v, v+2*n));
+		RMQ = rmq<int>(vector<int>(dep, dep+2*n-1));
 	}
 	int lca(int a, int b) {
 		a = pos[a], b = pos[b];
@@ -64,4 +62,21 @@ namespace lca {
 	int dist(int a, int b) {
 		return dep[pos[a]] + dep[pos[b]] - 2*dep[pos[lca(a, b)]];
 	}
+}
+
+vector<int> virt[MAX];
+
+#warning lembrar de buildar o LCA antes
+int build_virt(vector<int> v) {
+	auto cmp = [&](int i, int j) { return lca::pos[i] < lca::pos[j]; };
+	sort(v.begin(), v.end(), cmp);
+	for (int i = v.size()-1; i; i--) v.push_back(lca::lca(v[i], v[i-1]));
+	sort(v.begin(), v.end(), cmp);
+	v.erase(unique(v.begin(), v.end()), v.end());
+	for (int i : v) virt[i].clear();
+	for (int i = 1; i < v.size(); i++) {
+#warning soh to colocando aresta descendo
+		virt[lca::lca(v[i-1], v[i])].pb(v[i]);
+	}
+	return v[0];
 }

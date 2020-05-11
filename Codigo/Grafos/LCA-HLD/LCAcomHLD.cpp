@@ -3,12 +3,14 @@
 // Assume que um vertice eh ancestral dele mesmo, ou seja,
 // se a eh ancestral de b, lca(a, b) = a
 // Para buildar pasta chamar build(root)
+// anc(a, b) responde se 'a' eh ancestral de 'b'
 //
 // Complexidades:
 // build - O(n)
 // lca - O(log(n))
+// anc - O(1)
 
-vector<vector<int> > g(MAX);
+vector<int> g[MAX];
 int pos[MAX], h[MAX], sz[MAX];
 int pai[MAX], t;
 
@@ -28,3 +30,8 @@ int lca(int a, int b) {
 	if (pos[a] < pos[b]) swap(a, b);
 	return h[a] == h[b] ? b : lca(pai[h[a]], b);
 }
+
+bool anc(int a, int b) {
+	return pos[a] <= pos[b] and pos[b] <= pos[a]+sz[a]-1;
+}
+

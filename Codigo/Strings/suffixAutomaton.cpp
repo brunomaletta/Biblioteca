@@ -21,7 +21,7 @@ namespace sam {
 		link[cur] = link[q] = qq;
 	}
 	void build(string& s) {
-		len[0] = 0, link[0]	= -1, sz++;
+		len[0] = 0, link[0] = -1, sz++;
 		for (auto i : s) add(i-'a');
 		int at = cur;
 		while (at) acc[at] = 1, at = link[at];

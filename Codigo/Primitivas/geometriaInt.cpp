@@ -98,6 +98,17 @@ double get_t(pt v, line r) { // retorna t tal que t*v pertence a reta r
 
 // POLIGONO
 
+// quadrado da distancia entre os retangulos a e b (lados paralelos aos eixos)
+// assume que ta representado (inferior esquerdo, superior direito)
+ll dist2_rect(pair<pt, pt> a, pair<pt, pt> b) {
+	int hor = 0, vert = 0;
+	if (a.s.x < b.f.x) hor = b.f.x - a.s.x;
+	else if (b.s.x < a.f.x) hor = a.f.x - b.s.x;
+	if (a.s.y < b.f.y) vert = b.f.y - a.s.y;
+	else if (b.s.y < a.f.y) vert = a.f.y - b.s.y;
+	return sq(hor) + sq(vert);
+}
+
 ll polarea2(vector<pt> v) { // 2 * area do poligono
 	ll ret = 0;
 	for (int i = 0; i < v.size(); i++)
@@ -106,6 +117,7 @@ ll polarea2(vector<pt> v) { // 2 * area do poligono
 }
 
 vector<pt> convex_hull(vector<pt> v) { // convex hull - O(n log(n))
+	if (v.size() <= 1) return v;
 	vector<pt> l, u;
 	sort(v.begin(), v.end());
 	for (int i = 0; i < v.size(); i++) {

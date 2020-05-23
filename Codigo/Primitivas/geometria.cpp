@@ -169,6 +169,17 @@ ld distseg(line a, line b) { // distancia entre seg
 
 // POLIGONO
 
+// distancia entre os retangulos a e b (lados paralelos aos eixos)
+// assume que ta representado (inferior esquerdo, superior direito)
+ld dist2_rect(pair<pt, pt> a, pair<pt, pt> b) {
+	ld hor = 0, vert = 0;
+	if (a.s.x < b.f.x) hor = b.f.x - a.s.x;
+	else if (b.s.x < a.f.x) hor = a.f.x - b.s.x;
+	if (a.s.y < b.f.y) vert = b.f.y - a.s.y;
+	else if (b.s.y < a.f.y) vert = a.f.y - b.s.y;
+	return dist(pt(0, 0), pt(hor, vert));
+}
+
 ld polarea(vector<pt> v) { // area do poligono
 	ld ret = 0;
 	for (int i = 0; i < v.size(); i++)
@@ -205,6 +216,7 @@ ld distpol(vector<pt> v1, vector<pt> v2) { // distancia entre poligonos
 }
 
 vector<pt> convex_hull(vector<pt> v) { // convex hull - O(n log(n))
+	if (v.size() <= 1) return v;
 	vector<pt> l, u;
 	sort(v.begin(), v.end());
 	for (int i = 0; i < v.size(); i++) {

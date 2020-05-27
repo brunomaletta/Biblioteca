@@ -48,8 +48,8 @@ struct dinic {
 		}
 		return 0;
 	}
-	int max_flow(int s, int t) {
-		int f = 0;
+	ll max_flow(int s, int t) {
+		ll f = 0;
 		for (lim = scaling ? (1<<30) : 1; lim; lim /= 2)
 			while (bfs(s, t)) while (int ff = dfs(s, t)) f += ff;
 		return f;

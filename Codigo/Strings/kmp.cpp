@@ -30,14 +30,14 @@ vector<int> matching(string& t, string& s) {
 	return match;
 }
 
-struct autKMP {
-	vector<vector<int>> nxt;
-
-	autKMP(string& s) : nxt(26, vector<int>(s.size()+1)) {
+struct KMPaut : vector<vector<int>> {
+	KMPaut(){}
+	KMPaut (string& s) : vector<vector<int>>(26, vector<int>(s.size()+1)) {
 		vector<int> p = pi(s);
-		nxt[s[0]-'a'][0] = 1;
+		auto& aut = *this;
+		aut[s[0]-'a'][0] = 1;
 		for (char c = 0; c < 26; c++)
 			for (int i = 1; i <= s.size(); i++)
-				nxt[c][i] = s[i]-'a' == c ? i+1 : nxt[c][p[i-1]];
+				aut[c][i] = s[i]-'a' == c ? i+1 : aut[c][p[i-1]];
 	}
 };

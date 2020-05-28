@@ -189,7 +189,7 @@ ld polarea(vector<pt> v) { // area do poligono
 
 bool inpol(pt p, vector<pt> v) { // se um ponto pertence ao poligono
 	for (int i = 0; i < v.size(); i++)
-		if isinseg(p, line(v[i], v[(i+1)%v.size()])) return 1;
+		if (isinseg(p, line(v[i], v[(i+1)%v.size()]))) return 1;
 	int c = 0;
 	line r = line(p, pt(DINF, pi * DINF));
 	for (int i = 0; i < v.size(); i++) {

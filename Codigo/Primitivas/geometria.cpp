@@ -188,7 +188,8 @@ ld polarea(vector<pt> v) { // area do poligono
 }
 
 bool inpol(pt p, vector<pt> v) { // se um ponto pertence ao poligono
-	if (onpol(p, v)) return 1;
+	for (int i = 0; i < v.size(); i++)
+		if isinseg(p, line(v[i], v[(i+1)%v.size()])) return 1;
 	int c = 0;
 	line r = line(p, pt(DINF, pi * DINF));
 	for (int i = 0; i < v.size(); i++) {
@@ -295,6 +296,36 @@ bool simple(vector<pt> v) { // se um poligono eh simples - O(n log(n))
 		}
 	}
 	return 1;
+}
+
+// se existe um par de segmentos que intersecta - O(n log(n))
+bool has_intersection(vector<line> v) {
+	auto intersects = [&](pair<line, int> a, pair<line, int> b) {
+		return interseg(a.f, b.f);
+	};
+	vector<pair<pt, pair<int, int>>> w;
+	for (int i = 0; i < v.size(); i++) {
+		if (v[i].q < v[i].p) swap(v[i].p, v[i].q);
+		w.push_back({v[i].p, {0, i}});
+		w.push_back({v[i].q, {1, i}});
+	}
+	sort(w.begin(), w.end());
+	set<pair<line, int>> se;
+	for (auto i : w) {
+		line at = v[i.s.s];
+		if (i.s.f == 0) {
+			auto nxt = se.lower_bound({at, i.s.s});
+			if (nxt != se.end() and intersects(*nxt, {at, i.s.s})) return 1;
+			if (nxt != se.begin() and intersects(*(--nxt), {at, i.s.s})) return 1;
+			se.insert({at, i.s.s});
+		} else {
+			auto nxt = se.upper_bound({at, i.s.s}), cur = nxt, prev = --cur;
+			if (nxt != se.end() and prev != se.begin()
+				and intersects(*nxt, *(--prev))) return 1;
+			se.erase(cur);
+		}
+	}
+	return 0;
 }
 
 // CIRCUNFERENCIA

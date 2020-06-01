@@ -1,4 +1,4 @@
-// Distinct Range Query
+// Distinct Range Query - Wavelet
 //
 // build - O(n (log n + log(sigma)))
 // query - O(log(sigma))
@@ -6,7 +6,7 @@
 int v[MAX], n, nxt[MAX];
 
 namespace wav {
-	vector<vector<int> > esq(4*(1+MAXN-MINN));
+	vector<int> esq[4*(1+MAXN-MINN)];
 
 	void build(int b = 0, int e = n, int p = 1, int l = MINN, int r = MAXN) {
 		if (l == r) return;

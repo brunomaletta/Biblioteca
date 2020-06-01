@@ -1,8 +1,5 @@
 // Closest pair of points
 //
-// 
-//
-//
 // O(nlogn)
 
 pair<pt, pt> closest_pair_of_points(vector<pt> &v){

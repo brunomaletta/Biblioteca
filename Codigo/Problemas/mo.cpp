@@ -9,13 +9,13 @@ int v[MAX];
 
 int ans, freq[MAX];
 
-inline void insert(int p){
+inline void insert(int p) {
 	int o = v[p];
 	freq[o]++;
 	ans += (freq[o] == 1);
 }
 
-inline void erase(int p){
+inline void erase(int p) {
 	int o = v[p];
 	ans -= (freq[o] == 1);
 	freq[o]--;
@@ -40,18 +40,27 @@ inline ll hilbert(int x, int y) {
 	return d;
 }
 
-vector<int> MO(vector<ii> &q){
+#define HILBERT true
+vector<int> MO(vector<ii> &q) {
 	ans = 0;
 	int m = q.size();
 	vector<int> ord(m);
+	iota(ord.begin(), ord.end(), 0);
+#if HILBERT
 	vector<ll> h(m);
 	for (int i = 0; i < m; i++) h[i] = hilbert(q[i].first, q[i].second);
+	sort(ord.begin(), ord.end(), [&](int l, int r) { return h[l] < h[r]; });
+#else
+	sort(ord.begin(), ord.end(), [&](int l, int r) {
+		if (qu[l].first / SQ != qu[r].first / SQ) return qu[l].first < qu[r].first;
+		if ((qu[l].first / SQ) % 2) return qu[l].s > qu[r].s;
+		return qu[l].s < qu[r].s;
+	});
+#endif
 	vector<int> ret(m);
-	iota(ord.begin(), ord.end(), 0);
-	sort(ord.begin(), ord.end(), [&](int l, int r){ return h[l] < h[r]; });
 	int l = 0, r = -1;
 
-	for (int i : ord){
+	for (int i : ord) {
 		int ql, qr;
 		tie(ql, qr) = q[i];
 		while (r < qr) insert(++r);

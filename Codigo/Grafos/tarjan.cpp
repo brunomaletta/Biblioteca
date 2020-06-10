@@ -8,6 +8,8 @@ stack<int> s;
 int vis[MAX], comp[MAX];
 int id[MAX], p;
 
+// se quiser comprimir ciclo em grafo nao direcionado,
+// colocar um if na dfs para nao voltar pro vertice que veio
 int dfs(int k) {
 	int lo = id[k] = p++;
 	s.push(k);

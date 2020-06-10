@@ -1,4 +1,4 @@
-// Primitivas de matriz (Rafael)
+// Primitivas de matriz
 
 ll mod(ll v){ return (v + MOD) % MOD; }
 ll sum(ll l, ll r){ return mod(l+r); }

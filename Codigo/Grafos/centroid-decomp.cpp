@@ -1,5 +1,10 @@
 // Centroid decomposition
 //
+// Computa pai[i] = pai de i na arv. da centroid
+// Descomentar o codigo comentado para computar
+// dist[i][x] = distancia na arv. original entre o i e
+// o x-esimo ancestral na arv. da centroid
+//
 // O(n log(n))
 
 int n;
@@ -28,14 +33,21 @@ int centroid(int k, int last, int size) {
 	return k;
 }
 
-void decomp(int k, int last) {
+//vector<int> dist[MAX];
+//void dfs_dist(int k, int last, int d=0) {
+//    dist[k].push_back(d);
+//    for (int j : g[k]) if (j != last and !rem[j])
+//        dfs_dist(j, k, d+1);
+//}
+
+void decomp(int k, int last = -1) {
 	dfs(k, k);
 
 	// acha e tira o centroid
 	int c = centroid(k, k, subsize[k]);
 	rem[c] = 1;
 	pai[c] = last;
-	if (k == last) pai[c] = c;
+	//dfs_dist(c, c);
 
 	// decompoe as sub-arvores
 	for (int i = 0; i < (int) g[c].size(); i++)
@@ -44,5 +56,6 @@ void decomp(int k, int last) {
 
 void build() {
 	memset(rem, 0, sizeof rem);
-	decomp(0, 0);
+	decomp(0);
+	//for (int i = 0; i < n; i++) reverse(dist[i].begin(), dist[i].end());
 }

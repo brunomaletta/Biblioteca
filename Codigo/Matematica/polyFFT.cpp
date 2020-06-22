@@ -42,34 +42,30 @@ template<typename T> struct poly : vector<T> {
 	T operator()(T x){
 		T ans = 0, curr_x(1);
 		for (auto c : *this) {
-			ans = ans+c*curr_x;
-			curr_x = curr_x*x;
-
+			ans += c*curr_x;
+			curr_x *= x;
 		}
 		return ans;
 	}
 	poly<T> operator+(const poly<T> &r){
-		const poly<T> &l = *this;
+		poly<T> l = *this;
 		int sz = max(l.size(), r.size());
-		poly<T> ans(sz);
-		for (unsigned i = 0; i < l.size(); i++)
-			ans[i] = ans[i]+l[i];
-		for (unsigned i = 0; i < r.size(); i++)
-			ans[i] = ans[i]+r[i];
-		return ans;
+		l.resize(sz);
+		for (int i = 0; i < r.size(); i++)
+			l[i] += r[i];
+		return l;
 	}
 	poly<T> operator-(poly<T> &r){
 		for (auto &it : r) it = -it;
 		return (*this)+r;
 	}
-	poly<T> operator*(const poly<T> r){
-		const poly<T> &l = *this;
+	poly<T> operator*(poly<T> r){
+		poly<T> l = *this;
 		int ln = l.size(), rn = r.size();
 		int N = ln+rn+1;
 		int log_n = T::fft_len(N);
 		int n = 1 << log_n;
 		vector<int> rev(n);
-
 		for (int i = 0; i < n; ++i){
 			rev[i] = 0;
 			for (int j = 0; j < log_n; ++j)
@@ -77,40 +73,14 @@ template<typename T> struct poly : vector<T> {
 					rev[i] |= 1 << (log_n-1-j);
 		}
 		if (N > n) throw logic_error("resulting poly to big");
-		vector<T> X(n), Y(n);
-
-		for (int i = 0; i < ln; i++) X[i] = l[i];
-		for (int i = ln; i < n; i++) X[i] = 0;
-		for (int i = 0; i < rn; i++) Y[i] = r[i];
-		for (int i = rn; i < n; i++) Y[i] = 0;
-
-		fft(X, false, n, rev);
-		fft(Y, false, n, rev);
-
+		l.resize(n);
+		r.resize(n);
+		fft(l, false, n, rev);
+		fft(r, false, n, rev);
 		for (int i = 0; i < n; i++)
-			Y[i] = X[i]*Y[i];
-
-		fft(Y, true, n, rev);
-		poly<T> ans(N);
-		for (int i = 0; i < N; i++)
-			ans[i] = Y[i];
-
-		//	while (!ans.empty() && ans.back() == 0)
-		//		ans.pop_back();
-		return ans;
-	}
-
-	pair<poly<T>, T> briot_ruffini(T r){//for p = Q*(x - r) + R, returns (Q, R)
-		const poly<T> &l = *this;
-		int sz = l.size();
-		if (sz == 0) return {poly<T>(0), 0};
-		poly<T> q(sz - 1);
-		q.back() = l.back();
-		for (int i = q.size()-2; i >= 0; i--){
-			cout << i << "~" << q.size() << endl;
-			q[i] = q[i+1]*r + l[i+1];
-		}
-		return {q, q[0]*r + l[0]};
+			l[i] *= r[i];
+		fft(l, true, n, rev);
+		return l;
 	}
 	friend ostream& operator<<(ostream &out, const poly<T> &p){
 		if (p.empty()) return out;

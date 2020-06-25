@@ -44,3 +44,12 @@ template<typename T> struct matrix : vector<vector<T>> {
 		return M;
 	}
 };
+
+template<typename T>
+void linear_rec(matrix<T> M, matrix<T>& v, ll e) {
+	while (e) {
+		if (e&1) v = M*v;
+		e >>= 1;
+		M = M*M;
+	}
+}

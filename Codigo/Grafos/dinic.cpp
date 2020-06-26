@@ -1,6 +1,6 @@
 // Dinic
 //
-// O(n^2 m)
+// O(min(m * max_flow, n^2 m))
 // Grafo com capacidades 1 -> O(sqrt(n)*m)
 
 struct dinic {

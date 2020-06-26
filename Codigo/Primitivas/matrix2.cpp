@@ -5,8 +5,10 @@ template<typename T> struct matrix : vector<vector<T>> {
 	int n, m;
 
 	void print() {
-		for (int i = 0; i < n; i++) for (int j = 0; j < m; j++)
-			cout << (*this)[i][j] << " \n"[j==m-1];
+		for (int i = 0; i < n; i++) {
+			for (int j = 0; j < m; j++) cout << (*this)[i][j] << " ";
+			cout << endl;
+		}
 	}
 
 	matrix(int n_, int m_, bool ident = false) :
@@ -20,7 +22,7 @@ template<typename T> struct matrix : vector<vector<T>> {
 		n(c.size()), m(c[0].size()) {}
 	matrix<T> operator*(matrix<T>& r) {
 		assert(m == r.n);
-		matrix<T> M(n, r.m, 0);
+		matrix<T> M(n, r.m);
 		for (int i = 0; i < n; i++) for (int k = 0; k < m; k++)
 			for (int j = 0; j < r.m; j++) {
 				T add = (*this)[i][k] * r[k][j];
@@ -34,7 +36,6 @@ template<typename T> struct matrix : vector<vector<T>> {
 		return M;
 	}
 	matrix<T> operator^(ll e){
-		assert(n == m);
 		matrix<T> M(n, n, true), at = *this;
 		while (e) {
 			if (e&1) M = M*at;
@@ -43,13 +44,12 @@ template<typename T> struct matrix : vector<vector<T>> {
 		}
 		return M;
 	}
-};
-
-template<typename T>
-void linear_rec(matrix<T> M, matrix<T>& v, ll e) {
-	while (e) {
-		if (e&1) v = M*v;
-		e >>= 1;
-		M = M*M;
+	void apply_transform(matrix M, ll e){
+		auto& v = *this;
+		while (e) {
+			if (e&1) v = M*v;
+			e >>= 1;
+			M = M*M;
+		}
 	}
-}
+};

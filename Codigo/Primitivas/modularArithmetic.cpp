@@ -79,17 +79,6 @@ template<int p> struct mod_int {
 		throw logic_error("find a root");
 		return -1; // return x so that x^(2^k) != x*x^(2^k) = 1
 	}
-
 };
 
-
-typedef mod_int<1e9+7> mint;
-
-vector<mint> fatt;
-
-mint fat(int n) {
-	if (n < fatt.size()) return fatt[n];
-	if (!n) fatt.push_back(1);
-	else fatt.push_back(n*fat(n-1));
-	return fatt.back();
-}
+typedef mod_int<(int)1e9+7> mint;

@@ -4,7 +4,7 @@
 // Custo nas arestas
 // retorna {custo do triangulo, {j, k}}
 //
-// O(m sqrt(m)) se para todos os vertices
+// O(m sqrt(m) log(n)) se chamar para todos os vertices
 
 vector<ii> g[MAX]; // {para, peso}
 

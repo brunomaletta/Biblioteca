@@ -92,4 +92,28 @@ struct SA {
 		i = rnk[i], j = rnk[j];
 		return RMQ.query(min(i, j), max(i, j)-1);
 	}
+	// quantas vezes 't' ocorre em 's' - O(|t| log n)
+	int count_substr(string& t) {
+		if (t.size() > n) return 0;
+		int L = 0, R = n-1;
+		for (int i = 0; i < t.size(); i++) {
+			int l = L, r = R+1;
+			while (l < r) {
+				int m = (l+r)/2;
+				if (i+sa[m] >= n or s[i+sa[m]] < t[i]) l = m+1;
+				else r = m;
+			}
+			if (l == R+1 or s[i+sa[l]] > t[i]) return 0;
+			L = l;
+
+			l = L, r = R+1;
+			while (l < r) {
+				int m = (l+r)/2;
+				if (i+sa[m] >= n or s[i+sa[m]] <= t[i]) l = m+1;
+				else r = m;
+			}
+			R = l-1;
+		}
+		return R-L+1;
+	}
 };

@@ -10,6 +10,7 @@
 // query - O(1)
 
 struct SA {
+	string s;
 	int n;
 	vector<int> sa, cnt, rnk, lcp;
 	rmq<int> RMQ;
@@ -64,7 +65,7 @@ struct SA {
 		if (N%3==1) for (int i = 0; i < N; i++) sa[i] = sa[i+1];
 	}
 
-	SA(string& s) : n(s.size()), sa(n+3), cnt(n+1), rnk(n), lcp(n-1) {
+	SA(string& s_) : s(s_), n(s.size()), sa(n+3), cnt(n+1), rnk(n), lcp(n-1) {
 		vector<int> v(n+3);
 		for (int i = 0; i < n; i++) v[i] = i;
 		radix(&v[0], &rnk[0], &s[0], n, 256);

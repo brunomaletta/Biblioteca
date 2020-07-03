@@ -9,7 +9,7 @@
 // O(n) para construir
 // query - O(1)
 
-struct SA {
+struct suffix_array {
 	string s;
 	int n;
 	vector<int> sa, cnt, rnk, lcp;
@@ -65,7 +65,8 @@ struct SA {
 		if (N%3==1) for (int i = 0; i < N; i++) sa[i] = sa[i+1];
 	}
 
-	SA(string& s_) : s(s_), n(s.size()), sa(n+3), cnt(n+1), rnk(n), lcp(n-1) {
+	suffix_array(const string& s_) : s(s_), n(s.size()), sa(n+3),
+										cnt(n+1), rnk(n), lcp(n-1) {
 		vector<int> v(n+3);
 		for (int i = 0; i < n; i++) v[i] = i;
 		radix(&v[0], &rnk[0], &s[0], n, 256);
@@ -93,28 +94,57 @@ struct SA {
 		i = rnk[i], j = rnk[j];
 		return RMQ.query(min(i, j), max(i, j)-1);
 	}
+	pair<int, int> next(int L, int R, int i, char c) {
+		int l = L, r = R+1;
+		while (l < r) {
+			int m = (l+r)/2;
+			if (i+sa[m] >= n or s[i+sa[m]] < c) l = m+1;
+			else r = m;
+		}
+		if (l == R+1 or s[i+sa[l]] > c) return {-1, -1};
+		L = l;
+
+		l = L, r = R+1;
+		while (l < r) {
+			int m = (l+r)/2;
+			if (i+sa[m] >= n or s[i+sa[m]] <= c) l = m+1;
+			else r = m;
+		}
+		R = l-1;
+		return {L, R};
+	}
 	// quantas vezes 't' ocorre em 's' - O(|t| log n)
 	int count_substr(string& t) {
-		if (t.size() > n) return 0;
 		int L = 0, R = n-1;
 		for (int i = 0; i < t.size(); i++) {
-			int l = L, r = R+1;
-			while (l < r) {
-				int m = (l+r)/2;
-				if (i+sa[m] >= n or s[i+sa[m]] < t[i]) l = m+1;
-				else r = m;
-			}
-			if (l == R+1 or s[i+sa[l]] > t[i]) return 0;
-			L = l;
-
-			l = L, r = R+1;
-			while (l < r) {
-				int m = (l+r)/2;
-				if (i+sa[m] >= n or s[i+sa[m]] <= t[i]) l = m+1;
-				else r = m;
-			}
-			R = l-1;
+			tie(L, R) = next(L, R, i, t[i]);
+			if (L == -1) return 0;
 		}
 		return R-L+1;
 	}
+	ll dfs(int L, int R, int p) {
+		if (L > R) return 0;
+
+		int ext;
+		if (L == R) ext = n - sa[L];
+		else ext = RMQ.query(L, R-1);
+
+		// Tem 'qt' substrings diferentes que ocorrem 'oc' vezes
+		int oc = (R-L+1), qt = ext-p+1;
+		if (!p) qt = max(0, qt-1); // nao considera a string vazia
+
+		ll ans = (ll) qt * oc*(oc+1)/2;
+
+		while (L <= R) {
+			if (sa[R]+ext == n) break;
+			auto [l, r] = next(L, R, ext, s[sa[R]+ext]);
+			ans += dfs(l, r, ext+1);
+			R = l-1;
+		}
+
+		return ans;
+	}
+	// sum of substrings: computa, para toda substring t distinta de s,
+	// \sum f(# ocorrencias de t em s) - O (n log n)
+	ll sos() { return dfs(0, n-1, 0); }
 };

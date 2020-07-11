@@ -146,7 +146,7 @@ bool interseg(line r, line s) { // se o seg de r intersecta o seg de s
 }
 
 ld disttoline(pt p, line r) { // distancia do ponto a reta
-	return dist(p, proj(p, r));
+	return 2 * abs(sarea(p, r.p, r.q)) / dist(r.p, r.q);
 }
 
 ld disttoseg(pt p, line r) { // distancia do ponto ao seg
@@ -171,7 +171,7 @@ ld distseg(line a, line b) { // distancia entre seg
 
 // distancia entre os retangulos a e b (lados paralelos aos eixos)
 // assume que ta representado (inferior esquerdo, superior direito)
-ld dist2_rect(pair<pt, pt> a, pair<pt, pt> b) {
+ld dist_rect(pair<pt, pt> a, pair<pt, pt> b) {
 	ld hor = 0, vert = 0;
 	if (a.s.x < b.f.x) hor = b.f.x - a.s.x;
 	else if (b.s.x < a.f.x) hor = a.f.x - b.s.x;

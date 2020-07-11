@@ -23,6 +23,8 @@ vector<int> suffix_array(string s) {
 		for(int i = 1, r = 0; i < n; i++) nra[sa[i]] = r += ra[sa[i]] !=
 			ra[sa[i-1]] or ra[(sa[i]+k)%n] != ra[(sa[i-1]+k)%n];
 		ra = nra;
+		if (ra[sa[n-1]] == n-1) break;
+
 	}
 	return vector<int>(sa.begin()+1, sa.end());
 }

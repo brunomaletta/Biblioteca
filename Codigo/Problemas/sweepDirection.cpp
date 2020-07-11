@@ -20,7 +20,7 @@ void sweep_direction(vector<pt> v) {
 		swapp.push_back({rotate90(a-b), {i, j}});
 	}
 	sort(swapp.begin(), swapp.end(), [](pair<pt, ii> a, pair<pt, ii> b) {
-		if (quad(a.f) == quad(b.f) and !sarea2(pt(0, 0), at.f, b.f))
+		if (quad(a.f) == quad(b.f) and !sarea2(pt(0, 0), a.f, b.f))
 			return a.s < b.s;
 		return compare_angle(a.f, b.f);
 	});

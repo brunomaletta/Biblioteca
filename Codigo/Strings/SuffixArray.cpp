@@ -66,7 +66,7 @@ struct suffix_array {
 	}
 
 	suffix_array(const string& s_) : s(s_), n(s.size()), sa(n+3),
-										cnt(n+1), rnk(n), lcp(n-1) {
+			cnt(n+1), rnk(n), lcp(n-1) {
 		vector<int> v(n+3);
 		for (int i = 0; i < n; i++) v[i] = i;
 		radix(&v[0], &rnk[0], &s[0], n, 256);
@@ -122,21 +122,20 @@ struct suffix_array {
 		}
 		return R-L+1;
 	}
-	ll dfs(int L, int R, int p) {
-		if (L > R) return 0;
-
+	ll dfs(int L, int R, int p) { // dfs na suffix tree
 		int ext;
 		if (L == R) ext = n - sa[L];
 		else ext = RMQ.query(L, R-1);
 
 		// Tem 'qt' substrings diferentes que ocorrem 'oc' vezes
+		// Os LCP de todas elas sao 'ext'
 		int oc = (R-L+1), qt = ext-p+1;
 		if (!p) qt = max(0, qt-1); // nao considera a string vazia
 
 		ll ans = (ll) qt * oc*(oc+1)/2;
 
 		while (L <= R) {
-			if (sa[R]+ext == n) break;
+			if (sa[R]+ext == n) break; // folha (L = R)
 			auto [l, r] = next(L, R, ext, s[sa[R]+ext]);
 			ans += dfs(l, r, ext+1);
 			R = l-1;

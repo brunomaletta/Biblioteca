@@ -97,6 +97,7 @@ template<typename T> struct splaytree {
 		l->ch[1] = x->ch[1];
 		if (l->ch[1]) l->ch[1]->p = l;
 		delete x;
+		l->update();
 	}
 	int order_of_key(T v) {
 		if (!lower_bound(v)) return root ? root->sz : 0;

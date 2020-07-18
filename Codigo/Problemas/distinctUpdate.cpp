@@ -1,6 +1,6 @@
 // Distinct Range Query com Update
 //
-// build - O(n log^2(n))
+// build - O(n log(n))
 // query - O(log^2(n))
 // update - O(log^2(n))
 
@@ -14,29 +14,30 @@ template <class T>
 int v[MAX], n, nxt[MAX], prv[MAX];
 map<int, set<int> > ocor;
 
-namespace seg {
-	ord_set<ii> seg[4*MAX];
+namespace bit {
+	ord_set<ii> bit[MAX];
 
-	void build(int p=1, int l=0, int r=n-1) {
-		if (l == r) return (void)seg[p].insert({nxt[l], l});
-		int m = (l+r)/2;
-		build(2*p, l, m), build(2*p+1, m+1, r);
-		for (ii i : seg[2*p]) seg[p].insert(i);
-		for (ii i : seg[2*p+1]) seg[p].insert(i);
+	void build() {
+		for (int i = 1; i <= n; i++) bit[i].insert({nxt[i-1], i-1});
+		for (int i = 1; i <= n; i++) {
+			int j = i + (i&-i);
+			if (j <= n) for (auto x : bit[i]) bit[j].insert(x);
+		}
 	}
-	int query(int a, int b, int x, int p=1, int l=0, int r=n-1) {
-		if (b < l or r < a) return 0;
-		if (a <= l and r <= b) return seg[p].order_of_key({x, -INF});
-		int m = (l+r)/2;
-		return query(a, b, x, 2*p, l, m)+query(a, b, x, 2*p+1, m+1, r);
+	int pref(int p, int x) {
+		int ret = 0;
+		for (; p; p -= p&-p) ret += bit[p].order_of_key({x, -INF});
+		return ret;
 	}
-	void update(int a, int x, int p=1, int l=0, int r=n-1) {
-		if (a < l or r < a) return;
-		seg[p].erase({nxt[a], a});
-		seg[p].insert({x, a});
-		if (l == r) return;
-		int m = (l+r)/2;
-		update(a, x, 2*p, l, m), update(a, x, 2*p+1, m+1, r);
+	int query(int l, int r, int x) {
+		return pref(r+1, x) - pref(l, x);
+	}
+	void update(int p, int x) {
+		int p2 = p;
+		for (p++; p <= n; p += p&-p) {
+			bit[p].erase({nxt[p2], p2});
+			bit[p].insert({x, p2});
+		}
 	}
 }
 
@@ -53,16 +54,16 @@ void build() {
 
 	for (int i = 0; i < n; i++) ocor[v[i]].insert(i);
 
-	seg::build();
+	bit::build();
 }
 
 void muda(int p, int x) {
-	seg::update(p, x);
+	bit::update(p, x);
 	nxt[p] = x;
 }
 
 int query(int a, int b) {
-	return b-a+1 - seg::query(a, b, b+1);
+	return b-a+1 - bit::query(a, b, b+1);
 }
 
 void update(int p, int x) { // mudar valor na pos. p para x
@@ -89,3 +90,4 @@ void update(int p, int x) { // mudar valor na pos. p para x
 	}
 	v[p] = x; ocor[x].insert(p);
 }
+

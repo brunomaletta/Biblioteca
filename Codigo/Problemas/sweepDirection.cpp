@@ -13,19 +13,17 @@ void sweep_direction(vector<pt> v) {
 	});
 	vector<int> at(n);
 	iota(at.begin(), at.end(), 0);
-	vector<pair<pt, ii>> swapp;
-	for (int i = 0; i < n; i++) for (int j = i+1; j < n; j++) {
-		pt a = v[i], b = v[j];
-		swapp.push_back({rotate90(b-a), {i, j}});
-		swapp.push_back({rotate90(a-b), {i, j}});
-	}
-	sort(swapp.begin(), swapp.end(), [](pair<pt, ii> a, pair<pt, ii> b) {
-		if (quad(a.f) == quad(b.f) and !sarea2(pt(0, 0), a.f, b.f))
-			return a.s < b.s;
-		return compare_angle(a.f, b.f);
+	vector<ii> swapp;
+	for (int i = 0; i < n; i++) for (int j = i+1; j < n; j++)
+		swapp.push_back({i, j}), swapp.push_back({j, i});
+
+	sort(swapp.begin(), swapp.end(), [&](ii a, ii b) {
+		pt A = rotate90(v[a.f] - v[a.s]);
+		pt B = rotate90(v[b.f] - v[b.s]);
+		if (quad(A) == quad(B) and !sarea2(pt(0, 0), A, B)) return a < b;
+		return compare_angle(A, B);
 	});
-	for (auto i : swapp) {
-		auto par = i.s;
+	for (auto par : swapp) {
 		assert(abs(at[par.f] - at[par.s]) == 1);
 		int l = min(at[par.f], at[par.s]), r = n-1 - max(at[par.f], at[par.s]);
 		// l e r são quantos caras tem de cada lado do par de pontos

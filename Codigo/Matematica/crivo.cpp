@@ -70,10 +70,10 @@ char meb[MAX];
 
 void crivo(int lim) {
 	for (int i = 2; i <= lim; i++) meb[i] = 2;
-
+	meb[1] = 1;
 	for (int i = 2; i <= lim; i++) if (meb[i] == 2)
 		for (int j = i; j <= lim; j += i) if (meb[j]) {
-			if (meb[j] == 2) meb[j] = -1;
+			if (meb[j] == 2) meb[j] = 1;
 			meb[j] *= j/i%i ? -1 : 0;
 		}
 }

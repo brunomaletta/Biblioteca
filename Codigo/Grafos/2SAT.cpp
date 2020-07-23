@@ -25,7 +25,7 @@ void add(int x, int y){
 
 bool doisSAT(){
 	tarjan();
-	for (int i = 0; i < m; i++)
+	for (int i = 0; i < n; i++)
 		if (comp[i] == comp[nao(i)]) return 0;
 	return 1;
 }

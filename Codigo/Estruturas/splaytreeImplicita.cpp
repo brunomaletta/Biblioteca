@@ -123,7 +123,7 @@ template<typename T> struct splay {
 		root = l.root, l.root = NULL;
 		root->update();
 	}
-	node* split(int v) { // returna os elementos < v
+	node* split(int v) { // retorna os elementos < v
 		if (v <= 0) return NULL;
 		if (v >= size()) {
 			node* ret = root;

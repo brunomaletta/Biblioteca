@@ -44,6 +44,9 @@ template<typename T, bool MULTI=false, typename SIZE_T=int> struct sms {
 		}
 	}
 
+	friend void swap(SMS& a, SMS& b) {
+		swap(a.root, b.root), swap(a.N, b.N);
+	}
 	SIZE_T size() const { return root ? root->cnt : 0; }
 	SIZE_T count(node* x) const { return x ? x->cnt : 0; }
 	void clear() {

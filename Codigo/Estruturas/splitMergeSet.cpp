@@ -44,9 +44,6 @@ template<typename T, bool MULTI=false, typename SIZE_T=int> struct sms {
 		}
 	}
 
-	friend void swap(SMS& a, SMS& b) {
-		swap(a.root, b.root), swap(a.N, b.N);
-	}
 	SIZE_T size() const { return root ? root->cnt : 0; }
 	SIZE_T count(node* x) const { return x ? x->cnt : 0; }
 	void clear() {
@@ -59,6 +56,15 @@ template<typename T, bool MULTI=false, typename SIZE_T=int> struct sms {
 			nroot->l = root;
 			root = nroot;
 			root->update();
+		}
+	}
+
+	void shrink() { // diminui o N em funcao do maior elemento no set
+		if (!root) return void(N = 0);
+		while (!root->r) {
+			node* at = root;
+			root = root->l, N /= 2;
+			delete at;
 		}
 	}
 
@@ -101,15 +107,6 @@ template<typename T, bool MULTI=false, typename SIZE_T=int> struct sms {
 	void erase_all(T v) { // remove todos os 'v'
 		if (v < 0 or v > N) return;
 		root = erase(root, v, numeric_limits<SIZE_T>::max(), 0, N);
-	}
-
-	void shrink() { // diminui o N em funcao do maior elemento no set
-		if (!root) return void(N = 0);
-		while (!root->r) {
-			node* at = root;
-			root = root->l, N /= 2;
-			delete at;
-		}
 	}
 
 	SIZE_T count(node* at, T a, T b, T l, T r) const {

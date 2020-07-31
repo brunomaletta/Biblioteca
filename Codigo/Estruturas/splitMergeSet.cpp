@@ -50,7 +50,7 @@ template<typename T, bool MULTI=false, typename SIZE_T=int> struct sms {
 	SIZE_T size() const { return root ? root->cnt : 0; }
 	SIZE_T count(node* x) const { return x ? x->cnt : 0; }
 	void clear() {
-		sms<T, MULTI, SIZE_T> tmp;
+		SMS tmp;
 		swap(*this, tmp);
 	}
 	void expand(T v) {
@@ -59,15 +59,6 @@ template<typename T, bool MULTI=false, typename SIZE_T=int> struct sms {
 			nroot->l = root;
 			root = nroot;
 			root->update();
-		}
-	}
-
-	void shrink() { // diminui o N em funcao do maior elemento no set
-		if (!root) return void(N = 0);
-		while (!root->r) {
-			node* at = root;
-			root = root->l, N /= 2;
-			delete at;
 		}
 	}
 
@@ -175,7 +166,6 @@ template<typename T, bool MULTI=false, typename SIZE_T=int> struct sms {
 		s.root = split(root, min(k, size()));
 		s.N = N;
 	}
-	void split_val(T k, SMS& s) { // pega os menores que 'k'
-		split(order_of_key(k), s);
-	}
+	// pega os menores que 'k'
+	void split_val(T k, SMS& s) { split(order_of_key(k), s); }
 };

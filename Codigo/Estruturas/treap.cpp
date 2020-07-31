@@ -1,4 +1,4 @@
-// Treap Implicita
+// Treap
 //
 // Todas as operacoes custam
 // O(log(n)) com alta probabilidade
@@ -9,26 +9,12 @@ template<typename T> struct treap {
 	struct node {
 		node *l, *r;
 		int p, sz;
-		T val, sub, lazy;
-		bool rev;
-		node(T v) : l(NULL), r(NULL), p(rng()), sz(1), val(v), sub(v), lazy(0), rev(0) {}
-		void prop() {
-			if (lazy) {
-				val += lazy, sub += lazy*sz;
-				if (l) l->lazy += lazy;
-				if (r) r->lazy += lazy;
-			}
-			if (rev) {
-				swap(l, r);
-				if (l) l->rev ^= 1;
-				if (r) r->rev ^= 1;
-			}
-			lazy = 0, rev = 0;
-		}
+		T val;
+		node(T v) : l(NULL), r(NULL), p(rng()), sz(1), val(v) {}
 		void update() {
-			sz = 1, sub = val;
-			if (l) l->prop(), sz += l->sz, sub += l->sub;
-			if (r) r->prop(), sz += r->sz, sub += r->sub;
+			sz = 1;
+			if (l) sz += l->sz;
+			if (r) sz += r->sz;
 		}
 	};
 
@@ -52,39 +38,38 @@ template<typename T> struct treap {
 	int size() { return size(root); }
 	void join(node* l, node* r, node*& i) { // assume que l < r
 		if (!l or !r) return void(i = l ? l : r);
-		l->prop(), r->prop();
 		if (l->p > r->p) join(l->r, r, l->r), i = l;
 		else join(l, r->l, r->l), i = r;
 		i->update();
 	}
-	void split(node* i, node*& l, node*& r, int v, int key = 0) {
+	void split(node* i, node*& l, node*& r, T v) {
 		if (!i) return void(r = l = NULL);
-		i->prop();
-		if (key + size(i->l) < v) split(i->r, i->r, r, v, key+size(i->l)+1), l = i;
-		else split(i->l, l, i->l, v, key), r = i;
+		if (i->val < v) split(i->r, i->r, r, v), l = i;
+		else split(i->l, l, i->l, v), r = i;
 		i->update();
 	}
-	void push_back(T v) {
-		node* i = new node(v);
-		join(root, i, root);
+	int count(node* i, T v) {
+		if (!i) return 0;
+		if (i->val == v) return 1;
+		if (v < i->val) return count(i->l, v);
+		return count(i->r, v);
 	}
-	T query(int l, int r) {
-		node *L, *M, *R;
-		split(root, M, R, r+1), split(M, L, M, l);
-		T ans = M->sub;
-		join(L, M, M), join(M, R, root);
-		return ans;
+	int count(T v) {
+		return count(root, v);
 	}
-	void update(int l, int r, T s) {
-		node *L, *M, *R;
-		split(root, M, R, r+1), split(M, L, M, l);
-		M->lazy += s;
-		join(L, M, M), join(M, R, root);
+	void insert(T v) {
+		if (count(v)) return;
+		node *L, *R;
+		split(root, L, R, v);
+		node* at = new node(v);
+		join(L, at, L);
+		join(L, R, root);
 	}
-	void reverse(int l, int r) {
+	void erase(T v) {
 		node *L, *M, *R;
-		split(root, M, R, r+1), split(M, L, M, l);
-		M->rev ^= 1;
-		join(L, M, M), join(M, R, root);
+		split(root, M, R, v+1), split(M, L, M, v);
+		if (M) delete M;
+		M = NULL;
+		join(L, R, root);
 	}
 };

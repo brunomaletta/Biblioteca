@@ -8,7 +8,6 @@
 // numero de elementos distintos no set
 
 template<typename T, bool MULTI=false, typename SIZE_T=int> struct sms {
-	#define SMS sms<T, MULTI, SIZE_T>
 	struct node {
 		node *l, *r;
 		SIZE_T cnt;
@@ -44,13 +43,13 @@ template<typename T, bool MULTI=false, typename SIZE_T=int> struct sms {
 		}
 	}
 
-	friend void swap(SMS& a, SMS& b) {
+	friend void swap(sms& a, sms& b) {
 		swap(a.root, b.root), swap(a.N, b.N);
 	}
 	SIZE_T size() const { return root ? root->cnt : 0; }
 	SIZE_T count(node* x) const { return x ? x->cnt : 0; }
 	void clear() {
-		SMS tmp;
+		sms tmp;
 		swap(*this, tmp);
 	}
 	void expand(T v) {
@@ -139,7 +138,7 @@ template<typename T, bool MULTI=false, typename SIZE_T=int> struct sms {
 		l->update(), delete r;
 		return l;
 	}
-	void merge(SMS& s) { // mergeia dois sets
+	void merge(sms& s) { // mergeia dois sets
 		if (N > s.N) swap(*this, s);
 		expand(s.N);
 		root = merge(root, s.root);
@@ -161,11 +160,11 @@ template<typename T, bool MULTI=false, typename SIZE_T=int> struct sms {
 		if (!x->cnt) delete x, x = NULL;
 		return ret;
 	}
-	void split(SIZE_T k, SMS& s) { // pega os 'k' menores
+	void split(SIZE_T k, sms& s) { // pega os 'k' menores
 		s.clear();
 		s.root = split(root, min(k, size()));
 		s.N = N;
 	}
 	// pega os menores que 'k'
-	void split_val(T k, SMS& s) { split(order_of_key(k), s); }
+	void split_val(T k, sms& s) { split(order_of_key(k), s); }
 };

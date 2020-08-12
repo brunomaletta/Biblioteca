@@ -10,7 +10,7 @@
 // update - O(log(n))
 
 namespace seg {
-	int seg[MAX], lazy[MAX], R[MAX], L[MAX], prt
+	int seg[MAX], lazy[MAX], R[MAX], L[MAX], ptr;
 	int get_l(int i){
 		if (L[i] == 0) L[i] = ptr++;
 		return L[i];

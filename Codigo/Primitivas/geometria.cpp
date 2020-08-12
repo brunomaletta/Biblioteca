@@ -253,6 +253,7 @@ struct convex_pol {
 	}
 };
 
+// os segmentos precisam ser ter o p < q
 bool operator < (const line& a, const line& b) { // comparador pro sweepline
 	if (a.p == b.p) return ccw(a.p, a.q, b.q);
 	if (!eq(a.p.x, a.q.x) and (eq(b.p.x, b.q.x) or a.p.x+eps < b.p.x))

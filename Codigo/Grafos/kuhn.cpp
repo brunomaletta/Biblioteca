@@ -9,7 +9,7 @@
 // cover() retorna o min vertex cover como um par de
 // {caras da particao A, caras da particao B}
 //
-// O(n m)
+// O(|V| * |E|)
 // Na pratica, parece rodar tao rapido quanto o Dinic
 
 mt19937 rng((int) chrono::steady_clock::now().time_since_epoch().count());

@@ -52,9 +52,9 @@ vector<int> MO(vector<ii> &q) {
 	sort(ord.begin(), ord.end(), [&](int l, int r) { return h[l] < h[r]; });
 #else
 	sort(ord.begin(), ord.end(), [&](int l, int r) {
-		if (qu[l].first / SQ != qu[r].first / SQ) return qu[l].first < qu[r].first;
-		if ((qu[l].first / SQ) % 2) return qu[l].s > qu[r].s;
-		return qu[l].s < qu[r].s;
+		if (q[l].first / SQ != q[r].first / SQ) return q[l].first < q[r].first;
+		if ((q[l].first / SQ) % 2) return q[l].second > q[r].second;
+		return q[l].second < q[r].second;
 	});
 #endif
 	vector<int> ret(m);

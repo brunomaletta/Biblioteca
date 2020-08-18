@@ -8,7 +8,7 @@
 int lcs_s[MAX], lcs_t[MAX];
 int dp[2][MAX];
 
-// dp[j] = max lcs(s[li...ri], t[lj, lj+j])
+// dp[0][j] = max lcs(s[li...ri], t[lj, lj+j])
 void dp_top(int li, int ri, int lj, int rj) {
 	memset(dp[0], 0, (rj-lj+1)*sizeof(dp[0][0]));
 	for (int i = li; i <= ri; i++) {
@@ -20,7 +20,7 @@ void dp_top(int li, int ri, int lj, int rj) {
 	}
 }
 
-// dp[j] = max lcs(s[li...ri], t[lj+j, lj+j])
+// dp[1][j] = max lcs(s[li...ri], t[lj+j, rj])
 void dp_bottom(int li, int ri, int lj, int rj) {
 	memset(dp[1], 0, (rj-lj+1)*sizeof(dp[1][0]));
 	for (int i = ri; i >= li; i--) {

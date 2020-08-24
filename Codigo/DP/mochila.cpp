@@ -28,7 +28,7 @@ void solve(vector<int>& ans, int l, int r, int cap) {
 	solve(ans, l, m, left_cap), solve(ans, m+1, r, cap - left_cap);
 }
 
-vector<int> knapscak(int n, int cap) {
+vector<int> knapsack(int n, int cap) {
 	vector<int> ans;
 	solve(ans, 0, n-1, cap);
 	return ans;

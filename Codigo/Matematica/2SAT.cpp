@@ -61,7 +61,7 @@ bool doisSAT(){
 
 	memset(ans, -1, sizeof(ans));
 	for(auto at: ord) {
-        if (ans[at] != -1) continue;
+		if (ans[at] != -1) continue;
 
 		ans[at] = 1;
 		ans[nao(at)] = 0;

@@ -37,7 +37,7 @@ pair<int, int> center() {
 	int b = bfs(a, 1);
 	bfs(b, 0);
 	int c, mi = INF;
-	for (int i = 0; i < n; i++) if (max(d[0][i], d[1][i]) < mi) {
+	for (int i = 0; i < n; i++) if (max(d[0][i], d[1][i]) < mi)
 		mi = max(d[0][i], d[1][i]), c = i;
 	return {d[0][a], c};
 }

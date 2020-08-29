@@ -28,15 +28,22 @@ namespace linetree {
 			for (auto j : val[b]) val[a].push_back(j);
 			v[b].clear(), val[b].clear();
 		}
-		for (int i = 0; i < n; i++) pos[v[id[0]][i]] = i;
-		for (int i = n; i < 2*n-1; i++) seg[i] = val[id[0]][i-n];
-		for (int i = n-1; i > 0; i--) seg[i] = min(seg[2*i], seg[2*i+1]);
+		vector<int> vv;
+		for (int i = 0; i < n; i++) for (int j = 0; j < v[i].size(); j++) {
+			pos[v[i][j]] = vv.size();
+			if (j + 1 < v[i].size()) vv.push_back(val[i][j]);
+			else vv.push_back(0);
+		}
+		for (int i = n; i < 2*n; i++) seg[i] = vv[i-n];
+		for (int i = n-1; i; i--) seg[i] = min(seg[2*i], seg[2*i+1]);
 	}
 	int query(int a, int b) {
-		a = pos[a]+n, b = pos[b]+n;
+		if (id[a] != id[b]) return 0; // nao estao conectados
+		a = pos[a], b = pos[b];
 		if (a > b) swap(a, b);
-		int ans = INF; b--;
-		for (; a <= b; ++a/=2, --b/=2) ans = min({ans, seg[a], seg[b]});
+		b--;
+		int ans = INF;
+		for (a += n, b += n; a <= b; ++a/=2, --b/=2) ans = min({ans, seg[a], seg[b]});
 		return ans;
 	}
 };

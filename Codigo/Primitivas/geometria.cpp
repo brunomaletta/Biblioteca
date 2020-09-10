@@ -150,9 +150,9 @@ ld disttoline(pt p, line r) { // distancia do ponto a reta
 }
 
 ld disttoseg(pt p, line r) { // distancia do ponto ao seg
-	if (isinseg(proj(p, r), r))
-		return disttoline(p, r);
-	return min(dist(p, r.p), dist(p, r.q));
+	if ((r.q - r.p)*(p - r.p) < 0) return dist(r.p, p);
+	if ((r.p - r.q)*(p - r.q) < 0) return dist(r.q, p);
+	return disttoline(p, r);
 }
 
 ld distseg(line a, line b) { // distancia entre seg

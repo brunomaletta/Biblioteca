@@ -1,0 +1,81 @@
+// MO - DSU
+// 
+// Dado uma lista de arestas de um grafo, desponde
+// para cada query(l, r), quantos componentes conexos
+// o grafo tem se soh considerar as arestas l, l+1, ..., r
+// Da pra adaptar pra usar MO com qualquer estrutura rollbackavel
+//
+// O(m sqrt(m) log(n))
+
+struct dsu {
+	int n, ans;
+	vector<int> p, sz;
+	stack<int> S;
+
+	dsu(int n_) : n(n_), ans(n), p(n), sz(n) {
+		for (int i = 0; i < n; i++) p[i] = i, sz[i] = 1;
+	}
+	int find(int k) {
+		while (p[k] != k) k = p[k];
+		return k;
+	}
+	void add(pair<int, int> x) {
+		int a = x.first, b = x.second;
+		a = find(a), b = find(b);
+		if (a == b) return S.push(-1);
+		ans--;
+		if (sz[a] > sz[b]) swap(a, b);
+		S.push(a);
+		sz[b] += sz[a];
+		p[a] = b;
+	}
+	int query() { return ans; }
+	void rollback() {
+		int u = S.top(); S.pop();
+		if (u == -1) return;
+		sz[p[u]] -= sz[u];
+		p[u] = u;
+		ans++;
+	}
+};
+
+int n;
+vector<ii> ar; // vetor com as arestas
+
+vector<int> MO(vector<ii> &q) {
+	int SQ = sqrt(q.size()) + 1;
+	int m = q.size();
+	vector<int> ord(m);
+	iota(ord.begin(), ord.end(), 0);
+	sort(ord.begin(), ord.end(), [&](int l, int r) {
+		if (q[l].first / SQ != q[r].first / SQ) return q[l].first < q[r].first;
+		return q[l].second < q[r].second;
+	});
+	vector<int> ret(m);
+
+	for (int i = 0; i < m; i++) {
+		dsu D(n);
+		int fim = q[ord[i]].first/SQ*SQ + SQ - 1;
+		int last_r = fim;
+		int j = i-1;
+		while (j+1 < m and q[ord[j+1]].first / SQ == q[ord[i]].first / SQ) {
+			auto [l, r] = q[ord[++j]];
+
+			if (l / SQ == r / SQ) {
+				dsu D2(n);
+				for (int k = l; k <= r; k++) D2.add(ar[k]);
+				ret[ord[j]] = D2.query();
+				continue;
+			}
+
+			while (last_r < r) D.add(ar[++last_r]);
+			for (int k = l; k <= fim; k++) D.add(ar[k]);
+
+			ret[ord[j]] = D.query();
+
+			for (int k = l; k <= fim; k++) D.rollback();
+		}
+		i = j;
+	}
+	return ret;
+}

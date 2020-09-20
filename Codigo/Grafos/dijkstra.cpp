@@ -20,7 +20,7 @@ void dijkstra(int x) {
  
 	while(pq.size()) {
 		auto [dist,u] = pq.top(); pq.pop();
-		if(dist > d[u]) continue;
+		if(-dist > d[u]) continue;
  
 		for(auto p : g[u]) if(d[p.f] > d[u] + p.s) {
 			d[p.f] = d[u] + p.s;

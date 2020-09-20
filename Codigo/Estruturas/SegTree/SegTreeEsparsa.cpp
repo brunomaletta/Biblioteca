@@ -2,7 +2,7 @@
 //
 // Query: soma do range [a, b]
 // Update: flipa os valores de [a, b]
-// O MAX tem q ser Q log Q para Q updates
+// O MAX tem q ser Q log N para Q updates
 //
 // Complexidades:
 // build - O(1)

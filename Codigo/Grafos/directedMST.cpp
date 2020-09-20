@@ -37,7 +37,7 @@ pair<ll, int> pop(node*& R) {
 	delete tmp;
 	return ret;
 }
-void apaga(node*& R) { if (R) apaga(R->l), apaga(R->r), delete R; }
+void apaga(node* R) { if (R) apaga(R->l), apaga(R->r), delete R; }
 
 ll dmst(int n, int r, vector<pair<ii, int>>& ar) {
 	vector<int> p(n); iota(p.begin(), p.end(), 0);

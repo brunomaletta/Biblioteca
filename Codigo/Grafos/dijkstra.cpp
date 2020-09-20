@@ -8,7 +8,7 @@
 // O(m log(n))
 
 int d[MAX];
-vector<vector<pair<int,int>>> g(MAX); // {vizinho, custo}
+vector<pair<int,int>>> g[MAX]; // {vizinho, custo}
 
 int n;
  

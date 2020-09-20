@@ -18,7 +18,7 @@ void dijkstra(int x) {
 	priority_queue<pair<int,int>> pq;
 	pq.push({0,x});
  
-	while(q.size()) {
+	while(pq.size()) {
 		auto [dist,u] = pq.top(); pq.pop();
 		if(dist > d[u]) continue;
  

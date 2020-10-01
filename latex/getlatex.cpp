@@ -23,10 +23,18 @@ string getName(string s) {
 	return line.substr(2);
 }
 
-void printa_listing(string sub, string f, bool skip = false) {
+void printa_cuidado(string s) {
+	for (char c : s) {
+		if (c == '^') cout << '\\';
+		cout << c;
+		if (c == '^') cout << "{}";
+	}
+}
+
+void printa_listing(string sub, string f, bool skip) {
 	cout << "\\subsection{";
-	if (skip) cout << getName(f);
-	else cout << sub;
+	if (skip) printa_cuidado(getName(f));
+	else printa_cuidado(sub);
 	cout << "}\n";
 	cout << "\\begin{lstlisting}\n";
 	printa_arquivo(f, skip);
@@ -40,12 +48,13 @@ void vai(string s, bool x = false) {
 	if (dp != nullptr) while (entry = readdir(dp)) {
 		if (entry->d_name[0] == '.') continue;	
 
-		if (entry->d_type == DT_DIR) vai(s+"/"+string(entry->d_name));
+		if (entry->d_type == DT_DIR) vai(s+"/"+string(entry->d_name), x);
 		else {
 			string s2 = string(entry->d_name);
-			printa_listing(s2.substr(0, s2.size()-4), s+"/"+entry->d_name, true);
+			if (!x) printa_listing(s2.substr(0, s2.size()-4), s+"/"+entry->d_name, true);
+			else printa_listing(s2, s+"/"+entry->d_name, false);
 		}
-	} else if (x) printa_listing(s.substr(path.size()), s);
+	}
 }
 
 void printa_section(string s) {
@@ -68,21 +77,15 @@ int main() {
 		if (entry->d_name[0] == '.') continue;
 		if (entry->d_type != DT_DIR) continue;
 
-		printa_section(entry->d_name);
-
-		vai(path + string(entry->d_name));
+		string dir(entry->d_name);
+		if (dir == "Extra") continue;
+		printa_section(dir);
+		vai(path + dir);
 	}
 
 	cout << "\\pagebreak" << endl;
 	printa_section("Extra");
-
-	dp = opendir(path.c_str());
-	if (dp != nullptr) while (entry = readdir(dp)) {
-		if (entry->d_name[0] == '.') continue;
-		if (entry->d_type == DT_DIR) continue;
-
-		vai(path + string(entry->d_name), true);
-	}
+	vai(path + "Extra", true);
 
 	cout << "\\end{document}\n";
 	return 0;

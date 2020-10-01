@@ -1,6 +1,6 @@
 // BIT com update em range
 //
-// Operações 0-based
+// Operacoes 0-based
 // query(l, r) retorna a soma de v[l..r]
 // update(l, r, x) soma x em v[l..r]
 //

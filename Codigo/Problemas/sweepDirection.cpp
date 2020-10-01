@@ -26,7 +26,7 @@ void sweep_direction(vector<pt> v) {
 	for (auto par : swapp) {
 		assert(abs(at[par.f] - at[par.s]) == 1);
 		int l = min(at[par.f], at[par.s]), r = n-1 - max(at[par.f], at[par.s]);
-		// l e r são quantos caras tem de cada lado do par de pontos
+		// l e r sao quantos caras tem de cada lado do par de pontos
 		// (cada par eh visitado duas vezes)
 		swap(v[at[par.f]], v[at[par.s]]);
 		swap(at[par.f], at[par.s]);

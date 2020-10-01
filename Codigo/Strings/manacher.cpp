@@ -1,8 +1,8 @@
 // Manacher
 //
-// manacher recebe um vetor de T e retorna o vetor com tamanho dos palíndromos
-// ret[2*i] = tamanho do maior palíndromo centrado em i
-// ret[2*i+1] = tamanho maior palíndromo centrado em i e i+1
+// manacher recebe um vetor de T e retorna o vetor com tamanho dos palindromos
+// ret[2*i] = tamanho do maior palindromo centrado em i
+// ret[2*i+1] = tamanho maior palindromo centrado em i e i+1
 //
 // Complexidades:
 // manacher - O(n)

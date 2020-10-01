@@ -1,4 +1,4 @@
-make a a2 gen
+make a a2 gen || exit 1
 for ((i = 1; ; i++)) do
 	./gen $i > in
 	./a < in > out

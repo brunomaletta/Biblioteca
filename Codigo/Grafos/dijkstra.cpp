@@ -8,7 +8,7 @@
 // O(m log(n))
 
 int d[MAX];
-vector<pair<int,int>>> g[MAX]; // {vizinho, custo}
+vector<pair<int,int>> g[MAX]; // {vizinho, peso}
 
 int n;
  
@@ -19,12 +19,12 @@ void dijkstra(int x) {
 	pq.push({0,x});
  
 	while(pq.size()) {
-		auto [dist,u] = pq.top(); pq.pop();
-		if(-dist > d[u]) continue;
+		auto [ndist,u] = pq.top(); pq.pop();
+		if(-ndist > d[u]) continue;
  
-		for(auto p : g[u]) if(d[p.f] > d[u] + p.s) {
-			d[p.f] = d[u] + p.s;
-			pq.push({-d[p.f], p.f});
+		for(auto [idx,w] : g[u]) if(d[idx] > d[u] + w) {
+			d[idx] = d[u] + w;
+			pq.push({-d[idx], idx});
 		}
 	}
 }

@@ -12,7 +12,7 @@ vector<t3> edg; // {peso,[x,y]}
 // DSU em O(a(n))
 void dsu_build();
 int find(int a);
-void une(int a, int b);
+void unite(int a, int b);
 
 pair<ll,vector<t3>> kruskal(int n) {
 	dsu_build(n);

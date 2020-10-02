@@ -13,6 +13,7 @@ int find(int a) { return id[a] = a == id[a] ? a : find(id[a]); }
 
 void unite(int a, int b) {
 	a = find(a), b = find(b);
+	if(a == b) return;
 	if(sz[a] < sz[b]) swap(a,b);
 
 	sz[a] += sz[b];

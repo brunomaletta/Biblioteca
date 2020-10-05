@@ -191,7 +191,8 @@ bool inpol(pt p, vector<pt> v) { // se um ponto pertence ao poligono
 	for (int i = 0; i < v.size(); i++)
 		if (isinseg(p, line(v[i], v[(i+1)%v.size()]))) return 1;
 	int c = 0;
-	line r = line(p, pt(DINF, pi * DINF));
+	// cuidado com overflow!
+	line r = line(p, pt(1e9, pi * 1e9)); // tem q ser maior que as coordenadas
 	for (int i = 0; i < v.size(); i++) {
 		line s = line(v[i], v[(i + 1) % v.size()]);
 		if (interseg(r, s)) c++;

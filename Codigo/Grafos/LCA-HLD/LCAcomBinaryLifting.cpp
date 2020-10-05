@@ -47,3 +47,48 @@ int lca(int a, int b) {
 
 	return pai[0][a];
 }
+
+// Alternativamente:
+// 'binary lifting' gastando O(n) de memoria
+// Da pra add folhas e fazer queries online
+// 3 vezes o tempo do binary lifting normal
+//
+// build - O(n)
+// kth, lca, dist - O(log(n))
+
+int d[MAX], p[MAX], pp[MAX];
+
+void set_root(int i) { p[i] = pp[i] = i, d[i] = 0; }
+
+void add_leaf(int i, int u) {
+	p[i] = u, d[i] = d[u]+1;
+	pp[i] = 2*d[pp[u]] == d[pp[pp[u]]]+d[u] ? pp[pp[u]] : u;
+}
+
+int kth(int i, int k) {
+	int dd = max(0, d[i]-k);
+	while (d[i] > dd) i = d[pp[i]] >= dd ? pp[i] : p[i];
+	return i;
+}
+
+int lca(int a, int b) {
+	if (d[a] < d[b]) swap(a, b);
+	while (d[a] > d[b]) a = d[pp[a]] >= d[b] ? pp[a] : p[a];
+	while (a != b) {
+		if (pp[a] != pp[b]) a = pp[a], b = pp[b];
+		else a = p[a], b = p[b];
+	}
+	return a;
+}
+
+int dist(int a, int b) { return d[a]+d[b]-2*d[lca(a,b)]; }
+
+vector<int> g[MAX];
+
+void build(int i, int pai=-1) {
+	if (pai == -1) set_root(i);
+	for (int j : g[i]) if (j != pai) {
+		add_leaf(j, i);
+		build(j, i);
+	}
+}

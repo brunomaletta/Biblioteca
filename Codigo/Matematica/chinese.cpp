@@ -5,19 +5,10 @@
 // Os m nao precisam ser coprimos
 // Se nao tiver solucao, o 'a' vai ser -1
 
-ll gcde(ll a, ll b, ll& x, ll& y) {
-	if (!a) {
-		x = 0;
-		y = 1;
-		return b;
-	}
-
-	ll X, Y;
-	ll g = gcde(b % a, a, X, Y);
-	x = Y - (b / a) * X;
-	y = X;
-
-	return g;
+tuple<ll, ll, ll> ext_gcd(ll a, ll b) {
+    if (!a) return {b, 0, 1};
+    auto [g, x, y] = ext_gcd(b%a, a);
+    return {g, y - b/a*x, x};
 }
 
 struct crt {
@@ -26,8 +17,7 @@ struct crt {
 	crt() : a(0), m(1) {}
 	crt(ll a_, ll m_) : a(a_), m(m_) {}
 	crt operator * (crt C) {
-		ll x, y;
-		ll g = gcde(m, C.m, x, y);
+		auto [g, x, y] = ext_gcd(m, C.m);
 		if ((a - C.a) % g) a = -1;
 		if (a == -1 or C.a == -1) return crt(-1, 0);
 		ll lcm = m/g*C.m;

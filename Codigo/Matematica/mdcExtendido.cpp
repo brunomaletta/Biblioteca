@@ -4,17 +4,8 @@
 //
 // O(log(min(a, b)))
 
-int gcde(int a, int b, int& x, int& y){
-	if(!a){
-		x = 0;
-		y = 1;
-		return b;
-	}
-
-	int X, Y;
-	int mdc = mdce(b % a, a, X, Y);
-	x = Y - (b / a) * X;
-	y = X;
-
-	return mdc;
+tuple<ll, ll, ll> ext_gcd(ll a, ll b) {
+    if (!a) return {b, 0, 1};
+    auto [g, x, y] = ext_gcd(b%a, a);
+    return {g, y - b/a*x, x};
 }

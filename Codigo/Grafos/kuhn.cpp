@@ -6,7 +6,7 @@
 // da particao A, e o cara j da particao B
 // (entao i < n, j < m)
 // Para recuperar o matching, basta olhar 'ma' e 'mb'
-// cover() retorna o min vertex cover como um par de
+// recover() recupera o min vertex cover como um par de
 // {caras da particao A, caras da particao B}
 //
 // O(|V| * |E|)
@@ -46,7 +46,7 @@ struct kuhn {
 		}
 		return ret;
 	}
-	pair<vector<int>, vector<int>> cover() {
+	pair<vector<int>, vector<int>> recover() {
 		int M = matching();
 		for (int i = 0; i < n+m; i++) vis[i] = 0;
 		for (int i = 0; i < n; i++) if (ma[i] == -1) assert(!dfs(i));

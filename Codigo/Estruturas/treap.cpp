@@ -54,6 +54,12 @@ template<typename T> struct treap {
 		if (v < i->val) return count(i->l, v);
 		return count(i->r, v);
 	}
+	void index_split(node* i, node*& l, node*& r, int v, int key = 0) {
+		if (!i) return void(r = l = NULL);
+		if (key + size(i->l) < v) index_split(i->r, i->r, r, v, key+size(i->l)+1), l = i;
+		else index_split(i->l, l, i->l, v, key), r = i;
+		i->update();
+	}
 	int count(T v) {
 		return count(root, v);
 	}

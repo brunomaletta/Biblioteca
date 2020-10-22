@@ -1,61 +1,54 @@
 // Trie
 //
-// N deve ser maior ou igual ao numero de nos da trie
-// fim indica se alguma palavra acaba nesse no
+// trie T() constrói uma trie para o alfabeto das letras minúsculas
+// trie T(tamanho do alfabeto, menor caracter) também pode ser usado
+// 
+// T.insert(s) - O(|s|*sigma)
+// T.erase(s) - O(|s|)
+// T.find(s) retorna a posição, 0 se não achar - O(|s|)
+// T.count_pref(s) número de strings que possuem s como prefixo - O(|s|)
 //
-// Complexidade:
-// Inserir e conferir string S -> O(|S|)
+// Não funciona para string vazia
 
-// usar static trie T
-// T.insert(s) para inserir
-// T.find(s) para ver se ta
-// T.prefix(s) printa as strings
-// que tem s como prefixo
-
-struct trie{
-	map<char, int> t[MAX+5];
-	int p;
-	trie(){
-		p = 1;
+struct trie {
+	vector<vector<int>> to;
+	vector<int> end, pref;
+	int sigma; char norm;
+	trie(int sigma_=26, char norm_='a') : sigma(sigma_), norm(norm_) {
+		to = {vector<int>(sigma)};
+		end = {0}, pref = {0};
 	}
-	void insert(string s){
-		s += '$';
-		int i = 0;
-		for (char c : s){
-			auto it = t[i].find(c);
-			if (it == t[i].end())
-				i = t[i][c] = p++;
-			else
-				i = it->second;
+	void insert(string s) {
+		int x = 0;
+		for(auto c : s) {
+			int &nxt = to[x][c-norm];
+			if(!nxt) {
+				nxt = to.size();
+				to.push_back(vector<int>(sigma));
+				end.push_back(0), pref.push_back(0);
+			}
+			x = nxt, pref[x]++;
 		}
+		end[x]++;
 	}
-	bool find(string s){
-		s += '$';
-		int i = 0;
-		for (char c : s){
-			auto it = t[i].find(c);
-			if (it == t[i].end()) return false;
-			i = it->second;
+	void erase(string s) {
+		int x = 0;
+		for(char c : s) {
+			int &nxt = to[x][c-norm];
+			x = nxt, pref[x]--;
+			if(!pref[x]) nxt = 0;
 		}
-		return true;
+		end[x]--;
 	}
-	void prefix(string &l, int i){
-		if (t[i].find('$') != t[i].end())
-			cout << "  " << l << endl;	
-		for (auto p : t[i]){
-			l += p.first;
-			prefix(l, p.second, k);
-			l.pop_back();
+	int find(string s) {
+		int x = 0;
+		for(auto c : s) {
+			x = to[x][c-norm];
+			if(!x) return 0;
 		}
+		return x;
 	}
-	void prefix(string s){
-		int i = 0;
-		for (char c : s){
-			auto it = t[i].find(c);
-			if (it == t[i].end()) return;
-			i = it->second;
-		}
-		int k = 0;
-		prefix(s, i, k);
+	int count_pref(string s) {
+		return pref[find(s)];
 	}
 };

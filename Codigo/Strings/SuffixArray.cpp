@@ -122,28 +122,36 @@ struct suffix_array {
 		}
 		return R-L+1;
 	}
-	ll dfs(int L, int R, int p) { // dfs na suffix tree
+
+	ll f(ll k) {//exemplo de f que resolve o problema https://codeforces.com/edu/course/2/lesson/2/5/practice/contest/269656/problem/D
+		return k*(k+1)/2;
+	}
+	ll dfs(int L, int R, int p) { // dfs na suffix tree chamado em pre ordem
 		int ext;
 		if (L == R) ext = n - sa[L];
 		else ext = RMQ.query(L, R-1);
 
-		// Tem 'qt' substrings diferentes que ocorrem 'oc' vezes
-		// Os LCP de todas elas sao 'ext'
-		int oc = (R-L+1), qt = ext-p+1;
-		if (!p) qt = max(0, qt-1); // nao considera a string vazia
+		ll ans = (ext - p)*f(R-L+1);
 
-		ll ans = (ll) qt * oc*(oc+1)/2;
-
-		while (L <= R) {
-			if (sa[R]+ext == n) break; // folha (L = R)
-			auto [l, r] = next(L, R, ext, s[sa[R]+ext]);
-			ans += dfs(l, r, ext+1);
-			R = l-1;
+		if (sa[L]+ext == n) {//folhou
+			L++;
 		}
-
+		/* se for um suffix array de várias strings separadas com separador < 'a'
+		while (L <= R && (sa[L]+ext == n || s[sa[L]+ext] < 'a')){ //folhou
+			L++;
+		}
+		*/
+		while (L <= R) {
+			auto [l, r] = next(L, R, ext, s[sa[L]+ext]);
+			ans += dfs(l, r, ext);
+			L = r+1;
+		}
 		return ans;
 	}
-	// sum of substrings: computa, para toda substring t distinta de s,
+
+	// sum over substrings: computa, para toda substring t distinta de s,
 	// \sum f(# ocorrencias de t em s) - O (n log n)
-	ll sos() { return dfs(0, n-1, 0); }
+	ll sos() {
+		return dfs(0, n-1, 0);
+	}
 };

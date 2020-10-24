@@ -201,8 +201,11 @@ bool inpol(pt p, vector<pt> v) { // se um ponto pertence ao poligono
 }
 
 bool interpol(vector<pt> v1, vector<pt> v2) { // se dois poligonos se intersectam
-	for (int i = 0; i < v1.size(); i++) if (inpol(v1[i], v2)) return 1;
-	for (int i = 0; i < v2.size(); i++) if (inpol(v2[i], v1)) return 1;
+	int n = v1.size(), m = v2.size();
+	for (int i = 0; i < n; i++) if (inpol(v1[i], v2)) return 1;
+	for (int i = 0; i < n; i++) if (inpol(v2[i], v1)) return 1;
+	for (int i = 0; i < n; i++) for (int j = 0 j < m; j++)
+       if (interseg(line(v1[i], v1[(i+1)%n]), line(v2[j], v2[(j+1)%m]))) return 1;
 	return 0;
 }
 

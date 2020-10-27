@@ -6,7 +6,7 @@
 // O(n^1.58)
 
 #pragma GCC optimize("Ofast")
-#pragma GCC target ("avx2")
+#pragma GCC target ("avx,avx2")
 template<typename T> void kar(T* a, T* b, int n, T* r, T* tmp) {
 	if (n <= 64) {
 		for (int i = 0; i < n; i++) for (int j = 0; j < n; j++)

@@ -116,6 +116,22 @@ ll polarea2(vector<pt> v) { // 2 * area do poligono
 	return abs(ret);
 }
 
+// se o ponto ta dentro do poligono: retorna 0 se ta fora,
+// 1 se ta no interior e 2 se ta na borda
+int inpol(vector<pt>& v, pt p) { // O(n)
+	int qt = 0;
+	for (int i = 0; i < v.size(); i++) {
+		if (v[i] == p) return 2;
+		int j = (i+1)%v.size();
+		bool igual = v[i].y == p.y and v[j].y == p.y, baixo = v[i].y < p.y;
+		if (!igual and baixo == (v[j].y < p.y)) continue;
+		auto t = (p-v[i])^(v[j]-v[i]);
+		if (!t) return 2;
+		if (!igual and baixo == (t > 0)) qt += baixo ? 1 : -1;
+	}
+	return qt != 0;
+}
+
 vector<pt> convex_hull(vector<pt> v) { // convex hull - O(n log(n))
 	if (v.size() <= 1) return v;
 	vector<pt> l, u;

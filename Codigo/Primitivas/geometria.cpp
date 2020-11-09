@@ -187,25 +187,28 @@ ld polarea(vector<pt> v) { // area do poligono
 	return abs(ret);
 }
 
-bool inpol(pt p, vector<pt> v) { // se um ponto pertence ao poligono
-	for (int i = 0; i < v.size(); i++)
-		if (isinseg(p, line(v[i], v[(i+1)%v.size()]))) return 1;
-	int c = 0;
-	// cuidado com overflow!
-	line r = line(p, pt(1e9, pi * 1e9)); // tem q ser maior que as coordenadas
+// se o ponto ta dentro do poligono: retorna 0 se ta fora,
+// 1 se ta no interior e 2 se ta na borda
+int inpol(vector<pt>& v, pt p) { // O(n)
+	int qt = 0;
 	for (int i = 0; i < v.size(); i++) {
-		line s = line(v[i], v[(i + 1) % v.size()]);
-		if (interseg(r, s)) c++;
+		if (v[i] == p) return 2;
+		int j = (i+1)%v.size();
+		bool igual = eq(v[i].y, p.y) and eq(v[j].y, p.y), baixo = v[i].y+eps < p.y;
+		if (!igual and baixo == (v[j].y+eps < p.y)) continue;
+		auto t = (p-v[i])^(v[j]-v[i]);
+		if (eq(t, 0)) return 2;
+		if (!igual and baixo == (t > eps)) qt += baixo ? 1 : -1;
 	}
-	return c % 2;
+	return qt != 0;
 }
 
-bool interpol(vector<pt> v1, vector<pt> v2) { // se dois poligonos se intersectam
+bool interpol(vector<pt> v1, vector<pt> v2) { // se dois poligonos se intersectam - O(n*m)
 	int n = v1.size(), m = v2.size();
-	for (int i = 0; i < n; i++) if (inpol(v1[i], v2)) return 1;
-	for (int i = 0; i < n; i++) if (inpol(v2[i], v1)) return 1;
-	for (int i = 0; i < n; i++) for (int j = 0 j < m; j++)
-       if (interseg(line(v1[i], v1[(i+1)%n]), line(v2[j], v2[(j+1)%m]))) return 1;
+	for (int i = 0; i < n; i++) if (inpol(v2, v1[i])) return 1;
+	for (int i = 0; i < n; i++) if (inpol(v1, v2[i])) return 1;
+	for (int i = 0; i < n; i++) for (int j = 0; j < m; j++)
+		if (interseg(line(v1[i], v1[(i+1)%n]), line(v2[j], v2[(j+1)%m]))) return 1;
 	return 0;
 }
 

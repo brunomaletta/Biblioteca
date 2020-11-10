@@ -48,3 +48,26 @@ namespace seg {
 			update(a, b, x, 2*p+1, m+1, r);
 	}
 };
+
+
+// Se tiver uma seg de max, da pra descobrir em O(log(n))
+// o primeiro e ultimo elemento >= val numa range:
+
+// primeira posicao >= val em [a, b] (ou -1 se nao tem)
+int get_left(int a, int b, int val, int p=1, int l=0, int r=n-1) {
+	if (b < l or r < a or seg[p] < val) return -1;
+	if (r == l) return l;
+	int m = (l+r)/2;
+	int x = get_left(a, b, val, 2*p, l, m);
+	if (x != -1) return x;
+	return get_left(a, b, val, 2*p+1, m+1, r);
+}
+// ultima posicao >= val em [a, b] (ou -1 se nao tem)
+int get_right(int a, int b, int val, int p=1, int l=0, int r=n-1) {
+	if (b < l or r < a or seg[p] < val) return -1;
+	if (r == l) return l;
+	int m = (l+r)/2;
+	int x = get_right(a, b, val, 2*p+1, m+1, r);
+	if (x != -1) return x;
+	return get_right(a, b, val, 2*p, l, m);
+}

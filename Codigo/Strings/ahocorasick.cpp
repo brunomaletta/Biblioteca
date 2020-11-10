@@ -1,5 +1,7 @@
 // Ahocorasick
+//
 // Complexidades:
+//
 // all linear O(n*sigma)
 // example of query returns number of nonoverlapping matches
 

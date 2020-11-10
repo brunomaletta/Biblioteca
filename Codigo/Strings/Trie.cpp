@@ -1,14 +1,14 @@
 // Trie
 //
-// trie T() constrói uma trie para o alfabeto das letras minúsculas
-// trie T(tamanho do alfabeto, menor caracter) também pode ser usado
+// trie T() constroi uma trie para o alfabeto das letras minusculas
+// trie T(tamanho do alfabeto, menor caracter) tambem pode ser usado
 // 
 // T.insert(s) - O(|s|*sigma)
 // T.erase(s) - O(|s|)
 // T.find(s) retorna a posição, 0 se não achar - O(|s|)
-// T.count_pref(s) número de strings que possuem s como prefixo - O(|s|)
+// T.count_pref(s) numero de strings que possuem s como prefixo - O(|s|)
 //
-// Não funciona para string vazia
+// Nao funciona para string vazia
 
 struct trie {
 	vector<vector<int>> to;

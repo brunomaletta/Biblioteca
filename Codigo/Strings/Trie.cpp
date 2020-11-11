@@ -5,7 +5,7 @@
 // 
 // T.insert(s) - O(|s|*sigma)
 // T.erase(s) - O(|s|)
-// T.find(s) retorna a posição, 0 se não achar - O(|s|)
+// T.find(s) retorna a posicao, 0 se nao achar - O(|s|)
 // T.count_pref(s) numero de strings que possuem s como prefixo - O(|s|)
 //
 // Nao funciona para string vazia

@@ -1,3 +1,3 @@
 g++ -std=c++11 -o getlatex getlatex.cpp
-./getlatex
+./getlatex > out
 rm getlatex

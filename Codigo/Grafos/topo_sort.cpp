@@ -1,7 +1,7 @@
 // Topological Sort
 //
-// Retorna uma ordenação topológica de g
-// Se g não for DAG retorna um vetor vazio
+// Retorna uma ordenacaoo topologica de g
+// Se g nao for DAG retorna um vetor vazio
 //
 // O(n + m)
 

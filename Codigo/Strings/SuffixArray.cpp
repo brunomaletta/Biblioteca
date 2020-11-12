@@ -5,9 +5,39 @@
 // e o lcp em 'lcp'
 // query(i, j) retorna o LCP entre s[i..n-1] e s[j..n-1]
 //
-// Complexidades (assumindo rmq <O(n), O(1)>):
+// Complexidades
 // O(n) para construir
 // query - O(1)
+
+template<typename T> struct rmq {
+	vector<T> v;
+	int n; static const int b = 30;
+	vector<int> mask, t;
+
+	int op(int x, int y) { return v[x] <= v[y] ? x : y; }
+	int msb(int x) { return __builtin_clz(1)-__builtin_clz(x); }
+	int small(int r, int sz = b) { return r-msb(mask[r]&((1<<sz)-1)); }
+	rmq() {}
+	rmq(const vector<T>& v_) : v(v_), n(v.size()), mask(n), t(n) {
+		for (int i = 0, at = 0; i < n; mask[i++] = at |= 1) {
+			at = (at<<1)&((1<<b)-1);
+			while (at and op(i-msb(at&-at), i) == i) at ^= at&-at;
+		}
+		for (int i = 0; i < n/b; i++) t[i] = small(b*i+b-1);
+		for (int j = 1; (1<<j) <= n/b; j++) for (int i = 0; i+(1<<j) <= n/b; i++)
+			t[n/b*j+i] = op(t[n/b*(j-1)+i], t[n/b*(j-1)+i+(1<<(j-1))]);
+	}
+	int index_query(int l, int r) {
+		assert(l <= r);
+		if (r-l+1 <= b) return small(r, r-l+1);
+		int x = l/b+1, y = r/b-1;
+		if (x > y) return op(small(l+b-1), small(r));
+		int j = msb(y-x+1);
+		int ans = op(small(l+b-1), op(t[n/b*j+x], t[n/b*j+y-(1<<j)+1]));
+		return op(ans, small(r));
+	}
+	T query(int l, int r) { return v[index_query(l, r)]; }
+};
 
 struct suffix_array {
 	string s;
@@ -145,15 +175,25 @@ struct suffix_array {
 			L++;
 		} */
 
-		while (L <= R) {
-			auto [l, r] = next(L, R, ext, s[sa[L]+ext]);
-			ans += dfs(l, r, ext);
-			L = r+1;
-		}
+		if (L > R) return ans; // folha (com ctz caiu no if de cima)
+
+		int l = L, r = R, mn = L != R ? RMQ.query(L, R-1) : -1;
+		if (mn == ext) { // to no vertice
+			while (l <= r) {
+				int id = l != r ? RMQ.index_query(l, r-1) : -1;
+				if (id == -1 or lcp[id] != mn) {
+					ans += dfs(l, r, ext);
+					break;
+				}
+				ans += dfs(l, id, ext);
+				l = id+1;
+			}
+		} else ans += dfs(l, r, ext); // to na aresta
+
 		return ans;
 	}
 
 	// sum over substrings: computa, para toda substring t distinta de s,
-	// \sum f(# ocorrencias de t em s) - O (n log n)
+	// \sum f(# ocorrencias de t em s) - O (n)
 	ll sos() { return dfs(0, n-1, 0); }
 };

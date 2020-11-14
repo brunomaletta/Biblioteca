@@ -28,7 +28,6 @@ template<typename T> struct rmq {
 			t[n/b*j+i] = op(t[n/b*(j-1)+i], t[n/b*(j-1)+i+(1<<(j-1))]);
 	}
 	int index_query(int l, int r) {
-		assert(l <= r);
 		if (r-l+1 <= b) return small(r, r-l+1);
 		int x = l/b+1, y = r/b-1;
 		if (x > y) return op(small(l+b-1), small(r));

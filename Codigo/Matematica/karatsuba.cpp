@@ -1,12 +1,12 @@
 // Karatsuba
 //
-// Os pragmas realmente deixam muito mais rapido
+// Os pragmas podem ajudar
 // Para n ~ 2e5, roda em < 1 s
 //
 // O(n^1.58)
 
-#pragma GCC optimize("Ofast")
-#pragma GCC target ("avx,avx2")
+//#pragma GCC optimize("Ofast")
+//#pragma GCC target ("avx,avx2")
 template<typename T> void kar(T* a, T* b, int n, T* r, T* tmp) {
 	if (n <= 64) {
 		for (int i = 0; i < n; i++) for (int j = 0; j < n; j++)

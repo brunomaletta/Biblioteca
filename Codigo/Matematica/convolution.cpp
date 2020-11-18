@@ -1,3 +1,9 @@
+// FFT
+//
+// chamar com vector<cplx> para FFT, ou vector<mint> para NTT
+//
+// O(n log(n))
+
 template<typename T> void fft(vector<T> &a, bool f, int N, vector<int> &rev){
 	for (int i = 0; i < N; i++)
 		if (i < rev[i])

@@ -3,7 +3,7 @@
 struct cplx{
 	double r, i;
 	cplx(complex<double> c):r(c.real()), i(c.imag()){}
-	cplx(){}
+	cplx() : r(0), i(0){}
 	cplx(double r_, double i_ = 0):r(r_), i(i_){}
 	double abs(){ return hypot(r, i); }
 	double abs2(){ return r*r + i*i; }

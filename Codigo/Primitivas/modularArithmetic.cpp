@@ -13,7 +13,7 @@ template<int p> struct mod_int {
 
 	using m = mod_int;
 	int v;
-	mod_int() {}
+	mod_int() : v(0) {}
 	mod_int(ll v_) {
 		if (v_ >= p || v_ <= -p) v_ %= p;
 		if (v_ < 0) v_ += p;
@@ -48,6 +48,7 @@ template<int p> struct mod_int {
 	}
 	bool operator==(const m &a) { return v == a.v; }
 	bool operator!=(const m &a) { return v != a.v; }
+
 	friend istream &operator>>(istream &in, m& a) {
 		ll val; in >> val;
 		a = m(val);
@@ -62,22 +63,18 @@ template<int p> struct mod_int {
 	friend m operator/(m a, m b) { return a/=b; }
 	friend m operator^(m a, ll e) { return a^=e; }
 
-	static int fft_len(int n = -1){
-		// max k such that 2^k | p-1
-		if (p == 998244353) return 20;
-		throw logic_error("find an order");
-		return -1;
-	}
 	static m rt(bool f, int n, int N){
-		// an element of order fft_len
 		if (p == 998244353){
-			m r(695449733);
+			m r(102292); // an element of order N
+			int ord = (1 << 23);
+			while (ord != N){
+				r = r*r;
+				ord /= 2;
+			}
 			if (f) r = r^(-1);
 			return r^(N/n);
 		}
-
-		throw logic_error("find a root");
-		return -1; // return x so that x^(2^k) != x*x^(2^k) = 1
+		return -1;
 	}
 };
 

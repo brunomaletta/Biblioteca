@@ -20,6 +20,12 @@ template<typename T> struct matrix : vector<vector<T>> {
 	}
 	matrix(const vector<vector<T>>& c) : vector<vector<T>>(c),
 		n(c.size()), m(c[0].size()) {}
+	matrix(const initializer_list<initializer_list<T>>& c) {
+		vector<vector<T>> val;
+		for (auto& i : c) val.push_back(i);
+		*this = matrix(val);
+	}
+
 	matrix<T> operator*(matrix<T>& r) {
 		assert(m == r.n);
 		matrix<T> M(n, r.m);

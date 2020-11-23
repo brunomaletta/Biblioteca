@@ -3,7 +3,7 @@
 // "O" crivo
 //
 // Encontra maior divisor primo
-// Um numero eh primo sse div[x] == x
+// Um numero eh primo sse divi[x] == x
 // fact fatora um numero <= lim
 // A fatoracao sai ordenada
 //
@@ -22,6 +22,27 @@ void crivo(int lim) {
 void fact(vector<int>& v, int n) {
 	if (n != divi[n]) fact(v, n/divi[n]);
 	v.push_back(divi[n]);
+}
+
+// Crivo linear
+//
+// Mesma coisa que o de cima, mas tambem
+// calcula a lista de primos
+//
+// O(n)
+
+int divi[MAX];
+vector<int> primes;
+
+void crivo(int lim) {
+	divi[1] = 1;
+	for (int i = 2; i <= lim; i++) {
+		if (divi[i] == 0) divi[i] = i, primes.push_back(i);
+		for (int j : primes) {
+			if (j > divi[i] or i*j > lim) break;
+			divi[i*j] = j;
+		}
+	}
 }
 
 // Crivo de divisores

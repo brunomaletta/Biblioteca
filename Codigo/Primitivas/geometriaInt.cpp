@@ -102,10 +102,10 @@ double get_t(pt v, line r) { // retorna t tal que t*v pertence a reta r
 // assume que ta representado (inferior esquerdo, superior direito)
 ll dist2_rect(pair<pt, pt> a, pair<pt, pt> b) {
 	int hor = 0, vert = 0;
-	if (a.s.x < b.f.x) hor = b.f.x - a.s.x;
-	else if (b.s.x < a.f.x) hor = a.f.x - b.s.x;
-	if (a.s.y < b.f.y) vert = b.f.y - a.s.y;
-	else if (b.s.y < a.f.y) vert = a.f.y - b.s.y;
+	if (a.second.x < b.first.x) hor = b.first.x - a.second.x;
+	else if (b.second.x < a.first.x) hor = a.first.x - b.second.x;
+	if (a.second.y < b.first.y) vert = b.first.y - a.second.y;
+	else if (b.second.y < a.first.y) vert = a.first.y - b.second.y;
 	return sq(hor) + sq(vert);
 }
 

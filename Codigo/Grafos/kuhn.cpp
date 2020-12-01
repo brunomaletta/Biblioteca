@@ -47,13 +47,12 @@ struct kuhn {
 		return ret;
 	}
 	pair<vector<int>, vector<int>> recover() {
-		int M = matching();
+		matching();
 		for (int i = 0; i < n+m; i++) vis[i] = 0;
-		for (int i = 0; i < n; i++) if (ma[i] == -1) assert(!dfs(i));
+		for (int i = 0; i < n; i++) if (ma[i] == -1) dfs(i);
 		vector<int> ca, cb;
 		for (int i = 0; i < n; i++) if (!vis[i]) ca.push_back(i);
 		for (int i = 0; i < m; i++) if (vis[n+i]) cb.push_back(i);
-		//assert(ca.size() + cb.size() == M);
 		return {ca, cb};
 	}
 };

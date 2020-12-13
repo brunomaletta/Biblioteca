@@ -1,92 +1,46 @@
-// Ahocorasick
+// Aho-corasick 
 //
-// Complexidades:
+// query retorna o numero de matches sem overlap
 //
-// all linear O(n*sigma)
-// example of query returns number of nonoverlapping matches
+// insert - O(|s| * log(SIGMA))
+// build - O(n * SIGMA), onde n = somatorio dos tamanhos das strings
 
 namespace aho {
-	const vector<pair<char, char>> vt = {
-		{'a', 'z'},
-		{'A', 'Z'},
-		{'0', '9'}
-	};//example of alphabet
+	map<char, int> to[MAX];
+	int link[MAX], idx, term[MAX], exit[MAX];
 
-	void fix(char &c){
-		int acc = 0;
-		for (auto p : vt){
-			if (p.first <= c && c <= p.second){
-				c = c - p.first + acc;
-				return;
-			}
-			acc += p.second - p.first + 1;
+	void insert(string& s) {
+		int at = 0;
+		for (char c : s) {
+			auto it = to[at].find(c);
+			if (it == to[at].end()) at = to[at][c] = ++idx;
+			else at = it->second;
 		}
+		term[at] = 1;
 	}
-	void unfix(char &c){
-		int acc = 0;
-		for (auto p : vt){
-			int next_acc = acc + p.second - p.first;
-			if (acc <= c && c <= next_acc){
-				c = p.first + c - acc;
-				return;
-			}
-			acc = next_acc + 1;
-		}
-	}
-	void fix(string &s){ for (char &c : s) fix(c); }
-	void unfix(string &s){ for (char &c : s) unfix(c); }
-
-
-	const int SIGMA = 70;//fix(vt.back().second) + 1;
-	const int MAXN = 1e5+10;
-
-	int to[MAXN][SIGMA];
-	int link[MAXN], end[MAXN];
-	int idx;
-	void init(){
-#warning dont forget to init before inserting strings
-		memset(to, 0, sizeof to);
-		idx = 1;
-	}
-	void insert(string &s){
-		fix(s);
-		int v =  0;
-		for (char c : s){
-			int &w = to[v][c];
-			if (!w) w = idx++;
-			v = w;
-		}
-		end[v] = 1;
-	}
-	void build(){
-#warning dont forget to build after inserting strings
+#warning nao esquece de chamar build() depois de inserir
+	void build() {
 		queue<int> q;
 		q.push(0);
-		while (!q.empty()){
-			int cur = q.front(); q.pop();
-			int l = link[cur];
-			end[cur] |= end[l];
-			for (int i = 0; i < SIGMA; i++){
-				int &w = to[cur][i];
-				if (w){	
-					link[w] = ((cur != 0) ? to[l][i] : 0);
-					q.push(w);
-				}
-				else w = to[l][i];
+		link[0] = exit[0] = -1;
+		while (q.size()) {
+			int i = q.front(); q.pop();
+			for (auto [c, j] : to[i]) {
+				int l = link[i];
+				while (l != -1 and !to[l].count(c)) l = link[l];
+				link[j] = l == -1 ? 0 : to[l][c];
+				exit[j] = term[link[j]] ? link[j] : exit[link[j]];
+				q.push(j);
 			}
 		}
 	}
-	int query(string &s){
-		fix(s);
-		int v = 0;
-		int counter = 0;
+	int query(string& s) {
+		int at = 0, ans = 0;
 		for (char c : s){
-			v = to[v][c];
-			if (end[v]) {
-				counter++;
-				v = 0;//remove if matches could overlap
-			}
+			while (at and !to[at].count(c)) at = link[at];
+			at = to[at][c];
+			if (term[at] or exit[at]+1) ans++, at = 0
 		}
-		return counter;
+		return ans;
 	}
 }

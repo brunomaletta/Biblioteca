@@ -97,16 +97,6 @@ bool isvert(line r) { // se r eh vertical
 	return eq(r.p.x, r.q.x);
 }
 
-ld getm(line r) { // coef. ang. de r
-	if (isvert(r)) return DINF;
-	return (r.p.y - r.q.y) / (r.p.x - r.q.x);
-}
-
-ld getn(line r) { // coef. lin. de r
-	if (isvert(r)) return DINF;
-	return r.p.y - getm(r) * r.p.x;
-}
-
 bool paraline(line r, line s) { // se r e s sao paralelas
 	return paral(r.p - r.q, s.p - s.q);
 }
@@ -129,12 +119,8 @@ pt proj(pt p, line r) { // projecao do ponto p na reta r
 
 pt inter(line r, line s) { // r inter s
 	if (paraline(r, s)) return pt(DINF, DINF);
-
-	if (isvert(r)) return pt(r.p.x, getm(s) * r.p.x + getn(s));
-	if (isvert(s)) return pt(s.p.x, getm(r) * s.p.x + getn(r));
-
-	ld x = (getn(s) - getn(r)) / (getm(r) - getm(s));
-	return pt(x, getm(r) * x + getn(r));
+	r.q = r.q - r.p, s.p = s.p - r.p, s.q = s.q - r.p;
+	return r.q * get_t(r.q, s) + r.p;
 }
 
 bool interseg(line r, line s) { // se o seg de r intersecta o seg de s

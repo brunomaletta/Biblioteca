@@ -241,7 +241,7 @@ struct bint {
 	friend int operator%(bint a, int b) { return a %= b; }
 	friend pair<bint, bint> divmod(const bint& a_, const bint& b_) { // O(n^2)
 		if (a_ == 0) return {0, 0};
-		int norm = (BASE-1) / b_.v.back();
+		int norm = BASE / (b_.v.back() + 1);
 		bint a = abs(a_) * norm;
 		bint b = abs(b_) * norm;
 		bint q, r;

@@ -21,7 +21,7 @@ vector<int> pi(string s) {
 }
 
 vector<int> matching(string& t, string& s) {
-	vector<int> p = pi(s+'$'), match;
+	vector<int> p = pi(s), match;
 	for (int i = 0, j = 0; i < t.size(); i++) {
 		while (j and s[j] != t[i]) j = p[j-1];
 		if (s[j] == t[i]) j++;

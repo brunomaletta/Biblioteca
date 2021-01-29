@@ -2,7 +2,7 @@
 //
 // encontra menor distancia de x
 // para todos os vertices
-// se ao final do algoritmo d[i] = INF,
+// se ao final do algoritmo d[i] = LINF,
 // entao x nao alcanca i
 //
 // O(m log(n))

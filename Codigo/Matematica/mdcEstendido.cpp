@@ -1,4 +1,4 @@
-// Algoritmo de Euclides extendido
+// Algoritmo de Euclides estendido
 //
 // acha x e y tal que ax + by = mdc(a, b) (nao eh unico)
 //

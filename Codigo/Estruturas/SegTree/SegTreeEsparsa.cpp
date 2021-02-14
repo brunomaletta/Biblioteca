@@ -1,4 +1,4 @@
-// SegTree Esparca
+// SegTree Esparsa
 //
 // Query: soma do range [a, b]
 // Update: flipa os valores de [a, b]

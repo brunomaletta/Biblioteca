@@ -1,4 +1,4 @@
-// Colocacao de Grafo de Intervalo
+// Coloracao de Grafo de Intervalo
 //
 // Colore os intervalos com o numero minimo
 // de cores de tal forma que dois intervalos

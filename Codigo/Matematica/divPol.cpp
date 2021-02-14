@@ -1,4 +1,4 @@
-// Divisão de Polinomios
+// Divisao de Polinomios
 //
 // Divide p1 por p2
 // Retorna um par com o quociente e o resto

@@ -1,43 +1,32 @@
-// Centro da Arvore
+// Centro de árvore
 //
-// Centro eh o vertice que minimiza
-// a maior distancia dele pra alguem
-// O centro fica no meio do diametro
-// A funcao center retorna um par com
-// o diametro e o centro
+// Retorna o diametro e o(s) centro(s) da arvore
+// Uma arvore tem sempre um ou dois centros e estes estao no meio do diametro
 //
-// O(n+m)
+// O(n)
 
 vector<int> g[MAX];
-int n, vis[MAX];
-int d[2][MAX];
+int d[MAX], par[MAX];
 
-// retorna ultimo vertice visitado
-int bfs(int k, int x) {
-        queue<int> q; q.push(k);
-	memset(vis, 0, sizeof(vis));
-	vis[k] = 1;
-	d[x][k] = 0;
-	int last = k;
-	
-	while (q.size()) {
-		int u = q.front(); q.pop();
-		last = u;
-		for (int i : g[u]) if (!vis[i]) {
-			vis[i] = 1;
-			q.push(i);
-			d[x][i] = d[x][u] + 1;
-		}
+pair<int, vector<int>> center() {
+	int f, df;
+	function<void(int)> dfs = [&] (int v) {
+		if(d[v] > df) f = v, df = d[v];
+		for(int u : g[v]) if(u != par[v]) 
+			d[u] = d[v] + 1, par[u] = v, dfs(u);
+	};
+ 
+	f = df = par[0] = -1, d[0] = 0;
+	dfs(0);
+	int root = f;
+	f = df = par[root] = -1, d[root] = 0;
+	dfs(root);
+ 
+ 	vector<int> c;
+	while(f != -1) {
+		if(d[f] == df/2 or d[f] == (df+1)/2) c.push_back(f);
+		f = par[f];
 	}
-	return last;
-}
-
-pair<int, int> center() {
-	int a = bfs(0, 0);
-	int b = bfs(a, 1);
-	bfs(b, 0);
-	int c, mi = INF;
-	for (int i = 0; i < n; i++) if (max(d[0][i], d[1][i]) < mi)
-		mi = max(d[0][i], d[1][i]), c = i;
-	return {d[0][a], c};
+ 
+	return {df, c};
 }

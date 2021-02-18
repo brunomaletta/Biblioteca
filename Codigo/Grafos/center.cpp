@@ -1,4 +1,4 @@
-// Centro de árvore
+// Centro de arvore
 //
 // Retorna o diametro e o(s) centro(s) da arvore
 // Uma arvore tem sempre um ou dois centros e estes estao no meio do diametro

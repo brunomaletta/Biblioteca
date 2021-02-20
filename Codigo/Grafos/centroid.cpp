@@ -18,7 +18,7 @@ void dfs(int k, int p=-1) {
 int centroid(int k, int p=-1, int size=-1) {
 	if (size == -1) size = subsize[k];
 	for (int i : g[k]) if (i != p) if (subsize[i] > size/2)
-		return centroid(i, k, size, t);
+		return centroid(i, k, size);
 	return k;
 }
 

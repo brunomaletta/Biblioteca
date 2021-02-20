@@ -15,19 +15,18 @@ int pai[MAX];
 
 void dfs(int k, int last) {
 	subsize[k] = 1;
-	for (int i = 0; i < (int) g[k].size(); i++)
-		if (g[k][i] != last and !rem[g[k][i]]) {
-			dfs(g[k][i], k);
-			subsize[k] += subsize[g[k][i]];
+	for (int i : g[k])
+		if (i != last and !rem[i]) {
+			dfs(i, k);
+			subsize[k] += subsize[i];
 		}
 }
 
 int centroid(int k, int last, int size) {
-	for (int i = 0; i < (int) g[k].size(); i++) {
-		int u = g[k][i];
-		if (rem[u] or u == last) continue;
-		if (subsize[u] > size / 2)
-			return centroid(u, k, size);
+	for (int i : g[k]) {
+		if (rem[i] or i == last) continue;
+		if (subsize[i] > size / 2)
+			return centroid(i, k, size);
 	}
 	// k eh o centroid
 	return k;
@@ -50,8 +49,7 @@ void decomp(int k, int last = -1) {
 	//dfs_dist(c, c);
 
 	// decompoe as sub-arvores
-	for (int i = 0; i < (int) g[c].size(); i++)
-		if (!rem[g[c][i]]) decomp(g[c][i], c);
+	for (int i : g[c]) if (!rem[i]) decomp(i, c);
 }
 
 void build() {

@@ -1,7 +1,7 @@
-// Isomorfismo de árvores
+// Isomorfismo de arvores
 // 
-// thash() retorna o hash da árvore (usando centroids como vértices especiais).
-// Duas árvores são isomorfas se seu hash é o mesmo
+// thash() retorna o hash da arvore (usando centroids como vértices especiais).
+// Duas arvores são isomorfas se seu hash eh o mesmo
 //
 // O(|V|.log(|V|))
 

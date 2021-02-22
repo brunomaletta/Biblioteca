@@ -1,52 +1,41 @@
-// Isomorfismo de Arvores
+// Isomorfismo de árvoresTree isomorphism
+// 
+// thash() retorna o hash da árvore (usando centroids como vértices especiais).
+// Duas árvores são isomorfas se seu hash é o mesmo
 //
-// Duas arvores T1 e T2 sao isomorfas
-// sse T1.getHash() = T2.getHash()
-//
-// O(n log(n))
+// O(|V|.log(|V|))
 
-map<vector<int>, int> mapp;
+map<vector<int>, int> mphash;
 
 struct tree {
 	int n;
-	vector<vector<int> > g;
-	vector<int> subsize;
+	vector<vector<int>> g;
+	vector<int> sz, cs;
 
-	tree(int n) {
-		g.resize(n);
-		subsize.resize(n);
-	}
-	void dfs(int k, int p=-1) {
-		subsize[k] = 1;
-		for (int i : g[k]) if (i != p) {
-			dfs(i, k);
-			subsize[k] += subsize[i];
+	tree(int n_) : n(n_), g(n_), sz(n_) {}
+
+	void dfs_centroid(int v, int p) {
+		sz[v] = 1;
+		bool cent = true;
+		for(int u : g[v]) if(u != p) {
+			dfs_centroid(u, v), sz[v] += sz[u];
+			if(sz[u] > n/2) cent = false;
 		}
+		if(cent and n - sz[v] <= n/2) cs.push_back(v);
 	}
-	int centroid(int k, int p=-1, int size=-1) {
-		if (size == -1) size = subsize[k];
-		for (int i : g[k]) if (i != p)
-			if (subsize[i] > size/2)
-				return centroid(i, k, size);
-		return k;
+	int fhash(int v, int p) {
+		vector<int> h;
+		for(int u : g[v]) if(u != p) 
+			h.push_back(fhash(u, v));
+		sort(h.begin(), h.end());
+		if(not mphash.count(h)) mphash[h] = mphash.size();
+		return mphash[h];
 	}
-	pair<int, int> centroids(int k=0) {
-		dfs(k);
-		int i = centroid(k), i2 = i;
-		for (int j : g[i]) if (2*subsize[j] == subsize[k]) i2 = j;
-		return {i, i2};
-	}
-	int hashh(int k, int p=-1) {
-		vector<int> v;
-		for (int i : g[k]) if (i != p) v.push_back(hashh(i, k));
-		sort(v.begin(), v.end());
-		if (!mapp.count(v)) mapp[v] = int(mapp.size());
-		return mapp[v];
-	}
-	ll getHash(int k=0) {
-		pair<int, int> c = centroids(k);
-		ll a = hashh(c.first), b = hashh(c.second);
-		if (a > b) swap(a, b);
-		return (a<<30)+b;
+	ll thash() {
+		cs.clear();
+		dfs_centroid(0, -1);
+		if(cs.size() == 1) return fhash(cs[0], -1);
+		ll h1 = fhash(cs[0], cs[1]), h2 = fhash(cs[1], cs[0]);
+		return (min(h1, h2) << 30) + max(h1, h2);
 	}
 };

@@ -1,4 +1,4 @@
-// Isomorfismo de árvoresTree isomorphism
+// Isomorfismo de árvores
 // 
 // thash() retorna o hash da árvore (usando centroids como vértices especiais).
 // Duas árvores são isomorfas se seu hash é o mesmo

@@ -55,6 +55,11 @@ template<typename T> struct sms {
 	friend void swap(sms& a, sms& b) {
 		swap(a.root, b.root), swap(a.N, b.N);
 	}
+	sms& operator =(const sms& v) {
+		sms tmp = v;
+		swap(tmp, *this);
+		return *this;
+	}
 	int count(node* x, T size) {
 		if (!x) return 0;
 		prop(x, size);

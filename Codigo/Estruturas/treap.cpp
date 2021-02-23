@@ -1,7 +1,11 @@
 // Treap
 //
 // Todas as operacoes custam
-// O(log(n)) com alta probabilidade
+// O(log(n)) com alta probabilidade, exceto meld
+// meld custa O(log^2 n) amortizado com alta prob.,
+// e permite unir duas treaps sem restricao adicional
+// Na pratica, esse meld tem constante muito boa e
+// o pior caso eh meio estranho de acontecer
 
 mt19937 rng((int) chrono::steady_clock::now().time_since_epoch().count());
 
@@ -9,12 +13,13 @@ template<typename T> struct treap {
 	struct node {
 		node *l, *r;
 		int p, sz;
-		T val;
-		node(T v) : l(NULL), r(NULL), p(rng()), sz(1), val(v) {}
+		T val, mi;
+		node(T v) : l(NULL), r(NULL), p(rng()), sz(1), val(v), mi(v) {}
 		void update() {
 			sz = 1;
-			if (l) sz += l->sz;
-			if (r) sz += r->sz;
+			mi = val;
+			if (l) sz += l->sz, mi = min(mi, l->mi);
+			if (r) sz += r->sz, mi = min(mi, r->mi);
 		}
 	};
 
@@ -77,5 +82,23 @@ template<typename T> struct treap {
 		if (M) delete M;
 		M = NULL;
 		join(L, R, root);
+	}
+	void meld(treap& t) { // segmented merge
+		node *L = root, *R = t.root;
+		root = NULL;
+		while (L or R) {
+			if (!L or (L and R and L->mi > R->mi)) std::swap(L, R);
+			if (!R) join(root, L, root), L = NULL;
+			else if (L->mi == R->mi) {
+				node* LL;
+				split(L, LL, L, R->mi+1);
+				delete LL;
+			} else {
+				node* LL;
+				split(L, LL, L, R->mi);
+				join(root, LL, root);
+			}
+		}
+		t.root = NULL;
 	}
 };

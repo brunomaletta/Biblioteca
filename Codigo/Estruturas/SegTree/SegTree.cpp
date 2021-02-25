@@ -71,3 +71,19 @@ int get_right(int a, int b, int val, int p=1, int l=0, int r=n-1) {
 	if (x != -1) return x;
 	return get_right(a, b, val, 2*p, l, m);
 }
+
+// Se tiver uma seg de soma sobre um array nao negativo v, da pra
+// descobrir em O(log(n)) o maior j tal que v[i]+v[i+1]+...+v[j-1] < val
+
+int lower_bound(int i, ll& val, int p, int l, int r) {
+	if (r < i) return n;
+	if (i <= l and seg[p] < val) {
+		val -= seg[p];
+		return n;
+	}
+	if (l == r) return l;
+	int m = (l+r)/2;
+	int x = lower_bound(i, val, 2*p, l, m);
+	if (x != n) return x;
+	return lower_bound(i, val, 2*p+1, m+1, r);
+}

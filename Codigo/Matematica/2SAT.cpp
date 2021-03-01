@@ -31,7 +31,7 @@ int dfs(int k) {
 		int u = s.top();
 		s.pop(); vis[u] = 1;
 		comp[u] = k;
-        ord.pb(u);
+		ord.pb(u);
 		if (u == k) break;
 	}
 	return lo;

@@ -40,6 +40,7 @@ O *theoretical* (documento com teoremas, identidades e informações teóricas r
 - [Order Statistic Set (GCC)](https://github.com/brunomaletta/Biblioteca/blob/master/Codigo/Estruturas/OrderStatisticSet.cpp)
 - [SQRT-decomposition](https://github.com/brunomaletta/Biblioteca/blob/master/Codigo/Estruturas/SQRT-decomposition.cpp)
 - [Sparse Table](https://github.com/brunomaletta/Biblioteca/blob/master/Codigo/Estruturas/SparseTable.cpp)
+- [Sparse Table Disjunta](https://github.com/brunomaletta/Biblioteca/blob/master/Codigo/Estruturas/SparseTableDisjunta.cpp)
 - [Wavelet Tree](https://github.com/brunomaletta/Biblioteca/blob/master/Codigo/Estruturas/WaveletTree.cpp)
 - [MergeSort Tree](https://github.com/brunomaletta/Biblioteca/blob/master/Codigo/Estruturas/mergeSortTree.cpp)
 - [Minqueue - Deque](https://github.com/brunomaletta/Biblioteca/blob/master/Codigo/Estruturas/minqueueDeque.cpp)

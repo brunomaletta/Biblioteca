@@ -99,7 +99,7 @@ O *theoretical* (documento com teoremas, identidades e informações teóricas r
 ### Matemática
 
 - [2-SAT (com recuperação)](https://github.com/brunomaletta/Biblioteca/blob/master/Codigo/Matematica/2SAT.cpp)
-- [Logaritmo Discreto](https://github.com/brunomaletta/Biblioteca/blob/master/Codigo/Matematica/Baby-step-giant-step.cpp)
+- [Logaritmo Discreto](https://github.com/brunomaletta/Biblioteca/blob/master/Codigo/Matematica/logDiscreto.cpp)
 - [Miller-Rabin](https://github.com/brunomaletta/Biblioteca/blob/master/Codigo/Matematica/MillerRabin.cpp)
 - [Inverso Modular](https://github.com/brunomaletta/Biblioteca/blob/master/Codigo/Matematica/ModInverse.cpp)
 - [Teorema Chines do Resto](https://github.com/brunomaletta/Biblioteca/blob/master/Codigo/Matematica/chinese.cpp)

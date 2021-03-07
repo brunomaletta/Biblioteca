@@ -29,7 +29,6 @@ namespace cover {
 			};
 			dfs(x);
 
-			// branch
 			int ma, deg = -1, cyc = 1;
 			for (int i = 0; i < n; i++) if (comp[i]) {
 				int d = (bs[i]&comp).count();

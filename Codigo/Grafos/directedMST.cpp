@@ -11,10 +11,10 @@ struct node {
 	ll lazy;
 	node *l, *r;
 	node() {}
-	node(ii v) : val(v), lazy(0), l(NULL), r(NULL) {}
+	node(pair<int, int> v) : val(v), lazy(0), l(NULL), r(NULL) {}
 
 	void prop() {
-		val.f += lazy;
+		val.first += lazy;
 		if (l) l->lazy += lazy;
 		if (r) r->lazy += lazy;
 		lazy = 0;
@@ -33,17 +33,17 @@ pair<ll, int> pop(node*& R) {
 	node* tmp = R;
 	merge(R->l, R->r);
 	R = R->l;
-	if (R) R->lazy -= ret.f;
+	if (R) R->lazy -= ret.first;
 	delete tmp;
 	return ret;
 }
 void apaga(node* R) { if (R) apaga(R->l), apaga(R->r), delete R; }
 
-ll dmst(int n, int r, vector<pair<ii, int>>& ar) {
+ll dmst(int n, int r, vector<pair<pair<int, int>, int>>& ar) {
 	vector<int> p(n); iota(p.begin(), p.end(), 0);
 	function<int(int)> find = [&](int k) { return p[k]==k?k:p[k]=find(p[k]); };
 	vector<node*> h(n);
-	for (auto e : ar) merge(h[e.f.s], new node({e.s, e.f.f}));
+	for (auto e : ar) merge(h[e.first.second], new node({e.second, e.first.first}));
 	vector<int> pai(n, -1), path(n);
 	pai[r] = r;
 	ll ans = 0;

@@ -11,7 +11,7 @@
 
 int n, m;
 int d[MAX];
-vector<pair<int, int> > ar; // vetor de arestas
+vector<pair<int, int>> ar; // vetor de arestas
 vector<int> w;              // peso das arestas
 
 bool bellman_ford(int a) {

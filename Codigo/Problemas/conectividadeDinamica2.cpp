@@ -13,7 +13,7 @@ namespace lct {
 	};
  
 	node t[2*MAX]; // MAXN + MAXQ
-	map<ii, int> aresta;
+	map<pair<int, int>, int> aresta;
 	int sz;
  
 	void prop(int x) {
@@ -96,8 +96,8 @@ void dyn_conn() {
 	int n, q; cin >> n >> q;
 	vector<int> p(2*q, -1); // outra ponta do intervalo
 	for (int i = 0; i < n; i++) lct::make_tree(i);
-	vector<ii> qu(q);
-	map<ii, int> m;
+	vector<pair<int, int>> qu(q);
+	map<pair<int, int>, int> m;
 	for (int i = 0; i < q; i++) {
 		char c; cin >> c;
 		if (c == '?') continue;
@@ -118,7 +118,7 @@ void dyn_conn() {
 			cout << ans << endl; // numero de comp conexos
 			continue;
 		}
-		int a = qu[i].f, b = qu[i].s;
+		int a = qu[i].first, b = qu[i].second;
 		if (p[i] > i) { // +
 			if (lct::conn(a, b)) {
 				int mi = lct::query(a, b);
@@ -126,7 +126,7 @@ void dyn_conn() {
 					p[p[i]] = p[i];
 					continue;
 				}
-				lct::cut(qu[p[mi]].f, qu[p[mi]].s), ans++;
+				lct::cut(qu[p[mi]].first, qu[p[mi]].second), ans++;
 				p[mi] = mi;
 			}
 			lct::link(a, b, p[i]), ans--;

@@ -139,15 +139,15 @@ vector<pt> convex_hull(vector<pt> v) { // convex hull - O(n log(n))
 	for (int i = 0; i < v.size(); i++) {
 		while (l.size() > 1 and !ccw(l[l.size()-2], l.back(), v[i]))
 			l.pop_back();
-		l.pb(v[i]);
+		l.push_back(v[i]);
 	}
 	for (int i = v.size() - 1; i >= 0; i--) {
 		while (u.size() > 1 and !ccw(u[u.size()-2], u.back(), v[i]))
 			u.pop_back();
-		u.pb(v[i]);
+		u.push_back(v[i]);
 	}
 	l.pop_back(); u.pop_back();
-	for (pt i : u) l.pb(i);
+	for (pt i : u) l.push_back(i);
 	return l;
 }
 

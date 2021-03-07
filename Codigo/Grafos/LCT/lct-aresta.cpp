@@ -22,7 +22,7 @@ namespace lct {
 	};
 
 	node t[2*MAX]; // MAXN + MAXQ
-	map<ii, int> aresta;
+	map<pair<int, int>, int> aresta;
 	int sz;
 
 	void prop(int x) {

@@ -54,7 +54,7 @@ void erase(int p){
 	update(o);
 }
 
-vector<tuple<int, int, int>> make_queries(vector<ii> &q_){
+vector<tuple<int, int, int>> make_queries(vector<pair<int, int>> &q_){
 	vector<tuple<int, int, int>> q;
 	for (auto &it : q_){
 		int l, r;
@@ -67,7 +67,7 @@ vector<tuple<int, int, int>> make_queries(vector<ii> &q_){
 	return q;
 }
 
-vector<int> MO(vector<ii> &q_){
+vector<int> MO(vector<pair<int, int>> &q_){
 	LCA::build(0);//any LCA alg works
 	int t = 0;
 	dfs(0, -1, t);

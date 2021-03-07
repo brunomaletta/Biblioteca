@@ -40,9 +40,9 @@ struct dsu {
 };
 
 int n;
-vector<ii> ar; // vetor com as arestas
+vector<pair<int, int>> ar; // vetor com as arestas
 
-vector<int> MO(vector<ii> &q) {
+vector<int> MO(vector<pair<int, int>> &q) {
 	int SQ = sqrt(q.size()) + 1;
 	int m = q.size();
 	vector<int> ord(m);

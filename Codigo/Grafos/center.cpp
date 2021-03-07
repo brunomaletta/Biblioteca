@@ -23,8 +23,8 @@ pair<int, vector<int>> center() {
 	dfs(root);
  
  	vector<int> c;
-	while(f != -1) {
-		if(d[f] == df/2 or d[f] == (df+1)/2) c.push_back(f);
+	while (f != -1) {
+		if (d[f] == df/2 or d[f] == (df+1)/2) c.push_back(f);
 		f = par[f];
 	}
  

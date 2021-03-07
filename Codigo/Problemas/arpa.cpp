@@ -9,7 +9,7 @@ int n, v[MAX], ans[MAX];
 namespace arpa {
 	int p[MAX], cnt;
 	stack<int> s;
-	vector<pair<int, int> > l[MAX];
+	vector<pair<int, int>> l[MAX];
 
 	int find(int k) { return p[k] == k ? k : p[k] = find(p[k]); }
 	void add(int a, int b) { l[b].push_back({a, cnt++}); }

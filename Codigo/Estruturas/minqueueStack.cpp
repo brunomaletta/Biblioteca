@@ -3,7 +3,7 @@
 // Tudo O(1) amortizado
 
 template<class T> struct minstack {
-	stack<pair<T, T> > s;
+	stack<pair<T, T>> s;
 
 	void push(T x) {
 		if (!s.size()) s.push({x, x});

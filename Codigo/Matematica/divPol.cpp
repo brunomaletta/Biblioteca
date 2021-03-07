@@ -16,13 +16,13 @@ pair<vi, vi> div(vi p1, vi p2) {
 	int a = p1.size(), b = p2.size();
 	for (int i = 0; i <= a - b; i++) {
 		int k = p1[i] / p2[0];
-		quoc.pb(k);
+		quoc.push_back(k);
 		for (int j = i; j < i + b; j++)
 			p1[j] -= k * p2[j - i];
 	}
 
 	for (int i = a - b + 1; i < a; i++)
-		resto.pb(p1[i]);
+		resto.push_back(p1[i]);
 
 	return mp(quoc, resto);
 }

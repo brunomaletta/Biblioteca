@@ -21,7 +21,7 @@ cout << *s.find_by_order(k) << endl;
 cout << s.order_of_key(k) << endl;
 
 // Para fazer um multiset, tem que
-// usar ord_set<pair<int, int> > com o
+// usar ord_set<pair<int, int>> com o
 // segundo parametro sendo algo para diferenciar
 // os ementos iguais.
 // s.order_of_key({k, -INF}) vai retornar o

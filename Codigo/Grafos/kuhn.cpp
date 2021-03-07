@@ -22,7 +22,7 @@ struct kuhn {
 	kuhn(int n_, int m_) : n(n_), m(m_), g(n),
 		vis(n+m), ma(n, -1), mb(m, -1) {}
 
-	void add(int a, int b) { g[a].pb(b); }
+	void add(int a, int b) { g[a].push_back(b); }
 
 	bool dfs(int i) {
 		vis[i] = 1;

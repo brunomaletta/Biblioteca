@@ -26,10 +26,11 @@ namespace wav {
 
 void build() {
 	for (int i = 0; i < n; i++) nxt[i] = MAXN+1;
-	vector<ii> t;
+	vector<pair<int, int>> t;
 	for (int i = 0; i < n; i++) t.push_back({v[i], i});
 	sort(t.begin(), t.end());
-	for (int i = 0; i < n-1; i++) if (t[i].f == t[i+1].f) nxt[t[i].s] = t[i+1].s;
+	for (int i = 0; i < n-1; i++) if (t[i].first == t[i+1].first)
+		nxt[t[i].second] = t[i+1].second;
 
 	wav::build();
 }

@@ -53,8 +53,8 @@ pair<ll, ll> divide_show(ll n, int p, int k, int pak) {
 	ll r = expo(periodo, blocos, pak)*resto%pak;
 
 	auto rec = divide_show(n/p, p, k, pak);
-	ll y = n/p + rec.f;
-	r = r*rec.s % pak;
+	ll y = n/p + rec.first;
+	r = r*rec.second % pak;
 
 	return {y, r};
 }
@@ -67,25 +67,26 @@ ll solve_pak(ll n, ll x, int p, int k, int pak) {
 	}
 
 	auto dn = divide_show(n, p, k, pak), dx = divide_show(x, p, k, pak),
-							dnx = divide_show(n-x, p, k, pak);
-	ll y = dn.f-dx.f-dnx.f, r = (dn.s*inv(dx.s, pak)%pak)*inv(dnx.s, pak)%pak;
+		 dnx = divide_show(n-x, p, k, pak);
+	ll y = dn.first-dx.first-dnx.first, r =
+		(dn.second*inv(dx.second, pak)%pak)*inv(dnx.second, pak)%pak;
 	return expo(p, y, pak) * r % pak;
 }
 
 ll solve(ll n, ll x, int mod) {
-	vector<ii> f;
+	vector<pair<int, int>> f;
 	int mod2 = mod;
 	for (int i = 2; i*i <= mod2; i++) if (mod2%i==0) {
 		int c = 0;
 		while (mod2%i==0) mod2 /= i, c++;
-		f.pb({i, c});
+		f.push_back({i, c});
 	}
-	if (mod2 > 1) f.pb({mod2, 1});
+	if (mod2 > 1) f.push_back({mod2, 1});
 	crt ans(0, 1);
 	for (int i = 0; i < f.size(); i++) {
 		int pak = 1;
-		for (int j = 0; j < f[i].s; j++) pak *= f[i].f;
-		ans = ans * crt(solve_pak(n, x, f[i].f, f[i].s, pak), pak);
+		for (int j = 0; j < f[i].second; j++) pak *= f[i].first;
+		ans = ans * crt(solve_pak(n, x, f[i].first, f[i].second, pak), pak);
 	}
 	return ans.a;
 }

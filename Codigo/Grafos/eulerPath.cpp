@@ -18,7 +18,7 @@
 
 template<bool directed=false> struct euler {
 	int n;
-	vector<vector<ii>> g;
+	vector<vector<pair<int, int>>> g;
 	vector<int> used;
 
 	euler(int n_) : n(n_), g(n) {}
@@ -29,38 +29,40 @@ template<bool directed=false> struct euler {
 		if (!directed) g[b].push_back({a, at});
 	}
 #warning chamar para o src certo!
-	pair<bool, vector<ii>> get_path(int src) {
+	pair<bool, vector<pair<int, int>>> get_path(int src) {
 		if (!used.size()) return {true, {}};
 		vector<int> beg(n, 0);
 		for (int& i : used) i = 0;
 		// {{vertice, anterior}, label}
-		vector<pair<ii, int>> ret, st = {{{src, -1}, -1}};
+		vector<pair<pair<int, int>, int>> ret, st = {{{src, -1}, -1}};
 		while (st.size()) {
-			int at = st.back().f.f;
+			int at = st.back().first.first;
 			int& it = beg[at];
-			while (it < g[at].size() and used[g[at][it].s]) it++;
+			while (it < g[at].size() and used[g[at][it].second]) it++;
 			if (it == g[at].size()) {
-				if (ret.size() and ret.back().f.s != at) return {false, {}};
+				if (ret.size() and ret.back().first.second != at)
+					return {false, {}};
 				ret.push_back(st.back()), st.pop_back();
 			} else {
-				st.push_back({{g[at][it].f, at}, g[at][it].s});
-				used[g[at][it].s] = 1;
+				st.push_back({{g[at][it].first, at}, g[at][it].second});
+				used[g[at][it].second] = 1;
 			}
 		}
 		if (ret.size() != used.size()+1) return {false, {}};
-		vector<ii> ans;
-		for (auto i : ret) ans.pb({i.f.f, i.s});
+		vector<pair<int, int>> ans;
+		for (auto i : ret) ans.push_back({i.first.first, i.second});
 		reverse(ans.begin(), ans.end());
 		return {true, ans};
 	}
-	pair<bool, vector<ii>> get_cycle() {
+	pair<bool, vector<pair<int, int>>> get_cycle() {
 		if (!used.size()) return {true, {}};
 		int src = 0;
 		while (!g[src].size()) src++;
 		auto ans = get_path(src);
-		if (!ans.f or ans.s[0].f != ans.s.back().f) return {false, {}};
-		ans.s[0].s = ans.s.back().s;
-		ans.s.pop_back();
+		if (!ans.first or ans.second[0].first != ans.second.back().first)
+			return {false, {}};
+		ans.second[0].second = ans.second.back().second;
+		ans.second.pop_back();
 		return ans;
 	}
 };

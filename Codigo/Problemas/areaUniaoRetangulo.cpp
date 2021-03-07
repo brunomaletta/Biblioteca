@@ -52,8 +52,8 @@ namespace seg {
  
 ll seg_vec[MAX];
  
-ll area_sq(vector<pair<ii, ii>> &sq){
-	vector<pair<ii, ii>> up;
+ll area_sq(vector<pair<pair<int, int>, pair<int, int>>> &sq){
+	vector<pair<pair<int, int>, pair<int, int>>> up;
 	for (auto it : sq){
 		int x1, y1, x2, y2;
 		tie(x1, y1) = it.first;

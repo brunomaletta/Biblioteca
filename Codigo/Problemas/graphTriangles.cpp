@@ -6,18 +6,18 @@
 //
 // O(m sqrt(m) log(n)) se chamar para todos os vertices
 
-vector<ii> g[MAX]; // {para, peso}
+vector<pair<int, int>> g[MAX]; // {para, peso}
 
 #warning o 'g' deve estar ordenado
-vector<pair<int, ii>> get_triangles(int i) {
-	vector<pair<int, ii>> tri;
-	for (ii j : g[i]) {
-		int a = i, b = j.f;
+vector<pair<int, pair<int, int>>> get_triangles(int i) {
+	vector<pair<int, pair<int, int>>> tri;
+	for (pair<int, int> j : g[i]) {
+		int a = i, b = j.first;
 		if (g[a].size() > g[b].size()) swap(a, b);
-		for (ii c : g[a]) if (c.f != b and c.f > j.f) {
-			auto it = lower_bound(g[b].begin(), g[b].end(), make_pair(c.f, -INF));
-			if (it == g[b].end() or it->f != c.f) continue;
-			tri.push_back({j.s+c.s+it->s, {a == i ? b : a, c.f}});
+		for (pair<int, int> c : g[a]) if (c.first != b and c.first > j.first) {
+			auto it = lower_bound(g[b].begin(), g[b].end(), make_pair(c.first, -INF));
+			if (it == g[b].end() or it->first != c.first) continue;
+			tri.push_back({j.second+c.second+it->second, {a == i ? b : a, c.first}});
 		}
 	}
 	return tri;

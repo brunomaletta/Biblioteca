@@ -41,7 +41,7 @@ inline ll hilbert(int x, int y) {
 }
 
 #define HILBERT true
-vector<int> MO(vector<ii> &q) {
+vector<int> MO(vector<pair<int, int>> &q) {
 	ans = 0;
 	int m = q.size();
 	vector<int> ord(m);

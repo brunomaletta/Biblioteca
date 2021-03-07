@@ -8,12 +8,7 @@
 //
 // O(n log(n))
 
-#define f first
-#define s second
-#define pb push_back
-
 typedef long long ll;
-typedef pair<int, int> ii;
 
 const ll N = 1e9+10;
 const int MAX = 1e5+10;
@@ -43,29 +38,29 @@ namespace seg {
 	}
 };
 
-void pointsInsidePol(vector<ii>& pol, vector<ii>& v) {
-	vector<pair<int, pair<int, ii> > > ev; // {x, {tipo, {a, b}}}
+void pointsInsidePol(vector<pair<int, int>>& pol, vector<pair<int, int>>& v) {
+	vector<pair<int, pair<int, pair<int, int>> > > ev; // {x, {tipo, {a, b}}}
 	// -1: poe ; id: query ; 1e9: tira
 	for (int i = 0; i < v.size(); i++)
-		ev.pb({v[i].f, {i, {v[i].s, v[i].s}}});
+		ev.pb({v[i].first, {i, {v[i].second, v[i].second}}});
 	for (int i = 0; i < pol.size(); i++) {
-		ii u = pol[i], v = pol[(i+1)%pol.size()];
-		if (u.s == v.s) {
-			ev.pb({min(u.f, v.f), {-1, {u.s, u.s}}});
-			ev.pb({max(u.f, v.f), {N, {u.s, u.s}}});
+		pair<int, int> u = pol[i], v = pol[(i+1)%pol.size()];
+		if (u.second == v.second) {
+			ev.pb({min(u.first, v.first), {-1, {u.second, u.second}}});
+			ev.pb({max(u.first, v.first), {N, {u.second, u.second}}});
 			continue;
 		}
 		int t = N;
-		if (u.s > v.s) t = -1;
-		ev.pb({u.f, {t, {min(u.s, v.s)+1, max(u.s, v.s)}}});
+		if (u.second > v.second) t = -1;
+		ev.pb({u.first, {t, {min(u.second, v.second)+1, max(u.second, v.second)}}});
 	}
 
 	sort(ev.begin(), ev.end());
 	for (int i = 0; i < v.size(); i++) ta[i] = 0;
 	for (auto i : ev) {
-		pair<int, ii> j = i.s;
-		if (j.f == -1) seg::update(j.s.f, j.s.s, 1);
-		else if (j.f == N) seg::update(j.s.f, j.s.s, -1);
-		else if (seg::query(j.s.f)) ta[j.f] = 1; // ta dentro
+		pair<int, pair<int, int>> j = i.second;
+		if (j.first == -1) seg::update(j.second.first, j.second.second, 1);
+		else if (j.first == N) seg::update(j.second.first, j.second.second, -1);
+		else if (seg::query(j.second.first)) ta[j.first] = 1; // ta dentro
 	}
 }

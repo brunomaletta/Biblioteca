@@ -31,7 +31,7 @@ int dfs(int k) {
 		int u = s.top();
 		s.pop(); vis[u] = 1;
 		comp[u] = k;
-		ord.pb(u);
+		ord.push_back(u);
 		if (u == k) break;
 	}
 	return lo;
@@ -48,9 +48,9 @@ int nao(int x){ return (x + n) % (2*n); }
 
 // x -> y  =  !x ou y
 void add(int x, int y){
-	g[x].pb(y);
+	g[x].push_back(y);
 	// contraposicao
-	g[nao(y)].pb(nao(x));
+	g[nao(y)].push_back(nao(x));
 }
 
 bool doisSAT(){

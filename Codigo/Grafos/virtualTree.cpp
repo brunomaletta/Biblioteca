@@ -76,7 +76,7 @@ int build_virt(vector<int> v) {
 	for (int i : v) virt[i].clear();
 	for (int i = 1; i < v.size(); i++) {
 #warning soh to colocando aresta descendo
-		virt[lca::lca(v[i-1], v[i])].pb(v[i]);
+		virt[lca::lca(v[i-1], v[i])].push_back(v[i]);
 	}
 	return v[0];
 }

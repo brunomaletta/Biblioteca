@@ -13,11 +13,11 @@ void sweep_direction(vector<pt> v) {
 	});
 	vector<int> at(n);
 	iota(at.begin(), at.end(), 0);
-	vector<ii> swapp;
+	vector<pair<int, int>> swapp;
 	for (int i = 0; i < n; i++) for (int j = i+1; j < n; j++)
 		swapp.push_back({i, j}), swapp.push_back({j, i});
 
-	sort(swapp.begin(), swapp.end(), [&](ii a, ii b) {
+	sort(swapp.begin(), swapp.end(), [&](auto a, auto b) {
 		pt A = rotate90(v[a.f] - v[a.s]);
 		pt B = rotate90(v[b.f] - v[b.s]);
 		if (quad(A) == quad(B) and !sarea2(pt(0, 0), A, B)) return a < b;

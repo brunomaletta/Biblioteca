@@ -44,12 +44,14 @@ namespace bit {
 void build() {
 	for (int i = 0; i < n; i++) nxt[i] = INF;
 	for (int i = 0; i < n; i++) prv[i] = -INF;
-	vector<ii> t;
+	vector<pair<int, int>> t;
 	for (int i = 0; i < n; i++) t.push_back({v[i], i});
 	sort(t.begin(), t.end());
 	for (int i = 0; i < n; i++) {
-		if (i and t[i].f == t[i-1].f) prv[t[i].s] = t[i-1].s;
-		if (i+1 < n and t[i].f == t[i+1].f) nxt[t[i].s] = t[i+1].s;
+		if (i and t[i].first == t[i-1].first)
+			prv[t[i].second] = t[i-1].second;
+		if (i+1 < n and t[i].first == t[i+1].first)
+			nxt[t[i].second] = t[i+1].second;
 	}
 
 	for (int i = 0; i < n; i++) ocor[v[i]].insert(i);
@@ -71,7 +73,7 @@ void update(int p, int x) { // mudar valor na pos. p para x
 	if (nxt[p] < INF) prv[nxt[p]] = prv[p];
 
 	ocor[v[p]].erase(p);
-	if (!ocor[x].size()) {
+	if (!ocor[x].secondize()) {
 		muda(p, INF);
 		prv[p] = -INF;
 	} else if (*ocor[x].rbegin() < p) {

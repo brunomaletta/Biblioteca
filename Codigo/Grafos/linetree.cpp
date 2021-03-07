@@ -15,7 +15,7 @@ namespace linetree {
 	vector<int> v[MAX], val[MAX];
 	vector<pair<int, pair<int, int> > > ar;
 
-	void add(int a, int b, int p) { ar.pb({p, {a, b}}); }
+	void add(int a, int b, int p) { ar.push_back({p, {a, b}}); }
 	void build() {
 		sort(ar.rbegin(), ar.rend());
 		for (int i = 0; i < n; i++) id[i] = i, v[i] = {i}, val[i].clear();

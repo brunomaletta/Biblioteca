@@ -18,13 +18,14 @@ namespace hld {
 
 	void build_hld(int k, int p = -1, int f = 1) {
 		v[pos[k] = t++] = sobe[k]; sz[k] = 1;
-		for (auto& i : g[k]) if (i.f != p) {
-			sobe[i.f] = i.s; pai[i.f] = k;
-			h[i.f] = (i == g[k][0] ? h[k] : i.f);
-			men[i.f] = (i == g[k][0] ? min(men[k], i.s) : i.s);
-			build_hld(i.f, k, f); sz[k] += sz[i.f];
+		for (auto& i : g[k]) if (i.first != p) {
+			sobe[i.first] = i.second; pai[i.first] = k;
+			h[i.first] = (i == g[k][0] ? h[k] : i.first);
+			men[i.first] = (i == g[k][0] ? min(men[k], i.second) : i.second);
+			build_hld(i.first, k, f); sz[k] += sz[i.first];
 
-			if (sz[i.f] > sz[g[k][0].f] or g[k][0].f == p) swap(i, g[k][0]);
+			if (sz[i.first] > sz[g[k][0].first] or g[k][0].first == p)
+				swap(i, g[k][0]);
 		}
 		if (p*f == -1) build_hld(h[k] = k, -1, t = 0);
 	}

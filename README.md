@@ -173,7 +173,6 @@ O *theoretical* (documento com teoremas, identidades e informações teóricas r
 - [MO](https://github.com/brunomaletta/Biblioteca/blob/master/Codigo/Problemas/mo.cpp)
 - [MO - DSU](https://github.com/brunomaletta/Biblioteca/blob/master/Codigo/Problemas/mo-dsu.cpp)
 - [MO em Árvores](https://github.com/brunomaletta/Biblioteca/blob/master/Codigo/Problemas/moOnTrees.cpp)
-- [Nim](https://github.com/brunomaletta/Biblioteca/blob/master/Codigo/Problemas/nim.cpp)
 - [Pontos Dentro de Polígono](https://github.com/brunomaletta/Biblioteca/blob/master/Codigo/Problemas/pointsInsidePol.cpp)
 - [Interseção de Segmentos](https://github.com/brunomaletta/Biblioteca/blob/master/Codigo/Problemas/segmentIntersection.cpp)
 - [Verificação de Polígono Simples](https://github.com/brunomaletta/Biblioteca/blob/master/Codigo/Problemas/simplePolygon.cpp)

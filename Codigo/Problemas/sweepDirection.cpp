@@ -18,17 +18,18 @@ void sweep_direction(vector<pt> v) {
 		swapp.push_back({i, j}), swapp.push_back({j, i});
 
 	sort(swapp.begin(), swapp.end(), [&](auto a, auto b) {
-		pt A = rotate90(v[a.f] - v[a.s]);
-		pt B = rotate90(v[b.f] - v[b.s]);
+		pt A = rotate90(v[a.first] - v[a.second]);
+		pt B = rotate90(v[b.first] - v[b.second]);
 		if (quad(A) == quad(B) and !sarea2(pt(0, 0), A, B)) return a < b;
 		return compare_angle(A, B);
 	});
 	for (auto par : swapp) {
-		assert(abs(at[par.f] - at[par.s]) == 1);
-		int l = min(at[par.f], at[par.s]), r = n-1 - max(at[par.f], at[par.s]);
+		assert(abs(at[par.first] - at[par.second]) == 1);
+		int l = min(at[par.first], at[par.second]),
+			r = n-1 - max(at[par.first], at[par.second]);
 		// l e r sao quantos caras tem de cada lado do par de pontos
 		// (cada par eh visitado duas vezes)
-		swap(v[at[par.f]], v[at[par.s]]);
-		swap(at[par.f], at[par.s]);
+		swap(v[at[par.first]], v[at[par.second]]);
+		swap(at[par.first], at[par.second]);
 	}
 }

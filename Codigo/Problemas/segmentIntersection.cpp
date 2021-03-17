@@ -14,7 +14,7 @@ bool operator < (const line& a, const line& b) { // comparador pro sweepline
 
 bool has_intersection(vector<line> v) {
 	auto intersects = [&](pair<line, int> a, pair<line, int> b) {
-		return interseg(a.f, b.f);
+		return interseg(a.first, b.first);
 	};
 	vector<pair<pt, pair<int, int>>> w;
 	for (int i = 0; i < v.size(); i++) {
@@ -25,14 +25,14 @@ bool has_intersection(vector<line> v) {
 	sort(w.begin(), w.end());
 	set<pair<line, int>> se;
 	for (auto i : w) {
-		line at = v[i.s.s];
-		if (i.s.f == 0) {
-			auto nxt = se.lower_bound({at, i.s.s});
-			if (nxt != se.end() and intersects(*nxt, {at, i.s.s})) return 1;
-			if (nxt != se.begin() and intersects(*(--nxt), {at, i.s.s})) return 1;
-			se.insert({at, i.s.s});
+		line at = v[i.second.second];
+		if (i.second.first == 0) {
+			auto nxt = se.lower_bound({at, i.second.second});
+			if (nxt != se.end() and intersects(*nxt, {at, i.second.second})) return 1;
+			if (nxt != se.begin() and intersects(*(--nxt), {at, i.second.second})) return 1;
+			se.insert({at, i.second.second});
 		} else {
-			auto nxt = se.upper_bound({at, i.s.s}), cur = nxt, prev = --cur;
+			auto nxt = se.upper_bound({at, i.second.second}), cur = nxt, prev = --cur;
 			if (nxt != se.end() and prev != se.begin()
 				and intersects(*nxt, *(--prev))) return 1;
 			se.erase(cur);

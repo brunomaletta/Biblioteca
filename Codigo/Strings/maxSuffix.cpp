@@ -5,15 +5,14 @@
 //
 // O(n)
 
-int max_sulf(string s) {
-	s += '#';
-	int ans = max_element(s.begin(), s.end()) - s.begin();
-	for (int i = ans+1, j = 0; i < s.size(); i++) {
-		if (ans+j < i and s[i] == s[ans+j]) j++;
-		else {
-			if (ans+j < i and s[i] > s[ans+j]) ans = i-j;
-			j = 0;
-		}
+int max_suf(string s) {
+	s += '$'; // precisa ser menor que os outros
+	int ans = 0;
+	for (int i = 1; i < s.size(); i++) {
+		int j = 0;
+		while (ans+j < i and s[i+j] == s[ans+j]) j++;
+		if (ans+j < i and s[i+j] > s[ans+j]) ans = i;
+		else if (j) i += j-1;
 	}
 	return ans;
 }

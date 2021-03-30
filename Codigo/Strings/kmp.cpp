@@ -10,7 +10,7 @@
 // construir o automato - O(|sigma|*n)
 // n = |padrao| e m = |texto|
 
-vector<int> pi(string s) {
+template<typename T> vector<int> pi(T s) {
 	vector<int> p(s.size());
 	for (int i = 1, j = 0; i < s.size(); i++) {
 		while (j and s[j] != s[i]) j = p[j-1];
@@ -20,7 +20,7 @@ vector<int> pi(string s) {
 	return p;
 }
 
-vector<int> matching(string& s, string& t) {
+template<typename T> vector<int> matching(T& s, T& t) {
 	vector<int> p = pi(s), match;
 	for (int i = 0, j = 0; i < t.size(); i++) {
 		while (j and s[j] != t[i]) j = p[j-1];

@@ -30,7 +30,7 @@
 template <typename T = int> struct ms_tree {
 	vector<tuple<T, T, int>> v;
 	int n;
-	vector<vector<tuple<T, int, int>>> t; // {y, idx, left}
+	vector<vector<tuple<T, T, int>>> t; // {y, idx, left}
 	vector<T> vy;
 
 	ms_tree(vector<pair<T, T>>& vv) : n(vv.size()), t(4*n), vy(n) {

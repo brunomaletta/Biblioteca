@@ -91,7 +91,7 @@ O *theoretical* (documento com teoremas, identidades e informações teóricas r
 - [MinCost-MaxFlow](https://github.com/brunomaletta/Biblioteca/blob/master/Codigo/Grafos/minCostMaxFlow.cpp)
 - [Prufer Code Linear](https://github.com/brunomaletta/Biblioteca/blob/master/Codigo/Grafos/prufer.cpp)
 - [Sack (DSU em árvores)](https://github.com/brunomaletta/Biblioteca/blob/master/Codigo/Grafos/sack.cpp)
-- [Tarjan - SCC e Componentes Biconexas](https://github.com/brunomaletta/Biblioteca/blob/master/Codigo/Grafos/tarjan.cpp)
+- [Tarjan - SCC e Compressão de Ciclos (bridge tree)](https://github.com/brunomaletta/Biblioteca/blob/master/Codigo/Grafos/tarjan.cpp)
 - [Topological Sort](https://github.com/brunomaletta/Biblioteca/blob/master/Codigo/Grafos/topo_sort.cpp)
 - [Isomorfismo de Árvores](https://github.com/brunomaletta/Biblioteca/blob/master/Codigo/Grafos/treeIsomorf.cpp)
 - [Virtual Tree](https://github.com/brunomaletta/Biblioteca/blob/master/Codigo/Grafos/virtualTree.cpp)

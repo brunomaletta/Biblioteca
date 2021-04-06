@@ -3,6 +3,8 @@
 // Cria a block-cut tree, uma arvore com os blocos
 // e os pontos de articulacao
 // Blocos sao componentes 2-vertice-conexos maximais
+// Uma 2-coloracao da arvore eh tal que uma cor sao
+// os blocos, e a outra cor sao os pontos de art.
 // art[i] responde se i eh ponto de articulacao
 // Funciona pra grafo nao conexo, e ja limpa tudo
 //
@@ -16,7 +18,7 @@ vector<vector<int>> blocks, tree;
 int dfs(int i, int &t, int p = -1) {
 	int lo = id[i] = t++;
 	s.push(i);
-	for (int j : g[i]) if(j != p) {
+	for (int j : g[i]) if (j != p) {
 		if (id[j] == -1) {
 			int val = dfs(j, t, i);
 			lo = min(lo, val);

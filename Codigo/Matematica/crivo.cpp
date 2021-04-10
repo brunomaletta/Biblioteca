@@ -85,7 +85,7 @@ void crivo(int lim) {
 
 // Crivo de funcao de mobius
 //
-// O(n log(log(n))
+// O(n log(log(n)))
 
 char meb[MAX];
 
@@ -97,4 +97,50 @@ void crivo(int lim) {
 			if (meb[j] == 2) meb[j] = 1;
 			meb[j] *= j/i%i ? -1 : 0;
 		}
+}
+
+// Crivo linear de funcao multiplicativa
+//
+// Computa f(i) para todo 1 <= i <= n, sendo f
+// uma funcao multiplicativa (se gcd(a,b) = 1,
+// entao f(a*b) = f(a)*f(b))
+// f_prime tem que computar f de um primo, e
+// add_prime tem que computar f(p^(k+1)) dado f(p^k) e p
+// Se quiser computar f(p^k) dado p e k, usar os comentarios
+//
+// O(n)
+
+vector<int> primes;
+int f[MAX], pot[MAX];
+//int expo[MAX];
+
+void sieve(int lim) {
+	// Funcoes para soma dos divisores:
+	auto f_prime = [](int p) { return p+1; };
+	auto add_prime = [](int fpak, int p) { return fpak*p+1; };
+	//auto f_pak = [](int p, int k) {};
+
+	f[1] = 1;
+	for (int i = 2; i <= lim; i++) {
+		if (!pot[i]) {
+			primes.push_back(i);
+			f[i] = f_prime(i), pot[i] = i;
+			//expo[i] = 1;
+		}
+		for (int p : primes) {
+			if (i*p > lim) break;
+			if (i%p == 0) {
+				f[i*p] = f[i / pot[i]] * add_prime(f[pot[i]], p);
+				// se for descomentar, tirar a linha de cima tambem
+				//f[i*p] = f[i / pot[i]] * f_pak(p, expo[i]+1);
+				//expo[i*p] = expo[i]+1;
+				pot[i*p] = pot[i] * p;
+				break;
+			} else {
+				f[i*p] = f[i] * f[p];
+				pot[i*p] = p;
+				//expo[i*p] = 1;
+			}
+		}
+	}
 }

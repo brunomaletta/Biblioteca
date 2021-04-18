@@ -121,13 +121,17 @@ ll polarea2(vector<pt> v) { // 2 * area do poligono
 int inpol(vector<pt>& v, pt p) { // O(n)
 	int qt = 0;
 	for (int i = 0; i < v.size(); i++) {
-		if (v[i] == p) return 2;
+		if (p == v[i]) return 2;
 		int j = (i+1)%v.size();
-		bool igual = v[i].y == p.y and v[j].y == p.y, baixo = v[i].y < p.y;
-		if (!igual and baixo == (v[j].y < p.y)) continue;
+		if (p.y == v[i].y and p.y == v[j].y) {
+			if ((v[i]-p)*(v[j]-p) <= 0) return 2;
+			continue;
+		}
+		bool baixo = v[i].y < p.y;
+		if (baixo == (v[j].y < p.y)) continue;
 		auto t = (p-v[i])^(v[j]-v[i]);
 		if (!t) return 2;
-		if (!igual and baixo == (t > 0)) qt += baixo ? 1 : -1;
+		if (baixo == (t > 0)) qt += baixo ? 1 : -1;
 	}
 	return qt != 0;
 }

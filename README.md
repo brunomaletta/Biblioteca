@@ -45,6 +45,7 @@ O *theoretical* (documento com teoremas, identidades e informações teóricas r
 - [MergeSort Tree](https://github.com/brunomaletta/Biblioteca/blob/master/Codigo/Estruturas/mergeSortTree.cpp)
 - [Minqueue - Deque](https://github.com/brunomaletta/Biblioteca/blob/master/Codigo/Estruturas/minqueueDeque.cpp)
 - [Minqueue - Stack](https://github.com/brunomaletta/Biblioteca/blob/master/Codigo/Estruturas/minqueueStack.cpp)
+- [Range Color](https://github.com/brunomaletta/Biblioteca/blob/master/Codigo/Estruturas/rangeColor.cpp)
 - [RMQ <O(n), O(1)>](https://github.com/brunomaletta/Biblioteca/blob/master/Codigo/Estruturas/rmq.cpp)
 - [RMQ <O(n), O(1)> - Cartesian Tree](https://github.com/brunomaletta/Biblioteca/blob/master/Codigo/Estruturas/rmq2.cpp)
 - [Splaytree](https://github.com/brunomaletta/Biblioteca/blob/master/Codigo/Estruturas/splaytree.cpp)

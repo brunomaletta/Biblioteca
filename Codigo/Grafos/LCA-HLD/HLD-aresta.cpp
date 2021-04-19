@@ -10,9 +10,6 @@
 // query_subtree - O(log(n))
 // update_subtree - O(log(n))
 
-#define f first
-#define s second
-
 namespace seg { ... }
 
 namespace hld {
@@ -24,11 +21,12 @@ namespace hld {
 	void build_hld(int k, int p = -1, int f = 1) {
 		v[pos[k] = t++] = sobe[k]; sz[k] = 1;
 		for (auto& i : g[k]) if (i.first != p) {
-			sobe[i.first] = i.second; pai[i.first] = k;
-			h[i.first] = (i == g[k][0] ? h[k] : i.first);
-			build_hld(i.first, k, f); sz[k] += sz[i.first];
+			auto [u, w] = i;
+			sobe[u] = w; pai[u] = k;
+			h[u] = (i == g[k][0] ? h[k] : u);
+			build_hld(u, k, f); sz[k] += sz[u];
 
-			if (sz[i.first] > sz[g[k][0].first] or g[k][0].first == p)
+			if (sz[u] > sz[g[k][0].first] or g[k][0].first == p)
 				swap(i, g[k][0]);
 		}
 		if (p*f == -1) build_hld(h[k] = k, -1, t = 0);

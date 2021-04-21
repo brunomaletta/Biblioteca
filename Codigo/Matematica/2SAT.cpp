@@ -1,70 +1,65 @@
 // 2-SAT
 //
-// Retorna se eh possivel atribuir valores
+// solve(n) Retorna se eh possivel atribuir valores
+// pras 'n' variaveis
 // ans[i] fala se a variavel 'i' eh verdadeira
-// Grafo tem que caber 2n vertices
-// add(x, y) adiciona implicacao x -> y
-// Para adicionar uma clausula (x ou y)
-// chamar add(nao(x), y)
-// Se x tem que ser verdadeiro, chamar add(nao(x), x)
+// Pra chamar o negado da variavel 'i', usar ~i
 //
 // O(|V|+|E|)
 
-vector<int> g[MAX];
-int n, vis[MAX], comp[MAX];
-stack<int> s;
-int id[MAX], p;
-vector<int> ord;
-int ans[MAX];
+namespace doisSAT {
+#warning limpar o grafo
+	vector<int> g[2*MAX];
+	int vis[2*MAX], comp[2*MAX], id[2*MAX];
+	stack<int> s;
+	int ans[MAX];
 
-int dfs(int k) {
-	int lo = id[k] = p++;
-	s.push(k);
-	vis[k] = 2;
-	for (int i = 0; i < g[k].size(); i++) {
-		if (!vis[g[k][i]])
-			lo = min(lo, dfs(g[k][i]));
-		else if (vis[g[k][i]] == 2)
-			lo = min(lo, id[g[k][i]]);
+	int dfs(int i, int& t) {
+		int lo = id[i] = t++;
+		s.push(i), vis[i] = 2;
+		for (int j : g[i]) {
+			if (!vis[j]) lo = min(lo, dfs(j, t));
+			else if (vis[j] == 2) lo = min(lo, id[j]);
+		}
+		if (lo == id[i]) while (1) {
+			int u = s.top(); s.pop();
+			vis[u] = 1, comp[u] = i;
+			if (ans[u>>1] == -1) ans[u>>1] = ~u&1;
+			if (u == i) break;
+		}
+		return lo;
 	}
-	if (lo == id[k]) while (1) {
-		int u = s.top();
-		s.pop(); vis[u] = 1;
-		comp[u] = k;
-		ord.push_back(u);
-		if (u == k) break;
+
+	void tarjan(int n) {
+		int t = 0;
+		for (int i = 0; i < 2*n; i++) vis[i] = 0;
+		for (int i = 0; i < 2*n; i++) if (!vis[i]) dfs(i, t);
 	}
-	return lo;
-}
 
-void tarjan() {
-	memset(vis, 0, sizeof(vis));
-
-	p = 0;
-	for (int i = 0; i < 2*n; i++) if (!vis[i]) dfs(i);
-}
-
-int nao(int x){ return (x + n) % (2*n); }
-
-// x -> y  =  !x ou y
-void add(int x, int y){
-	g[x].push_back(y);
-	// contraposicao
-	g[nao(y)].push_back(nao(x));
-}
-
-bool doisSAT(){
-	tarjan();
-	for (int i = 0; i < n; i++)
-		if (comp[i] == comp[nao(i)]) return 0;
-
-
-	memset(ans, -1, sizeof(ans));
-	for(auto at: ord) {
-		if (ans[at] != -1) continue;
-
-		ans[at] = 1;
-		ans[nao(at)] = 0;
+	void add_impl(int x, int y) { // x -> y = !x ou y
+		x = x >= 0 ? 2*x : -2*x-1;
+		y = y >= 0 ? 2*y : -2*y-1;
+		g[x].push_back(y);
+		g[y^1].push_back(x^1);
 	}
-	return 1;
+	void add_cl(int x, int y) { // x ou y
+		add_impl(~x, y);
+	}
+	void add_xor(int x, int y) { // x xor y
+		add_cl(x, y), add_cl(~x, ~y);
+	}
+	void add_eq(int x, int y) { // x = y
+		add_xor(~x, y);
+	}
+	void add_true(int x) { // x = T
+		add_impl(~x, x);
+	}
+
+	bool solve(int n) {
+		for (int i = 0; i < n; i++) ans[i] = -1;
+		tarjan(n);
+		for (int i = 0; i < n; i++)
+			if (comp[2*i] == comp[2*i+1]) return 0;
+		return 1;
+	}
 }

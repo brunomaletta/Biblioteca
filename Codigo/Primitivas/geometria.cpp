@@ -250,14 +250,6 @@ struct convex_pol {
 	}
 };
 
-// os segmentos precisam ser ter o p < q
-bool operator < (const line& a, const line& b) { // comparador pro sweepline
-	if (a.p == b.p) return ccw(a.p, a.q, b.q);
-	if (!eq(a.p.x, a.q.x) and (eq(b.p.x, b.q.x) or a.p.x+eps < b.p.x))
-		return ccw(a.p, a.q, b.p);
-	return ccw(a.p, b.q, b.p);
-}
-
 // CIRCUNFERENCIA
 
 pt getcenter(pt a, pt b, pt c) { // centro da circunf dado 3 pontos
@@ -292,12 +284,31 @@ vector<pt> circ_inter(pt a, pt b, ld r, ld R) { // intersecao da circunf (a, r) 
 	return ret;
 }
 
-// comparador pro set para fazer sweep angle com segmentos
+bool operator <(const line& a, const line& b) { // comparador pra reta
+	// assume que as retas tem p < q
+	pt v1 = a.q - a.p, v2 = b.q - b.p;
+	if (!eq(angle(v1), angle(v2))) return angle(v1) < angle(v2);
+	return ccw(a.p, a.q, b.p); // mesmo angulo
+}
+bool operator ==(const line& a, const line& b) {
+	return !(a < b) and !(b < a);
+}
 
-double ang;
-struct cmp {
+// comparador pro set pra fazer sweep line com segmentos
+struct cmp_sweepline {
 	bool operator () (const line& a, const line& b) const {
-		line r = line(pt(0, 0), rotate(pt(1, 0), ang));
-		return norm(inter(r, a)) < norm(inter(r, b));
+		// assume que os segmentos tem p < q
+		if (a.p == b.p) return ccw(a.p, a.q, b.q);
+		if (!eq(a.p.x, a.q.x) and (eq(b.p.x, b.q.x) or a.p.x+eps < b.p.x))
+			return ccw(a.p, a.q, b.p);
+		return ccw(a.p, b.q, b.p);
+	}
+};
+
+// comparador pro set pra fazer sweep angle com segmentos
+pt dir;
+struct cmp_sweepangle {
+	bool operator () (const line& a, const line& b) const {
+		return get_t(dir, a) + eps < get_t(dir, b);
 	}
 };

@@ -180,18 +180,31 @@ struct convex_pol {
 	}
 };
 
-// os segmentos precisam ser ter o p < q
-bool operator < (const line& a, const line& b) { // comparador pro sweepline
-	if (a.p == b.p) return ccw(a.p, a.q, b.q);
-	if (a.p.x != a.q.x and (b.p.x == b.q.x or a.p.x < b.p.x))
-		return ccw(a.p, a.q, b.p);
-	return ccw(a.p, b.q, b.p);
+bool operator <(const line& a, const line& b) { // comparador pra reta
+	// assume que as retas tem p < q
+	pt v1 = a.q - a.p, v2 = b.q - b.p;
+	bool b1 = compare_angle(v1, v2), b2 = compare_angle(v2, v1);
+	if (b1 or b2) return b1;
+	return ccw(a.p, a.q, b.p); // mesmo angulo
+}
+bool operator ==(const line& a, const line& b) {
+	return !(a < b) and !(b < a);
 }
 
-// comparador pro set pra fazer sweep angle com segmentos
+// comparador pro set pra fazer sweep line com segmentos
+struct cmp_sweepline {
+	bool operator () (const line& a, const line& b) const {
+		// assume que os segmentos tem p < q
+		if (a.p == b.p) return ccw(a.p, a.q, b.q);
+		if (a.p.x != a.q.x and (b.p.x == b.q.x or a.p.x < b.p.x))
+			return ccw(a.p, a.q, b.p);
+		return ccw(a.p, b.q, b.p);
+	}
+};
 
+// comparador pro set pra fazer sweep angle com segmentos
 pt dir;
-struct cmp {
+struct cmp_sweepangle {
     bool operator () (const line& a, const line& b) const {
         return get_t(dir, a) < get_t(dir, b);
     }

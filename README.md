@@ -123,6 +123,7 @@ O *theoretical* (documento com teoremas, identidades e informações teóricas r
 ### Primitivas
 
 - [Big Integer - C++](https://github.com/brunomaletta/Biblioteca/blob/master/Codigo/Primitivas/bigint.cpp)
+- [Fração](https://github.com/brunomaletta/Biblioteca/blob/master/Codigo/Primitivas/frac.cpp)
 - [Números Complexos](https://github.com/brunomaletta/Biblioteca/blob/master/Codigo/Primitivas/complex.cpp)
 - [Primitivas Geométricas](https://github.com/brunomaletta/Biblioteca/blob/master/Codigo/Primitivas/geometria.cpp)
 - [Primitivas Geométricas Inteiras](https://github.com/brunomaletta/Biblioteca/blob/master/Codigo/Primitivas/geometriaInt.cpp)

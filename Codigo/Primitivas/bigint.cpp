@@ -58,25 +58,24 @@ struct bint {
 	}
 
 	// operators
-	friend void swap(bint& a, bint& b) { swap(a.v, b.v), swap(a.neg, b.neg); }
-	friend bint min(const bint& a, const bint& b) { return (a < b) ? a : b; }
-	friend bint max(const bint& a, const bint& b) { return a < b ? b : a; }
-	friend bint abs(bint val) {
-		val.neg = 0;
-		return val;
+	friend bint abs(const bint& val) {
+		bint ret = val;
+		ret.neg = 0;
+		return ret;
 	}
-	friend bint operator-(bint val) {
-		if (val != 0) val.neg ^= 1;
-		return val;
+	friend bint operator-(const bint& val) {
+		bint ret = val;
+		if (ret != 0) ret.neg ^= 1;
+		return ret;
 	}
 	bint& operator=(const bint& val) { v = val.v, neg = val.neg; return *this; }
 	bint& operator=(long long val) {
 		v.clear(), neg = 0;
-		if (val < 0) neg = 1, val *= 1;
+		if (val < 0) neg = 1, val *= -1;
 		for (; val; val /= BASE) v.push_back(val % BASE);
 		return *this;
 	}
-	int cmp(const bint& r) { // menor: -1 | igual: 0 | maior: 1
+	int cmp(const bint& r) const { // menor: -1 | igual: 0 | maior: 1
 		if (neg != r.neg) return neg ? -1 : 1;
 		if (v.size() != r.v.size()) {
 			int ret = v.size() < r.v.size() ? -1 : 1;
@@ -90,18 +89,13 @@ struct bint {
 		}
 		return 0;
 	}
-	bool operator<(const bint& r) { return cmp(r) == -1; }
-	bool operator>(const bint& r) { return cmp(r) == 1; }
-	bool operator<=(const bint& r) { return cmp(r) <= 0; }
-	bool operator>=(const bint& r) { return cmp(r) >= 0; }
-	bool operator==(const bint& r) { return cmp(r) == 0; }
-	bool operator!=(const bint& r) { return cmp(r) != 0; }
-	template<class T> bool friend operator<(T l, const bint& r){ return bint(l) < r; }
-	template<class T> bool friend operator>(T l, const bint& r){ return bint(l) > r; }
-	template<class T> bool friend operator<=(T l, const bint& r){ return bint(l) <= r; }
-	template<class T> bool friend operator>=(T l, const bint& r){ return bint(l) >= r; }
-	template<class T> bool friend operator==(T l, const bint& r){ return bint(l) == r; }
-	template<class T> bool friend operator!=(T l, const bint& r){ return bint(l) != r; }
+	friend bool operator<(const bint& l, const bint& r) { return l.cmp(r) == -1; }
+	friend bool operator>(const bint& l, const bint& r) { return l.cmp(r) == 1; }
+	friend bool operator<=(const bint& l, const bint& r) { return l.cmp(r) <= 0; }
+	friend bool operator>=(const bint& l, const bint& r) { return l.cmp(r) >= 0; }
+	friend bool operator==(const bint& l, const bint& r) { return l.cmp(r) == 0; }
+	friend bool operator!=(const bint& l, const bint& r) { return l.cmp(r) != 0; }
+
 	bint& operator +=(const bint& r) {
 		if (!r.v.size()) return *this;
 		if (neg != r.neg) return *this -= -r;
@@ -112,7 +106,7 @@ struct bint {
 		}
 		return *this;
 	}
-	friend bint operator+(bint a, const bint& b) { return a += b; }
+	friend bint operator+(const bint& a, const bint& b) { return bint(a) += b; }
 	bint& operator -=(const bint& r) {
 		if (!r.v.size()) return *this;
 		if (neg != r.neg) return *this += -r;
@@ -128,7 +122,7 @@ struct bint {
 		trim();
 		return *this;
 	}
-	friend bint operator-(bint a, const bint& b) { return a -= b; }
+	friend bint operator-(const bint& a, const bint& b) { return bint(a) -= b; }
 
 	// operators de * / %
 	bint& operator *=(int val) {
@@ -145,7 +139,7 @@ struct bint {
 	friend bint operator *(bint a, int b) { return a *= b; }
 	friend bint operator *(int a, bint b) { return b *= a; }
 	using cplx = complex<double>;
-	void fft(vector<cplx>& a, bool f, int N, vector<int>& rev) {
+	void fft(vector<cplx>& a, bool f, int N, vector<int>& rev) const {
 		for (int i = 0; i < N; i++) if (i < rev[i]) swap(a[i], a[rev[i]]);
 		vector<cplx> roots(N);
 		for (int n = 2; n <= N; n *= 2) {
@@ -166,7 +160,7 @@ struct bint {
 		auto invN = cplx(1)/cplx(N);
 		for (int i = 0; i < N; i++) a[i] *= invN;
 	}
-	vector<long long> convolution(const vector<int>& a, const vector<int>& b) {
+	vector<long long> convolution(const vector<int>& a, const vector<int>& b) const {
 		vector<cplx> l(a.begin(), a.end()), r(b.begin(), b.end());
 		int ln = l.size(), rn = r.size(), N = ln+rn+1, n = 1, log_n = 0;
 		while (n <= N) n <<= 1, log_n++;
@@ -184,7 +178,7 @@ struct bint {
 		for (auto& i : l) ret.push_back(round(i.real()));
 		return ret;
 	}
-	vector<int> convert_base(const vector<int>& a, int from, int to) {
+	vector<int> convert_base(const vector<int>& a, int from, int to) const {
 		static vector<long long> pot(10, 1);
 		if (pot[1] == 1) for (int i = 1; i < 10; i++) pot[i] = 10*pot[i-1];
 		vector<int> ret;
@@ -203,7 +197,7 @@ struct bint {
 		while (ret.size() and ret.back() == 0) ret.pop_back();
 		return ret;
 	}
-	bint operator*(const bint& r) { // O(n log(n))
+	bint operator*(const bint& r) const { // O(n log(n))
 		bint ret;
 		ret.neg = neg ^ r.neg;
 		auto conv = convolution(convert_base(v, 9, 4), convert_base(r.v, 9, 4));

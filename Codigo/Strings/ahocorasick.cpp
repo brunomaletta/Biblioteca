@@ -39,7 +39,7 @@ namespace aho {
 		for (char c : s){
 			while (at and !to[at].count(c)) at = link[at];
 			at = to[at][c];
-			if (term[at] or exit[at]+1) ans++, at = 0
+			if (term[at] or exit[at]+1) ans++, at = 0;
 		}
 		return ans;
 	}

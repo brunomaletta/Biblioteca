@@ -14,8 +14,6 @@
 
 #define f first
 #define s second
-typedef long long ll;
-const ll LINF = 0x3f3f3f3f3f3f3f3fll;
 
 namespace beats {
 	struct node {

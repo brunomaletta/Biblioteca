@@ -34,7 +34,7 @@ struct bint {
 		}
 		if (!v.size()) neg = 0;
 	}
-	string to_string() {
+	string to_string() const {
 		if (!v.size()) return "0";
 		string ret;
 		if (neg) ret += '-';
@@ -51,22 +51,20 @@ struct bint {
 		val = s;
 		return in;
 	}
-	friend ostream& operator<<(ostream& out, bint val) {
+	friend ostream& operator<<(ostream& out, const bint& val) {
 		string s = val.to_string();
 		out << s;
 		return out;
 	}
 
 	// operators
-	friend bint abs(const bint& val) {
-		bint ret = val;
-		ret.neg = 0;
-		return ret;
+	friend bint abs(bint val) {
+		val.neg = 0;
+		return val;
 	}
-	friend bint operator-(const bint& val) {
-		bint ret = val;
-		if (ret != 0) ret.neg ^= 1;
-		return ret;
+	friend bint operator-(bint val) {
+		if (val != 0) val.neg ^= 1;
+		return val;
 	}
 	bint& operator=(const bint& val) { v = val.v, neg = val.neg; return *this; }
 	bint& operator=(long long val) {
@@ -106,7 +104,7 @@ struct bint {
 		}
 		return *this;
 	}
-	friend bint operator+(const bint& a, const bint& b) { return bint(a) += b; }
+	friend bint operator+(bint a, const bint& b) { return a += b; }
 	bint& operator -=(const bint& r) {
 		if (!r.v.size()) return *this;
 		if (neg != r.neg) return *this += -r;
@@ -122,7 +120,7 @@ struct bint {
 		trim();
 		return *this;
 	}
-	friend bint operator-(const bint& a, const bint& b) { return bint(a) -= b; }
+	friend bint operator-(bint a, const bint& b) { return a -= b; }
 
 	// operators de * / %
 	bint& operator *=(int val) {

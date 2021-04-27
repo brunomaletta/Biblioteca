@@ -6,8 +6,6 @@
 //
 // O(k n log n), assumindo quer query(l, r) eh O(1)
 
-typedef long long ll;
-
 ll dp[MAX][2];
 
 void solve(int k, int l, int r, int lk, int rk) {
@@ -26,7 +24,7 @@ ll DC(int n, int k) {
 	dp[0][0] = dp[0][1] = 0;
 	// garante que todo mundo pertence a algum intervalo
 	for (int i = 1; i <= n; i++) dp[i][0] = -LINF;
-	// se puder usar inervalos vazios, usar solve(i, 1, n, 1, n)
+	// se puder usar intervalos vazios, usar solve(i, 1, n, 1, n)
 	for (int i = 1; i <= k; i++) solve(i, i, n, i, n);
 	return dp[n][k&1];
 }

@@ -104,16 +104,13 @@ template<typename T> struct splaytree {
 		return root->ch[0] ? root->ch[0]->sz : 0;
 	}
 	node* find_by_order(int k) {
+		if (k >= size()) return NULL;
 		node* x = root;
 		while (1) {
 			if (x->ch[0] and x->ch[0]->sz >= k+1) x = x->ch[0];
 			else {
 				if (x->ch[0]) k -= x->ch[0]->sz;
 				if (!k) return splay(x);
-				if (!x->ch[1]) {
-					splay(x);
-					return NULL;
-				}
 				k--, x = x->ch[1];
 			}
 		}

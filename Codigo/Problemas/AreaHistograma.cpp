@@ -5,8 +5,6 @@
 //
 // O(n)
 
-typedef long long ll;
-
 ll area(vector<int> v) {
 	ll ret = 0;
 	stack<int> s;

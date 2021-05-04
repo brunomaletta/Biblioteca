@@ -15,7 +15,7 @@ int v[MAX], n, nxt[MAX], prv[MAX];
 map<int, set<int> > ocor;
 
 namespace bit {
-	ord_set<ii> bit[MAX];
+	ord_set<pair<int, int>> bit[MAX];
 
 	void build() {
 		for (int i = 1; i <= n; i++) bit[i].insert({nxt[i-1], i-1});
@@ -73,7 +73,7 @@ void update(int p, int x) { // mudar valor na pos. p para x
 	if (nxt[p] < INF) prv[nxt[p]] = prv[p];
 
 	ocor[v[p]].erase(p);
-	if (!ocor[x].secondize()) {
+	if (!ocor[x].size()) {
 		muda(p, INF);
 		prv[p] = -INF;
 	} else if (*ocor[x].rbegin() < p) {

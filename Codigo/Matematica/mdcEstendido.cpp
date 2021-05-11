@@ -1,6 +1,7 @@
 // Algoritmo de Euclides estendido
 //
-// acha x e y tal que ax + by = mdc(a, b) (nao eh unico)
+// Acha x e y tal que ax + by = mdc(a, b) (nao eh unico)
+// Assume a, b >= 0
 //
 // O(log(min(a, b)))
 

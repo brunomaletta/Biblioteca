@@ -250,18 +250,6 @@ struct convex_pol {
 	}
 };
 
-ld max_dist2(vector<pt> v) { // quadrado da dist. maxima entre 2 pontos - O(n log(n))
-	v = convex_hull(v);
-	if (v.size() <= 2) return dist2(v[0], v[1%v.size()]);
-	ld ans = 0;
-	int n = v.size(), j = 0;
-	for (int i = 0; i < n; i++) {
-		while (!ccw(v[(i+1)%n]-v[i], pt(0, 0), v[(j+1)%n]-v[j])) j = (j+1)%n;
-		ans = max({ans, dist2(v[i], v[j]), dist2(v[(i+1)%n], v[j])});
-	}
-	return ans;
-}
-
 // CIRCUNFERENCIA
 
 pt getcenter(pt a, pt b, pt c) { // centro da circunf dado 3 pontos

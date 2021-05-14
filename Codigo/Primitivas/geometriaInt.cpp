@@ -155,18 +155,6 @@ vector<pt> convex_hull(vector<pt> v) { // convex hull - O(n log(n))
 	return l;
 }
 
-ll max_dist2(vector<pt> v) { // quadrado da dist. maxima entre 2 pontos - O(n log(n))
-	v = convex_hull(v);
-	if (v.size() <= 2) return dist2(v[0], v[1%v.size()]);
-	ll ans = 0;
-	int n = v.size(), j = 0;
-	for (int i = 0; i < n; i++) {
-		while (!ccw(v[(i+1)%n]-v[i], pt(0, 0), v[(j+1)%n]-v[j])) j = (j+1)%n;
-		ans = max({ans, dist2(v[i], v[j]), dist2(v[(i+1)%n], v[j])});
-	}
-	return ans;
-}
-
 ll interior_points(vector<pt> v) { // pontos inteiros dentro de um poligono simples
 	ll b = 0;
 	for (int i = 0; i < v.size(); i++)

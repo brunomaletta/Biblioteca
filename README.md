@@ -171,6 +171,7 @@ O *theoretical* (documento com teoremas, identidades e informações teóricas r
 - [Conjunto Independente Máximo com Peso em Grafo de Intervalo](https://github.com/brunomaletta/Biblioteca/blob/master/Codigo/Problemas/intervalGraphIndSet.cpp)
 - [Longest Increasing Subsequence (recuperando)](https://github.com/brunomaletta/Biblioteca/blob/master/Codigo/Problemas/lis.cpp)
 - [Longest Increasing Subsequence (tamanho)](https://github.com/brunomaletta/Biblioteca/blob/master/Codigo/Problemas/lis2.cpp)
+- [Distância Máxima entre Dois Pontos](https://github.com/brunomaletta/Biblioteca/blob/master/Codigo/Problemas/maxDist.cpp)
 - [Min Fixed Range](https://github.com/brunomaletta/Biblioteca/blob/master/Codigo/Problemas/min-fixed-range.cpp)
 - [Mininum Enclosing Circle O(n)](https://github.com/brunomaletta/Biblioteca/blob/master/Codigo/Problemas/minCirc.cpp)
 - [MO](https://github.com/brunomaletta/Biblioteca/blob/master/Codigo/Problemas/mo.cpp)

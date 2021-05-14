@@ -1,7 +1,7 @@
 // Pollard's Rho Alg
 //
 // Usa o algoritmo de deteccao de ciclo de Floyd
-// com uma otimização na qual o gcd é acumulado
+// com uma otimizacao na qual o gcd eh acumulado
 // A fatoracao nao sai necessariamente ordenada
 // O algoritmo rho encontra um fator de n,
 // e funciona muito bem quando n possui um fator pequeno

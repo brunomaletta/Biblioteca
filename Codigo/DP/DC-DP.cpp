@@ -1,13 +1,13 @@
 // Divide and Conquer DP
 //
 // Particiona o array em k subarrays
-// maximizando o somatorio das queries
+// minimizando o somatorio das queries
 //
 // O(k n log n), assumindo quer query(l, r) eh O(1)
 
 ll dp[MAX][2];
 
-void solve(int k, int l, int r, int lk, int rk){
+void solve(int k, int l, int r, int lk, int rk) {
 	if (l > r) return;
 	int m = (l+r)/2, p = -1;
 	auto& ans = dp[m][k&1] = LINF;

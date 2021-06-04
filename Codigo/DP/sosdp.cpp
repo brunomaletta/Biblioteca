@@ -3,7 +3,7 @@
 // O(n 2^n)
 
 // soma de sub-conjunto
-vector<ll> sos_dp(vector<ll> dp) {
+vector<ll> sos_dp(vector<ll> f) {
 	int N = __builtin_ctz(f.size());
 	assert((1<<N) == f.size());
 

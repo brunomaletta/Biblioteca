@@ -105,6 +105,7 @@ O *theoretical* (documento com teoremas, identidades e informações teóricas r
 - [Inverso Modular](https://github.com/brunomaletta/Biblioteca/blob/master/Codigo/Matematica/ModInverse.cpp)
 - [Teorema Chines do Resto](https://github.com/brunomaletta/Biblioteca/blob/master/Codigo/Matematica/chinese.cpp)
 - [FFT](https://github.com/brunomaletta/Biblioteca/blob/master/Codigo/Matematica/convolution.cpp)
+- [Fast Walsh Hadamard Transform](https://github.com/brunomaletta/Biblioteca/blob/master/Codigo/Matematica/FWHT.cpp)
 - [Crivo de Eratosthenes Linear (e variações)](https://github.com/brunomaletta/Biblioteca/blob/master/Codigo/Matematica/crivo.cpp)
 - [Detecção de Ciclo - Tortoise and Hare](https://github.com/brunomaletta/Biblioteca/blob/master/Codigo/Matematica/cycleDetection.cpp)
 - [Divisão de Polinomios (naive)](https://github.com/brunomaletta/Biblioteca/blob/master/Codigo/Matematica/divPol.cpp)

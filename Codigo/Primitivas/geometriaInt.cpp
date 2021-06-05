@@ -4,8 +4,7 @@
 
 struct pt { // ponto
 	int x, y;
-	pt() {}
-	pt(int x_, int y_) : x(x_), y(y_) {}
+	pt(int x_ = 0, int y_ = 0) : x(x_), y(y_) {}
 	bool operator < (const pt p) const {
 		if (x != p.x) return x < p.x;
 		return y < p.y;

@@ -33,6 +33,7 @@ template<typename T> struct matrix : vector<vector<T>> {
 			for (int j = 0; j < r.m; j++) {
 				T add = (*this)[i][k] * r[k][j];
 #if MODULAR
+#warning Usar matrix<ll> e soh colocar valores em [0, MOD) na matriz!
 				M[i][j] += add%MOD;
 				if (M[i][j] >= MOD) M[i][j] -= MOD;
 #else

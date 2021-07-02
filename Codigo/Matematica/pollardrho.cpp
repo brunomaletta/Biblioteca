@@ -28,7 +28,6 @@ bool prime(ll n) {
 
 	ll r = __builtin_ctzll(n - 1), d = n >> r;
 	for (int a : {2, 325, 9375, 28178, 450775, 9780504, 795265022}) {
-		if (a >= n) break;
 		ll x = pow(a, d, n);
 		if (x == 1 or x == n - 1) continue;
 		

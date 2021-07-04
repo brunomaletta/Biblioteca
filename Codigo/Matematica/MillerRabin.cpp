@@ -28,7 +28,7 @@ bool prime(ll n) {
 	// funciona para n <= 3*10^24 com os primos ate 41
 	for (int a : {2, 325, 9375, 28178, 450775, 9780504, 795265022}) {
 		ll x = pow(a, d, n);
-		if (x == 1 or x == n - 1) continue;
+		if (x == 1 or x == n - 1 or a % n == 0) continue;
 		
 		for (int j = 0; j < r - 1; j++) {
 			x = mul(x, x, n);

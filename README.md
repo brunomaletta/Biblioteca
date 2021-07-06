@@ -74,6 +74,7 @@ O *theoretical* (documento com teoremas, identidades e informações teóricas r
 - [Bellman-Ford](https://github.com/brunomaletta/Biblioteca/blob/master/Codigo/Grafos/BellmanFord.cpp)
 - [Dominator Tree](https://github.com/brunomaletta/Biblioteca/blob/master/Codigo/Grafos/DominatorTree.cpp)
 - [Floyd-Warshall](https://github.com/brunomaletta/Biblioteca/blob/master/Codigo/Grafos/FloydWarshall.cpp)
+- [Functional Graph](https://github.com/brunomaletta/Biblioteca/blob/master/Codigo/Grafos/functionalGraph.cpp)
 - [Blossom](https://github.com/brunomaletta/Biblioteca/blob/master/Codigo/Grafos/blossom.cpp)
 - [Centro/Diâmetro em Árvore](https://github.com/brunomaletta/Biblioteca/blob/master/Codigo/Grafos/center.cpp)
 - [Centroid Decomposition](https://github.com/brunomaletta/Biblioteca/blob/master/Codigo/Grafos/centroid-decomp.cpp)

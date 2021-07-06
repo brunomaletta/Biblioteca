@@ -1,12 +1,12 @@
 // Functional Graph
 //
 // rt[i] fala o ID da raiz associada ao vertice i
-// d[i] fala a profundidade, pos[i] fala a posicao
-// do vertice i no array que eh a concat. dos ciclos
+// d[i] fala a profundidade (0 sse ta no ciclo)
+// pos[i] fala a posicao de i no array que eh a concat. dos ciclos
 // build(f, val) recebe a funcao f e o custo de ir de
-// i para f[i]
+// i para f[i] (por default, val = f)
 // f_k(i, k) fala onde i vai parar se seguir k arestas
-// path(i, j) fala o custo (soma) para i seguir k arestas
+// path(i, k) fala o custo (soma) seguir k arestas a partir de i
 // Se quiser outra operacao, da pra alterar facil o codigo
 // Codigo um pouco louco, tenho que admitir
 //

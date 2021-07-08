@@ -1,109 +1,86 @@
-// Mo algorithm - DQUERY path on trees
+// Algoritmo MO - queries em caminhos de árvore
+// 
+// Problema que resolve: https://www.spoj.com/problems/COT2/
 //
-// https://codeforces.com/blog/entry/43230
-// https://www.spoj.com/problems/COT2/
-//
-// (s*2*n*f + q*(2*n/s)*f) optimize over s, insert/erase = O(f)
-// for s = sqrt(n), O((n+q)*sqrt(n)*f)
+// Complexidade sendo c = O(update) e SQ = sqrt(n):
+// O((n + q) * sqrt(n) * c)
+
+const int MAX = 40010, SQ = 400;
 
 vector<int> g[MAX];
+
 namespace LCA { ... }
 
-const int MAX = 40010;
-const int SQ = 316;
+int in[MAX], out[MAX], vertex[2 * MAX];
+bool on[MAX];
 
-int w[MAX];
-int st[MAX], en[MAX], hst[2*MAX];
+int dif, freq[MAX];
+vector<int> w;
 
-int v[2*MAX];
+void dfs(int v, int p, int &t) {
+	vertex[t] = v, in[v] = t++;
+	for (int u : g[v]) if (u != p) 
+		dfs(u, v, t);
+	vertex[t] = v, out[v] = t++;
+}
 
-int ans, freq[MAX], freqv[MAX];
-
-void dfs(int i, int p, int &t){
-	v[t] = i;
-	st[i] = t++;
-	for (int j : g[i]){
-		if (j == p) continue;
-		dfs(j, i, t);
+void update(int p) { // faça alterações aqui
+	int v = vertex[p];
+	if (not on[v]) { // insere vertex v
+		dif += (freq[w[v]] == 0);
+		freq[w[v]]++;
 	}
-
-	v[t] = i;
-	en[i] = t++;
-}
-
-void update(int o){//only change this function
-	if (freqv[o] == 1){//insert w[o]
-		ans += (freq[w[o]] == 0);
-		freq[w[o]]++;
+	else { // retira o vértice v
+		dif -= (freq[w[v]] == 1);
+		freq[w[v]]--;
 	}
-	if (freqv[o] != 1){//erase w[o]
-		ans -= (freq[w[o]] == 1);
-		freq[w[o]]--;
-	}
+	on[v] = not on[v];
 }
 
-void insert(int p){
-	int o = v[p];
-	freqv[o]++;
-	update(o);
-}
-
-void erase(int p){
-	int o = v[p];
-	freqv[o]--;
-	update(o);
-}
-
-vector<tuple<int, int, int>> make_queries(vector<pair<int, int>> &q_){
-	vector<tuple<int, int, int>> q;
-	for (auto &it : q_){
-		int l, r;
-		tie(l, r) = it;
-		if (st[r] < st[l]) swap(l, r);
+vector<tuple<int, int, int>> build_queries(const vector<pair<int, int>>& q) {
+	LCA::build(0); // qualquer algoritmo de LCA funciona
+	vector<tuple<int, int, int>> ret;
+	for (auto [l, r] : q){
+		if (in[r] < in[l]) swap(l, r);
 		int p = LCA::lca(l, r);
-		int init = (p == l) ? st[l] : en[l];
-		q.push_back({init, st[r], st[p]});
+		int init = (p == l) ? in[l] : out[l];
+		ret.emplace_back(init, in[r], in[p]);
 	}
-	return q;
+	return ret;
 }
 
-vector<int> MO(vector<pair<int, int>> &q_){
-	LCA::build(0);//any LCA alg works
+vector<int> mo_tree(const vector<pair<int, int>>& vq){
 	int t = 0;
 	dfs(0, -1, t);
-	auto q = make_queries(q_);
-	ans = 0;
-	memset(freq, 0, sizeof freq);
-	memset(freqv, 0, sizeof freqv);
+
+	auto q = build_queries(vq);
 	
-	int m = q.size();
-	vector<int> ord(m), ret(m);
+	vector<int> ord(q.size());
 	iota(ord.begin(), ord.end(), 0);
-	sort(ord.begin(), ord.end(), [&](int l, int r){
-		int sl = get<0>(q[l])/SQ;
-		int sr = get<0>(q[r])/SQ;
-		if (sl != sr) return sl < sr;
-		return get<1>(q[l]) < get<1>(q[r]);
+	sort(ord.begin(), ord.end(), [&] (int l, int r) {
+		int bl = get<0>(q[l]) / SQ, br = get<0>(q[r]) / SQ;
+		if (bl != br) return bl < br;
+		return bl % 2 == 1 ? get<1>(q[l]) < get<1>(q[r]) : get<1>(q[l]) > get<1>(q[r]);
 	});
 
-	int l = 0, r = 0;
-	insert(0);
+	memset(freq, 0, sizeof freq);
+	dif = 0;
+	
+	vector<int> ret(q.size());
+	int l = 0, r = -1;
+	for (int i : ord) {
+		auto [ql, qr, qp] = q[i];
+		while (r < qr) update(++r);
+		while (l > ql) update(--l);
+		while (l < ql) update(l++);
+		while (r > qr) update(r--);
 
-	for (int i : ord){
-		int ql, qr, qp;
-		tie(ql, qr, qp) = q[i];
-		while (r < qr) insert(++r);
-		while (l > ql) insert(--l);
-		while (l < ql) erase(l++);
-		while (r > qr) erase(r--);
-
-		if (qp < l || qp > r){
-			//lca out of range
-			insert(qp);
-			ret[i] = ans;
-			erase(qp);
+		if (qp < l or qp > r) { // se LCA está entre as pontas
+			update(qp);
+			ret[i] = dif;
+			update(qp);
 		}
-		else ret[i] = ans;
+		else ret[i] = dif;
 	}
 	return ret;
 }

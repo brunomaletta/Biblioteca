@@ -11,22 +11,23 @@ vector<int> g[MAX];
 
 namespace LCA { ... }
 
-int in[MAX], out[MAX], vertex[2 * MAX];
+int in[MAX], out[MAX], vtx[2 * MAX];
 bool on[MAX];
 
 int dif, freq[MAX];
 vector<int> w;
 
 void dfs(int v, int p, int &t) {
-	vertex[t] = v, in[v] = t++;
-	for (int u : g[v]) if (u != p) 
+	vtx[t] = v, in[v] = t++;
+	for (int u : g[v]) if (u != p) {
 		dfs(u, v, t);
-	vertex[t] = v, out[v] = t++;
+	}
+	vtx[t] = v, out[v] = t++;
 }
 
 void update(int p) { // faça alterações aqui
-	int v = vertex[p];
-	if (not on[v]) { // insere vertex v
+	int v = vtx[p];
+	if (not on[v]) { // insere vtx v
 		dif += (freq[w[v]] == 0);
 		freq[w[v]]++;
 	}
@@ -60,7 +61,8 @@ vector<int> mo_tree(const vector<pair<int, int>>& vq){
 	sort(ord.begin(), ord.end(), [&] (int l, int r) {
 		int bl = get<0>(q[l]) / SQ, br = get<0>(q[r]) / SQ;
 		if (bl != br) return bl < br;
-		return bl % 2 == 1 ? get<1>(q[l]) < get<1>(q[r]) : get<1>(q[l]) > get<1>(q[r]);
+		else if (bl % 2 == 1) return get<1>(q[l]) < get<1>(q[r]);
+		else return get<1>(q[l]) > get<1>(q[r]);
 	});
 
 	memset(freq, 0, sizeof freq);

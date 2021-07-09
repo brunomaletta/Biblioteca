@@ -1,4 +1,4 @@
-// Algoritmo MO - queries em caminhos de árvore
+// Algoritmo MO - queries em caminhos de arvore
 // 
 // Problema que resolve: https://www.spoj.com/problems/COT2/
 //
@@ -25,13 +25,13 @@ void dfs(int v, int p, int &t) {
 	vtx[t] = v, out[v] = t++;
 }
 
-void update(int p) { // faça alterações aqui
+void update(int p) { // faca alteracoes aqui
 	int v = vtx[p];
 	if (not on[v]) { // insere vtx v
 		dif += (freq[w[v]] == 0);
 		freq[w[v]]++;
 	}
-	else { // retira o vértice v
+	else { // retira o vertice v
 		dif -= (freq[w[v]] == 1);
 		freq[w[v]]--;
 	}
@@ -39,7 +39,7 @@ void update(int p) { // faça alterações aqui
 }
 
 vector<tuple<int, int, int>> build_queries(const vector<pair<int, int>>& q) {
-	LCA::build(0); // qualquer algoritmo de LCA funciona
+	LCA::build(0);
 	vector<tuple<int, int, int>> ret;
 	for (auto [l, r] : q){
 		if (in[r] < in[l]) swap(l, r);
@@ -77,7 +77,7 @@ vector<int> mo_tree(const vector<pair<int, int>>& vq){
 		while (l < ql) update(l++);
 		while (r > qr) update(r--);
 
-		if (qp < l or qp > r) { // se LCA está entre as pontas
+		if (qp < l or qp > r) { // se LCA estah entre as pontas
 			update(qp);
 			ret[i] = dif;
 			update(qp);

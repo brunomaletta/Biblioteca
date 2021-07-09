@@ -1,7 +1,6 @@
-// Mo algorithm - distinct values
+// Mo - numero de distintos em range
 // 
-// O(s*n*f + q*(n/s)*f) optimize over s, insert/erase = O(f)
-// for s = sqrt(n), O((n+q)*sqrt(n)*f)
+// O(n * sqrt(n))
 
 const int MAX = 3e4+10;
 const int SQ = sqrt(MAX);

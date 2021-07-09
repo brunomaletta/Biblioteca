@@ -1,6 +1,6 @@
 // MO - DSU
 // 
-// Dado uma lista de arestas de um grafo, desponde
+// Dado uma lista de arestas de um grafo, responde
 // para cada query(l, r), quantos componentes conexos
 // o grafo tem se soh considerar as arestas l, l+1, ..., r
 // Da pra adaptar pra usar MO com qualquer estrutura rollbackavel

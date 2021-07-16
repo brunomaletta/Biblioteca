@@ -9,7 +9,7 @@
 // palindrome - <O(n), O(1)>
 // pal_end - O(n)
 
-template<typename T> vector<int> manacher(const vector<T>& s) {
+template<typename T> vector<int> manacher(const T& s) {
 	int l = 0, r = -1, n = s.size();
 	vector<int> d1(n), d2(n);
 	for (int i = 0; i < n; i++) {
@@ -30,19 +30,19 @@ template<typename T> vector<int> manacher(const vector<T>& s) {
 	for (int i = 0; i < n-1; i++) ret[2*i+1] = 2*d2[i+1];
 	return ret;
 }
- 
+
 // verifica se a string s[i..j] eh palindromo
 template<typename T> struct palindrome {
 	vector<int> man;
- 
-	palindrome(const vector<T>& s) : man(manacher(s)) {}
+
+	palindrome(const T& s) : man(manacher(s)) {}
 	bool query(int i, int j) {
 		return man[i+j] >= j-i+1;
 	}
 };
- 
+
 // tamanho do maior palindromo que termina em cada posicao
-template<typename T> vector<int> pal_end(const vector<T>& s) {
+template<typename T> vector<int> pal_end(const T& s) {
 	vector<int> ret(s.size());
 	palindrome<T> p(s);
 	ret[0] = 1;

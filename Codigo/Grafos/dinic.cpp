@@ -15,7 +15,8 @@ struct dinic {
 
 	vector<vector<edge>> g;
 	vector<int> lev, beg;
-	dinic(int n): g(n) {}
+	ll F;
+	dinic(int n) : g(n), F(0) {}
 
 	void add(int a, int b, int c) { // de a pra b com cap. c
 		g[a].push_back(edge(b, c, g[b].size(), false));
@@ -49,10 +50,9 @@ struct dinic {
 		return 0;
 	}
 	ll max_flow(int s, int t) {
-		ll f = 0;
 		for (lim = scaling ? (1<<30) : 1; lim; lim /= 2)
-			while (bfs(s, t)) while (int ff = dfs(s, t)) f += ff;
-		return f;
+			while (bfs(s, t)) while (int ff = dfs(s, t)) F += ff;
+		return F;
 	}
 	vector<pair<int, int> > get_cut(int s, int t) {
 		max_flow(s, t);

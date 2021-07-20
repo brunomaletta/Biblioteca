@@ -139,6 +139,7 @@ O *theoretical* (documento com teoremas, identidades e informações teóricas r
 
 - [Suffix Array O(n)](https://github.com/brunomaletta/Biblioteca/blob/master/Codigo/Strings/SuffixArray.cpp)
 - [Suffix Array O(n log n)](https://github.com/brunomaletta/Biblioteca/blob/master/Codigo/Strings/SuffixArray2.cpp)
+- [Suffix Array Dinâmico](https://github.com/brunomaletta/Biblioteca/blob/master/Codigo/Strings/dynamicSuffixArray.cpp)
 - [Trie](https://github.com/brunomaletta/Biblioteca/blob/master/Codigo/Strings/Trie.cpp)
 - [Aho-corasick](https://github.com/brunomaletta/Biblioteca/blob/master/Codigo/Strings/ahocorasick.cpp)
 - [Aho-corasick - Autômato](https://github.com/brunomaletta/Biblioteca/blob/master/Codigo/Strings/ahocorasickAutomaton.cpp)

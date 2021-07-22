@@ -13,8 +13,7 @@ bool eq(ld a, ld b) {
 
 struct pt { // ponto
 	ld x, y, z;
-	pt() {}
-	pt(ld x_, ld y_, ld z_) : x(x_), y(y_), z(z_) {}
+	pt(ld x_ = 0, ld y_ = 0, ld z_ = 0) : x(x_), y(y_), z(z_) {}
 	bool operator < (const pt p) const {
 		if (!eq(x, p.x)) return x < p.x;
 		if (!eq(y, p.y)) return y < p.y;
@@ -29,25 +28,7 @@ struct pt { // ponto
 	pt operator * (const ld c) const { return pt(x*c  , y*c  , z*c  ); }
 	pt operator / (const ld c) const { return pt(x/c  , y/c  , z/c  ); }
 	ld operator * (const pt p) const { return x*p.x + y*p.y + z*p.z; }
-
-	void rotate_x(ld a) {
-		ld ny = y*cos(a) - z*sin(a);
-		ld nz = y*sin(a) + z*cos(a);
-		y = ny;
-		z = nz;
-	}
-	void rotate_y(ld a) {
-		ld nx =  x*cos(a) + z*sin(a);
-		ld nz = -x*sin(a) + z*cos(a);
-		x = nx;
-		z = nz;
-	}
-	void rotate_z(ld a) {
-		ld nx = x*cos(a) - y*sin(a);
-		ld ny = x*sin(a) + y*cos(a);
-		x = nx;
-		y = ny;
-	}
+	pt operator ^ (const pt p) const { return pt(y*p.z - z*p.y, z*p.x - x*p.z, x*p.y - y*p.x); }
 };
 
 // converte de coordenadas polares para cartesianas
@@ -59,4 +40,10 @@ pt convert(ld rho, ld th, ld phi) {
 // distancia
 ld dist(pt a, pt b) {
 	return sqrt(sq(a.x-b.x) + sq(a.y-b.y) + sq(a.z-b.z));
+}
+
+// rotaciona p ao redor do eixo u por um angulo a
+pt rotate(pt p, pt u, ld a) {
+	u = u / dist(u, pt());
+	return u * (u * p) + (u ^ p ^ u) * cos(a) + (u ^ p) * sin(a);
 }

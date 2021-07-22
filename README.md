@@ -122,6 +122,7 @@ O *theoretical* (documento com teoremas, identidades e informações teóricas r
 - [Algoritmo Rho de Pollard (Pollard Rho)](https://github.com/brunomaletta/Biblioteca/blob/master/Codigo/Matematica/pollardrho.cpp)
 - [Distribuição Binomial](https://github.com/brunomaletta/Biblioteca/blob/master/Codigo/Matematica/probability_binomial.cpp)
 - [Totiente](https://github.com/brunomaletta/Biblioteca/blob/master/Codigo/Matematica/totiente.cpp)
+- [Division Trick](https://github.com/brunomaletta/Biblioteca/blob/master/Codigo/Matematica/divisionTrick.cpp)
 
 ### Primitivas
 

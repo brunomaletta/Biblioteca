@@ -157,9 +157,7 @@ struct suffix_array {
 	ll f(ll k) { return k*(k+1)/2; }
 
 	ll dfs(int L, int R, int p) { // dfs na suffix tree chamado em pre ordem
-		int ext;
-		if (L == R) ext = n - sa[L];
-		else ext = RMQ.query(L, R-1);
+		int ext = L != R ? RMQ.query(L, R-1) : n - sa[L];
 
 		// Tem 'ext - p' substrings diferentes que ocorrem 'R-L+1' vezes
 		// O LCP de todas elas eh 'ext'
@@ -174,21 +172,13 @@ struct suffix_array {
 			L++;
 		} */
 
-		if (L > R) return ans; // folha (com ctz caiu no if de cima)
+		while (L <= R) {
+			int idx = L != R ? RMQ.index_query(L, R-1) : -1;
+			if (idx == -1 or lcp[idx] != ext) idx = R;
 
-		int l = L, r = R, mn = L != R ? RMQ.query(L, R-1) : -1;
-		if (mn == ext) { // to no vertice
-			while (l <= r) {
-				int id = l != r ? RMQ.index_query(l, r-1) : -1;
-				if (id == -1 or lcp[id] != mn) {
-					ans += dfs(l, r, ext);
-					break;
-				}
-				ans += dfs(l, id, ext);
-				l = id+1;
-			}
-		} else ans += dfs(l, r, ext); // to na aresta
-
+			ans += dfs(L, idx, ext);
+			L = idx+1;
+		}
 		return ans;
 	}
 

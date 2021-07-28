@@ -5,7 +5,7 @@
 // o grafo tem se soh considerar as arestas l, l+1, ..., r
 // Da pra adaptar pra usar MO com qualquer estrutura rollbackavel
 //
-// O(m sqrt(m) log(n))
+// O(m sqrt(q) log(n))
 
 struct dsu {
 	int n, ans;
@@ -43,7 +43,7 @@ int n;
 vector<pair<int, int>> ar; // vetor com as arestas
 
 vector<int> MO(vector<pair<int, int>> &q) {
-	int SQ = sqrt(q.size()) + 1;
+	int SQ = ar.size() / sqrt(q.size()) + 1;
 	int m = q.size();
 	vector<int> ord(m);
 	iota(ord.begin(), ord.end(), 0);

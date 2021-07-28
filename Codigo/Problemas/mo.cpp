@@ -1,6 +1,9 @@
 // Mo - numero de distintos em range
+//
+// Para ter o bound abaixo, escolher
+// SQ = n / sqrt(q)
 // 
-// O(n * sqrt(n))
+// O(n * sqrt(q))
 
 const int MAX = 3e4+10;
 const int SQ = sqrt(MAX);

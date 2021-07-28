@@ -149,7 +149,7 @@ O *theoretical* (documento com teoremas, identidades e informações teóricas r
 - [String Hashing - módulo 2^61 - 1](https://github.com/brunomaletta/Biblioteca/blob/master/Codigo/Strings/hashingLargeMod.cpp)
 - [KMP](https://github.com/brunomaletta/Biblioteca/blob/master/Codigo/Strings/kmp.cpp)
 - [Manacher](https://github.com/brunomaletta/Biblioteca/blob/master/Codigo/Strings/manacher.cpp)
-- [Max Suffix (lexicográfico) O(n)](https://github.com/brunomaletta/Biblioteca/blob/master/Codigo/Strings/maxSuffix.cpp)
+- [Min/max suffix/cyclic shift (lexicográfico) O(n)](https://github.com/brunomaletta/Biblioteca/blob/master/Codigo/Strings/min-maxSuffix-Cyclic.cpp)
 - [Autômato de Sufixo](https://github.com/brunomaletta/Biblioteca/blob/master/Codigo/Strings/suffixAutomaton.cpp)
 - [Algoritmo Z](https://github.com/brunomaletta/Biblioteca/blob/master/Codigo/Strings/z.cpp)
 

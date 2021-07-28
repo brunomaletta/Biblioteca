@@ -123,6 +123,7 @@ O *theoretical* (documento com teoremas, identidades e informações teóricas r
 - [Distribuição Binomial](https://github.com/brunomaletta/Biblioteca/blob/master/Codigo/Matematica/probability_binomial.cpp)
 - [Totiente](https://github.com/brunomaletta/Biblioteca/blob/master/Codigo/Matematica/totiente.cpp)
 - [Division Trick](https://github.com/brunomaletta/Biblioteca/blob/master/Codigo/Matematica/divisionTrick.cpp)
+- [Simplex](https://github.com/brunomaletta/Biblioteca/blob/master/Codigo/Matematica/simplex.cpp)
 
 ### Primitivas
 

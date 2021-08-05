@@ -111,6 +111,7 @@ O *theoretical* (documento com teoremas, identidades e informações teóricas r
 - [Detecção de Ciclo - Tortoise and Hare](https://github.com/brunomaletta/Biblioteca/blob/master/Codigo/Matematica/cycleDetection.cpp)
 - [Divisão de Polinomios (naive)](https://github.com/brunomaletta/Biblioteca/blob/master/Codigo/Matematica/divPol.cpp)
 - [Equação Diofantina Linear](https://github.com/brunomaletta/Biblioteca/blob/master/Codigo/Matematica/diofantina.cpp)
+- [Avaliação de Interpolação (avalia a interpolação em um x)](https://github.com/brunomaletta/Biblioteca/blob/master/Codigo/Matematica/evalInterpol.cpp)
 - [Exponenciação Rápida](https://github.com/brunomaletta/Biblioteca/blob/master/Codigo/Matematica/fastPow.cpp)
 - [Eliminação Gaussiana](https://github.com/brunomaletta/Biblioteca/blob/master/Codigo/Matematica/gauss.cpp)
 - [Eliminação Gaussiana de XOR](https://github.com/brunomaletta/Biblioteca/blob/master/Codigo/Matematica/gaussXor.cpp)

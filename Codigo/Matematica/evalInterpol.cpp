@@ -1,7 +1,7 @@
 // Avaliacao de Interpolacao
 //
 // Dado 'n' pontos (i, y[i]), i \in [0, n),
-// avalia o polinomio de grau i-1 que passa
+// avalia o polinomio de grau n-1 que passa
 // por esses pontos em 'x'
 // Tudo modular, precisa do mint
 //

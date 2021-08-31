@@ -11,6 +11,9 @@ template<typename T = int> struct frac {
 		num /= g, den /= g;
 	}
 
+	friend bool operator<(const frac& l, const frac& r) {
+		return l.num * r.den < r.num * l.den;
+	}
 	friend frac operator+(const frac& l, const frac& r) {
 		return {l.num*r.den + l.den*r.num, l.den*r.den};
 	}

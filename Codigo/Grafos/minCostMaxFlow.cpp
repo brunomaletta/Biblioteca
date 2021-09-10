@@ -90,7 +90,7 @@ template<typename T> struct mcmf {
 
 		int f = 0;
 		T ret = 0;
-		while (f <= flow and dijkstra(s, t, pot)) {
+		while (f < flow and dijkstra(s, t, pot)) {
 			for (int i = 0; i < g.size(); i++)
 				if (dist[i] < inf) pot[i] += dist[i];
 

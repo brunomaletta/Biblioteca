@@ -1,29 +1,49 @@
-// Eliminacao Gaussiana de XOR
+// Eliminacao Gaussiana Z_2
 //
-// insert(mask) insere uma mask no espaco vetorial
-// get(X) retorna outra uma mask com os caras da base
-// cujo xor da X, ou -1 se n tem como
+// D eh dimensao do espaço vetorial
+// add(v) - adiciona o vetor v na base (retorna se ele jah pertencia ao span da base)
+// coord(v) - retorna as coordenadas (c) de v na base atual (basis^T.c = v)
+// recover(v) - retorna as coordenadas de v nos vetores na ordem em que foram inseridos
+// coord(v).first e recover(v).first - se v pertence ao span
 //
-// O(log(MAXN))
+// Complexidade:
+// add, coord, recover: O(D^2 / 64)
 
-int basis[LOG]; // basis[i] = mask do cara com bit mais significativo i
-int rk; // tamanho da base
+template<int D> struct Gauss_z2 {
+	bitset<D> basis[D], keep[D];
+	int rk, in;
+	vector<int> id;
+	
+	Gauss_z2 () : rk(0), in(-1), id(D, -1) {};
 
-void insert(int mask) {
-	for (int i = LOG - 1; i >= 0; i--) if (mask>>i&1) {
-		if (!basis[i]) {
-			basis[i] = mask, rk++;
-			return;
+	bool add(bitset<D> v) {
+		in++;
+		bitset<D> k;
+		for (int i = D - 1; i >= 0; i--) if (v[i]) {
+			if (basis[i][i]) v ^= basis[i], k ^= keep[i];
+			else {
+				k[i] = true, id[i] = in, keep[i] = k;
+				basis[i] = v, rk++;
+				return true;
+			}
 		}
-		mask ^= basis[i];
+		return false;
 	}
-}
-
-int get(int mask) {
-	int ret = 0;
-	for (int i = LOG - 1; i >= 0; i--) if (mask>>i&1) {
-		if (!basis[i]) return -1;
-		mask ^= basis[i], ret |= (1<<i);
+	pair<bool, bitset<D>> coord(bitset<D> v) {
+		bitset<D> c;
+		for (int i = D - 1; i >= 0; i--) if (v[i]) {
+			if (basis[i][i]) v ^= basis[i], c[i] = true;
+			else return {false, bitset<D>()};
+		}
+		return {true, c};
 	}
-	return ret;
-}
+	pair<bool, vector<int>> recover(bitset<D> v) {
+		auto [span, bc] = coord(v);
+		if (not span) return {false, {}};
+		bitset<D> aux;
+		for (int i = D - 1; i >= 0; i--) if (bc[i]) aux ^= keep[i];
+		vector<int> oc;
+		for (int i = D - 1; i >= 0; i--) if (aux[i]) oc.push_back(id[i]);
+		return {true, oc};
+	}
+};

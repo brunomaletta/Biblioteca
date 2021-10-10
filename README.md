@@ -114,7 +114,7 @@ O *theoretical* (documento com teoremas, identidades e informações teóricas r
 - [Avaliação de Interpolação (avalia a interpolação em um x)](https://github.com/brunomaletta/Biblioteca/blob/master/Codigo/Matematica/evalInterpol.cpp)
 - [Exponenciação Rápida](https://github.com/brunomaletta/Biblioteca/blob/master/Codigo/Matematica/fastPow.cpp)
 - [Eliminação Gaussiana](https://github.com/brunomaletta/Biblioteca/blob/master/Codigo/Matematica/gauss.cpp)
-- [Eliminação Gaussiana de XOR](https://github.com/brunomaletta/Biblioteca/blob/master/Codigo/Matematica/gaussXor.cpp)
+- [Eliminação Gaussiana de XOR](https://github.com/brunomaletta/Biblioteca/blob/master/Codigo/Matematica/gauss_z2.cpp)
 - [Karatsuba](https://github.com/brunomaletta/Biblioteca/blob/master/Codigo/Matematica/karatsuba.cpp)
 - [Algoritmo de Euclides](https://github.com/brunomaletta/Biblioteca/blob/master/Codigo/Matematica/mdc.cpp)
 - [Algoritmo de Euclides Estendido](https://github.com/brunomaletta/Biblioteca/blob/master/Codigo/Matematica/mdcEstendido.cpp)

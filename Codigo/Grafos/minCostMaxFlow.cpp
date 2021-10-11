@@ -7,7 +7,7 @@
 // para O(nm) no comeco
 // Se nao tiver aresta com custo negativo, nao precisa do SPFA
 //
-// O(nm + min(f, nm) m log n)
+// O(nm + f * m log n)
 
 template<typename T> struct mcmf {
 	struct edge {

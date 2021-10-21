@@ -15,6 +15,7 @@ O *theoretical* (documento com teoremas, identidades e informações teóricas r
 ### Programação Dinâmica
 
 - [Convex Hull Trick](https://github.com/brunomaletta/Biblioteca/blob/master/Codigo/DP/CHT.cpp)
+- [Convex Hull Trick - Dinâmico](https://github.com/brunomaletta/Biblioteca/blob/master/Codigo/DP/CHT-Dinamico.cpp)
 - [Divide and Conquer DP](https://github.com/brunomaletta/Biblioteca/blob/master/Codigo/DP/DC-DP.cpp)
 - [Longest Common Subsequence - O(n+m) de memória](https://github.com/brunomaletta/Biblioteca/blob/master/Codigo/DP/lcs.cpp)
 - [Mochila - O(n+cap) de memória](https://github.com/brunomaletta/Biblioteca/blob/master/Codigo/DP/mochila.cpp)

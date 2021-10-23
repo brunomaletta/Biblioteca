@@ -9,8 +9,6 @@
 // O(log(n)) amortizado por insercao
 // O(log(n)) por query
 
-#pragma once
-
 struct Line {
 	mutable ll a, b, p;
 	bool operator<(const Line& o) const { return a < o.a; }

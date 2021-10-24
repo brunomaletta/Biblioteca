@@ -1,8 +1,8 @@
 # Biblioteca
 
-Biblioteca de algoritmos, estruturas de dados e primitivas para maratona de programação do time [UFMG] Rábalabaxúrias (Bruno, Rafael & Papa).
+Biblioteca de algoritmos, estruturas de dados e primitivas para maratona de programação da UFMG.
 
-Códigos em C++, em maior parte implementados pelos integrantes do time.
+Códigos em C++, em maior parte implementados pelos alunos da universidade.
 
 #### PDF
 

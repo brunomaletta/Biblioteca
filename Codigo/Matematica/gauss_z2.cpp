@@ -1,6 +1,6 @@
-// Eliminacao Gaussiana Z_2
+// Eliminacao Gaussiana Z2
 //
-// D eh dimensao do espaço vetorial
+// D eh dimensao do espaco vetorial
 // add(v) - adiciona o vetor v na base (retorna se ele jah pertencia ao span da base)
 // coord(v) - retorna as coordenadas (c) de v na base atual (basis^T.c = v)
 // recover(v) - retorna as coordenadas de v nos vetores na ordem em que foram inseridos

@@ -15,7 +15,7 @@ template<class T> struct minstack {
 		s.pop();
 		return ans;
 	}
-	T size() { return s.size(); }
+	int size() { return s.size(); }
 	T min() { return s.top().second; }
 };
 
@@ -32,7 +32,7 @@ template<class T> struct minqueue {
 	}
 	T front() { return move(), s2.top(); }
 	T pop() { return move(), s2.pop(); }
-	T size() { return s1.size()+s2.size(); }
+	int size() { return s1.size()+s2.size(); }
 	T min() {
 		if (!s1.size()) return s2.min();
 		else if (!s2.size()) return s1.min();

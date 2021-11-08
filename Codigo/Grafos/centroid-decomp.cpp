@@ -1,59 +1,47 @@
 // Centroid decomposition
 //
-// Computa pai[i] = pai de i na arv. da centroid
-// Descomentar o codigo comentado para computar
-// dist[i][x] = distancia na arv. original entre o i e
-// o x-esimo ancestral na arv. da centroid
+// decomp(0, k) computa numero de caminhos com 'k' arestas
+// Mudar depois do comentario
 //
 // O(n log(n))
 
-int n;
 vector<int> g[MAX];
-int subsize[MAX];
-int rem[MAX];
-int pai[MAX];
+int sz[MAX], rem[MAX];
 
-void dfs(int k, int last) {
-	subsize[k] = 1;
-	for (int i : g[k])
-		if (i != last and !rem[i]) {
-			dfs(i, k);
-			subsize[k] += subsize[i];
-		}
+void dfs(vector<int>& path, int i, int l=-1, int d=0) {
+	path.push_back(d);
+	for (int j : g[i]) if (j != l and !rem[j]) dfs(path, j, i, d+1);
 }
 
-int centroid(int k, int last, int size) {
-	for (int i : g[k]) {
-		if (rem[i] or i == last) continue;
-		if (subsize[i] > size / 2)
-			return centroid(i, k, size);
-	}
-	// k eh o centroid
-	return k;
+int dfs_sz(int i, int l=-1) {
+	sz[i] = 1;
+	for (int j : g[i]) if (j != l and !rem[j]) sz[i] += dfs_sz(j, i);
+	return sz[i];
 }
 
-//vector<int> dist[MAX];
-//void dfs_dist(int k, int last, int d=0) {
-//    dist[k].push_back(d);
-//    for (int j : g[k]) if (j != last and !rem[j])
-//        dfs_dist(j, k, d+1);
-//}
+int centroid(int i, int l, int size) {
+	for (int j : g[i]) if (j != l and !rem[j] and sz[j] > size / 2)
+		return centroid(j, i, size);
+	return i;
+}
 
-void decomp(int k, int last = -1) {
-	dfs(k, k);
-
-	// acha e tira o centroid
-	int c = centroid(k, k, subsize[k]);
+ll decomp(int i, int k) {
+	int c = centroid(i, i, dfs_sz(i));
 	rem[c] = 1;
-	pai[c] = last;
-	//dfs_dist(c, c);
 
-	// decompoe as sub-arvores
-	for (int i : g[c]) if (!rem[i]) decomp(i, c);
-}
+	// gasta O(n) aqui - dfs sem ir pros caras removidos
+	ll ans = 0;
+	vector<int> cnt(sz[i]);
+	cnt[0] = 1;
+	for (int j : g[c]) if (!rem[j]) {
+		vector<int> path;
+		dfs(path, j);
+		for (int d : path) if (0 <= k-d-1 and k-d-1 < sz[i])
+			ans += cnt[k-d-1];
+		for (int d : path) cnt[d+1]++;
+	}
 
-void build() {
-	memset(rem, 0, sizeof rem);
-	decomp(0);
-	//for (int i = 0; i < n; i++) reverse(dist[i].begin(), dist[i].end());
+	for (int j : g[c]) if (!rem[j]) ans += decomp(j, k);
+	rem[c] = 0;
+	return ans;
 }

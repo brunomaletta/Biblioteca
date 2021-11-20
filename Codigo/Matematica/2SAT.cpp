@@ -1,18 +1,18 @@
 // 2-SAT
 //
-// solve(n) Retorna se eh possivel atribuir valores
-// pras 'n' variaveis
-// ans[i] fala se a variavel 'i' eh verdadeira
-// Pra chamar o negado da variavel 'i', usar ~i
+// solve() retorna um par, o first fala se eh possivel
+// atribuir, o second fala se cada variavel eh verdadeira
 //
-// O(|V|+|E|)
+// O(|V|+|E|) = O(#variaveis + #restricoes)
 
-namespace doisSAT {
-#warning limpar o grafo
-	vector<int> g[2*MAX];
-	int vis[2*MAX], comp[2*MAX], id[2*MAX];
+struct sat {
+	int n, tot;
+	vector<vector<int>> g;
+	vector<int> vis, comp, id, ans;
 	stack<int> s;
-	int ans[MAX];
+
+	sat() {}
+	sat(int n_) : n(n_), tot(n), g(2*n) {}
 
 	int dfs(int i, int& t) {
 		int lo = id[i] = t++;
@@ -24,16 +24,10 @@ namespace doisSAT {
 		if (lo == id[i]) while (1) {
 			int u = s.top(); s.pop();
 			vis[u] = 1, comp[u] = i;
-			if (ans[u>>1] == -1) ans[u>>1] = ~u&1;
+			if ((u>>1) < n and ans[u>>1] == -1) ans[u>>1] = ~u&1;
 			if (u == i) break;
 		}
 		return lo;
-	}
-
-	void tarjan(int n) {
-		int t = 0;
-		for (int i = 0; i < 2*n; i++) vis[i] = 0;
-		for (int i = 0; i < 2*n; i++) if (!vis[i]) dfs(i, t);
 	}
 
 	void add_impl(int x, int y) { // x -> y = !x ou y
@@ -54,12 +48,26 @@ namespace doisSAT {
 	void add_true(int x) { // x = T
 		add_impl(~x, x);
 	}
-
-	bool solve(int n) {
-		for (int i = 0; i < n; i++) ans[i] = -1;
-		tarjan(n);
-		for (int i = 0; i < n; i++)
-			if (comp[2*i] == comp[2*i+1]) return 0;
-		return 1;
+	void at_most_one(vector<int> v) { // no max um verdadeiro
+		int nn = 2*(tot+v.size());
+		g.resize(nn);
+		for (int i = 0; i < v.size(); i++) {
+			add_impl(tot+i, ~v[i]);
+			if (i) {
+				add_impl(tot+i, tot+i-1);
+				add_impl(v[i], tot+i-1);
+			}
+		}
+		tot += v.size();
 	}
-}
+
+	pair<bool, vector<int>> solve() {
+		ans = vector<int>(n, -1);
+		int t = 0;
+		vis = comp = id = vector<int>(2*tot, 0);
+		for (int i = 0; i < 2*tot; i++) if (!vis[i]) dfs(i, t);
+		for (int i = 0; i < tot; i++)
+			if (comp[2*i] == comp[2*i+1]) return {false, {}};
+		return {true, ans};
+	}
+};

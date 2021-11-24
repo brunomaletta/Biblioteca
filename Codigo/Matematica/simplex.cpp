@@ -7,12 +7,12 @@
 const double eps = 1e-7;
 
 namespace Simplex {
-	vector<int> B;
 	vector<vector<double>> T;
 	int n, m;
+	vector<int> X, Y;
 
 	void pivot(int x, int y) {
-		B[x] = y;
+		swap(X[y], Y[x-1]);
 		for (int i = 0; i <= m; i++) if (i != y) T[x][i] /= T[x][y];
 		T[x][y] = 1/T[x][y];
 		for (int i = 0; i <= n; i++) if (i != x and abs(T[i][y]) > eps) {
@@ -22,11 +22,14 @@ namespace Simplex {
 	}
 
 	// Retorna o par (valor maximo, vetor solucao)
-	pair<double, vector<double>> simplex( 
+	pair<double, vector<double>> simplex(
 			vector<vector<double>> A, vector<double> b, vector<double> c) {
 		n = b.size(), m = c.size();
-		B = vector<int> (n + 1, -1);
 		T = vector(n + 1, vector<double>(m + 1));
+		X = vector<int>(m);
+		Y = vector<int>(n);
+		for (int i = 0; i < m; i++) X[i] = i;
+		for (int i = 0; i < n; i++) Y[i] = i+m;
 		for (int i = 0; i < m; i++) T[0][i] = -c[i];
 		for (int i = 0; i < n; i++) {
 			for (int j = 0; j < m; j++) T[i+1][j] = A[i][j];
@@ -35,9 +38,9 @@ namespace Simplex {
 		while (true) {
 			int x = -1, y = -1;
 			double mn = -eps;
-			for (int i = 1; i <= n; i++) if(T[i][m] < mn) mn = T[i][m], x = i;
-			if(x < 0) break;
-			for (int i = 0; i < m; i++) if(T[x][i] < -eps) { y = i; break; }
+			for (int i = 1; i <= n; i++) if (T[i][m] < mn) mn = T[i][m], x = i;
+			if (x < 0) break;
+			for (int i = 0; i < m; i++) if (T[x][i] < -eps) { y = i; break; }
 
 			if (y < 0) return {-1e18, {}}; // sem solucao para  Ax <= b
 			pivot(x, y);
@@ -55,7 +58,7 @@ namespace Simplex {
 			pivot(x, y);
 		}
 		vector<double> r(m);
-		for (int i = 1; i <= n; i++) if (B[i] != -1) r[B[i]] = T[i][m];
+		for(int i = 0; i < n; i++) if (Y[i] < m) r[Y[i]] = T[i+1][m];
 		return {T[0][m], r};
 	}
 }

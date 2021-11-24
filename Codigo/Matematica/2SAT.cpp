@@ -49,8 +49,7 @@ struct sat {
 		add_impl(~x, x);
 	}
 	void at_most_one(vector<int> v) { // no max um verdadeiro
-		int nn = 2*(tot+v.size());
-		g.resize(nn);
+		g.resize(2*(tot+v.size()));
 		for (int i = 0; i < v.size(); i++) {
 			add_impl(tot+i, ~v[i]);
 			if (i) {

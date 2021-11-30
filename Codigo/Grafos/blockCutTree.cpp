@@ -7,6 +7,8 @@
 // os blocos, e a outra cor sao os pontos de art.
 // art[i] responde se i eh ponto de articulacao
 // Funciona pra grafo nao conexo, e ja limpa tudo
+// Primeiros block.size() da arvore sao os blocos
+// Arvore tem no maximo 2n vertices
 //
 // O(n+m)
 
@@ -45,7 +47,7 @@ void build(int n) {
 
 	for (int i = 0; i < n; i++) if (id[i] == -1) dfs(i, t, -1);
 
-	tree.resize(blocks.size()); // no maximo 2*n
+	tree.resize(blocks.size());
 	for (int i = 0; i < n; i++) if (art[i])
 		pos[i] = tree.size(), tree.emplace_back();
 

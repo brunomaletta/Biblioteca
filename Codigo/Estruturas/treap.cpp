@@ -53,6 +53,12 @@ template<typename T> struct treap {
 		else split(i->l, l, i->l, v), r = i;
 		i->update();
 	}
+	void split_leq(node* i, node*& l, node*& r, T v) {
+		if (!i) return void(r = l = NULL);
+		if (i->val <= v) split_leq(i->r, i->r, r, v), l = i;
+		else split_leq(i->l, l, i->l, v), r = i;
+		i->update();
+	}
 	int count(node* i, T v) {
 		if (!i) return 0;
 		if (i->val == v) return 1;
@@ -78,7 +84,7 @@ template<typename T> struct treap {
 	}
 	void erase(T v) {
 		node *L, *M, *R;
-		split(root, M, R, v+1), split(M, L, M, v);
+		split_leq(root, M, R, v), split(M, L, M, v);
 		if (M) delete M;
 		M = NULL;
 		join(L, R, root);

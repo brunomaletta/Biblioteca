@@ -70,13 +70,6 @@ bool col(pt p, pt q, pt r) { // se p, q e r sao colin.
 	return eq(sarea(p, q, r), 0);
 }
 
-int paral(pt u, pt v) { // se u e v sao paralelos
-	if (!eq(u^v, 0)) return 0;
-	if ((u.x > eps) == (v.x > eps) and (u.y > eps) == (v.y > eps))
-		return 1;
-	return -1;
-}
-
 bool ccw(pt p, pt q, pt r) { // se p, q, r sao ccw
 	return sarea(p, q, r) > eps;
 }
@@ -96,17 +89,13 @@ bool isvert(line r) { // se r eh vertical
 	return eq(r.p.x, r.q.x);
 }
 
-bool paraline(line r, line s) { // se r e s sao paralelas
-	return paral(r.p - r.q, s.p - s.q);
-}
-
 bool isinseg(pt p, line r) { // se p pertence ao seg de r
-	if (p == r.p or p == r.q) return 1;
-	return paral(p - r.p, p - r.q) == -1;
+	pt a = r.p - p, b = r.q - p;
+	return eq((a ^ b), 0) and (a * b) < eps;
 }
 
 ld get_t(pt v, line r) { // retorna t tal que t*v pertence a reta r
-    return (r.p^r.q) / ((r.p-r.q)^v);
+	return (r.p^r.q) / ((r.p-r.q)^v);
 }
 
 pt proj(pt p, line r) { // projecao do ponto p na reta r
@@ -117,7 +106,7 @@ pt proj(pt p, line r) { // projecao do ponto p na reta r
 }
 
 pt inter(line r, line s) { // r inter s
-	if (paraline(r, s)) return pt(DINF, DINF);
+	if (eq((r.p - r.q) ^ (s.p - s.q), 0)) return pt(DINF, DINF);
 	r.q = r.q - r.p, s.p = s.p - r.p, s.q = s.q - r.p;
 	return r.q * get_t(r.q, s) + r.p;
 }

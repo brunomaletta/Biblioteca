@@ -45,23 +45,17 @@ bool col(pt p, pt q, pt r) { // se p, q e r sao colin.
 	return sarea2(p, q, r) == 0;
 }
 
-int paral(pt u, pt v) { // se u e v sao paralelos
-	if (u^v) return 0;
-	if ((u.x > 0) == (v.x > 0) and (u.y > 0) == (v.y > 0)) return 1;
-	return -1;
-}
-
 bool ccw(pt p, pt q, pt r) { // se p, q, r sao ccw
 	return sarea2(p, q, r) > 0;
 }
 
 int quad(pt p) { // quadrante de um ponto
-   return (p.x<0)^3*(p.y<0);
+	return (p.x<0)^3*(p.y<0);
 }
 
 bool compare_angle(pt p, pt q) { // retorna se ang(p) < ang(q)
-    if (quad(p) != quad(q)) return quad(p) < quad(q);
-    return ccw(q, pt(0, 0), p);
+	if (quad(p) != quad(q)) return quad(p) < quad(q);
+	return ccw(q, pt(0, 0), p);
 }
 
 pt rotate90(pt p) { // rotaciona 90 graus
@@ -70,13 +64,9 @@ pt rotate90(pt p) { // rotaciona 90 graus
 
 // RETA
 
-bool paraline(line r, line s) { // se r e s sao paralelas
-	return paral(r.p - r.q, s.p - s.q);
-}
-
 bool isinseg(pt p, line r) { // se p pertence ao seg de r
-	if (p == r.p or p == r.q) return 1;
-	return paral(p - r.p, p - r.q) == -1;
+	pt a = r.p - p, b = r.q - p;
+	return (a ^ b) == 0 and (a * b) <= 0;
 }
 
 bool interseg(line r, line s) { // se o seg de r intersecta o seg de s

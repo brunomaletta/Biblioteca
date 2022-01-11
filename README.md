@@ -26,6 +26,7 @@ O *theoretical* (documento com teoremas, identidades e informações teóricas r
 - Segment Tree
     - [Segtree Padrão (soma)](https://github.com/brunomaletta/Biblioteca/blob/master/Codigo/Estruturas/SegTree/SegTree.cpp)
     - [Segtree 2D (iterativa)](https://github.com/brunomaletta/Biblioteca/blob/master/Codigo/Estruturas/SegTree/SegTree2D.cpp)
+    - [Segtreap (equivalente a seg 2D esparsa)](https://github.com/brunomaletta/Biblioteca/blob/master/Codigo/Estruturas/SegTree/SegTreap.cpp)
     - [Segtree Beats](https://github.com/brunomaletta/Biblioteca/blob/master/Codigo/Estruturas/SegTree/SegTreeBeats.cpp)
     - [Segtree Colorida (lê os comentários pra saber o que faz)](https://github.com/brunomaletta/Biblioteca/blob/master/Codigo/Estruturas/SegTree/SegTreeColor.cpp)
     - [Segtree Esparsa - Lazy](https://github.com/brunomaletta/Biblioteca/blob/master/Codigo/Estruturas/SegTree/SegTreeEsparsa.cpp)

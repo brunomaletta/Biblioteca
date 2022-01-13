@@ -176,6 +176,7 @@ O *theoretical* (documento com teoremas, identidades e informações teóricas r
 - [Triângulos em Grafos](https://github.com/brunomaletta/Biblioteca/blob/master/Codigo/Problemas/graphTriangles.cpp)
 - [Gray Code](https://github.com/brunomaletta/Biblioteca/blob/master/Codigo/Problemas/grayCode.cpp)
 - [Algoritmo Húngaro (assignment)](https://github.com/brunomaletta/Biblioteca/blob/master/Codigo/Problemas/hungarian.cpp)
+- [Heap Sort](https://github.com/brunomaletta/Biblioteca/blob/master/Codigo/Problemas/heapSort.cpp)
 - [Coloração de Grafo de Intervalo](https://github.com/brunomaletta/Biblioteca/blob/master/Codigo/Problemas/intervalGraphColoring.cpp)
 - [Conjunto Independente Máximo com Peso em Grafo de Intervalo](https://github.com/brunomaletta/Biblioteca/blob/master/Codigo/Problemas/intervalGraphIndSet.cpp)
 - [Longest Increasing Subsequence (recuperando)](https://github.com/brunomaletta/Biblioteca/blob/master/Codigo/Problemas/lis.cpp)

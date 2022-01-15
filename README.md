@@ -160,6 +160,7 @@ O *theoretical* (documento com teoremas, identidades e informações teóricas r
 
 ### Problemas
 
+- [Interseção de Ângulos](https://github.com/brunomaletta/Biblioteca/blob/master/Codigo/Problemas/angleRange.cpp)
 - [Area Máxima de Histograma](https://github.com/brunomaletta/Biblioteca/blob/master/Codigo/Problemas/AreaHistograma.cpp)
 - [Inversion Count](https://github.com/brunomaletta/Biblioteca/blob/master/Codigo/Problemas/InversionCount.cpp)
 - [RMQ Offline com Divide and Conquer](https://github.com/brunomaletta/Biblioteca/blob/master/Codigo/Problemas/RMQoffline.cpp)

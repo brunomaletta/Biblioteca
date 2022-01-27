@@ -173,6 +173,7 @@ O *theoretical* (documento com teoremas, identidades e informações teóricas r
 - [Distinct Range Query - Wavelet](https://github.com/brunomaletta/Biblioteca/blob/master/Codigo/Problemas/distinct.cpp)
 - [Distinct Range Query - Persistent Segtree](https://github.com/brunomaletta/Biblioteca/blob/master/Codigo/Problemas/distinct2.cpp)
 - [Distinct Range Query com Update](https://github.com/brunomaletta/Biblioteca/blob/master/Codigo/Problemas/distinctUpdate.cpp)
+- [DP de Dominação 3D](https://github.com/brunomaletta/Biblioteca/blob/master/Codigo/Problemas/dominacao3d.cpp)
 - [Dominator Points](https://github.com/brunomaletta/Biblioteca/blob/master/Codigo/Problemas/dominatorPoints.cpp)
 - [Triângulos em Grafos](https://github.com/brunomaletta/Biblioteca/blob/master/Codigo/Problemas/graphTriangles.cpp)
 - [Gray Code](https://github.com/brunomaletta/Biblioteca/blob/master/Codigo/Problemas/grayCode.cpp)

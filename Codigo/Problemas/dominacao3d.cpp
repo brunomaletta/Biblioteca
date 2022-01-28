@@ -31,12 +31,9 @@ void lis2d(vector<vector<tuple<int, int, int>>>& v, vector<int>& dp, int l, int 
 	vector<int> seg(2*Z.size());
 
 	int i = 0;
-	for (auto it : vv[1]) {
-		int y, z, id;
-		tie(y, z, id) = it;
+	for (auto [y, z, id] : vv[1]) {
 		while (i < vv[0].size() and get<0>(vv[0][i]) < y) {
-			int y2, z2, id2;
-			tie(y2, z2, id2) = vv[0][i++];
+			auto [y2, z2, id2] = vv[0][i++];
 			int p = get_z(z2) + Z.size();
 			seg[p] = max(seg[p], dp[id2]);
 			while (p /= 2) seg[p] = max(seg[2*p], seg[2*p+1]);
@@ -55,8 +52,7 @@ vector<int> solve(vector<tuple<int, int, int>> v) {
 	int n = v.size();
 	vector<tuple<int, int, int, int>> vv;
 	for (int i = 0; i < n; i++) {
-		int x, y, z;
-		tie(x, y, z) = v[i];
+		auto [x, y, z] = v[i];
 		vv.emplace_back(x, y, z, i);
 	}
 	sort(vv.begin(), vv.end());
@@ -66,8 +62,7 @@ vector<int> solve(vector<tuple<int, int, int>> v) {
 		int j = i;
 		V.emplace_back();
 		while (j < n and get<0>(vv[j]) == get<0>(vv[i])) {
-			int x, y, z, id;
-			tie(x, y, z, id) = vv[j++];
+			auto [x, y, z, id] = vv[j++];
 			V.back().emplace_back(y, z, id);
 		}
 		i = j-1;

@@ -33,6 +33,7 @@ struct pt { // ponto
 
 // converte de coordenadas polares para cartesianas
 // (angulos devem estar em radianos)
+// phi eh o angulo com o eixo z (cima) theta eh o angulo de rotacao ao redor de z
 pt convert(ld rho, ld th, ld phi) {
 	return pt(sin(phi) * cos(th), sin(phi) * sin(th), cos(phi)) * rho;
 }

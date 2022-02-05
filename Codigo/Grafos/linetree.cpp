@@ -7,6 +7,7 @@
 //
 // build - O(n log(n))
 // query - O(log(n))
+// b1f418
 
 int n;
 

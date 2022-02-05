@@ -4,6 +4,7 @@
 // duas posicoes adjacentes diferem em exatamente 1 bit
 //
 // O(2^n)
+// 840df4
 
 vector<int> gray_code(int n) {
 	vector<int> ret(1<<n);

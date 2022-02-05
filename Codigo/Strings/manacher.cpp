@@ -8,6 +8,7 @@
 // manacher - O(n)
 // palindrome - <O(n), O(1)>
 // pal_end - O(n)
+// 897841
 
 template<typename T> vector<int> manacher(const T& s) {
 	int l = 0, r = -1, n = s.size();

@@ -26,6 +26,7 @@
 // count - O(log(n))
 // report - O(log(n) + k) para k indices retornados
 // kth - O(log(n))
+// 1cef03
 
 template <typename T = int> struct ms_tree {
 	vector<tuple<T, T, int>> v;

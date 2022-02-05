@@ -4,6 +4,7 @@
 // que se intersecta
 //
 // O(n log n)
+// 3957d8
 
 bool operator < (const line& a, const line& b) { // comparador pro sweepline
 	if (a.p == b.p) return ccw(a.p, a.q, b.q);

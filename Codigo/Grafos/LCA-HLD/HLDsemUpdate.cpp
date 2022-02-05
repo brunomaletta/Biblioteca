@@ -5,6 +5,7 @@
 // Complexidades:
 // build - O(n)
 // query_path - O(log(n))
+// f4c2ef
 
 #define f first
 #define s second

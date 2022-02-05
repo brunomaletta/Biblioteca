@@ -2,6 +2,7 @@
 //
 // Computa C(n, k) mod m em O(m + log(m) log(n))
 // = O(rapido)
+// 3d8155
 
 ll divi[MAX];
 

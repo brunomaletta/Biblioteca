@@ -4,6 +4,7 @@
 // em cada aresta
 //
 // O(dinic)
+// 227432
 
 struct lb_max_flow : dinic {
 	vector<int> d;

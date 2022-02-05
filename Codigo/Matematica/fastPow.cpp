@@ -2,8 +2,6 @@
 //
 // (x^y mod m) em O(log(y))
 
-typedef long long int ll;
-
 ll pow(ll x, ll y, ll m) { // iterativo
 	ll ret = 1;
 	while (y) {

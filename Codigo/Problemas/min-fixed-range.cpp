@@ -4,6 +4,7 @@
 //
 // O(n)
 // ans[i] = min_{0 <= j < k} v[i+j]
+// d4db55
 
 vector<int> min_k(vector<int> &v, int k){
 	int n = v.size();

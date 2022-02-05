@@ -1,6 +1,7 @@
 // Tarjan para SCC
 //
 // O(n + m)
+// 573bfa
 
 vector<int> g[MAX];
 stack<int> s;

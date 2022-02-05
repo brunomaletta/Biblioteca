@@ -6,6 +6,7 @@
 // e permite unir duas treaps sem restricao adicional
 // Na pratica, esse meld tem constante muito boa e
 // o pior caso eh meio estranho de acontecer
+// bd93e2
 
 mt19937 rng((int) chrono::steady_clock::now().time_since_epoch().count());
 

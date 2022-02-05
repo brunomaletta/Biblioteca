@@ -6,6 +6,7 @@
 // update(v, w, x) soma x nas arestas do caminho v--w
 //
 // Todas as operacoes sao O(log(n)) amortizado
+// 9ce48f
 
 namespace lct {
 	struct node {

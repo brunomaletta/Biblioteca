@@ -5,6 +5,7 @@
 // (caso contrario a intersecao eh estranha)
 //
 // Tudo O(1)
+// 5e1c85
 
 struct angle_range {
 	static constexpr ld ALL = 1e9, NIL = -1e9;

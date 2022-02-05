@@ -2,6 +2,7 @@
 //
 // O(min(m * max_flow, n^2 m))
 // Grafo com capacidades 1 -> O(sqrt(n)*m)
+// 2bf9c4
 
 struct dinic {
 	const bool scaling = false; // com scaling -> O(nm log(MAXCAP)),

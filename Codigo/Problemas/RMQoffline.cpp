@@ -2,6 +2,7 @@
 //
 // Responde todas as queries em
 // O(n log(n))
+// 5a6ebd
 
 typedef pair<pair<int, int>, int> iii;
 #define f first

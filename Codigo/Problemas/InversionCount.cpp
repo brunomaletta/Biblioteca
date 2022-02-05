@@ -4,6 +4,7 @@
 // l em r (se nao tem como, retorna -1)
 //
 // O(n log(n))
+// eef01f
 
 template<typename T> ll inv_count(vector<T> l, vector<T> r = {}) {
 	if (!r.size()) {

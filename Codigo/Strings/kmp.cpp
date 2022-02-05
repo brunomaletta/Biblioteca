@@ -9,6 +9,7 @@
 // match - O(n + m)
 // construir o automato - O(|sigma|*n)
 // n = |padrao| e m = |texto|
+// ff2832
 
 template<typename T> vector<int> pi(T s) {
 	vector<int> p(s.size());

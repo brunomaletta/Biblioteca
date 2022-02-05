@@ -13,6 +13,7 @@
 // build - O(n)
 // f_k   - O(log(min(n, k)))
 // path  - O(log(min(n, k)))
+// 51fabe
 
 namespace func_graph {
 	int n;

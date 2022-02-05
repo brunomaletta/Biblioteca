@@ -6,6 +6,7 @@
 // Da pra adaptar pra usar MO com qualquer estrutura rollbackavel
 //
 // O(m sqrt(q) log(n))
+// f98540
 
 struct dsu {
 	int n, ans;

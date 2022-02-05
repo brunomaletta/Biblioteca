@@ -5,6 +5,7 @@
 // Todas as operacoes sao O(log(n)) amortizado
 // Se quiser colocar mais informacao no node,
 // mudar em 'update'
+// 4ff2b3
 
 template<typename T> struct splaytree {
 	struct node {

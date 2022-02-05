@@ -4,6 +4,7 @@
 // Se g nao for DAG retorna um vetor vazio
 //
 // O(n + m)
+// bdc95e
 
 vector<int> g[MAX];
 

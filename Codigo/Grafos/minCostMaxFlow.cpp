@@ -8,6 +8,7 @@
 // Se nao tiver aresta com custo negativo, nao precisa do SPFA
 //
 // O(nm + f * m log n)
+// 697b4c
 
 template<typename T> struct mcmf {
 	struct edge {

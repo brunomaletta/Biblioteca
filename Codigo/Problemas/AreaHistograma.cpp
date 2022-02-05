@@ -4,6 +4,7 @@
 // e altura dada no vetor v
 //
 // O(n)
+// e43846
 
 ll area(vector<int> v) {
 	ll ret = 0;

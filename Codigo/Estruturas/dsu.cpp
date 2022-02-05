@@ -4,6 +4,7 @@
 //
 // dsu_build: O(n)
 // find e unite: O(a(n)) ~= O(1) amortizado
+// c196e5
 
 int id[MAX], sz[MAX];
 

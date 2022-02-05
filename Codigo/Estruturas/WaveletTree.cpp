@@ -18,6 +18,7 @@
 // kth   - O(log(sigma))
 // sum   - O(log(sigma))
 // sumk  - O(log(sigma))
+// 782344
 
 int n, v[MAX];
 vector<int> esq[4*(MAXN-MINN)], pref[4*(MAXN-MINN)];

@@ -4,6 +4,7 @@
 // Uma arvore tem sempre um ou dois centros e estes estao no meio do diametro
 //
 // O(n)
+// c1adeb
 
 vector<int> g[MAX];
 int d[MAX], par[MAX];

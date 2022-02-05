@@ -4,6 +4,7 @@
 //
 // insert - O(|s|)
 // build - O(n * SIGMA), onde n = somatorio dos tamanhos das strings
+// 39ce76
 
 namespace aho {
 	const vector<pair<char, char>> vt = {

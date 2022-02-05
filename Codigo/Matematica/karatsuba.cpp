@@ -4,6 +4,7 @@
 // Para n ~ 2e5, roda em < 1 s
 //
 // O(n^1.58)
+// 8065d6
 
 //#pragma GCC optimize("Ofast")
 //#pragma GCC target ("avx,avx2")

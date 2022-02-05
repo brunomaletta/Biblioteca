@@ -3,6 +3,7 @@
 // Computa os 2 centroids da arvore
 //
 // O(n)
+// e16075
 
 int n, subsize[MAX];
 vector<int> g[MAX];

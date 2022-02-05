@@ -8,6 +8,7 @@
 // Complexidades:
 // Construir sobre uma string de tamanho n: O(n log n)
 // push_front e pop_front: O(log n) amortizado
+// 4c2a2e
 
 struct dyn_sa {
 	struct node {

@@ -2,6 +2,7 @@
 //
 // build - O(n (log n + log(sigma)))
 // query - O(log(sigma))
+// e5e76b
 
 int v[MAX], n, nxt[MAX];
 

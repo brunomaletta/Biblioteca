@@ -7,6 +7,7 @@
 // 0 a n-1 sao prufer codes validos
 // 
 // O(n)
+// 49de6d
 
 vector<int> to_prufer(vector<pair<int, int>> tree) {
 	int n = tree.size()+1;

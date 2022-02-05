@@ -7,6 +7,7 @@
 // Complexidades:
 // poe - O(log^2(n))
 // query - O(log^2(n))
+// 752bf6
 
 int n;
 int bit[MAX][MAX];

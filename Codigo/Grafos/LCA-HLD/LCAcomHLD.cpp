@@ -9,6 +9,7 @@
 // build - O(n)
 // lca - O(log(n))
 // anc - O(1)
+// fb22c1
 
 vector<int> g[MAX];
 int pos[MAX], h[MAX], sz[MAX];

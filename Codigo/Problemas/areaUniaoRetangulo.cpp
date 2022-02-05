@@ -1,8 +1,8 @@
 // Area da Uniao de Retangulos
 //
 // O(n log(n))
+// bea565
 
-const int MAX = 1e5+10;
 namespace seg {
 	pair<int, ll> seg[4*MAX];
 	ll lazy[4*MAX], *v;

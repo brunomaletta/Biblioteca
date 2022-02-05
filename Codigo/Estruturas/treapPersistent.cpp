@@ -2,6 +2,7 @@
 //
 // Todas as operacoes custam
 // O(log(n)) com alta probabilidade
+// fb8013
 
 mt19937_64 rng((int) chrono::steady_clock::now().time_since_epoch().count());
 

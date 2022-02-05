@@ -7,6 +7,7 @@
 //
 // build - O(n log log n)
 // query - O(log log n)
+// 8ff986
 
 namespace sqrtTree {
 	int n, *v;

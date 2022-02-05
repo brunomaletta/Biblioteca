@@ -8,6 +8,7 @@
 // Complexidades
 // O(n) para construir
 // query - O(1)
+// fa533e
 
 template<typename T> struct rmq {
 	vector<T> v;

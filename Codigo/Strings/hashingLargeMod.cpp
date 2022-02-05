@@ -6,6 +6,7 @@
 // Complexidades:
 // build - O(|s|)
 // operator() - O(1)
+// 418560
 
 const ll MOD = (1ll<<61)-1;
 

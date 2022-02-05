@@ -4,6 +4,7 @@
 // o algoritmo de Hirschberg para recuperar
 //
 // O(n*m), O(n+m) de memoria
+// 337bb3
 
 int lcs_s[MAX], lcs_t[MAX];
 int dp[2][MAX];

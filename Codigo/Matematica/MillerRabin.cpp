@@ -4,8 +4,7 @@
 //
 // O(log(n)), considerando multiplicacao
 // e exponenciacao constantes
-
-// multiplicacao modular
+// 4ebecc
 
 ll mul(ll a, ll b, ll m) {
 	ll ret = a*b - ll((long double)1/m*a*b+0.5)*m;

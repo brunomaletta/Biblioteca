@@ -5,6 +5,7 @@
 // Se nao tem, retorna -1
 //
 // O(sqrt(m) * log(sqrt(m))
+// 739fa8
 
 int dlog(int b, int a, int m) {
 	if (a == 0) return b ? -1 : 1; // caso nao definido

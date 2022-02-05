@@ -11,6 +11,7 @@
 // Arvore tem no maximo 2n vertices
 //
 // O(n+m)
+// 9c9ff4
 
 vector<int> g[MAX];
 stack<int> s;

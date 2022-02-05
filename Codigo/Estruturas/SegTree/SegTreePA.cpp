@@ -10,6 +10,7 @@
 // Complexidades:
 // construir - O(n)
 // update_set, update_add, query - O(log(n))
+// bc4746
 
 struct seg_pa {
 	struct Data {

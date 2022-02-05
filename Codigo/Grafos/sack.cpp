@@ -4,6 +4,7 @@
 // offline
 //
 // O(n log(n))
+// bb361f
 
 int sz[MAX], cor[MAX], cnt[MAX];
 vector<int> g[MAX];

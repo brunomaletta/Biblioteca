@@ -5,6 +5,7 @@
 // e alguma solucao, caso exista
 //
 // O(n^2 * m)
+// 1d10b5
 
 template<typename T>
 pair<int, vector<T>> gauss(vector<vector<T>> a, vector<T> b) {

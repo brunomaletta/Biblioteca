@@ -8,6 +8,7 @@
 // soh armazenar as arestas
 //
 // O(nm)
+// 03059b
 
 int n, m;
 int d[MAX];

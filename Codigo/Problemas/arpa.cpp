@@ -3,6 +3,7 @@
 // Responde RMQ em O((n+q)log(n)) offline
 // Adicionar as queries usando arpa::add(a, b)
 // A resposta vai ta em ans[], na ordem que foram colocadas
+// 11a509
 
 int n, v[MAX], ans[MAX];
 

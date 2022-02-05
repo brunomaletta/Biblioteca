@@ -1,6 +1,7 @@
 // SOS DP
 //
 // O(n 2^n)
+// ff5b34
 
 // soma de sub-conjunto
 vector<ll> sos_dp(vector<ll> f) {

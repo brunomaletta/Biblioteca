@@ -4,6 +4,7 @@
 // atribuir, o second fala se cada variavel eh verdadeira
 //
 // O(|V|+|E|) = O(#variaveis + #restricoes)
+// ef6b3b
 
 struct sat {
 	int n, tot;

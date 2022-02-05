@@ -4,6 +4,7 @@
 // minimizando o somatorio das queries
 //
 // O(k n log n), assumindo quer query(l, r) eh O(1)
+// 4efe6b
 
 ll dp[MAX][2];
 

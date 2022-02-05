@@ -3,19 +3,16 @@
 // Complexidades:
 // z - O(|s|)
 // match - O(|s| + |p|)
+// 553ece
 
 vector<int> get_z(string s) {
 	int n = s.size();
 	vector<int> z(n, 0);
 
-	// intervalo da ultima substring valida
 	int l = 0, r = 0;
 	for (int i = 1; i < n; i++) {
-		// estimativa pra z[i]
 		if (i <= r) z[i] = min(r - i + 1, z[i - l]);
-		// calcula valor correto
 		while (i + z[i] < n and s[z[i]] == s[i + z[i]]) z[i]++;
-		// atualiza [l, r]
 		if (i + z[i] - 1 > r) l = i, r = i + z[i] - 1;
 	}
 

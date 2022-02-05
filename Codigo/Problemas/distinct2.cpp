@@ -2,6 +2,7 @@
 //
 // build - O(n (log n + log(sigma)))
 // query - O(log(sigma))
+// c6f365
 
 const int MAX = 3e4+10, LOG = 20;
 const int MAXS = 4*MAX+MAX*LOG;

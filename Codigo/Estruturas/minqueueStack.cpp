@@ -1,6 +1,7 @@
 // Min queue - stack
 //
 // Tudo O(1) amortizado
+// 45ac9c
 
 template<class T> struct minstack {
 	stack<pair<T, T>> s;

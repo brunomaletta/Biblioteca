@@ -6,6 +6,7 @@
 // entao x nao alcanca i
 //
 // O(m log(n))
+// e193d3
 
 ll d[MAX];
 vector<pair<int,int>> g[MAX]; // {vizinho, peso}

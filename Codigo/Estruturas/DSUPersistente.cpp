@@ -7,6 +7,7 @@
 // build - O(n)
 // find - O(log(n))
 // une - O(log(n))
+// fd757b
 
 int n, p[MAX], sz[MAX], ti[MAX];
 

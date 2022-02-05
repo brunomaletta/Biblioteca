@@ -11,6 +11,7 @@
 // query - O(log(n))
 // update - O(log^2 (n)) amortizado
 // (se nao usar updatesum, fica log(n) amortizado)
+// 41672b
 
 #define f first
 #define s second

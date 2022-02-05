@@ -2,6 +2,7 @@
 //
 // Automato que aceita os sufixos de uma string
 // Todas as funcoes sao lineares
+// c37a72
 
 namespace sam {
 	int cur, sz, len[2*MAX], link[2*MAX], acc[2*MAX];

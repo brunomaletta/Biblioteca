@@ -11,6 +11,7 @@
 // poe - O(log(n))
 // query - O(log(n))
 // l_bound - O(log(n))
+// d432a4
 
 int n;
 int bit[MAX];

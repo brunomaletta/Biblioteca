@@ -4,6 +4,7 @@
 // O m final eh o lcm dos m's, e a resposta eh unica mod o lcm
 // Os m nao precisam ser coprimos
 // Se nao tiver solucao, o 'a' vai ser -1
+// c775b2
 
 tuple<ll, ll, ll> ext_gcd(ll a, ll b) {
     if (!a) return {b, 0, 1};

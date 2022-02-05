@@ -6,6 +6,7 @@
 // Complexidades:
 // suffix_array - O(n log(n))
 // kasai - O(n)
+// d3a6ce
 
 vector<int> suffix_array(string s) {
 	s += "$";

@@ -11,6 +11,7 @@
 //
 // O(|V| * |E|)
 // Na pratica, parece rodar tao rapido quanto o Dinic
+// 67ebb9
 
 mt19937 rng((int) chrono::steady_clock::now().time_since_epoch().count());
 

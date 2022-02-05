@@ -1,6 +1,7 @@
 // Kosaraju
 //
 // O(n + m)
+// a4f310
 
 int n;
 vector<int> g[MAX];

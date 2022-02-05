@@ -3,6 +3,7 @@
 // O(n) pra buildar, query O(1)
 // Para retornar o indice, basta
 // trocar v[...] para ... na query
+// 56c607
 
 template<typename T> struct rmq {
 	vector<T> v;

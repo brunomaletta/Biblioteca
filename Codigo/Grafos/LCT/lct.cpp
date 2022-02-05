@@ -3,6 +3,7 @@
 // Link-cut tree padrao
 //
 // Todas as operacoes sao O(log(n)) amortizado
+// e4e663
 
 namespace lct {
 	struct node {

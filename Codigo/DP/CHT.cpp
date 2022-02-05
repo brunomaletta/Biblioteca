@@ -1,6 +1,7 @@
 // Convex Hull Trick (Rafael)
 //
 // linear
+// 30323e
 
 struct CHT {
 	int it;

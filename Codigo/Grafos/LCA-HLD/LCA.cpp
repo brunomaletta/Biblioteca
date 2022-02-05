@@ -8,6 +8,7 @@
 // build - O(n)
 // lca - O(1)
 // dist - O(1)
+// 22cde8
 
 template<typename T> struct rmq {
 	vector<T> v;

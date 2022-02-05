@@ -7,6 +7,7 @@
 // Pontos podem estar em ordem horaria ou anti-horaria
 //
 // O(n log(n))
+// a342f4
 
 typedef long long ll;
 

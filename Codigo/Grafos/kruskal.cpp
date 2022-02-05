@@ -4,6 +4,7 @@
 // do grafo
 //
 // O(m log(m) + m a(m))
+// 945aa9
 
 vector<tuple<int, int, int>> edg; // {peso,[x,y]}
 

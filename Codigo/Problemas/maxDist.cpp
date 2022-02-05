@@ -2,6 +2,7 @@
 //
 // max_dist2(v) - O(n log(n))
 // max_dist_manhattan - O(n)
+// cee360
 
 // Quadrado da Distancia Euclidiana (precisa copiar convex_hull, ccw e pt)
 ll max_dist2(vector<pt> v) { 

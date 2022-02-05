@@ -15,6 +15,7 @@
 // is_dominated - O(log(n))
 // insert - O(log(n)) amortizado
 // query - O(1)
+// 09ffdc
 
 struct dominator_points {
 	set<pair<int, int>> se;

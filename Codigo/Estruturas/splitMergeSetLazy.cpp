@@ -6,6 +6,7 @@
 // exceto o merge e o insert_range, que custa O(log(N)) amortizado
 // Usa O(min(N, n log(N))) de memoria, sendo 'n' o
 // numero de elementos distintos no set
+// 3828d0
 
 template<typename T> struct sms {
 	struct node {

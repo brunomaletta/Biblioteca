@@ -3,6 +3,7 @@
 // Verifica se um poligono com n pontos eh simples
 //
 // O(n log n)
+// c724a4
 
 bool operator < (const line& a, const line& b) { // comparador pro sweepline
 	if (a.p == b.p) return ccw(a.p, a.q, b.q);

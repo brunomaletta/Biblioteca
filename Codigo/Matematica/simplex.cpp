@@ -3,6 +3,7 @@
 // Maximiza c^T x s.t. Ax <= b, x >= 0
 //
 // O(2^n), porem executa em O(n^3) no caso medio
+// 3a08e5
 
 const double eps = 1e-7;
 

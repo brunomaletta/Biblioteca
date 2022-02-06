@@ -1,4 +1,4 @@
-// Integração Numerica - Metodo de Simpson 3/8
+// Integracao Numerica - Metodo de Simpson 3/8
 // 
 // Integra f no intervalo [a, b], erro cresce proporcional a (b - a)^5
 

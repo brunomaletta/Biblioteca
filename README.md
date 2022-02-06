@@ -112,7 +112,6 @@ O *theoretical* (documento com teoremas, identidades e informações teóricas r
 - [Fast Walsh Hadamard Transform](https://github.com/brunomaletta/Biblioteca/blob/master/Codigo/Matematica/FWHT.cpp)
 - [Crivo de Eratosthenes Linear (e variações)](https://github.com/brunomaletta/Biblioteca/blob/master/Codigo/Matematica/crivo.cpp)
 - [Detecção de Ciclo - Tortoise and Hare](https://github.com/brunomaletta/Biblioteca/blob/master/Codigo/Matematica/cycleDetection.cpp)
-- [Divisão de Polinomios (naive)](https://github.com/brunomaletta/Biblioteca/blob/master/Codigo/Matematica/divPol.cpp)
 - [Equação Diofantina Linear](https://github.com/brunomaletta/Biblioteca/blob/master/Codigo/Matematica/diofantina.cpp)
 - [Avaliação de Interpolação (avalia a interpolação em um x)](https://github.com/brunomaletta/Biblioteca/blob/master/Codigo/Matematica/evalInterpol.cpp)
 - [Exponenciação Rápida](https://github.com/brunomaletta/Biblioteca/blob/master/Codigo/Matematica/fastPow.cpp)
@@ -199,6 +198,7 @@ O *theoretical* (documento com teoremas, identidades e informações teóricas r
 
 - [Debug](https://github.com/brunomaletta/Biblioteca/blob/master/Codigo/Extra/debug.cpp)
 - [fastIO](https://github.com/brunomaletta/Biblioteca/blob/master/Codigo/Extra/fastIO.cpp)
+- [Hash](https://github.com/brunomaletta/Biblioteca/blob/master/Codigo/Extra/hash.sh)
 - [makefile](https://github.com/brunomaletta/Biblioteca/blob/master/Codigo/Extra/makefile)
 - [rand](https://github.com/brunomaletta/Biblioteca/blob/master/Codigo/Extra/rand.cpp)
 - [Stresstest](https://github.com/brunomaletta/Biblioteca/blob/master/Codigo/Extra/stress.sh)

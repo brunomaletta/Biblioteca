@@ -6,7 +6,7 @@
 // build - O(|s|)
 // operator() - O(1)
 //
-// a90625
+// d3c0f0
 
 const ll MOD = (1ll<<61) - 1;
 ll mulmod(ll a, ll b) {
@@ -21,7 +21,7 @@ ll mulmod(ll a, ll b) {
 mt19937_64 rng(chrono::steady_clock::now().time_since_epoch().count()); 
 
 ll uniform(ll l, ll r) {
-	uniform_int_distribution<int> uid(l, r);
+	uniform_int_distribution<ll> uid(l, r);
 	return uid(rng);
 }
  

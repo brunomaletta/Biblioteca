@@ -1,35 +1,41 @@
-// Max flow com lower bound
+// Max flow com lower bound nas arestas
+// 
+// add(a, b, l, r):
+// 	adiciona aresta de a pra b, onde precisa passar f de fluxo, l <= f <= r
+// add(a, b, c):
+// 	adiciona aresta de a pra b com capacidade c
 //
-// Manda passar pelo menos 'lb' de fluxo
-// em cada aresta
-//
-// O(dinic)
-// 227432
+// Mesma complexidade do Dinic
+// 3f0b15
 
 struct lb_max_flow : dinic {
 	vector<int> d;
-	vector<int> e;
-	lb_max_flow(int n):dinic(n + 2), d(n, 0){}
-	void add(int a, int b, int c, int lb = 0){
-		c -= lb;
-		d[a] -= lb;
-		d[b] += lb;
+	lb_max_flow(int n) : dinic(n + 2), d(n, 0) {}
+	void add(int a, int b, int l, int r) {
+		d[a] -= l;
+		d[b] += l;
+		dinic::add(a, b, r - l);
+	}
+	void add(int a, int b, int c) {
 		dinic::add(a, b, c);
 	}
-	bool check_flow(int src, int snk, int F){
+	bool has_circulation() {
 		int n = d.size();
-		d[src] += F;
-		d[snk] -= F;
 
-		for (int i = 0; i < n; i++){
-			if (d[i] > 0){
+		ll cost = 0;
+		for (int i = 0; i < n; i++) {
+			if (d[i] > 0) {
+				cost += d[i];
 				dinic::add(n, i, d[i]);
-			} else if (d[i] < 0){
+			} else if (d[i] < 0) {
 				dinic::add(i, n+1, -d[i]);
 			}
 		}
 
-		int f = max_flow(n, n+1);
-		return (f == F);
+		return (max_flow(n, n+1) == cost);
+	}
+	bool has_flow(int src, int snk) {
+		dinic::add(snk, src, INF);
+		return has_circulation();
 	}
 };

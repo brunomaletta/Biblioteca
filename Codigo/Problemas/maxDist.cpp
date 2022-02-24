@@ -2,9 +2,9 @@
 //
 // max_dist2(v) - O(n log(n))
 // max_dist_manhattan - O(n)
-// cee360
 
 // Quadrado da Distancia Euclidiana (precisa copiar convex_hull, ccw e pt)
+// bdace4
 ll max_dist2(vector<pt> v) { 
 	v = convex_hull(v);
 	if (v.size() <= 2) return dist2(v[0], v[1%v.size()]);
@@ -18,6 +18,7 @@ ll max_dist2(vector<pt> v) {
 }
 
 // Distancia de Manhattan
+// 4e96f0
 template<typename T> T max_dist_manhattan(vector<pair<T, T>> v) {
 	T min_sum, max_sum, min_dif, max_dif;
 	min_sum = max_sum = v[0].first + v[0].second;

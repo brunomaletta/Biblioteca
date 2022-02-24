@@ -1,7 +1,7 @@
 // Aritmetica Modular
 //
 // O mod tem q ser primo
-// e690f1
+// 291da6
 
 template<int p> struct mod_int {
 	ll pow(ll b, ll e) {
@@ -16,9 +16,9 @@ template<int p> struct mod_int {
 	int v;
 	mod_int() : v(0) {}
 	mod_int(ll v_) {
-		if (v_ >= p || v_ <= -p) v_ %= p;
-		if (v_ < 0) v_ += p;
 		v = v_;
+		if (v >= p or v <= -p) v %= p;
+		if (v < 0) v += p;
 	}
 	m& operator+=(const m &a) {
 		v += a.v;
@@ -31,11 +31,11 @@ template<int p> struct mod_int {
 		return *this;
 	}
 	m& operator*=(const m &a) {
-		v = (v*ll(a.v))%p;
+		v = v * ll(a.v) % p;
 		return *this;
 	}
 	m& operator/=(const m &a) {
-		v = (v*inv(a.v))%p;
+		v = v* inv(a.v) % p;
 		return *this;
 	}
 	m operator-(){ return m(-v); }
@@ -80,3 +80,4 @@ template<int p> struct mod_int {
 };
 
 typedef mod_int<(int)1e9+7> mint;
+

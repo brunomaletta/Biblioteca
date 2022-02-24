@@ -6,7 +6,7 @@
 // Da pra adaptar facil para outras dps
 //
 // O(n log^2 n), O(n) de memoria
-// badad8
+// 7c8896
 
 void lis2d(vector<vector<tuple<int, int, int>>>& v, vector<int>& dp, int l, int r) {
 	if (l == r) {
@@ -29,21 +29,17 @@ void lis2d(vector<vector<tuple<int, int, int>>>& v, vector<int>& dp, int l, int 
 	sort(vv[1].begin(), vv[1].end());
 	sort(Z.begin(), Z.end());
 	auto get_z = [&](int z) { return lower_bound(Z.begin(), Z.end(), z) - Z.begin(); };
-	vector<int> seg(2*Z.size());
+	vector<int> bit(Z.size());
 
 	int i = 0;
 	for (auto [y, z, id] : vv[1]) {
 		while (i < vv[0].size() and get<0>(vv[0][i]) < y) {
 			auto [y2, z2, id2] = vv[0][i++];
-			int p = get_z(z2) + Z.size();
-			seg[p] = max(seg[p], dp[id2]);
-			while (p /= 2) seg[p] = max(seg[2*p], seg[2*p+1]);
+			for (int p = get_z(z2)+1; p <= Z.size(); p += p&-p)
+				bit[p-1] = max(bit[p-1], dp[id2]);
 		}
-		int q = 0, a = 0, b = get_z(z)-1;
-		for (a += Z.size(), b += Z.size(); a <= b; ++a/=2, --b/=2) {
-			if (a%2 == 1) q = max(q, seg[a]);
-			if (b%2 == 0) q = max(q, seg[b]);
-		}
+		int q = 0;
+		for (int p = get_z(z); p; p -= p&-p) q = max(q, bit[p-1]);
 		dp[id] = max(dp[id], q + 1);
 	}
 	lis2d(v, dp, m+1, r);

@@ -10,10 +10,10 @@
 // build - O(n)
 // query - O(log(n))
 // update - O(log(n))
-// 5f1bc4
+// 50ab73
 
-const int MAX = 3e4+10, UPD = 2e5+10, LOG = 20;
-const int MAXS = 4*MAX+UPD*LOG;
+const int MAX = 1e5+10, UPD = 1e5+10, LOG = 18;
+const int MAXS = 2*MAX+UPD*LOG;
 
 namespace perseg {
 	ll seg[MAXS];

@@ -143,6 +143,22 @@ ld distseg(line a, line b) { // distancia entre seg
 
 // POLIGONO
 
+// corta poligono com a reta r deixando os pontos p tal que 
+// ccw(r.p, r.q, p)
+vector<pt> cut_polygon(vector<pt> v, line r) {
+	vector<pt> ret;
+	for (int j = 0; j < v.size(); j++) {
+		if (ccw(r.p, r.q, v[j])) ret.push_back(v[j]);
+		if (v.size() == 1) continue;
+		line s(v[j], v[(j+1)%v.size()]);
+		pt p = inter(r, s);
+		if (isinseg(p, s)) ret.push_back(p);
+	}
+	ret.erase(unique(ret.begin(), ret.end()), ret.end());
+	if (ret.size() > 1 and ret.back() == ret[0]) ret.pop_back();
+	return ret;
+}
+
 // distancia entre os retangulos a e b (lados paralelos aos eixos)
 // assume que ta representado (inferior esquerdo, superior direito)
 ld dist_rect(pair<pt, pt> a, pair<pt, pt> b) {

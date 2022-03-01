@@ -104,6 +104,7 @@ O *theoretical* (documento com teoremas, identidades e informações teóricas r
 ### Matemática
 
 - [2-SAT (com recuperação)](https://github.com/brunomaletta/Biblioteca/blob/master/Codigo/Matematica/2SAT.cpp)
+- [Berlekamp-Massey](https://github.com/brunomaletta/Biblioteca/blob/master/Codigo/Matematica/berlekampMassey.cpp)
 - [Algoritmo de Euclides](https://github.com/brunomaletta/Biblioteca/blob/master/Codigo/Matematica/mdc.cpp)
 - [Algoritmo de Euclides Extendido](https://github.com/brunomaletta/Biblioteca/blob/master/Codigo/Matematica/mdcEstendido.cpp)
 - [Algoritmo Rho de Pollard (Pollard Rho)](https://github.com/brunomaletta/Biblioteca/blob/master/Codigo/Matematica/pollardrho.cpp)

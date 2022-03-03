@@ -104,11 +104,11 @@ O *theoretical* (documento com teoremas, identidades e informações teóricas r
 ### Matemática
 
 - [2-SAT (com recuperação)](https://github.com/brunomaletta/Biblioteca/blob/master/Codigo/Matematica/2SAT.cpp)
-- [Berlekamp-Massey](https://github.com/brunomaletta/Biblioteca/blob/master/Codigo/Matematica/berlekampMassey.cpp)
 - [Algoritmo de Euclides](https://github.com/brunomaletta/Biblioteca/blob/master/Codigo/Matematica/mdc.cpp)
 - [Algoritmo de Euclides Extendido](https://github.com/brunomaletta/Biblioteca/blob/master/Codigo/Matematica/mdcEstendido.cpp)
 - [Algoritmo Rho de Pollard (Pollard Rho)](https://github.com/brunomaletta/Biblioteca/blob/master/Codigo/Matematica/pollardrho.cpp)
 - [Avaliação de Interpolação (avalia a interpolação em um x)](https://github.com/brunomaletta/Biblioteca/blob/master/Codigo/Matematica/evalInterpol.cpp)
+- [Berlekamp-Massey](https://github.com/brunomaletta/Biblioteca/blob/master/Codigo/Matematica/berlekampMassey.cpp)
 - [Crivo de Eratosthenes Linear (e variações)](https://github.com/brunomaletta/Biblioteca/blob/master/Codigo/Matematica/crivo.cpp)
 - [Detecção de Ciclo - Tortoise and Hare](https://github.com/brunomaletta/Biblioteca/blob/master/Codigo/Matematica/cycleDetection.cpp)
 - [Distribuição Binomial](https://github.com/brunomaletta/Biblioteca/blob/master/Codigo/Matematica/probability_binomial.cpp)
@@ -170,7 +170,6 @@ O *theoretical* (documento com teoremas, identidades e informações teóricas r
 - [Coloração de Grafo de Intervalo](https://github.com/brunomaletta/Biblioteca/blob/master/Codigo/Problemas/intervalGraphColoring.cpp)
 - [Conectividade Dinâmica - DSU](https://github.com/brunomaletta/Biblioteca/blob/master/Codigo/Problemas/conectividadeDinamica.cpp)
 - [Conectividade Dinâmica - LCT](https://github.com/brunomaletta/Biblioteca/blob/master/Codigo/Problemas/conectividadeDinamica2.cpp)
-- [Triangulação de Delaunay](https://github.com/brunomaletta/Biblioteca/blob/master/Codigo/Problemas/delaunay.cpp)
 - [Conjunto Independente Máximo com Peso em Grafo de Intervalo](https://github.com/brunomaletta/Biblioteca/blob/master/Codigo/Problemas/intervalGraphIndSet.cpp)
 - [Distância Máxima entre Dois Pontos](https://github.com/brunomaletta/Biblioteca/blob/master/Codigo/Problemas/maxDist.cpp)
 - [Distinct Range Query com Update](https://github.com/brunomaletta/Biblioteca/blob/master/Codigo/Problemas/distinctUpdate.cpp)
@@ -180,8 +179,8 @@ O *theoretical* (documento com teoremas, identidades e informações teóricas r
 - [DP de Dominação 3D](https://github.com/brunomaletta/Biblioteca/blob/master/Codigo/Problemas/dominacao3d.cpp)
 - [Fatoração de String em Palíndromos](https://github.com/brunomaletta/Biblioteca/blob/master/Codigo/Problemas/palindromicFactorization.cpp)
 - [Gray Code](https://github.com/brunomaletta/Biblioteca/blob/master/Codigo/Problemas/grayCode.cpp)
-- [Heap Sort](https://github.com/brunomaletta/Biblioteca/blob/master/Codigo/Problemas/heapSort.cpp)
 - [Half-Plane Intersection](https://github.com/brunomaletta/Biblioteca/blob/master/Codigo/Problemas/half-plane_intersection.cpp)
+- [Heap Sort](https://github.com/brunomaletta/Biblioteca/blob/master/Codigo/Problemas/heapSort.cpp)
 - [Interseção de Ângulos](https://github.com/brunomaletta/Biblioteca/blob/master/Codigo/Problemas/angleRange.cpp)
 - [Interseção de Segmentos](https://github.com/brunomaletta/Biblioteca/blob/master/Codigo/Problemas/segmentIntersection.cpp)
 - [Inversion Count](https://github.com/brunomaletta/Biblioteca/blob/master/Codigo/Problemas/InversionCount.cpp)
@@ -195,6 +194,7 @@ O *theoretical* (documento com teoremas, identidades e informações teóricas r
 - [Pontos Dentro de Polígono](https://github.com/brunomaletta/Biblioteca/blob/master/Codigo/Problemas/pointsInsidePol.cpp)
 - [RMQ Offline com Divide and Conquer](https://github.com/brunomaletta/Biblioteca/blob/master/Codigo/Problemas/RMQoffline.cpp)
 - [Sweep Direction](https://github.com/brunomaletta/Biblioteca/blob/master/Codigo/Problemas/sweepDirection.cpp)
+- [Triangulação de Delaunay](https://github.com/brunomaletta/Biblioteca/blob/master/Codigo/Problemas/delaunay.cpp)
 - [Triângulos em Grafos](https://github.com/brunomaletta/Biblioteca/blob/master/Codigo/Problemas/graphTriangles.cpp)
 - [Verificação de Polígono Simples](https://github.com/brunomaletta/Biblioteca/blob/master/Codigo/Problemas/simplePolygon.cpp)
 

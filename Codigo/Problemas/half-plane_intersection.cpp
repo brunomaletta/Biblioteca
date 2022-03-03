@@ -3,7 +3,7 @@
 // Cada half-plane eh identificado por uma reta e a regiao ccw a ela
 //
 // O(n log n)
-// 7222b4
+// 0d0cd0
 
 vector<pt> hp_intersection(vector<line> &v) {
 	deque<pt> dq = {{INF, INF}, {-INF, INF}, {-INF, -INF}, {INF, -INF}};

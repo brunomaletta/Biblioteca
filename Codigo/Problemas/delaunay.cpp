@@ -108,25 +108,23 @@ pair<Q, Q> build_tr(vector<pt>& p, int l, int r) {
 	return {la, rb};
 }
 
-vector<vector<int>> delaunay(vector<pt> p) {
-	int n = p.size();
-	vector<pair<pt, int>> pp;
-	for (int i = 0; i < n; i++) pp.emplace_back(p[i], i);
-	sort(pp.begin(), pp.end());
+vector<vector<int>> delaunay(vector<pt> v) {
+	int n = v.size();
+	auto tmp = v;
 	vector<int> idx(n);
-	for (int i = 0; i < n; i++) idx[i] = pp[i].second;
-	p.clear();
-	for (int i = 0; i < n; i++) p.push_back(pp[i].first);
-	assert(unique(p.begin(), p.end()) == p.end());
+	iota(idx.begin(), idx.end(), 0);
+	sort(idx.begin(), idx.end(), [&](int l, int r) { return v[l] < v[r]; });
+	for (int i = 0; i < n; i++) v[i] = tmp[idx[i]];
+	assert(unique(v.begin(), v.end()) == v.end());
 	vector<vector<int>> g(n);
 	bool col = true;
-	for (int i = 2; i < n; i++) if (sarea2(p[i], p[i-1], p[i-2])) col = false;
+	for (int i = 2; i < n; i++) if (sarea2(v[i], v[i-1], v[i-2])) col = false;
 	if (col) {
 		for (int i = 1; i < n; i++)
 			g[idx[i-1]].push_back(idx[i]), g[idx[i]].push_back(idx[i-1]);
 		return g;
 	}
-	Q e = build_tr(p, 0, n-1).first;
+	Q e = build_tr(v, 0, n-1).first;
 	vector<Q> edg = {e};
 	for (int i = 0; i < edg.size(); e = edg[i++]) {
 		for (Q at = e; !at->used; at = at->next()) {

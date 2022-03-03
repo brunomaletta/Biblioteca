@@ -181,6 +181,7 @@ O *theoretical* (documento com teoremas, identidades e informações teóricas r
 - [Fatoração de String em Palíndromos](https://github.com/brunomaletta/Biblioteca/blob/master/Codigo/Problemas/palindromicFactorization.cpp)
 - [Gray Code](https://github.com/brunomaletta/Biblioteca/blob/master/Codigo/Problemas/grayCode.cpp)
 - [Heap Sort](https://github.com/brunomaletta/Biblioteca/blob/master/Codigo/Problemas/heapSort.cpp)
+- [Half-Plane Intersection](https://github.com/brunomaletta/Biblioteca/blob/master/Codigo/Problemas/half-plane_intersection.cpp)
 - [Interseção de Ângulos](https://github.com/brunomaletta/Biblioteca/blob/master/Codigo/Problemas/angleRange.cpp)
 - [Interseção de Segmentos](https://github.com/brunomaletta/Biblioteca/blob/master/Codigo/Problemas/segmentIntersection.cpp)
 - [Inversion Count](https://github.com/brunomaletta/Biblioteca/blob/master/Codigo/Problemas/InversionCount.cpp)

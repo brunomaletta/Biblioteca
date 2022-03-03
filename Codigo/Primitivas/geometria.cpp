@@ -145,6 +145,7 @@ ld distseg(line a, line b) { // distancia entre seg
 
 // corta poligono com a reta r deixando os pontos p tal que 
 // ccw(r.p, r.q, p)
+// O(n)
 vector<pt> cut_polygon(vector<pt> v, line r) {
 	vector<pt> ret;
 	for (int j = 0; j < v.size(); j++) {

@@ -170,6 +170,7 @@ O *theoretical* (documento com teoremas, identidades e informações teóricas r
 - [Coloração de Grafo de Intervalo](https://github.com/brunomaletta/Biblioteca/blob/master/Codigo/Problemas/intervalGraphColoring.cpp)
 - [Conectividade Dinâmica - DSU](https://github.com/brunomaletta/Biblioteca/blob/master/Codigo/Problemas/conectividadeDinamica.cpp)
 - [Conectividade Dinâmica - LCT](https://github.com/brunomaletta/Biblioteca/blob/master/Codigo/Problemas/conectividadeDinamica2.cpp)
+- [Triangulação de Delaunay](https://github.com/brunomaletta/Biblioteca/blob/master/Codigo/Problemas/delaunay.cpp)
 - [Conjunto Independente Máximo com Peso em Grafo de Intervalo](https://github.com/brunomaletta/Biblioteca/blob/master/Codigo/Problemas/intervalGraphIndSet.cpp)
 - [Distância Máxima entre Dois Pontos](https://github.com/brunomaletta/Biblioteca/blob/master/Codigo/Problemas/maxDist.cpp)
 - [Distinct Range Query com Update](https://github.com/brunomaletta/Biblioteca/blob/master/Codigo/Problemas/distinctUpdate.cpp)

@@ -1,3 +1,3 @@
-g++ -std=c++11 -o getlatex getlatex.cpp
+g++ -std=c++17 -o getlatex getlatex.cpp
 ./getlatex > out
 rm getlatex

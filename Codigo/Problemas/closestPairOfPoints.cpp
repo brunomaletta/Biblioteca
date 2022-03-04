@@ -1,18 +1,13 @@
 // Closest pair of points
 //
 // O(nlogn)
-// 03f835
+// f90265
 
-pair<pt, pt> closest_pair_of_points(vector<pt> &v){
-	#warning changes v order
+pair<pt, pt> closest_pair_of_points(vector<pt> v) {
 	int n = v.size();
 	sort(v.begin(), v.end());
-	for (int i = 1; i < n; i++){
-		if (v[i] == v[i-1]){
-			return make_pair(v[i-1], v[i]);
-		}
-	}
-	auto cmp_y = [&](const pt &l, const pt &r){
+	for (int i = 1; i < n; i++) if (v[i] == v[i-1]) return {v[i-1], v[i]};
+	auto cmp_y = [&](const pt &l, const pt &r) {
 		if (l.y != r.y) return l.y < r.y;
 		return l.x < r.x;
 	};
@@ -21,16 +16,15 @@ pair<pt, pt> closest_pair_of_points(vector<pt> &v){
 	ll d2_min = numeric_limits<ll>::max();
 	pt pl, pr;
 	const int magic = 5;
-	while (r+1 < n){
+	while (r+1 < n) {
 		auto it = s.insert(v[++r]).first;
 		int cnt = magic/2;
-		while (cnt-- && it != s.begin())
-			it--;
+		while (cnt-- and it != s.begin()) it--;
 		cnt = 0;
-		while (cnt++ < magic && it != s.end()){
-			if (!((*it) == v[r])){
+		while (cnt++ < magic and it != s.end()) {
+			if (!((*it) == v[r])) {
 				ll d2 = dist2(*it, v[r]);
-				if (d2_min > d2){
+				if (d2_min > d2) {
 					d2_min = d2;
 					pl = *it;
 					pr = v[r];
@@ -38,8 +32,7 @@ pair<pt, pt> closest_pair_of_points(vector<pt> &v){
 			}
 			it++;
 		}
-		while (l < r && sq(v[l].x-v[r].x) > d2_min)
-			s.erase(v[l++]);
+		while (l < r and sq(v[l].x-v[r].x) > d2_min) s.erase(v[l++]);
 	}
-	return make_pair(pl, pr);
+	return {pl, pr};
 }

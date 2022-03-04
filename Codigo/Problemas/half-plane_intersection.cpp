@@ -3,12 +3,12 @@
 // Cada half-plane eh identificado por uma reta e a regiao ccw a ela
 //
 // O(n log n)
-// 0d0cd0
+// f56e1c
 
 vector<pt> hp_intersection(vector<line> &v) {
 	deque<pt> dq = {{INF, INF}, {-INF, INF}, {-INF, -INF}, {INF, -INF}};
 
-	#warning considerar trocar por compare_angle
+#warning considerar trocar por compare_angle
 	sort(v.begin(), v.end(), [&](line r, line s) { return angle(r.q-r.p) < angle(s.q-s.p); });
 
 	for(int i = 0; i < v.size() and dq.size() > 1; i++) {

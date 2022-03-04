@@ -6,7 +6,7 @@
 // insert - O(|s| * log(SIGMA))
 // build - O(n * SIGMA), onde n = somatorio dos tamanhos das strings
 // query - O(|s|)
-// e9bb4e
+// a30d6e
 
 namespace aho {
 	map<char, int> to[MAX];

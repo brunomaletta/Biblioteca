@@ -6,7 +6,7 @@
 // Se |S| = k, a arvore comprimida tem O(k) vertices
 //
 // O(k log(k))
-// 5daf36
+// 402aff
 
 template<typename T> struct rmq {
 	vector<T> v;

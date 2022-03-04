@@ -15,7 +15,7 @@
 // (vertie inicial nao repete)
 //
 // O(n+m)
-// fe2fba
+// e4ce97
 
 template<bool directed=false> struct euler {
 	int n;

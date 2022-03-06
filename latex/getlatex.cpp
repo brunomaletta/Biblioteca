@@ -70,6 +70,11 @@ void printa_section(string s) {
 	cout << "\\section{" << s << "}\n\n";
 }
 
+string lower(string s) {
+	for (char& c : s) if (c >= 'A' and c <= 'Z') c ^= 32;
+	return s;
+}
+
 int main() {
 	printa_arquivo("comeco.tex");
 	struct dirent* entry = nullptr;
@@ -87,7 +92,7 @@ int main() {
 		vai(files, path + dir);
 
 		sort(files.begin(), files.end(), [&](auto f1, auto f2) {
-			return get_name(f1.second) < get_name(f2.second);
+			return lower(get_name(f1.second)) < lower(get_name(f2.second));
 		});
 
 		for (auto [f, path] : files) printa_listing(f.substr(0, f.size() - 4), path, true);

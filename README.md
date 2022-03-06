@@ -36,6 +36,7 @@ O *theoretical* (documento com teoremas, identidades e informações teóricas r
     - [Segtree de PA](https://github.com/brunomaletta/Biblioteca/blob/master/Codigo/Estruturas/SegTree/SegTreePA.cpp)
     - [Segtree Persistente](https://github.com/brunomaletta/Biblioteca/blob/master/Codigo/Estruturas/SegTree/SegTreePersistent.cpp)
 - [BIT (Fenwick Tree)](https://github.com/brunomaletta/Biblioteca/blob/master/Codigo/Estruturas/BIT.cpp)
+- [BIT 2D](https://github.com/brunomaletta/Biblioteca/blob/master/Codigo/Estruturas/BIT2D.cpp)
 - [BIT com Soma em Range](https://github.com/brunomaletta/Biblioteca/blob/master/Codigo/Estruturas/BIT-range.cpp)
 - [DSU](https://github.com/brunomaletta/Biblioteca/blob/master/Codigo/Estruturas/dsu.cpp)
 - [DSU Persistente](https://github.com/brunomaletta/Biblioteca/blob/master/Codigo/Estruturas/DSUPersistente.cpp)

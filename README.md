@@ -193,6 +193,7 @@ O *theoretical* (documento com teoremas, identidades e informações teóricas r
 - [MO em Árvores](https://github.com/brunomaletta/Biblioteca/blob/master/Codigo/Problemas/moOnTrees.cpp)
 - [Pontos Dentro de Polígono](https://github.com/brunomaletta/Biblioteca/blob/master/Codigo/Problemas/pointsInsidePol.cpp)
 - [RMQ Offline com Divide and Conquer](https://github.com/brunomaletta/Biblioteca/blob/master/Codigo/Problemas/RMQoffline.cpp)
+- [Shortest Addition Chain](https://github.com/brunomaletta/Biblioteca/blob/master/Codigo/Problemas/additionChain.cpp)
 - [Sweep Direction](https://github.com/brunomaletta/Biblioteca/blob/master/Codigo/Problemas/sweepDirection.cpp)
 - [Triangulação de Delaunay](https://github.com/brunomaletta/Biblioteca/blob/master/Codigo/Problemas/delaunay.cpp)
 - [Triângulos em Grafos](https://github.com/brunomaletta/Biblioteca/blob/master/Codigo/Problemas/graphTriangles.cpp)

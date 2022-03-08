@@ -191,6 +191,7 @@ O *theoretical* (documento com teoremas, identidades e informações teóricas r
 - [MO](https://github.com/brunomaletta/Biblioteca/blob/master/Codigo/Problemas/mo.cpp)
 - [MO - DSU](https://github.com/brunomaletta/Biblioteca/blob/master/Codigo/Problemas/mo-dsu.cpp)
 - [MO em Árvores](https://github.com/brunomaletta/Biblioteca/blob/master/Codigo/Problemas/moOnTrees.cpp)
+- [Parsing de Expressão](https://github.com/brunomaletta/Biblioteca/blob/master/Codigo/Problemas/parsing.cpp)
 - [Pontos Dentro de Polígono](https://github.com/brunomaletta/Biblioteca/blob/master/Codigo/Problemas/pointsInsidePol.cpp)
 - [RMQ Offline com Divide and Conquer](https://github.com/brunomaletta/Biblioteca/blob/master/Codigo/Problemas/RMQoffline.cpp)
 - [Shortest Addition Chain](https://github.com/brunomaletta/Biblioteca/blob/master/Codigo/Problemas/additionChain.cpp)

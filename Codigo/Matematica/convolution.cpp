@@ -36,7 +36,7 @@ template<typename T> vector<T> convolution(vector<T> &a, vector<T> &b) {
 	vector<T> l(a.begin(), a.end());
 	vector<T> r(b.begin(), b.end());
 	int ln = l.size(), rn = r.size();
-	int N = ln+rn+1;
+	int N = ln+rn-1;
 	int n = 1, log_n = 0;
 	while (n <= N) { n <<= 1; log_n++; }
 	vector<int> rev(n);

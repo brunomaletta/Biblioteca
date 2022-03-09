@@ -4,33 +4,32 @@
 // Para mudar isso, colocar em r_assoc
 // Operacoes com maior prioridade sao feitas primeiro
 //
-// 3332da
+// 68921b
 
 bool blank(char c) {
 	return c == ' ';
 }
 
 bool is_unary(char c) {
-	return c == '~';
+	return c == '+' or c == '-';
 }
 
 bool is_op(char c) {
 	if (is_unary(c)) return true;
-	return c == '&' or c == '^' or c == '|'
-		or c == '#' or c == '%' or c == '$';
+	return c == '*' or c == '/' or c == '+' or c == '-';
 }
 
-bool r_assoc(char c) {
-	return is_unary(c);
+bool r_assoc(char op) {
+	// operator unario - deve ser assoc. a direita
+	return op < 0;
 }
 
 int priority(char op) {
 	// operator unario - deve ter precedencia maior
 	if (op < 0) return INF;
 
-	if (op == '&') return 3;
-	if (op == '^') return 2;
-	if (op == '|') return 1;
+	if (op == '*' or op == '/') return 2;
+	if (op == '+' or op == '-') return 1;
 	return -1;
 }
 
@@ -39,13 +38,15 @@ void process_op(stack<int>& st, stack<int>& op) {
 	if (o < 0) {
 		o *= -1;
 		int l = st.top(); st.pop();
-		if (o == '~') st.push(!l);
+		if (o == '+') st.push(l);
+		if (o == '-') st.push(-l);
 	} else {
 		int r = st.top(); st.pop();
 		int l = st.top(); st.pop();
-		if (o == '&') st.push(l & r);
-		if (o == '^') st.push(l ^ r);
-		if (o == '|') st.push(l | r);
+		if (o == '*') st.push(l * r);
+		if (o == '/') st.push(l / r);
+		if (o == '+') st.push(l + r);
+		if (o == '-') st.push(l - r);
 	}
 }
 
@@ -66,8 +67,8 @@ int eval(string& s) {
 			char o = s[i];
 			if (un and is_unary(o)) o *= -1;
 			while (op.size() and (
-					(!r_assoc(o) and priority(op.top()) >= priority(o)) or
-					(r_assoc(o) and priority(op.top()) > priority(o))))
+						(!r_assoc(o) and priority(op.top()) >= priority(o)) or
+						(r_assoc(o) and priority(op.top()) > priority(o))))
 				process_op(st, op);
 			op.push(o);
 			un = true;

@@ -188,6 +188,7 @@ O *theoretical* (documento com teoremas, identidades e informações teóricas r
 - [Longest Increasing Subsequence (tamanho)](https://github.com/brunomaletta/Biblioteca/blob/master/Codigo/Problemas/lis2.cpp)
 - [Min Fixed Range](https://github.com/brunomaletta/Biblioteca/blob/master/Codigo/Problemas/min-fixed-range.cpp)
 - [Mininum Enclosing Circle O(n)](https://github.com/brunomaletta/Biblioteca/blob/master/Codigo/Problemas/minCirc.cpp)
+- [Minkowski Sum](https://github.com/brunomaletta/Biblioteca/blob/master/Codigo/Problemas/minkowski.cpp)
 - [MO](https://github.com/brunomaletta/Biblioteca/blob/master/Codigo/Problemas/mo.cpp)
 - [MO - DSU](https://github.com/brunomaletta/Biblioteca/blob/master/Codigo/Problemas/mo-dsu.cpp)
 - [MO em Árvores](https://github.com/brunomaletta/Biblioteca/blob/master/Codigo/Problemas/moOnTrees.cpp)

@@ -195,6 +195,7 @@ O *theoretical* (documento com teoremas, identidades e informações teóricas r
 - [Parsing de Expressão](https://github.com/brunomaletta/Biblioteca/blob/master/Codigo/Problemas/parsing.cpp)
 - [Pontos Dentro de Polígono](https://github.com/brunomaletta/Biblioteca/blob/master/Codigo/Problemas/pointsInsidePol.cpp)
 - [RMQ Offline com Divide and Conquer](https://github.com/brunomaletta/Biblioteca/blob/master/Codigo/Problemas/RMQoffline.cpp)
+- [Sequência de de Brujin](https://github.com/brunomaletta/Biblioteca/blob/master/Codigo/Problemas/deBrujin.cpp)
 - [Shortest Addition Chain](https://github.com/brunomaletta/Biblioteca/blob/master/Codigo/Problemas/additionChain.cpp)
 - [Sweep Direction](https://github.com/brunomaletta/Biblioteca/blob/master/Codigo/Problemas/sweepDirection.cpp)
 - [Triangulação de Delaunay](https://github.com/brunomaletta/Biblioteca/blob/master/Codigo/Problemas/delaunay.cpp)

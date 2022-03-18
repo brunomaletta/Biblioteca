@@ -135,6 +135,7 @@ O *theoretical* (documento com teoremas, identidades e informações teóricas r
 - [Aritmética Modular](https://github.com/brunomaletta/Biblioteca/blob/master/Codigo/Primitivas/modularArithmetic.cpp)
 - [Big Integer - C++](https://github.com/brunomaletta/Biblioteca/blob/master/Codigo/Primitivas/bigint.cpp)
 - [Fração](https://github.com/brunomaletta/Biblioteca/blob/master/Codigo/Primitivas/frac.cpp)
+- [Matroid](https://github.com/brunomaletta/Biblioteca/blob/master/Codigo/Primitivas/matroid.cpp)
 - [Números Complexos](https://github.com/brunomaletta/Biblioteca/blob/master/Codigo/Primitivas/complex.cpp)
 - [Primitivas de Matriz - Exponenciação](https://github.com/brunomaletta/Biblioteca/blob/master/Codigo/Primitivas/matrix.cpp)
 - [Primitivas de Polinômios](https://github.com/brunomaletta/Biblioteca/blob/master/Codigo/Primitivas/poly.cpp)

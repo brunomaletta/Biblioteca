@@ -52,9 +52,6 @@ void vai(vector<pair<string, string>>& files, string s, bool x = false) {
 		else {
 			if (!x) files.emplace_back(entry->d_name, s + "/" + string(entry->d_name));
 			else printa_listing(entry->d_name, s + "/" + entry->d_name, false);
-
-//			string s2 = string(entry->d_name);
-//			if (!x) printa_listing(s2.substr(0, s2.size()-4), s+"/"+entry->d_name, true);
 		}
 	}
 }

@@ -23,7 +23,7 @@ struct dsu {
 // DSU de bipartido
 //
 // Une dois vertices e acha a qual componente um vertice pertence
-// Informa se a componente de um vértice é bipartida
+// Informa se a componente de um vertice e bipartida
 //
 // find e unite: O(log(n))
 // 118050

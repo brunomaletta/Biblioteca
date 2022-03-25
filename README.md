@@ -6,9 +6,9 @@ Códigos em C++, em maior parte implementados pelos alunos da universidade.
 
 #### PDF
 
-Versão em PDF (provavelmente não atualizada) dos algoritmos pode ser encontrada [aqui](https://github.com/brunomaletta/Biblioteca/blob/master/latex/biblioteca.pdf).
+Versão em PDF (provavelmente não atualizada) dos algoritmos pode ser encontrada [aqui](https://github.com/brunomaletta/Biblioteca/blob/master/pdf/biblioteca.pdf).
 
-O *theoretical* (documento com teoremas, identidades e informações teóricas relevantes) pode ser encontrado [aqui](https://github.com/brunomaletta/Biblioteca/blob/master/latex/theoretical.pdf).
+O *theoretical* (documento com teoremas, identidades e informações teóricas relevantes) pode ser encontrado [aqui](https://github.com/brunomaletta/Biblioteca/blob/master/pdf/theoretical.pdf).
 
 ## Conteúdo
 

@@ -8,7 +8,7 @@
 // oracle(i, j) responde se o conjunto continua indepente
 // apos trocar o elemento i pelo elemento j
 //
-// Intersecao sem peso O(n^2*r)
+// Intersecao sem peso O(r^2 n)
 // em que n eh o tamanho do conjunto e r eh o tamanho da resposta
 
 // Matroid Grafica
@@ -24,7 +24,8 @@ struct graphic_matroid {
 	vector<array<int, 2>> edges;
 	vector<vector<int>> g;
 	vector<int> comp, in, out;
-	graphic_matroid(int n_, vector<array<int, 2>> edges_) : n(n_), m(edges_.size()), edges(edges_), g(n), comp(n), in(n), out(n) {}
+	graphic_matroid(int n_, vector<array<int, 2>> edges_) 
+		: n(n_), m(edges_.size()), edges(edges_), g(n), comp(n), in(n), out(n) {}
 	void dfs(int u) {
 		in[u] = t++;
 		for (auto v : g[u]) if (in[v] == -1)
@@ -66,7 +67,8 @@ struct graphic_matroid {
 
 struct partition_matroid {
 	vector<int> cap, color, d;
-	partition_matroid(vector<int> cap_, vector<int> color_) : cap(cap_), color(color_), d(cap.size()) {}
+	partition_matroid(vector<int> cap_, vector<int> color_) 
+		: cap(cap_), color(color_), d(cap.size()) {}
 	void build(vector<int> I) {
 		fill(d.begin(), d.end(), 0);
 		for (int u : I) d[color[u]]++;

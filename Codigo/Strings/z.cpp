@@ -1,4 +1,6 @@
 // Algoritmo Z
+// 
+// z[i] = lcp(s, s[i..n))
 //
 // Complexidades:
 // z - O(|s|)

@@ -6,26 +6,26 @@
 // entao x nao alcanca i
 //
 // O(m log(n))
-// e193d3
+// 695ac4
 
 ll d[MAX];
-vector<pair<int,int>> g[MAX]; // {vizinho, peso}
+vector<pair<int, int>> g[MAX]; // {vizinho, peso}
 
 int n;
  
-void dijkstra(int x) {
-	for (int i=0; i < n; i++) d[i] = LINF;
-	d[x] = 0;
-	priority_queue<pair<ll,int>> pq;
-	pq.push({0,x});
+void dijkstra(int v) {
+	for (int i = 0; i < n; i++) d[i] = LINF;
+	d[v] = 0;
+	priority_queue<pair<ll, int>> pq;
+	pq.emplace(0, v);
  
 	while (pq.size()) {
-		auto [ndist,u] = pq.top(); pq.pop();
+		auto [ndist, u] = pq.top(); pq.pop();
 		if (-ndist > d[u]) continue;
  
-		for (auto [idx,w] : g[u]) if (d[idx] > d[u] + w) {
+		for (auto [idx, w] : g[u]) if (d[idx] > d[u] + w) {
 			d[idx] = d[u] + w;
-			pq.push({-d[idx], idx});
+			pq.emplace(-d[idx], idx);
 		}
 	}
 }

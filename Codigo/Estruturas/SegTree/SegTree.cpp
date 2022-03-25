@@ -3,6 +3,8 @@
 // Recursiva com Lazy Propagation
 // Query: soma do range [a, b]
 // Update: soma x em cada elemento do range [a, b]
+// Pode usar a seguinte funcao para indexar os nohs:
+// f(l, r) = (l+r)|(l!=r), usando 2N de memoria
 //
 // Complexidades:
 // build - O(n)

@@ -27,7 +27,7 @@ pair<ll, ll> find_cycle() {
 	hare = f(tort);
 	while (tort != hare) {
 		hare = f(hare);
-		len ++;
+		len++;
 	}
 	return {st, len};
 }

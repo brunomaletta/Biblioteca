@@ -12,8 +12,8 @@ int d[MAX], par[MAX];
 pair<int, vector<int>> center() {
 	int f, df;
 	function<void(int)> dfs = [&] (int v) {
-		if(d[v] > df) f = v, df = d[v];
-		for(int u : g[v]) if(u != par[v]) 
+		if (d[v] > df) f = v, df = d[v];
+		for (int u : g[v]) if (u != par[v]) 
 			d[u] = d[v] + 1, par[u] = v, dfs(u);
 	};
  

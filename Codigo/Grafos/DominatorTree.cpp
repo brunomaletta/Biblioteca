@@ -4,11 +4,11 @@
 //
 // build - O(n)
 // dominates - O(1)
-// 57a0d3
+// c80920
 
 int n;
 
-namespace DTree {
+namespace d_tree {
 	vector<int> g[MAX];
 
 	// The dominator tree

@@ -1,5 +1,8 @@
 // Convex Hull Trick (Rafael)
 //
+// adds tem que serem feitos em ordem de slope
+// queries tem que ser feitas em ordem de x
+//
 // linear
 // 30323e
 

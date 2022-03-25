@@ -1,7 +1,7 @@
 // Min queue - deque
 //
 // Tudo O(1) amortizado
-// 263801
+// c13c57
 
 template<class T> struct minqueue {
 	deque<pair<T, int>> q;
@@ -10,7 +10,7 @@ template<class T> struct minqueue {
 		int ct = 1;
 		while (q.size() and x < q.front().first)
 			ct += q.front().second, q.pop_front();
-		q.push_front({x, ct});
+		q.emplace_front(x, ct);
 	}
 	void pop() {
 		if (q.back().second > 1) q.back().second--;

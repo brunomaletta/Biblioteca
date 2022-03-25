@@ -8,8 +8,8 @@
 // Complexidades
 // O(n) para construir
 // query - O(1)
-// fa533e
 
+// bab412
 template<typename T> struct rmq {
 	vector<T> v;
 	int n; static const int b = 30;
@@ -118,6 +118,7 @@ struct suffix_array {
 		}
 		RMQ = rmq<int>(lcp);
 	}
+	// hash ateh aqui (sem o RMQ): 1ff700
 
 	int query(int i, int j) {
 		if (i == j) return n-i;

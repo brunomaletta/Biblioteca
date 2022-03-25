@@ -15,7 +15,7 @@
 // (vertie inicial nao repete)
 //
 // O(n+m)
-// e4ce97
+// 7113df
 
 template<bool directed=false> struct euler {
 	int n;
@@ -26,8 +26,8 @@ template<bool directed=false> struct euler {
 	void add(int a, int b) {
 		int at = used.size();
 		used.push_back(0);
-		g[a].push_back({b, at});
-		if (!directed) g[b].push_back({a, at});
+		g[a].emplace_back(b, at);
+		if (!directed) g[b].emplace_back(a, at);
 	}
 #warning chamar para o src certo!
 	pair<bool, vector<pair<int, int>>> get_path(int src) {
@@ -51,7 +51,7 @@ template<bool directed=false> struct euler {
 		}
 		if (ret.size() != used.size()+1) return {false, {}};
 		vector<pair<int, int>> ans;
-		for (auto i : ret) ans.push_back({i.first.first, i.second});
+		for (auto i : ret) ans.emplace_back(i.first.first, i.second);
 		reverse(ans.begin(), ans.end());
 		return {true, ans};
 	}

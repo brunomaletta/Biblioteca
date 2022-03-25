@@ -1,14 +1,14 @@
 // Min queue - stack
 //
 // Tudo O(1) amortizado
-// 45ac9c
+// fe0cad
 
 template<class T> struct minstack {
 	stack<pair<T, T>> s;
 
 	void push(T x) {
 		if (!s.size()) s.push({x, x});
-		else s.push({x, std::min(s.top().second, x)});
+		else s.emplace(x, std::min(s.top().second, x));
 	}
 	T top() { return s.top().first;	}
 	T pop() {

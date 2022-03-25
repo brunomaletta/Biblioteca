@@ -28,8 +28,8 @@ void solve(int k, bool keep=0) {
 		solve(g[k][i], !i);
 	compute(k, 1);
 	
-        // agora cnt[i] tem quantas vezes a cor
-        // i aparece na sub-arvore do k
-        
+	// agora cnt[i] tem quantas vezes a cor
+	// i aparece na sub-arvore do k
+
 	if (!keep) compute(k, -1, 0);
 }

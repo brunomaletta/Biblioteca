@@ -7,8 +7,8 @@
 // 0 a n-1 sao prufer codes validos
 // 
 // O(n)
-// 49de6d
 
+// d3b324
 vector<int> to_prufer(vector<pair<int, int>> tree) {
 	int n = tree.size()+1;
 	vector<int> d(n, 0);
@@ -34,6 +34,7 @@ vector<int> to_prufer(vector<pair<int, int>> tree) {
 	return ret;
 }
 
+// 765413
 vector<pair<int, int>> from_prufer(vector<int> p) {
 	int n = p.size()+2;
 	vector<int> d(n, 1);

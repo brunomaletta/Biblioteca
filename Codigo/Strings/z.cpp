@@ -3,7 +3,7 @@
 // Complexidades:
 // z - O(|s|)
 // match - O(|s| + |p|)
-// 553ece
+// 74a9e1
 
 vector<int> get_z(string s) {
 	int n = s.size();
@@ -18,16 +18,3 @@ vector<int> get_z(string s) {
 
 	return z;
 }
-
-// quantas vezes p aparece em s
-int match(string s, string p) {
-	int n = s.size(), m = p.size();
-	vector<int> z = get_z(p + s);
-
-	int ret = 0;
-	for (int i = m; i < n + m; i++)
-		if (z[i] >= m) ret++;
-
-	return ret;
-}
-

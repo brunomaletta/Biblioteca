@@ -1,7 +1,6 @@
 // Conj. Indep. Maximo com Peso em Grafo de Intervalo
 //
-// Retorna os indices ordenados dos
-// intervalos selecionados
+// Retorna os indices ordenados dos intervalos selecionados
 // Se tiver empate, retorna o que minimiza o comprimento total
 //
 // O(n log(n))

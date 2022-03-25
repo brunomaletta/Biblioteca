@@ -35,7 +35,6 @@ struct block_cut_tree {
 		build();
 	}
 
-
 	int dfs(int i, int& t, int p = -1) {
 		int lo = id[i] = t++;
 		s.push(i);	
@@ -55,7 +54,7 @@ struct block_cut_tree {
 						blocks.back().push_back(s.top()), s.pop();
 
 					edgblocks.emplace_back(1, s2.top()), s2.pop();
-					while(edgblocks.back().back() != pair(j, i))
+					while (edgblocks.back().back() != pair(j, i))
 						edgblocks.back().push_back(s2.top()), s2.pop();
 				}
 				// if (val > id[i]) aresta i-j eh ponte

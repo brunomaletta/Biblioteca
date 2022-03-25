@@ -4,7 +4,7 @@
 // do grafo
 //
 // O(m log(m) + m a(m))
-// 945aa9
+// 864875
 
 vector<tuple<int, int, int>> edg; // {peso,[x,y]}
 
@@ -13,16 +13,16 @@ void dsu_build();
 int find(int a);
 void unite(int a, int b);
 
-pair<ll,vector<tuple<int, int, int>>> kruskal(int n) {
+pair<ll, vector<tuple<int, int, int>>> kruskal(int n) {
 	dsu_build(n);
 	sort(edg.begin(), edg.end());
 	
 	ll cost = 0;
 	vector<tuple<int, int, int>> mst;
 	for (auto [w,x,y] : edg) if (find(x) != find(y)) {
-		mst.push_back({w,x,y});
+		mst.emplace_back(w, x, y);
 		cost += w;
 		unite(x,y);
 	}
-	return {cost,mst};
+	return {cost, mst};
 }

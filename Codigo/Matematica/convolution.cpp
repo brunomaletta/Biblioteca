@@ -3,7 +3,7 @@
 // chamar com vector<cplx> para FFT, ou vector<mint> para NTT
 //
 // O(n log(n))
-// 32e29f
+// 64e51b
 
 template<typename T> void fft(vector<T> &a, bool f, int N, vector<int> &rev){
 	for (int i = 0; i < N; i++)
@@ -12,10 +12,8 @@ template<typename T> void fft(vector<T> &a, bool f, int N, vector<int> &rev){
 	int l, r, m;
 	vector<T> roots(N);
 	for (int n = 2; n <= N; n *= 2){
-		T root = T::rt(f, n, N);
-		roots[0] = 1;
-		for (int i = 1; i < n/2; i++)
-			roots[i] = roots[i-1]*root;
+	    T::fill_rt(f, n, N, roots);
+
 		for (int pos = 0; pos < N; pos += n){
 			l = pos+0, r = pos+n/2, m = 0;
 			while (m < n/2){

@@ -1,5 +1,5 @@
 // Complex
-// 51773e
+// a23731
 
 struct cplx{
 	double r, i;
@@ -44,17 +44,13 @@ struct cplx{
 	friend cplx operator/(cplx a, cplx b){ return a/=b; }
 	friend cplx operator^(cplx a, double e){ return a^=e; }
 
-	//fft 
-	static int fft_len(int N){
-		int n = 1, log_n = 0;
-		while (n <= N) { n <<= 1; log_n++; }
-		return log_n;
-	}
-	static cplx rt(bool f, int n, int N){
-		const static double PI = acos(-1);
-		double alpha = (2*PI)/n;
-		if (f) alpha = -alpha;
-		return cplx(cos(alpha), sin(alpha));
+	static void fill_rt(bool f, int n, int N, vector<cplx> &roots) {
+		const static double PI = acosl(-1);
+		for (int i = 0; i < n/2; i++){
+			double alpha = i*((2*PI)/n);
+			if (f) alpha = -alpha;
+			roots[i] = cplx(cos(alpha), sin(alpha));
+		}
 	}
 };
 

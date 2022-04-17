@@ -2,14 +2,14 @@
 //
 // O(min(m * max_flow, n^2 m))
 // Grafo com capacidades 1 -> O(sqrt(n)*m)
-// 2bf9c4
+// 67ce89
 
 struct dinic {
-	const bool scaling = false; // com scaling -> O(nm log(MAXCAP)),
-	int lim;                    // com constante alta
+	const bool scaling = false;
+	int lim;
 	struct edge {
-		int to, cap, rev, flow; // para, capacidade, id da reversa, fluxo
-		bool res; // se a aresta eh residual
+		int to, cap, rev, flow;
+		bool res;
 		edge(int to_, int cap_, int rev_, bool res_)
 			: to(to_), cap(cap_), rev(rev_), flow(0), res(res_) {}
 	};
@@ -19,9 +19,9 @@ struct dinic {
 	ll F;
 	dinic(int n) : g(n), F(0) {}
 
-	void add(int a, int b, int c) { // de a pra b com cap. c
-		g[a].push_back(edge(b, c, g[b].size(), false));
-		g[b].push_back(edge(a, 0, g[a].size()-1, true));
+	void add(int a, int b, int c) {
+		g[a].emplace_back(b, c, g[b].size(), false);
+		g[b].emplace_back(a, 0, g[a].size()-1, true);
 	}
 	bool bfs(int s, int t) {
 		lev = vector<int>(g.size(), -1); lev[s] = 0;
@@ -38,7 +38,7 @@ struct dinic {
 		}
 		return lev[t] != -1;
 	}
-	int dfs(int v, int s, int f = INF){
+	int dfs(int v, int s, int f = INF) {
 		if (!f or v == s) return f;
 		for (int& i = beg[v]; i < g[v].size(); i++) {
 			auto& e = g[v][i];
@@ -55,18 +55,21 @@ struct dinic {
 			while (bfs(s, t)) while (int ff = dfs(s, t)) F += ff;
 		return F;
 	}
-	vector<pair<int, int> > get_cut(int s, int t) {
-		max_flow(s, t);
-		vector<pair<int, int> > cut;
-		vector<int> vis(g.size(), 0), st = {s};
-		vis[s] = 1;
-		while (st.size()) {
-			int u = st.back(); st.pop_back();
-			for (auto e : g[u]) if (!vis[e.to] and e.flow < e.cap)
-				vis[e.to] = 1, st.push_back(e.to);
-		}
-		for (int i = 0; i < g.size(); i++) for (auto e : g[i])
-			if (vis[i] and !vis[e.to] and !e.res) cut.push_back({i, e.to});
-		return cut;
-	}
 };
+
+// Recupera as arestas do corte s-t
+// d23977
+vector<pair<int, int>> get_cut(dinic& g, int s, int t) {
+	g.max_flow(s, t);
+	vector<pair<int, int>> cut;
+	vector<int> vis(g.g.size(), 0), st = {s};
+	vis[s] = 1;
+	while (st.size()) {
+		int u = st.back(); st.pop_back();
+		for (auto e : g.g[u]) if (!vis[e.to] and e.flow < e.cap)
+			vis[e.to] = 1, st.push_back(e.to);
+	}
+	for (int i = 0; i < g.g.size(); i++) for (auto e : g.g[i])
+		if (vis[i] and !vis[e.to] and !e.res) cut.emplace_back(i, e.to);
+	return cut;
+}

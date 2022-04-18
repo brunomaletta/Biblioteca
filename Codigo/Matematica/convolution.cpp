@@ -6,10 +6,10 @@
 // O(n log(n))
 
 // Para FFT
-// d3b662
-void get_roots(bool f, int n, int N, vector<complex<double>>& roots) {
+// de56b9
+void get_roots(bool f, int n, vector<complex<double>>& roots) {
 	const static double PI = acosl(-1);
-	for (int i = 0; i < n/2; i++){
+	for (int i = 0; i < n/2; i++) {
 		double alpha = i*((2*PI)/n);
 		if (f) alpha = -alpha;
 		roots[i] = {cos(alpha), sin(alpha)};
@@ -17,9 +17,9 @@ void get_roots(bool f, int n, int N, vector<complex<double>>& roots) {
 }
 
 // Para NTT
-// 95c86f
+// 91cd08
 template<int p>
-void get_roots(bool f, int n, int N, vector<mod_int<p>>& roots) {
+void get_roots(bool f, int n, vector<mod_int<p>>& roots) {
 	mod_int<p> r;
 	int ord;
 	if (p == 998244353) {
@@ -33,23 +33,19 @@ void get_roots(bool f, int n, int N, vector<mod_int<p>>& roots) {
 		ord = (1 << 25);
 	} else assert(false);
 
-	while (ord != N){
-		r = r*r;
-		ord /= 2;
-	}
-	if (f) r = r^(-1);
+	if (f) r = r^(p - 1 -ord/n);
+	else r = r^(ord/n);
 	roots[0] = 1;
-	r = r^(N/n);
 	for (int i = 1; i < n/2; i++) roots[i] = roots[i-1]*r;
 }
 
-// 7ab5ef
+// d5c432
 template<typename T> void fft(vector<T> &a, bool f, int N, vector<int> &rev){
 	for (int i = 0; i < N; i++) if (i < rev[i]) swap(a[i], a[rev[i]]);
 	int l, r, m;
 	vector<T> roots(N);
 	for (int n = 2; n <= N; n *= 2) {
-	    get_roots(f, n, N, roots);
+		get_roots(f, n, roots);
 
 		for (int pos = 0; pos < N; pos += n) {
 			l = pos+0, r = pos+n/2, m = 0;
@@ -74,7 +70,7 @@ template<typename T> vector<T> convolution(vector<T> &a, vector<T> &b) {
 	int n = 1, log_n = 0;
 	while (n <= N) { n <<= 1; log_n++; }
 	vector<int> rev(n);
-	for (int i = 0; i < n; ++i) {
+	for (int i = 0; i < n; ++i){
 		rev[i] = 0;
 		for (int j = 0; j < log_n; ++j)
 			if (i & (1<<j)) rev[i] |= 1 << (log_n-1-j);

@@ -2,7 +2,7 @@
 //
 // Computa C(n, k) mod m em O(m + log(m) log(n))
 // = O(rapido)
-// 3d8155
+// ed4344
 
 ll divi[MAX];
 
@@ -17,32 +17,23 @@ ll inv(ll a, ll b){
 	return 1<a ? b - inv(b%a,a)*b/a : 1;
 }
 
-ll gcde(ll a, ll b, ll& x, ll& y) {
-	if (!a) {
-		x = 0;
-		y = 1;
-		return b;
-	}
-
-	ll X, Y;
-	ll g = gcde(b % a, a, X, Y);
-	x = Y - (b / a) * X;
-	y = X;
-
-	return g;
+template<typename T> tuple<T, T, T> ext_gcd(T a, T b) {
+    if (!a) return {b, 0, 1};
+    auto [g, x, y] = ext_gcd(b%a, a);
+    return {g, y - b/a*x, x};
 }
 
-struct crt {
-	ll a, m;
+template<typename T = ll> struct crt {
+	T a, m;
 
-	crt(ll a_, ll m_) : a(a_), m(m_) {}
+	crt() : a(0), m(1) {}
+	crt(T a_, T m_) : a(a_), m(m_) {}
 	crt operator * (crt C) {
-		ll x, y;
-		ll g = gcde(m, C.m, x, y);
+		auto [g, x, y] = ext_gcd(m, C.m);
 		if ((a - C.a) % g) a = -1;
 		if (a == -1 or C.a == -1) return crt(-1, 0);
-		ll lcm = m/g*C.m;
-		ll ans = a + (x*(C.a-a)/g % (C.m/g))*m;
+		T lcm = m/g*C.m;
+		T ans = a + (x*(C.a-a)/g % (C.m/g))*m;
 		return crt((ans % lcm + lcm) % lcm, lcm);
 	}
 };

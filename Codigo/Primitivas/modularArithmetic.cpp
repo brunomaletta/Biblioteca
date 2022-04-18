@@ -1,7 +1,7 @@
 // Aritmetica Modular
 //
 // O mod tem q ser primo
-// a6879d
+// d99334
 
 template<int p> struct mod_int {
 	ll pow(ll b, ll e) {
@@ -63,30 +63,6 @@ template<int p> struct mod_int {
 	friend m operator*(m a, m b) { return a*=b; }
 	friend m operator/(m a, m b) { return a/=b; }
 	friend m operator^(m a, ll e) { return a^=e; }
-
-	static void fill_rt(bool f, int n, int N, vector<m> &roots) {
-		m r;
-		int ord;
-		if (p == 998244353) {
-			r = 102292;
-			ord = (1 << 23);
-		}
-		else if (p == 754974721) {
-			r = 739831874;
-			ord = (1 << 24);
-		}
-		else throw logic_error("invalid prime");
-
-		while (ord != N){
-			r = r*r;
-			ord /= 2;
-		}
-		if (f) r = r^(-1);
-		roots[0] = 1;
-		r = r^(N/n);
-		for (int i = 1; i < n/2; i++) roots[i] = roots[i-1]*r;
-	}
 };
 
 typedef mod_int<(int)1e9+7> mint;
-

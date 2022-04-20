@@ -40,7 +40,7 @@ void get_roots(bool f, int n, vector<mod_int<p>>& roots) {
 }
 
 // d5c432
-template<typename T> void fft(vector<T> &a, bool f, int N, vector<int> &rev){
+template<typename T> void fft(vector<T> &a, bool f, int N, vector<int> &rev) {
 	for (int i = 0; i < N; i++) if (i < rev[i]) swap(a[i], a[rev[i]]);
 	int l, r, m;
 	vector<T> roots(N);
@@ -49,7 +49,7 @@ template<typename T> void fft(vector<T> &a, bool f, int N, vector<int> &rev){
 
 		for (int pos = 0; pos < N; pos += n) {
 			l = pos+0, r = pos+n/2, m = 0;
-			while (m < n/2){
+			while (m < n/2) {
 				auto t = roots[m]*a[r];
 				a[r] = a[l] - t;
 				a[l] = a[l] + t;
@@ -70,7 +70,7 @@ template<typename T> vector<T> convolution(vector<T> &a, vector<T> &b) {
 	int n = 1, log_n = 0;
 	while (n <= N) { n <<= 1; log_n++; }
 	vector<int> rev(n);
-	for (int i = 0; i < n; ++i){
+	for (int i = 0; i < n; ++i) {
 		rev[i] = 0;
 		for (int j = 0; j < log_n; ++j)
 			if (i & (1<<j)) rev[i] |= 1 << (log_n-1-j);

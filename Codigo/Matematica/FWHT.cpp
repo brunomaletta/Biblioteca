@@ -5,9 +5,9 @@
 // Se chamar com ^, usar tamanho potencia de 2!!
 //
 // O(n log(n))
-// ffb1d0
+// 50e84f
 
-template<char op, bool inv = false, class T> vector<T> FWHT(vector<T> f) {
+template<char op, class T> vector<T> FWHT(vector<T> f, bool inv = false) {
 	int n = f.size();
 	for (int k = 0; (n-1)>>k; k++) for (int i = 0; i < n; i++) if (i>>k&1) {
 		int j = i^(1<<k);

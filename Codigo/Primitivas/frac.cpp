@@ -1,11 +1,12 @@
 // Primitivas de fracao
 //
 // Funciona com o Big Int
-// a626d1
+// cdb445
 
 template<typename T = int> struct frac {
 	T num, den;
-	template<class U> frac(U num_ = 0, U den_ = 1) : num(num_), den(den_) {
+	template<class U, class V>
+	frac(U num_ = 0, V den_ = 1) : num(num_), den(den_) {
 		assert(den != 0);
 		if (den < 0) num *= -1, den *= -1;
 		T g = gcd(abs(num), den);

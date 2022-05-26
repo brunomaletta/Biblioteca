@@ -3,8 +3,8 @@
 // query retorna o somatorio do numero de matches de
 // todas as stringuinhas na stringona
 //
-// insert - O(|s| * log(SIGMA))
-// build - O(n * SIGMA), onde n = somatorio dos tamanhos das strings
+// insert - O(|s| log(SIGMA))
+// build - O(N), onde N = somatorio dos tamanhos das strings
 // query - O(|s|)
 // a30d6e
 

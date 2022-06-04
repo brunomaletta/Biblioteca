@@ -1,4 +1,4 @@
-// Algoritmo de Kuhn
+// Kuhn
 //
 // Computa matching maximo em grafo bipartido
 // 'n' e 'm' sao quantos vertices tem em cada particao
@@ -6,15 +6,15 @@
 // da particao A, e o cara j da particao B
 // (entao i < n, j < m)
 // Para recuperar o matching, basta olhar 'ma' e 'mb'
-// recover() recupera o min vertex cover como um par de
+// 'recover' recupera o min vertex cover como um par de
 // {caras da particao A, caras da particao B}
 //
 // O(|V| * |E|)
 // Na pratica, parece rodar tao rapido quanto o Dinic
-// 67ebb9
 
 mt19937 rng((int) chrono::steady_clock::now().time_since_epoch().count());
 
+// b0dda3
 struct kuhn {
 	int n, m;
 	vector<vector<int>> g;
@@ -47,13 +47,16 @@ struct kuhn {
 		}
 		return ret;
 	}
-	pair<vector<int>, vector<int>> recover() {
-		matching();
-		for (int i = 0; i < n+m; i++) vis[i] = 0;
-		for (int i = 0; i < n; i++) if (ma[i] == -1) dfs(i);
-		vector<int> ca, cb;
-		for (int i = 0; i < n; i++) if (!vis[i]) ca.push_back(i);
-		for (int i = 0; i < m; i++) if (vis[n+i]) cb.push_back(i);
-		return {ca, cb};
-	}
 };
+
+// 55fb67
+pair<vector<int>, vector<int>> recover(kuhn& K) {
+	K.matching();
+	int n = K.n, m = K.m;
+	for (int i = 0; i < n+m; i++) K.vis[i] = 0;
+	for (int i = 0; i < n; i++) if (K.ma[i] == -1) K.dfs(i);
+	vector<int> ca, cb;
+	for (int i = 0; i < n; i++) if (!K.vis[i]) ca.push_back(i);
+	for (int i = 0; i < m; i++) if (K.vis[n+i]) cb.push_back(i);
+	return {ca, cb};
+}

@@ -6,7 +6,7 @@
 // 	adiciona aresta de a pra b com capacidade c
 //
 // Mesma complexidade do Dinic
-// d7b055
+// 5f2379
 
 struct lb_max_flow : dinic {
 	vector<int> d;
@@ -32,7 +32,7 @@ struct lb_max_flow : dinic {
 			}
 		}
 
-		return (max_flow(n, n+1) == cost);
+		return (dinic::max_flow(n, n+1) == cost);
 	}
 	bool has_flow(int src, int snk) {
 		dinic::add(snk, src, INF);

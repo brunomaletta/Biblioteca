@@ -263,11 +263,13 @@ vector<pt> convex_hull(vector<pt> v) { // convex hull - O(n log(n))
 	return l;
 }
 
-// 2dcbc9
 struct convex_pol {
 	vector<pt> pol;
 
+	// nao pode ter ponto colinear no convex hull
+	convex_pol() {}
 	convex_pol(vector<pt> v) : pol(convex_hull(v)) {}
+	// 800813
 	bool is_inside(pt p) { // se o ponto ta dentro do hull - O(log(n))
 		if (pol.size() == 1) return p == pol[0];
 		int l = 1, r = pol.size();
@@ -279,6 +281,29 @@ struct convex_pol {
 		if (l == 1) return isinseg(p, line(pol[0], pol[1]));
 		if (l == pol.size()) return false;
 		return !ccw(p, pol[l], pol[l-1]);
+	}
+	// 6d955e
+	int max_dot(pt v) { // max{ pol[max_dot(v)]*v } - valeu tfg
+		int ans = 0, n = pol.size();
+		if (n <= 3) {
+			for (int i = 0; i < n; i++)
+				if (pol[i] * v > pol[ans] * v) ans = i;
+			return ans;
+		}
+		if (pol[1] * v > pol[ans] * v) ans = 1;
+		for (int rep = 0; rep < 2; rep++) {
+			int l = 2, r = n - 1;
+			while (l < r) {
+				int m = (l+r+1)/2;
+				bool flag = pol[m] * v >= pol[m-1] * v;
+				if (rep == 0) flag &= pol[m] * v >= pol[0] * v;
+				else flag |= pol[m-1] * v < pol[0] * v;
+				if (flag) l = m;
+				else r = m-1;
+			}
+			if (pol[ans] * v < pol[l] * v) ans = l;
+		}
+		return ans;
 	}
 };
 

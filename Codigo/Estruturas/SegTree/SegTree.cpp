@@ -11,6 +11,7 @@
 // query - O(log(n))
 // update - O(log(n))
 
+// 0afec1
 namespace seg {
 	ll seg[4*MAX], lazy[4*MAX];
 	int n, *v;

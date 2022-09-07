@@ -3,8 +3,6 @@
 // Complexidades:
 // construtor - O(|s|)
 // operator() - O(1)
-//
-// 7b7cb6
 
 mt19937 rng((int) chrono::steady_clock::now().time_since_epoch().count());
  
@@ -13,7 +11,7 @@ int uniform(int l, int r) {
 	return uid(rng);
 }
  
-template<int MOD> struct str_hash {
+template<int MOD> struct str_hash { // 116fcb
 	static int P;
 	vector<ll> h, p;
 	str_hash(string s) : h(s.size()), p(s.size()) {

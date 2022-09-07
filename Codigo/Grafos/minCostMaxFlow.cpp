@@ -4,7 +4,7 @@
 // com max(fluxo) <= f que tenha min(custo)
 // min_cost_flow(s, t) -> Fluxo maximo de custo minimo de s pra t
 // Se for um dag, da pra substituir o SPFA por uma DP pra nao
-// para O(nm) no comeco
+// pagar O(nm) no comeco
 // Se nao tiver aresta com custo negativo, nao precisa do SPFA
 //
 // O(nm + f * m log n)

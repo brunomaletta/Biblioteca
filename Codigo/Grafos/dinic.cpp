@@ -5,8 +5,8 @@
 // 67ce89
 
 struct dinic {
-	const bool scaling = false;
-	int lim;
+	const bool scaling = false; // com scaling -> O(nm log(MAXCAP)),
+	int lim;                    // com constante alta
 	struct edge {
 		int to, cap, rev, flow;
 		bool res;

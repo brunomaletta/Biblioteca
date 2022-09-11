@@ -269,8 +269,10 @@ struct convex_pol {
 	// nao pode ter ponto colinear no convex hull
 	convex_pol() {}
 	convex_pol(vector<pt> v) : pol(convex_hull(v)) {}
+
+	// se o ponto ta dentro do hull - O(log(n))
 	// 800813
-	bool is_inside(pt p) { // se o ponto ta dentro do hull - O(log(n))
+	bool is_inside(pt p) {
 		if (pol.size() == 1) return p == pol[0];
 		int l = 1, r = pol.size();
 		while (l < r) {
@@ -282,28 +284,37 @@ struct convex_pol {
 		if (l == pol.size()) return false;
 		return !ccw(p, pol[l], pol[l-1]);
 	}
-	// 6d955e
-	int max_dot(pt v) { // max{ pol[max_dot(v)]*v } - valeu tfg
-		int ans = 0, n = pol.size();
-		if (n <= 3) {
-			for (int i = 0; i < n; i++)
-				if (pol[i] * v > pol[ans] * v) ans = i;
-			return ans;
+	// ponto extremo em relacao a cmp(p, q) = p mais extremo q
+	// (copiado de https://github.com/gustavoM32/caderno-zika)
+	// 56ccd2
+	int extreme(const function<bool(pt, pt)>& cmp) {
+		int n = pol.size();
+		auto extr = [&](int i, bool& cur_dir) {
+			cur_dir = cmp(pol[(i+1)%n], pol[i]);
+			return !cur_dir and !cmp(pol[(i+n-1)%n], pol[i]);
+		};
+		bool last_dir, cur_dir;
+		if (extr(0, last_dir)) return 0;
+		int l = 0, r = n;
+		while (l+1 < r) {
+			int m = (l+r)/2;
+			if (extr(m, cur_dir)) return m;
+			bool rel_dir = cmp(pol[m], pol[l]);
+			if ((!last_dir and cur_dir) or
+					(last_dir == cur_dir and rel_dir == cur_dir)) {
+				l = m;
+				last_dir = cur_dir;
+			} else r = m;
 		}
-		if (pol[1] * v > pol[ans] * v) ans = 1;
-		for (int rep = 0; rep < 2; rep++) {
-			int l = 2, r = n - 1;
-			while (l < r) {
-				int m = (l+r+1)/2;
-				bool flag = pol[m] * v >= pol[m-1] * v;
-				if (rep == 0) flag &= pol[m] * v >= pol[0] * v;
-				else flag |= pol[m-1] * v < pol[0] * v;
-				if (flag) l = m;
-				else r = m-1;
-			}
-			if (pol[ans] * v < pol[l] * v) ans = l;
-		}
-		return ans;
+		return l;
+	}
+	int max_dot(pt v) {
+		return extreme([&](pt p, pt q) { return p*v > q*v; });
+	}
+	pair<int, int> tangents(pt p) {
+		auto L = [&](pt q, pt r) { return ccw(p, q, r); };
+		auto R = [&](pt q, pt r) { return ccw(p, r, q); };
+		return {extreme(L), extreme(R)};
 	}
 };
 

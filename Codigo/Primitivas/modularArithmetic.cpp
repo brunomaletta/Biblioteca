@@ -16,9 +16,9 @@ template<int p> struct mod_int {
 	int v;
 	mod_int() : v(0) {}
 	mod_int(ll v_) {
+		if (v_ >= p or v_ <= -p) v_ %= p;
+		if (v_ < 0) v_ += p;
 		v = v_;
-		if (v >= p or v <= -p) v %= p;
-		if (v < 0) v += p;
 	}
 	m& operator+=(const m &a) {
 		v += a.v;

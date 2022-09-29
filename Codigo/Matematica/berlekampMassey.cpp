@@ -4,6 +4,7 @@
 // de uma recorrencia linear que gera s
 // Para uma rec. lin. de ordem x, se passar 2x termos
 // vai gerar a certa
+// Usar aritmetica modular
 //
 // O(n^2 log k), em que n = |s|
 // 8644e3

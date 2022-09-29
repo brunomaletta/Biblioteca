@@ -4,9 +4,9 @@
 // SQ = n / sqrt(q)
 // 
 // O(n * sqrt(q))
-// fa02fe
+// e94f60
 
-const int MAX = 3e4+10;
+const int MAX = 1e5+10;
 const int SQ = sqrt(MAX);
 int v[MAX];
 
@@ -25,18 +25,14 @@ inline void erase(int p) {
 }
 
 inline ll hilbert(int x, int y) {
-	static int N = (1 << 20);
+	static int N = 1 << (__builtin_clz(0) - __builtin_clz(MAX));
 	int rx, ry, s;
 	ll d = 0;
-	for (s = N/2; s>0; s /= 2) {
-		rx = (x & s) > 0;
-		ry = (y & s) > 0;
+	for (s = N/2; s > 0; s /= 2) {
+		rx = (x & s) > 0, ry = (y & s) > 0;
 		d += s * ll(s) * ((3 * rx) ^ ry);
 		if (ry == 0) {
-			if (rx == 1) {
-				x = N-1 - x;
-				y = N-1 - y;
-			}
+			if (rx == 1) x = N-1 - x, y = N-1 - y;
 			swap(x, y);
 		}
 	}

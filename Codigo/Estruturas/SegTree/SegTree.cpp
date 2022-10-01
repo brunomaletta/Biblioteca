@@ -58,6 +58,7 @@ namespace seg {
 
 // primeira posicao >= val em [a, b] (ou -1 se nao tem)
 int get_left(int a, int b, int val, int p=1, int l=0, int r=n-1) {
+	prop(p, l, r);
 	if (b < l or r < a or seg[p] < val) return -1;
 	if (r == l) return l;
 	int m = (l+r)/2;
@@ -67,6 +68,7 @@ int get_left(int a, int b, int val, int p=1, int l=0, int r=n-1) {
 }
 // ultima posicao >= val em [a, b] (ou -1 se nao tem)
 int get_right(int a, int b, int val, int p=1, int l=0, int r=n-1) {
+	prop(p, l, r);
 	if (b < l or r < a or seg[p] < val) return -1;
 	if (r == l) return l;
 	int m = (l+r)/2;
@@ -79,6 +81,7 @@ int get_right(int a, int b, int val, int p=1, int l=0, int r=n-1) {
 // descobrir em O(log(n)) o maior j tal que v[i]+v[i+1]+...+v[j-1] < val
 
 int lower_bound(int i, ll& val, int p, int l, int r) {
+	prop(p, l, r);
 	if (r < i) return n;
 	if (i <= l and seg[p] < val) {
 		val -= seg[p];

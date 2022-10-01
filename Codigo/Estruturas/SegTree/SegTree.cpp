@@ -57,6 +57,7 @@ namespace seg {
 // o primeiro e ultimo elemento >= val numa range:
 
 // primeira posicao >= val em [a, b] (ou -1 se nao tem)
+// 68c3e5
 int get_left(int a, int b, int val, int p=1, int l=0, int r=n-1) {
 	prop(p, l, r);
 	if (b < l or r < a or seg[p] < val) return -1;
@@ -66,7 +67,9 @@ int get_left(int a, int b, int val, int p=1, int l=0, int r=n-1) {
 	if (x != -1) return x;
 	return get_left(a, b, val, 2*p+1, m+1, r);
 }
+
 // ultima posicao >= val em [a, b] (ou -1 se nao tem)
+// 1b71df
 int get_right(int a, int b, int val, int p=1, int l=0, int r=n-1) {
 	prop(p, l, r);
 	if (b < l or r < a or seg[p] < val) return -1;
@@ -79,7 +82,7 @@ int get_right(int a, int b, int val, int p=1, int l=0, int r=n-1) {
 
 // Se tiver uma seg de soma sobre um array nao negativo v, da pra
 // descobrir em O(log(n)) o maior j tal que v[i]+v[i+1]+...+v[j-1] < val
-
+// 2b8ea7
 int lower_bound(int i, ll& val, int p, int l, int r) {
 	prop(p, l, r);
 	if (r < i) return n;

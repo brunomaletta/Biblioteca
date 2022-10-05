@@ -1,2 +1,2 @@
-set ts=4 si ai sw=4 number mouse=a
+set ts=4 si ai sw=4 nu mouse=a undofile
 syntax on

@@ -7,7 +7,7 @@
 // As arestas de virt possuem a distancia do vertice ate o vizinho
 //
 // O(k log(k))
-// 487984
+// af1325
 
 vector<pair<int, int>> virt[MAX];
 
@@ -21,10 +21,10 @@ int built_virt(vector<int> v) {
 	for (int i = 0; i < v.size(); i++) virt[v[i]].clear();
 	for (int i = 1; i < v.size(); i++) virt[lca::lca(v[i-1], v[i])].clear();
 	for (int i = 1; i < v.size(); i++) {
-		int l = lca::lca(v[i-1], v[i]);
-		int d = lca::dist(l, v[i]);
-		virt[l].emplace_back(v[i], d);
-		virt[v[i]].emplace_back(l, d);
+		int parent = lca::lca(v[i-1], v[i]);
+		int d = lca::dist(parent, v[i]);
+#warning soh to colocando aresta descendo
+		virt[parent].emplace_back(v[i], d);
 	}
 	return v[0];
 }

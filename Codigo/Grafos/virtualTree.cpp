@@ -5,14 +5,15 @@
 // minimal e fechado sobre a operacao de LCA
 // Se |S| = k, a arvore comprimida tem menos que 2k vertices
 // As arestas de virt possuem a distancia do vertice ate o vizinho
+// Retorna a raiz da virtual tree
 //
 // O(k log(k))
-// af1325
+// 42d990
 
 vector<pair<int, int>> virt[MAX];
 
 #warning lembrar de buildar o LCA antes
-int built_virt(vector<int> v) {
+int build_virt(vector<int> v) {
 	auto cmp = [&](int i, int j) { return lca::pos[i] < lca::pos[j]; };
 	sort(v.begin(), v.end(), cmp);
 	for (int i = v.size()-1; i; i--) v.push_back(lca::lca(v[i], v[i-1]));
@@ -28,4 +29,3 @@ int built_virt(vector<int> v) {
 	}
 	return v[0];
 }
-

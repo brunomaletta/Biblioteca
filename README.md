@@ -78,6 +78,7 @@ O *theoretical* (documento com teoremas, identidades e informações teóricas r
 - [Centro/Diâmetro em Árvore](https://github.com/brunomaletta/Biblioteca/blob/master/Codigo/Grafos/center.cpp)
 - [Centroid (encontra os centroids da árvore)](https://github.com/brunomaletta/Biblioteca/blob/master/Codigo/Grafos/centroid.cpp)
 - [Centroid Decomposition](https://github.com/brunomaletta/Biblioteca/blob/master/Codigo/Grafos/centroid-decomp.cpp)
+- [Centroid Tree](https://github.com/brunomaletta/Biblioteca/blob/master/Codigo/Grafos/centroid-tree.cpp)
 - [Dijkstra](https://github.com/brunomaletta/Biblioteca/blob/master/Codigo/Grafos/dijkstra.cpp)
 - [Dinic](https://github.com/brunomaletta/Biblioteca/blob/master/Codigo/Grafos/dinic.cpp)
 - [Dominator Tree](https://github.com/brunomaletta/Biblioteca/blob/master/Codigo/Grafos/DominatorTree.cpp)

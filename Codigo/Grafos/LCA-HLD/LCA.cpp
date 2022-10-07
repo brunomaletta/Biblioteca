@@ -8,8 +8,9 @@
 // build - O(n)
 // lca - O(1)
 // dist - O(1)
-// 22cde8
+// 22cde8 - rmq + lca
 
+// 0214e8
 template<typename T> struct rmq {
 	vector<T> v;
 	int n; static const int b = 30;
@@ -40,6 +41,7 @@ template<typename T> struct rmq {
 	}
 };
 
+// 645120
 namespace lca {
 	vector<int> g[MAX];
 	int v[2*MAX], pos[MAX], dep[2*MAX];

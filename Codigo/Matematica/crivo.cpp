@@ -76,11 +76,11 @@ void crivo(int lim) {
 int tot[MAX];
 
 void crivo(int lim) {
-	for (int i = 1; i <= lim; i++) tot[i] = i;
-
-	for (int i = 2; i <= lim; i++) if (tot[i] == i)
-		for (int j = i; j <= lim; j += i)
-			tot[j] -= tot[j] / i;
+	for (int i = 1; i <= lim; i++) {
+		tot[i] += i;
+		for (int j = 2*i; j <= lim; j += i)
+			tot[j] -= tot[i];
+	}
 }
 
 // Crivo de funcao de mobius

@@ -3,12 +3,14 @@
 // Comprime uma arvore dado um conjunto S de vertices, de forma que
 // o conjunto de vertices da arvore comprimida contenha S e seja
 // minimal e fechado sobre a operacao de LCA
-// Se |S| = k, a arvore comprimida tem O(k) vertices
+// Se |S| = k, a arvore comprimida tem menos que 2k vertices
+// As arestas de virt possuem a distancia do vertice ate o vizinho
+// Retorna a raiz da virtual tree
 //
 // O(k log(k))
-// 402aff
+// 42d990
 
-vector<int> virt[MAX];
+vector<pair<int, int>> virt[MAX];
 
 #warning lembrar de buildar o LCA antes
 int build_virt(vector<int> v) {
@@ -17,10 +19,13 @@ int build_virt(vector<int> v) {
 	for (int i = v.size()-1; i; i--) v.push_back(lca::lca(v[i], v[i-1]));
 	sort(v.begin(), v.end(), cmp);
 	v.erase(unique(v.begin(), v.end()), v.end());
-	for (int i : v) virt[i].clear();
+	for (int i = 0; i < v.size(); i++) virt[v[i]].clear();
+	for (int i = 1; i < v.size(); i++) virt[lca::lca(v[i-1], v[i])].clear();
 	for (int i = 1; i < v.size(); i++) {
+		int parent = lca::lca(v[i-1], v[i]);
+		int d = lca::dist(parent, v[i]);
 #warning soh to colocando aresta descendo
-		virt[lca::lca(v[i-1], v[i])].push_back(v[i]);
+		virt[parent].emplace_back(v[i], d);
 	}
 	return v[0];
 }

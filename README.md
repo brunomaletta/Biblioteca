@@ -1,6 +1,6 @@
 # Biblioteca
 
-Biblioteca de algoritmos, estruturas de dados e primitivas para maratona de programação da UFMG.
+Biblioteca de algoritmos, estruturas de dados e primitivas para Maratona de Programação da UFMG.
 
 Códigos em C++, em maior parte implementados pelos alunos da universidade.
 
@@ -8,7 +8,7 @@ Códigos em C++, em maior parte implementados pelos alunos da universidade.
 
 Versão em PDF (provavelmente não atualizada) dos algoritmos pode ser encontrada [aqui](https://github.com/brunomaletta/Biblioteca/blob/master/pdf/biblioteca.pdf).
 
-O *theoretical* (documento com teoremas, identidades e informações teóricas relevantes) pode ser encontrado [aqui](https://github.com/brunomaletta/Biblioteca/blob/master/pdf/theoretical.pdf).
+O *theoretical guide* (documento com teoremas, identidades e informações teóricas relevantes) pode ser encontrado [aqui](https://github.com/brunomaletta/Biblioteca/blob/master/pdf/theoretical.pdf).
 
 ## Conteúdo
 

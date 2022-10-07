@@ -9,10 +9,10 @@
 // update_path - O(log^2 (n))
 // query_subtree - O(log(n))
 // update_subtree - O(log(n))
-// f22b7a
 
 namespace seg { ... }
 
+// de3d84
 namespace hld {
 	vector<int> g[MAX];
 	int pos[MAX], sz[MAX];

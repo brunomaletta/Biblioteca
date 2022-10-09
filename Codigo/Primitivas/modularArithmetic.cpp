@@ -1,7 +1,7 @@
 // Aritmetica Modular
 //
 // O mod tem q ser primo
-// d99334
+// 5a6efb
 
 template<int p> struct mod_int {
 	ll pow(ll b, ll e) {

@@ -80,7 +80,7 @@ O *theoretical guide* (documento com teoremas, identidades e informações teór
 - [Centroid Decomposition](https://github.com/brunomaletta/Biblioteca/blob/master/Codigo/Grafos/centroid-decomp.cpp)
 - [Centroid Tree](https://github.com/brunomaletta/Biblioteca/blob/master/Codigo/Grafos/centroid-tree.cpp)
 - [Dijkstra](https://github.com/brunomaletta/Biblioteca/blob/master/Codigo/Grafos/dijkstra.cpp)
-- [Dinic](https://github.com/brunomaletta/Biblioteca/blob/master/Codigo/Grafos/dinic.cpp)
+- [Dinitz](https://github.com/brunomaletta/Biblioteca/blob/master/Codigo/Grafos/dinitz.cpp)
 - [Dominator Tree](https://github.com/brunomaletta/Biblioteca/blob/master/Codigo/Grafos/DominatorTree.cpp)
 - [Euler Path / Euler Cycle Linear](https://github.com/brunomaletta/Biblioteca/blob/master/Codigo/Grafos/eulerPath.cpp)
 - [Euler Tour Tree](https://github.com/brunomaletta/Biblioteca/blob/master/Codigo/Grafos/eulerTourTree.cpp)

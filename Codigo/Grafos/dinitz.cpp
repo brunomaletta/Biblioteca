@@ -1,10 +1,11 @@
-// Dinic
+// Dinitz
 //
 // O(min(m * max_flow, n^2 m))
-// Grafo com capacidades 1 -> O(sqrt(n)*m)
-// 67ce89
+// Grafo com capacidades 1: O(min(m sqrt(m), m * n^(2/3)))
+// Todo vertice tem grau de entrada ou saida 1: O(m sqrt(n))
 
-struct dinic {
+// 67ce89
+struct dinitz {
 	const bool scaling = false; // com scaling -> O(nm log(MAXCAP)),
 	int lim;                    // com constante alta
 	struct edge {
@@ -17,7 +18,7 @@ struct dinic {
 	vector<vector<edge>> g;
 	vector<int> lev, beg;
 	ll F;
-	dinic(int n) : g(n), F(0) {}
+	dinitz(int n) : g(n), F(0) {}
 
 	void add(int a, int b, int c) {
 		g[a].emplace_back(b, c, g[b].size(), false);
@@ -59,7 +60,7 @@ struct dinic {
 
 // Recupera as arestas do corte s-t
 // d23977
-vector<pair<int, int>> get_cut(dinic& g, int s, int t) {
+vector<pair<int, int>> get_cut(dinitz& g, int s, int t) {
 	g.max_flow(s, t);
 	vector<pair<int, int>> cut;
 	vector<int> vis(g.g.size(), 0), st = {s};

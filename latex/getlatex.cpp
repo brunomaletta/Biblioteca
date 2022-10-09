@@ -4,6 +4,39 @@
 using namespace std;
 
 string path = "../Codigo/";
+string hash_cmd = "sed -n 1','1' p' tmp.cpp | sed '/^#w/d' "
+"| cpp -dD -P -fpreprocessed | tr -d '[:space:]' | md5sum | cut -c-3";
+
+string exec(string cmd) {
+	array<char, 128> buffer;
+	string result;
+	unique_ptr<FILE, decltype(&pclose)> pipe(popen(cmd.c_str(), "r"), pclose);
+	if (!pipe) throw runtime_error("popen() failed!");
+	while (fgets(buffer.data(), buffer.size(), pipe.get()) != nullptr)
+		result += buffer.data();
+	return result;
+}
+
+void printa_arquivo_codigo(string s, bool skip = false) {
+	cout << "\\begin{lstlisting}\n";
+	ifstream fin(s.c_str());
+	string line;
+	int count = 0;
+	while (getline(fin, line)) {
+		if (count++ < 2 and skip) continue;
+		
+		if (skip) {
+			ofstream tmp("tmp.cpp", ios::out);
+			tmp << line;
+			tmp.close();
+			string hash = exec(hash_cmd);
+			hash.pop_back();
+			cout << hash << " ";
+		}
+		cout << line << endl;
+	}
+	cout << "\\end{lstlisting}\n\n";
+}
 
 void printa_arquivo(string s, bool skip = false) {
 	ifstream fin(s.c_str());
@@ -36,9 +69,8 @@ void printa_listing(string sub, string f, bool skip) {
 	if (skip) printa_cuidado(get_name(f));
 	else printa_cuidado(sub);
 	cout << "}\n";
-	cout << "\\begin{lstlisting}\n";
-	printa_arquivo(f, skip);
-	cout << "\\end{lstlisting}\n\n";
+
+	printa_arquivo_codigo(f, skip);
 }
 
 void vai(vector<pair<string, string>>& files, string s, bool x = false) {
@@ -92,10 +124,11 @@ int main() {
 			return lower(get_name(f1.second)) < lower(get_name(f2.second));
 		});
 
-		for (auto [f, path] : files) printa_listing(f.substr(0, f.size() - 4), path, true);
-		
-		cerr << "=== Arquivos do " << dir << " ===" << endl;
-		for (auto [f, path] : files) cerr << get_name(path) << endl;
+		cerr << "=== " << dir << " ===" << endl;
+		for (auto [f, path] : files) {
+			printa_listing(f.substr(0, f.size() - 4), path, true);
+			cerr << get_name(path) << endl;
+		}
 		cerr << endl;
 	}
 

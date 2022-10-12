@@ -7,8 +7,8 @@
 // As arestas de virt possuem a distancia do vertice ate o vizinho
 // Retorna a raiz da virtual tree
 // 
-// lca::pos deve ser a ordem de visitação no dfs
-// você pode usar o LCAcomHLD, por exemplo
+// lca::pos deve ser a ordem de visitacao no dfs
+// voce pode usar o LCAcomHLD, por exemplo
 //
 // O(k log(k))
 // 42d990

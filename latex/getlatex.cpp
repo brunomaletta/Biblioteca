@@ -22,14 +22,19 @@ void printa_arquivo_codigo(string s, bool skip = false) {
 	ifstream fin(s.c_str());
 	string line;
 	int count = 0;
+	bool started_code = false;
 	while (getline(fin, line)) {
 		if (count++ < 2 and skip) continue;
 		
-		if (skip) {
+		bool comment = line.size() == 0;
+		if (line.size() >= 2 and line.substr(0, 2) == "//") comment = true;
+		if (!comment) started_code = true;
+
+		if (skip and started_code) {
 			ofstream tmp("tmp.cpp", ios::out);
 			tmp << line;
 			tmp.close();
-			string hash = exec(hash_cmd);
+			string hash = comment ? "   \n" : exec(hash_cmd);
 			hash.pop_back();
 			cout << hash << " ";
 		}

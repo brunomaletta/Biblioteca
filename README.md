@@ -199,6 +199,7 @@ O *theoretical guide* (documento com teoremas, identidades e informações teór
 - [Debug](https://github.com/brunomaletta/Biblioteca/blob/master/Codigo/Extra/debug.cpp)
 - [fastIO](https://github.com/brunomaletta/Biblioteca/blob/master/Codigo/Extra/fastIO.cpp)
 - [Hash](https://github.com/brunomaletta/Biblioteca/blob/master/Codigo/Extra/hash.sh)
+- [Line Hash](https://github.com/brunomaletta/Biblioteca/blob/master/Codigo/Extra/linehash.sh)
 - [makefile](https://github.com/brunomaletta/Biblioteca/blob/master/Codigo/Extra/makefile)
 - [rand](https://github.com/brunomaletta/Biblioteca/blob/master/Codigo/Extra/rand.cpp)
 - [Stresstest](https://github.com/brunomaletta/Biblioteca/blob/master/Codigo/Extra/stress.sh)

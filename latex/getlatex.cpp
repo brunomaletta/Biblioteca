@@ -3,8 +3,13 @@
 
 using namespace std;
 
+#define RED "\033[0;31m"
+#define RESET "\033[0m"
+
 string path = "../Codigo/";
-string hash_cmd = "sed -n 1','1' p' tmp.cpp | sed '/^#w/d' "
+string hash_cmd = "sed -n 1','10000' p' tmp.cpp | sed '/^#w/d' "
+"| cpp -dD -P -fpreprocessed | tr -d '[:space:]' | md5sum | cut -c-6";
+string hash_line_cmd = "sed -n 1','1' p' tmp.cpp | sed '/^#w/d' "
 "| cpp -dD -P -fpreprocessed | tr -d '[:space:]' | md5sum | cut -c-3";
 
 string exec(string cmd) {
@@ -14,49 +19,86 @@ string exec(string cmd) {
 	if (!pipe) throw runtime_error("popen() failed!");
 	while (fgets(buffer.data(), buffer.size(), pipe.get()) != nullptr)
 		result += buffer.data();
+	result.pop_back();
 	return result;
 }
 
-void printa_arquivo_codigo(string s, bool skip = false) {
+string get_hash_arquivo(string s) {
+	ifstream fin(s.c_str());
+	ofstream tmp("tmp.cpp", ios::out);
+	string line;
+	while (getline(fin, line)) tmp << line << '\n';
+	fin.close();
+	tmp.close();
+	string hash = exec(hash_cmd);
+	return hash;
+}
+
+bool find_in_file(string s, string t) {
+	ifstream fin(s.c_str());
+	bool found = false;
+	string line;
+	while (getline(fin, line)) {
+		for (int i = int(t.size()) - 1; i < line.size(); i++) {
+			if (line.substr(i - t.size() + 1, t.size()) == t) {
+				found = true;
+				break;
+			}
+		}
+	}
+	return found;
+}
+
+bool is_comment(string line) {
+	while (line.size() and (line[0] == ' ' or line[0] == '\t'))
+		line = line.substr(1);
+	bool comment = line.size() == 0;
+	if (line.size() >= 2 and line.substr(0, 2) == "//") comment = true;
+	if (line.size() >= 2 and line.substr(0, 2) == "/*") comment = true;
+	return comment;
+}
+
+void printa_arquivo_codigo(string s, bool extra = false) {
 	cout << "\\begin{lstlisting}\n";
 	ifstream fin(s.c_str());
 	string line;
 	int count = 0;
 	bool started_code = false;
 	while (getline(fin, line)) {
-		if (count++ < 2 and skip) continue;
+		if (count++ < 2 and !extra) continue;
 		
-		bool comment = line.size() == 0;
-		if (line.size() >= 2 and line.substr(0, 2) == "//") comment = true;
+		bool comment = is_comment(line);
 		if (!comment) started_code = true;
 
-		if (skip and started_code) {
+		if (!extra and started_code) {
 			ofstream tmp("tmp.cpp", ios::out);
 			tmp << line;
 			tmp.close();
-			string hash = comment ? "   \n" : exec(hash_cmd);
-			hash.pop_back();
+			string hash = comment ? "   " : exec(hash_line_cmd);
 			cout << hash << " ";
 		}
 		cout << line << endl;
 	}
+	fin.close();
 	cout << "\\end{lstlisting}\n\n";
 }
 
-void printa_arquivo(string s, bool skip = false) {
+void printa_arquivo(string s, bool extra = false) {
 	ifstream fin(s.c_str());
 	string line;
 	int count = 0;
 	while (getline(fin, line)) {
-		if (count++ < 2 and skip) continue;
+		if (count++ < 2 and !extra) continue;
 		cout << line << endl;
 	}
+	fin.close();
 }
 
 string get_name(string s) {
 	ifstream fin(s.c_str());
 	string line;
 	getline(fin, line);
+	fin.close();
 	if (line[2] == ' ') return line.substr(3);
 	return line.substr(2);
 }
@@ -69,26 +111,32 @@ void printa_cuidado(string s) {
 	}
 }
 
-void printa_listing(string sub, string f, bool skip) {
+void printa_listing(string sub, string f, bool extra = false) {
+	if (!extra) {
+		if (!find_in_file(f, get_hash_arquivo(f)))
+			cerr << RED << "WARNING" << RESET << ": hash nao encontrado para: "
+			<< f.substr(10) << '\n';
+	}
+
 	cout << "\\subsection{";
-	if (skip) printa_cuidado(get_name(f));
+	if (!extra) printa_cuidado(get_name(f));
 	else printa_cuidado(sub);
 	cout << "}\n";
 
-	printa_arquivo_codigo(f, skip);
+	printa_arquivo_codigo(f, extra);
 }
 
-void vai(vector<pair<string, string>>& files, string s, bool x = false) {
+void vai(vector<pair<string, string>>& files, string s, bool extra = false) {
 	struct dirent* entry = nullptr;
 	DIR* dp = nullptr;
 	dp = opendir(s.c_str());
 	if (dp != nullptr) while (entry = readdir(dp)) {
 		if (entry->d_name[0] == '.') continue;	
 
-		if (entry->d_type == DT_DIR) vai(files, s + "/" + string(entry->d_name), x);
+		if (entry->d_type == DT_DIR) vai(files, s + "/" + string(entry->d_name), extra);
 		else {
-			if (!x) files.emplace_back(entry->d_name, s + "/" + string(entry->d_name));
-			else printa_listing(entry->d_name, s + "/" + entry->d_name, false);
+			if (!extra) files.emplace_back(entry->d_name, s + "/" + string(entry->d_name));
+			else printa_listing(entry->d_name, s + "/" + entry->d_name, extra);
 		}
 	}
 }
@@ -110,7 +158,7 @@ string lower(string s) {
 }
 
 int main() {
-	printa_arquivo("comeco.tex");
+	printa_arquivo("comeco.tex", true);
 	struct dirent* entry = nullptr;
 	DIR* dp = nullptr;
 	dp = opendir(path.c_str());
@@ -131,7 +179,7 @@ int main() {
 
 		cerr << "=== " << dir << " ===" << endl;
 		for (auto [f, path] : files) {
-			printa_listing(f.substr(0, f.size() - 4), path, true);
+			printa_listing(f.substr(0, f.size() - 4), path);
 			cerr << get_name(path) << endl;
 		}
 		cerr << endl;

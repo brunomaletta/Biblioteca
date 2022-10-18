@@ -1,4 +1,4 @@
-// DSU
+// DSU [nohash]
 //
 // Une dois conjuntos e acha a qual conjunto um elemento pertence por seu id
 //

@@ -1,4 +1,4 @@
-// Split-Merge Set - Lazy
+// Split-Merge Set - Lazy [nohash,noprint]
 //
 // Representa um conjunto de inteiros nao negativos
 // Todas as operacoes custam O(log(N)),

@@ -213,7 +213,10 @@ string lower(string s) {
 int main(int argc, char** argv) {
 	if (argc > 1) {
 		string arg1(argv[1]);
-		if (arg1 == "--printall") print_all = true;
+		if (arg1 == "--printall") {
+			print_all = true;
+			cerr << "Printing all files..." << endl << endl;
+		}
 	}
 
 	printa_arquivo("comeco.tex", true);

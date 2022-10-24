@@ -1,4 +1,4 @@
-\documentclass[12pt, a4paper, twoside]{article}
+\documentclass[11pt, a4paper, twoside]{article}
 \usepackage[T1]{fontenc}
 \usepackage[utf8]{inputenc}
 \usepackage{amssymb,amsmath}
@@ -10,6 +10,7 @@
 \addtolength{\parskip}{.5\baselineskip}
 
 %aqui comeca o que eu fiz de verdade, o resto veio e eu to com medo de tirar
+\usepackage{xcolor}
 \usepackage{listings} %biblioteca pro codigo
 \usepackage{color}    %deixa o codigo colorido bonitinho
 \usepackage[landscape, left=1cm, right=1cm, top=1cm, bottom=2cm]{geometry} %pra deixar a margem do jeito que o brasil gosta
@@ -21,9 +22,8 @@
 
 \lstset{ %opcoes pro codigo
 breaklines=true,
-keywordstyle=\color{blue},
+keywordstyle=\color{blue}\bfseries,
 commentstyle=\color{gray},
-basicstyle=\footnotesize,
 breakatwhitespace=true,
 language=C++,
 %frame=single, % nao sei se gosto disso ou nao
@@ -33,7 +33,20 @@ showstringspaces=false
 stringstyle=\color{blue},
 tabsize=4,
 basicstyle=\ttfamily\footnotesize, % fonte
-literate={~} {$\sim$}{1} % ~ bonitinho
+}
+\lstset{literate=
+%   *{0}{{{\color{red!20!violet}0}}}1
+%    {1}{{{\color{red!20!violet}1}}}1
+%    {2}{{{\color{red!20!violet}2}}}1
+%    {3}{{{\color{red!20!violet}3}}}1
+%    {4}{{{\color{red!20!violet}4}}}1
+%    {5}{{{\color{red!20!violet}5}}}1
+%    {6}{{{\color{red!20!violet}6}}}1
+%    {7}{{{\color{red!20!violet}7}}}1
+%    {8}{{{\color{red!20!violet}8}}}1
+%    {9}{{{\color{red!20!violet}9}}}1
+%	 {l}{$\text{l}$}1
+	{~}{$\sim$}{1} % ~ bonitinho
 }
 
 \title{Humuhumunukunukuapua'a \\ UFMG}

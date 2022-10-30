@@ -2,61 +2,52 @@
 //
 // Dado um conjunto de elementos A constroi uma base B
 // de fatores coprimos tal que todo elemento A[i] 
-// pode ser escrito como A[i] = \prod B[j]^p_j
+// pode ser fatorado como A[i] = \prod B[j]^p_ij
 //
-// Pior caso: O(n^2*log(MAX) + n*log^3(MAX))
-// Esperado: O(n^2*log(MAX) + n*log(MAX)*loglog^2(MAX))
-// b853c8
+// Sendo n o número de inserts, a complexidade esperada fica
+// O(n*(n*loglog(MAX) + log(MAX)^2))
+// 
+// No pior caso, podemos trocar n*loglog(MAX) por
+// se MAX <= 1e6 fica 8*n
+// se MAX <= 1e9 fica 10*n
+// se MAX <= 1e18 fica 16*n
+// se MAX <= 1e36 fica 26*n
+//
+// 70de13
 
 template <typename T> struct coprime_basis {
 	vector<T> basis;
+	
 	coprime_basis() {}
 	coprime_basis(vector<T> v) {
 		for (T i : v) insert(i);
 	}
-
-	void reduce_pair(T &x, T &y) {
-		bool swp = false;
-		if (x < y) swap(x, y), swp ^= 1;
-		while (y > 1 and x % y == 0) {
-			x /= y;
-			if (x < y) swap(x, y), swp ^= 1;
-		}
-		if (swp) swap(x, y);
-	}
-
-	void solve_inner(T &x, T &y) {
-		vector<T> curr = {x, y};
-		for (int it = 1; it < curr.size(); it++) {
-			for (int i = 0; i < it; i++) {
-				reduce_pair(curr[i], curr[it]);
-				if (curr[it] == 1) break;
-				if (curr[i] == 1) continue;
-				T g = gcd(curr[i], curr[it]);
-				if (g > 1) {
-					curr[it] /= g, curr[i] /= g;
-					curr.push_back(g);
+	
+	void insert(T z) {
+		int n = basis.size();
+		basis.push_back(z);
+		for (int i = n; i < basis.size(); i++) {
+			for (int j = (i != n) ? i+1 : 0; j < int(basis.size()); j++) {
+				if (i == j) continue;
+				T &x = basis[i];
+				if (x == 1) {
+					j = INF;
+					continue;
 				}
+				T &y = basis[j];
+				T g = gcd(x, y);
+				if (g == 1) continue;
+				y /= g;
+				x /= g;
+				basis.push_back(g);
 			}
 		}
-		x = curr[0], y = curr[1];
-		for (int i = 2; i < curr.size(); i++) if (curr[i] > 1)
-			basis.push_back(curr[i]);
-	}
-
-	void insert(T x) {
-		vector<int> rem;
+		int j = 0;
 		for (int i = 0; i < basis.size(); i++) {
-			T &y = basis[i];
-			reduce_pair(x, y);
-			if (x == 1) break;
-			if (gcd(x, y) > 1) solve_inner(x, y);
+			if (basis[i] == 1) continue;
+			basis[j++] = basis[i];
 		}
-		for (int i = int(basis.size())-1; i >= 0; i--) if (basis[i] == 1) {
-			swap(basis[i], basis.back());
-			basis.pop_back();
-		}
-		if (x > 1) basis.push_back(x);
+		while (basis.size() != j) basis.pop_back();
 	}
 
 	vector<int> factor(T x) {

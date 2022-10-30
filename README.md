@@ -108,6 +108,7 @@ O *theoretical guide* (documento com teoremas, identidades e informações teór
 - [Avaliação de Interpolação (avalia a interpolação em um x)](https://github.com/brunomaletta/Biblioteca/blob/master/Codigo/Matematica/evalInterpol.cpp)
 - [Berlekamp-Massey](https://github.com/brunomaletta/Biblioteca/blob/master/Codigo/Matematica/berlekampMassey.cpp)
 - [Convolução de GCD / LCM](https://github.com/brunomaletta/Biblioteca/blob/master/Codigo/Matematica/gcdLcmComvolution.cpp)
+- [Coprime Basis](https://github.com/brunomaletta/Biblioteca/blob/master/Codigo/Matematica/coprimeBasis.cpp)
 - [Crivo de Eratosthenes Linear (e variações)](https://github.com/brunomaletta/Biblioteca/blob/master/Codigo/Matematica/crivo.cpp)
 - [Detecção de Ciclo - Tortoise and Hare](https://github.com/brunomaletta/Biblioteca/blob/master/Codigo/Matematica/cycleDetection.cpp)
 - [Distribuição Binomial](https://github.com/brunomaletta/Biblioteca/blob/master/Codigo/Matematica/probability_binomial.cpp)

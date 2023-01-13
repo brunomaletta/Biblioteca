@@ -8,6 +8,14 @@ Códigos em C++, em maior parte implementados pelos alunos da universidade.
 
 Versão em PDF (provavelmente não atualizada) dos algoritmos pode ser encontrada [aqui](https://github.com/brunomaletta/Biblioteca/blob/master/pdf/biblioteca.pdf).
 
+Para atualizar o PDF primeiro instale o latex executando 
+```
+sudo apt install texlive-full
+sudo apt install rubber
+```
+e então execute `./getlatex.sh` na pasta latex.
+
+
 O *theoretical guide* (documento com teoremas, identidades e informações teóricas relevantes) pode ser encontrado [aqui](https://github.com/brunomaletta/Biblioteca/blob/master/pdf/theoretical.pdf).
 
 ## Conteúdo
@@ -181,7 +189,7 @@ O *theoretical guide* (documento com teoremas, identidades e informações teór
 - [Inversion Count](https://github.com/brunomaletta/Biblioteca/blob/master/Codigo/Problemas/InversionCount.cpp)
 - [Longest Increasing Subsequence (recuperando)](https://github.com/brunomaletta/Biblioteca/blob/master/Codigo/Problemas/lis.cpp)
 - [Longest Increasing Subsequence (tamanho)](https://github.com/brunomaletta/Biblioteca/blob/master/Codigo/Problemas/lis2.cpp)
-- [Mininum Enclosing Circle O(n)](https://github.com/brunomaletta/Biblioteca/blob/master/Codigo/Problemas/minCirc.cpp)
+- [Minimum Enclosing Circle O(n)](https://github.com/brunomaletta/Biblioteca/blob/master/Codigo/Problemas/minCirc.cpp)
 - [Minkowski Sum](https://github.com/brunomaletta/Biblioteca/blob/master/Codigo/Problemas/minkowski.cpp)
 - [MO](https://github.com/brunomaletta/Biblioteca/blob/master/Codigo/Problemas/mo.cpp)
 - [MO - DSU](https://github.com/brunomaletta/Biblioteca/blob/master/Codigo/Problemas/mo-dsu.cpp)

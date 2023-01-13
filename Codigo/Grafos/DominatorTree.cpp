@@ -2,7 +2,7 @@
 //
 // Se vira pra usar ai
 //
-// build - O(n)
+// build - O(m log(n))
 // dominates - O(1)
 // c80920
 

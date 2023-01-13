@@ -1,4 +1,4 @@
-// Mininum Enclosing Circle
+// Minimum Enclosing Circle
 //
 // O(n) com alta probabilidade
 // b0a6ba

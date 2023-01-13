@@ -4,7 +4,7 @@
 // de fatores coprimos tal que todo elemento A[i]
 // pode ser fatorado como A[i] = \prod B[j]^p_ij
 //
-// Sendo n o número de inserts, a complexidade esperada fica
+// Sendo n o numero de inserts, a complexidade esperada fica
 // O(n*(n*loglog(MAX) + log(MAX)^2))
 //
 // No pior caso, podemos trocar n*loglog(MAX) por

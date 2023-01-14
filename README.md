@@ -51,6 +51,7 @@ O *theoretical guide* (documento com teoremas, identidades e informações teór
 - [MergeSort Tree](https://github.com/brunomaletta/Biblioteca/blob/master/Codigo/Estruturas/mergeSortTree.cpp)
 - [Minqueue - Deque](https://github.com/brunomaletta/Biblioteca/blob/master/Codigo/Estruturas/minqueueDeque.cpp)
 - [Minqueue - Stack](https://github.com/brunomaletta/Biblioteca/blob/master/Codigo/Estruturas/minqueueStack.cpp)
+- [Priority Queue DS](https://github.com/brunomaletta/Biblioteca/blob/master/Codigo/Estruturas/priority_queue_ds.cpp)
 - [Order Statistic Set (GCC)](https://github.com/brunomaletta/Biblioteca/blob/master/Codigo/Estruturas/OrderStatisticSet.cpp)
 - [Range Color](https://github.com/brunomaletta/Biblioteca/blob/master/Codigo/Estruturas/rangeColor.cpp)
 - [RMQ <O(n), O(1)>](https://github.com/brunomaletta/Biblioteca/blob/master/Codigo/Estruturas/rmq.cpp)

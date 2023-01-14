@@ -1,4 +1,4 @@
-// Distancia maxima entre dois pontos
+// Distancia maxima entre dois pontos [nohash]
 //
 // max_dist2(v) - O(n log(n))
 // max_dist_manhattan - O(n)

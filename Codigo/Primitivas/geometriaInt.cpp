@@ -1,4 +1,4 @@
-// Primitivas Geometricas Inteiras
+// Primitivas Geometricas Inteiras [nohash]
 
 #define sq(x) ((x)*(ll)(x))
 

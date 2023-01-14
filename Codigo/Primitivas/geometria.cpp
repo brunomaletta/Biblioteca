@@ -1,4 +1,4 @@
-// Primitivas Geometricas
+// Primitivas Geometricas [nohash]
 
 typedef double ld;
 const ld DINF = 1e18;

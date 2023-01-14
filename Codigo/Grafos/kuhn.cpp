@@ -1,4 +1,4 @@
-// Kuhn
+// Kuhn [nohash]
 //
 // Computa matching maximo em grafo bipartido
 // 'n' e 'm' sao quantos vertices tem em cada particao

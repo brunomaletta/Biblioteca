@@ -18,7 +18,7 @@
 // 4 - Cada ponto eh vizinho do ponto mais proximo dele
 //
 // O(n log n)
-// 83ebab
+// 362c83
 
 typedef struct QuadEdge* Q;
 struct QuadEdge {

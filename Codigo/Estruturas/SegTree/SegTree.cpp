@@ -1,4 +1,4 @@
-// SegTree
+// SegTree [nohash]
 //
 // Recursiva com Lazy Propagation
 // Query: soma do range [a, b]

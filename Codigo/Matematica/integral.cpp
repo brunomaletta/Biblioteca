@@ -1,6 +1,7 @@
 // Integracao Numerica - Metodo de Simpson 3/8
 // 
 // Integra f no intervalo [a, b], erro cresce proporcional a (b - a)^5
+// 352415
 
 const int N = 3*100; // multiplo de 3
 ld integrate(ld a, ld b, function<ld(ld)> f) {

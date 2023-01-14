@@ -9,6 +9,8 @@
 // O(n) para construir
 // query - O(1)
 
+// hash do arquivo inteiro: fa533e
+
 // bab412
 template<typename T> struct rmq {
 	vector<T> v;

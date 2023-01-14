@@ -1,7 +1,7 @@
 // Area da Uniao de Retangulos
 //
 // O(n log(n))
-// bea565
+// 5d8d2f
 
 namespace seg {
 	pair<int, ll> seg[4*MAX];

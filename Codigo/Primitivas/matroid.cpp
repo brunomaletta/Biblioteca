@@ -1,4 +1,4 @@
-// Matroid
+// Matroid [nohash]
 //
 // Matroids de Grafo e Particao
 // De modo geral, toda Matroid contem um build() linear

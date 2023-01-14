@@ -1,4 +1,4 @@
-// Minkowski Sum
+// Minkowski Sum [nohash]
 //
 // Computa A+B = {a+b : a \in A, b \in B}, em que
 // A e B sao poligonos convexos

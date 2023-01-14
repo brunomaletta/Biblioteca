@@ -1,4 +1,4 @@
-// Dinitz
+// Dinitz [nohash]
 //
 // O(min(m * max_flow, n^2 m))
 // Grafo com capacidades 1: O(min(m sqrt(m), m * n^(2/3)))

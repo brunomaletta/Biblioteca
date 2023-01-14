@@ -2,6 +2,7 @@
 //
 // Gera o conjunto n/i, pra todo i, em O(sqrt(n))
 // copiei do github do tfg50
+// 5bf9bf
 
 for(int l = 1, r; l <= n; l = r + 1) {
 	r = n / (n / l);

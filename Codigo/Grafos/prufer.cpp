@@ -1,4 +1,4 @@
-// Prufer code
+// Prufer code [nohash]
 //
 // Traduz de lista de arestas para prufer code
 // e vice-versa

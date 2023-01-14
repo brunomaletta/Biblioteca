@@ -1,4 +1,4 @@
-// Manacher
+// Manacher [nohash]
 //
 // manacher recebe um vetor de T e retorna o vetor com tamanho dos palindromos
 // ret[2*i] = tamanho do maior palindromo centrado em i

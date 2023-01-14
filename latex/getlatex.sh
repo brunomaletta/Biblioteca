@@ -1,4 +1,4 @@
-g++ -std=c++17 -o getlatex getlatex.cpp
+g++ -std=c++17 -o getlatex getlatex.cpp -O2
 ./getlatex $1 > biblioteca.tex
 rubber -d biblioteca
 mv biblioteca.pdf ../pdf

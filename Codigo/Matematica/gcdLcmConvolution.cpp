@@ -1,4 +1,4 @@
-// Convolucao de GCD / LCM
+// Convolucao de GCD / LCM [nohash]
 //
 // O(n log(n))
 

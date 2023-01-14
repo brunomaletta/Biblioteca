@@ -10,7 +10,7 @@
 // query_subtree - O(log(n))
 // update_subtree - O(log(n))
 
-namespace seg { ... }
+// namespace seg { ... }
 
 // de3d84
 namespace hld {

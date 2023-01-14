@@ -1,4 +1,4 @@
-// Primitivas Geometricas 3D
+// Primitivas Geometricas 3D [nohash]
  
 typedef double ld;
 const ld DINF = 1e18;
@@ -10,6 +10,7 @@ bool eq(ld a, ld b) {
         return abs(a - b) <= eps;
 }
  
+// 3eef01
 struct pt { // ponto
         ld x, y, z;
         pt(ld x_ = 0, ld y_ = 0, ld z_ = 0) : x(x_), y(y_), z(z_) {}
@@ -33,6 +34,7 @@ struct pt { // ponto
         }
 };
  
+// 7ab617
 struct line { // reta
         pt p, q;
         line() {}
@@ -42,6 +44,7 @@ struct line { // reta
         }
 };
  
+// d5d580
 struct plane { // plano
         array<pt, 3> p;  // pontos que definem o plano
         array<ld, 4> eq; // equacao do plano
@@ -61,11 +64,13 @@ struct plane { // plano
 // converte de coordenadas polares para cartesianas
 // (angulos devem estar em radianos)
 // phi eh o angulo com o eixo z (cima) theta eh o angulo de rotacao ao redor de z
+// a4f17f
 pt convert(ld rho, ld th, ld phi) {
         return pt(sin(phi) * cos(th), sin(phi) * sin(th), cos(phi)) * rho;
 }
  
 // projecao do ponto p na reta r
+// 2329fe
 pt proj(pt p, line r) {
         if (r.p == r.q) return r.p;
         r.q = r.q - r.p; p = p - r.p;
@@ -74,6 +79,7 @@ pt proj(pt p, line r) {
 }
  
 // projecao do ponto p no plano P
+// 4a0d14
 pt proj(pt p, plane P) {
         p = p - P.p[0], P.p[1] = P.p[1] - P.p[0], P.p[2] = P.p[2] - P.p[0];
         pt norm = P.p[1] ^ P.p[2];
@@ -82,16 +88,19 @@ pt proj(pt p, plane P) {
 }
  
 // distancia
+// 2d06b0
 ld dist(pt a, pt b) {
         return sqrt(sq(a.x-b.x) + sq(a.y-b.y) + sq(a.z-b.z));
 }
  
 // distancia ponto reta
+// 3c4e1b
 ld distline(pt p, line r) {
         return dist(p, proj(p, r));
 }
  
 // distancia de ponto para segmento
+// 42cbbd
 ld distseg(pt p, line r) {
         if ((r.q - r.p)*(p - r.p) < 0) return dist(r.p, p);
         if ((r.p - r.q)*(p - r.q) < 0) return dist(r.q, p);
@@ -99,21 +108,25 @@ ld distseg(pt p, line r) {
 }
  
 // distancia de ponto a plano com sinal
+// d490d9
 ld sdist(pt p, plane P) {
         return P.eq[0]*p.x + P.eq[1]*p.y + P.eq[2]*p.z +  P.eq[3];
 }
  
 // distancia de ponto a plano
+// 33dc8c
 ld distplane(pt p, plane P) {
         return abs(sdist(p, P));
 }
  
 // se ponto pertence a reta
+// 31a295
 bool isinseg(pt p, line r) {
         return eq(distseg(p, r), 0);
 }
  
 // se ponto pertence ao triangulo definido por P.p
+// c81f7e
 bool isinpol(pt p, vector<pt> v) {
         assert(v.size() >= 3);
         pt norm = (v[1]-v[0]) ^ (v[2]-v[1]);
@@ -131,6 +144,7 @@ bool isinpol(pt p, vector<pt> v) {
 }
  
 // distancia de ponto ate poligono
+// a8d4c2
 ld distpol(pt p, vector<pt> v) {
         pt p2 = proj(p, plane(v[0], v[1], v[2]));
         if (isinpol(p2, v)) return dist(p, p2);
@@ -147,6 +161,7 @@ ld distpol(pt p, vector<pt> v) {
 // ONE = um dos pontos do segmento esta no plano
 // PARAL = segmento paralelo ao plano
 // CONCOR = segmento concorrente ao plano
+// e2ecac
 enum RETCODE {BOTH, ONE, PARAL, CONCOR};
 pair<RETCODE, pt> intersect(plane P, line r) {
     ld d1 = sdist(r.p, P);
@@ -167,6 +182,7 @@ pair<RETCODE, pt> intersect(plane P, line r) {
 }
  
 // rotaciona p ao redor do eixo u por um angulo a
+// 7f0a40
 pt rotate(pt p, pt u, ld a) {
         u = u / dist(u, pt());
         return u * (u * p) + (u ^ p ^ u) * cos(a) + (u ^ p) * sin(a);

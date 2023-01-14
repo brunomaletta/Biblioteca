@@ -4,7 +4,7 @@
 // Para mudar isso, colocar em r_assoc
 // Operacoes com maior prioridade sao feitas primeiro
 //
-// 68921b
+// 9ad15a
 
 bool blank(char c) {
 	return c == ' ';

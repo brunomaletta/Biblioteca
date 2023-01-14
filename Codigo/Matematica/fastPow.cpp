@@ -1,7 +1,8 @@
-// Exponenciacao rapida
+// Exponenciacao rapida [nohash]
 //
 // (x^y mod m) em O(log(y))
 
+// 12b2f8
 ll pow(ll x, ll y, ll m) { // iterativo
 	ll ret = 1;
 	while (y) {
@@ -12,6 +13,7 @@ ll pow(ll x, ll y, ll m) { // iterativo
 	return ret;
 }
 
+// 7d427b
 ll pow(ll x, ll y, ll m) { // recursivo
 	if (!y) return 1;
 	ll ans = pow(x*x%m, y/2, m);

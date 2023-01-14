@@ -1,4 +1,4 @@
-// FFT
+// FFT [nohash]
 //
 // Chamar convolution com vector<complex<double>> para FFT
 // Precisa do mint para NTT

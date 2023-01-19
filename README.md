@@ -49,6 +49,7 @@ O *theoretical guide* (documento com teoremas, identidades e informações teór
 - [DSU (e variações)](https://github.com/brunomaletta/Biblioteca/blob/master/Codigo/Estruturas/dsu.cpp)
 - [Li-Chao Tree](https://github.com/brunomaletta/Biblioteca/blob/master/Codigo/Estruturas/lichao.cpp)
 - [MergeSort Tree](https://github.com/brunomaletta/Biblioteca/blob/master/Codigo/Estruturas/mergeSortTree.cpp)
+- [MergeSort Tree - Bit](https://github.com/brunomaletta/Biblioteca/blob/master/Codigo/Estruturas/mergeSortTreeBit.cpp)
 - [Minqueue - Deque](https://github.com/brunomaletta/Biblioteca/blob/master/Codigo/Estruturas/minqueueDeque.cpp)
 - [Minqueue - Stack](https://github.com/brunomaletta/Biblioteca/blob/master/Codigo/Estruturas/minqueueStack.cpp)
 - [Priority Queue DS](https://github.com/brunomaletta/Biblioteca/blob/master/Codigo/Estruturas/priority_queue_ds.cpp)

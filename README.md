@@ -81,6 +81,7 @@ O *theoretical guide* (documento com teoremas, identidades e informações teór
     - [Link-cut Tree - Vertice](https://github.com/brunomaletta/Biblioteca/blob/master/Codigo/Grafos/LCT/lct-vertice.cpp)
     - [Link-cut Tree Padrão](https://github.com/brunomaletta/Biblioteca/blob/master/Codigo/Grafos/LCT/lct.cpp)
 - [AGM Direcionada (arborescência)](https://github.com/brunomaletta/Biblioteca/blob/master/Codigo/Grafos/directedMST.cpp)
+- [Articulation Points](https://github.com/brunomaletta/Biblioteca/blob/master/Codigo/Grafos/articulationPoints.cpp)
 - [Bellman-Ford](https://github.com/brunomaletta/Biblioteca/blob/master/Codigo/Grafos/BellmanFord.cpp)
 - [Block-Cut Tree (computa pontes e pontos de articulação)](https://github.com/brunomaletta/Biblioteca/blob/master/Codigo/Grafos/blockCutTree.cpp)
 - [Blossom](https://github.com/brunomaletta/Biblioteca/blob/master/Codigo/Grafos/blossom.cpp)

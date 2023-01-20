@@ -84,7 +84,7 @@ O *theoretical guide* (documento com teoremas, identidades e informações teór
 - [AGM Direcionada (arborescência)](https://github.com/brunomaletta/Biblioteca/blob/master/Codigo/Grafos/directedMST.cpp)
 - [Articulation Points](https://github.com/brunomaletta/Biblioteca/blob/master/Codigo/Grafos/articulationPoints.cpp)
 - [Bellman-Ford](https://github.com/brunomaletta/Biblioteca/blob/master/Codigo/Grafos/BellmanFord.cpp)
-- [Block-Cut Tree (computa pontes e pontos de articulação)](https://github.com/brunomaletta/Biblioteca/blob/master/Codigo/Grafos/blockCutTree.cpp)
+- [Block-Cut Tree](https://github.com/brunomaletta/Biblioteca/blob/master/Codigo/Grafos/blockCutTree.cpp)
 - [Blossom](https://github.com/brunomaletta/Biblioteca/blob/master/Codigo/Grafos/blossom.cpp)
 - [Centro/Diâmetro em Árvore](https://github.com/brunomaletta/Biblioteca/blob/master/Codigo/Grafos/center.cpp)
 - [Centroid (encontra os centroids da árvore)](https://github.com/brunomaletta/Biblioteca/blob/master/Codigo/Grafos/centroid.cpp)

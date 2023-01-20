@@ -6,7 +6,7 @@ Códigos em C++, em maior parte implementados pelos alunos da universidade.
 
 #### PDF
 
-Versão em PDF (provavelmente não atualizada) dos algoritmos pode ser encontrada [aqui](https://github.com/brunomaletta/Biblioteca/blob/master/pdf/biblioteca.pdf).
+Versão em PDF dos algoritmos pode ser encontrada [aqui](https://github.com/brunomaletta/Biblioteca/blob/master/pdf/biblioteca.pdf).
 
 Para atualizar o PDF primeiro instale o latex executando 
 ```

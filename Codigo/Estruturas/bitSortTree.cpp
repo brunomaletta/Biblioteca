@@ -1,7 +1,7 @@
-// MergeSort Tree - Bit
+// BIT-Sort Tree
 //
-// MergeSort Tree usando Bit, apesar da complexidade teorica ser pior
-// se sai bem melhor na pratica.
+// Tipo uma MergeSort Tree usando Bit
+// Apesar da complexidade ser pior, fica melhor na pratica.
 //
 // query(l, r, k) retorna o numero de elementos menores que k 
 // no intervalo [l, r]
@@ -9,10 +9,9 @@
 // Usa O(n log(n)) de memoria
 //
 // Complexidades:
-// construir - O(n log(n)) 
+// construir - O(n log^2(n)) 
 // query - O(log^2(n)) 
 // 8d0749 
-
 
 template<typename T> struct ms_bit {
     int n;

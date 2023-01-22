@@ -6,14 +6,17 @@ using namespace std;
 #define RED "\033[0;31m"
 #define RESET "\033[0m"
 
+int HASH_LEN = 2;
+int LINE_HASH_LEN = 2;
+
 string NO_HASH = "nohash";
 string NO_PRINT = "noprint";
 
 string path = "../Codigo/";
 string hash_cmd = "sed -n 1','10000' p' tmp.cpp | sed '/^#w/d' "
-"| cpp -dD -P -fpreprocessed | tr -d '[:space:]' | md5sum | cut -c-6";
+"| cpp -dD -P -fpreprocessed | tr -d '[:space:]' | md5sum | cut -c-" + to_string(HASH_LEN);
 string hash_line_cmd = "sed -n 1','1' p' tmp.cpp | sed '/^#w/d' "
-"| cpp -dD -P -fpreprocessed | tr -d '[:space:]' | md5sum | cut -c-3";
+"| cpp -dD -P -fpreprocessed | tr -d '[:space:]' | md5sum | cut -c-" + to_string(LINE_HASH_LEN);
 
 bool print_all = false;
 
@@ -111,18 +114,35 @@ void printa_arquivo_codigo(string file, bool extra = false) {
 	string line;
 	int count = 0;
 	bool started_code = false;
+	ofstream pref("pref.cpp", ios::out);
+	pref.close();
+	int depth = 0;
 	while (getline(fin, line)) {
 		if (count++ < 2 and !extra) continue;
+
+		for (char c : line) {
+			if (c == '{') depth++;
+			if (c == '}') depth--;
+		}
 		
 		bool comment = is_comment(line);
 		if (!comment) started_code = true;
 
 		if (!extra and started_code) {
+			ofstream pref("pref.cpp", ios::app);
+			pref << line << '\n';
+			pref.close();
 			ofstream tmp("tmp.cpp", ios::out);
 			tmp << line;
 			tmp.close();
-			string hash = comment ? "   " : exec(hash_line_cmd);
-			cout << hash << " ";
+			string hash_line = exec(hash_line_cmd);
+			string hash_pref = get_hash_arquivo("pref.cpp");
+			if (comment) {
+				if (depth != 0) {
+					for (int i = 0; i < HASH_LEN + LINE_HASH_LEN + 2; i++)
+						cout << " ";
+				}
+			} else cout << hash_pref << " " << hash_line << " ";
 		}
 		cout << line << endl;
 	}

@@ -170,11 +170,11 @@ struct suffix_array {
 		// L eh terminal, e folha sse L == R
 		if (sa[L]+ext == n) L++;
 
-		/* se for um SA de varias strings separadas como s#t$u&, usar no lugar do if de cima
-			(separadores < 'a', diferentes e inclusive no final)
-		while (L <= R && (sa[L]+ext == n || s[sa[L]+ext] < 'a')) {
-			L++;
-		} */
+		// se for um SA de varias strings separadas como s#t$u&, usar no lugar do if de cima
+		//	(separadores < 'a', diferentes e inclusive no final)
+		// while (L <= R && (sa[L]+ext == n || s[sa[L]+ext] < 'a')) {
+		//   L++;
+		// }
 
 		while (L <= R) {
 			int idx = L != R ? RMQ.index_query(L, R-1) : -1;

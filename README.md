@@ -18,6 +18,14 @@ e então execute `./getlatex.sh` na pasta latex.
 
 O *theoretical guide* (documento com teoremas, identidades e informações teóricas relevantes) pode ser encontrado [aqui](https://github.com/brunomaletta/Biblioteca/blob/master/pdf/theoretical.pdf).
 
+#### Hash
+
+No PDF, tem duas colunas de hash: a primeira é o hash do prefixo do arquivo até essa linha, e a segunda é o hash da linha. Para rodar o hash de um arquivo, chamar:
+
+```
+bash gethash.sh arquivo.cpp
+```
+
 ## Conteúdo
 
 ### Programação Dinâmica

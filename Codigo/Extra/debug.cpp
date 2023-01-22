@@ -10,5 +10,5 @@ void debug_out(string s, int line, H h, T... t) {
 #ifdef DEBUG
 #define debug(...) debug_out(#__VA_ARGS__, __LINE__, __VA_ARGS__)
 #else
-#define debug(...)
+#define debug(...) 42
 #endif

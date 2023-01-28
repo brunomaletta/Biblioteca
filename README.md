@@ -36,7 +36,7 @@ bash gethash.sh arquivo.cpp
 - [Longest Common Subsequence - O(n+m) de memória](https://github.com/brunomaletta/Biblioteca/blob/master/Codigo/DP/lcs.cpp)
 - [Mochila - O(n+cap) de memória](https://github.com/brunomaletta/Biblioteca/blob/master/Codigo/DP/mochila.cpp)
 - [SOS DP](https://github.com/brunomaletta/Biblioteca/blob/master/Codigo/DP/sosdp.cpp)
-- [Subet Sum](https://github.com/brunomaletta/Biblioteca/blob/master/Codigo/DP/subsetSum.cpp)
+- [Subset Sum](https://github.com/brunomaletta/Biblioteca/blob/master/Codigo/DP/subsetSum.cpp)
 
 ### Estruturas de Dados
 

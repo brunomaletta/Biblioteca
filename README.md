@@ -115,6 +115,7 @@ bash gethash.sh arquivo.cpp
 - [MinCost-MaxFlow](https://github.com/brunomaletta/Biblioteca/blob/master/Codigo/Grafos/minCostMaxFlow.cpp)
 - [Prufer Code Linear](https://github.com/brunomaletta/Biblioteca/blob/master/Codigo/Grafos/prufer.cpp)
 - [Sack (DSU em árvores)](https://github.com/brunomaletta/Biblioteca/blob/master/Codigo/Grafos/sack.cpp)
+- [Stable Marriage](https://github.com/brunomaletta/Biblioteca/blob/master/Codigo/Grafos/stable-marriage.cpp)
 - [Tarjan (SCC) e Compressão de Ciclos (bridge tree)](https://github.com/brunomaletta/Biblioteca/blob/master/Codigo/Grafos/tarjan.cpp)
 - [Topological Sort](https://github.com/brunomaletta/Biblioteca/blob/master/Codigo/Grafos/topo_sort.cpp)
 - [Vertex Cover](https://github.com/brunomaletta/Biblioteca/blob/master/Codigo/Grafos/cover.cpp)

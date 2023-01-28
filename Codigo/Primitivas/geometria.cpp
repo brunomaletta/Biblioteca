@@ -272,8 +272,9 @@ struct convex_pol {
 	convex_pol(vector<pt> v) : pol(convex_hull(v)) {}
 
 	// se o ponto ta dentro do hull - O(log(n))
-	// 800813
+	// 6b097f
 	bool is_inside(pt p) {
+		if (pol.size() == 0) return false;
 		if (pol.size() == 1) return p == pol[0];
 		int l = 1, r = pol.size();
 		while (l < r) {

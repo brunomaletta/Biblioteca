@@ -188,6 +188,7 @@ bash gethash.sh arquivo.cpp
 - [Conectividade Dinâmica - DSU](https://github.com/brunomaletta/Biblioteca/blob/master/Codigo/Problemas/conectividadeDinamica.cpp)
 - [Conectividade Dinâmica - LCT](https://github.com/brunomaletta/Biblioteca/blob/master/Codigo/Problemas/conectividadeDinamica2.cpp)
 - [Conjunto Independente Máximo com Peso em Grafo de Intervalo](https://github.com/brunomaletta/Biblioteca/blob/master/Codigo/Problemas/intervalGraphIndSet.cpp)
+- [Convex Hull Dinâmico](https://github.com/brunomaletta/Biblioteca/blob/master/Codigo/Problemas/dynamicHull.cpp)
 - [Distância Máxima entre Dois Pontos](https://github.com/brunomaletta/Biblioteca/blob/master/Codigo/Problemas/maxDist.cpp)
 - [Distinct Range Query com Update](https://github.com/brunomaletta/Biblioteca/blob/master/Codigo/Problemas/distinctUpdate.cpp)
 - [Distinct Range Query](https://github.com/brunomaletta/Biblioteca/blob/master/Codigo/Problemas/distinct2.cpp)

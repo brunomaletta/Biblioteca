@@ -313,8 +313,8 @@ struct convex_pol {
 		return extreme([&](pt p, pt q) { return p*v > q*v; });
 	}
 	pair<int, int> tangents(pt p) {
-		auto L = [&](pt q, pt r) { return ccw(p, q, r); };
-		auto R = [&](pt q, pt r) { return ccw(p, r, q); };
+		auto L = [&](pt q, pt r) { return ccw(p, r, q); };
+		auto R = [&](pt q, pt r) { return ccw(p, q, r); };
 		return {extreme(L), extreme(R)};
 	}
 };

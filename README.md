@@ -221,7 +221,7 @@ bash gethash.sh arquivo.cpp
 - [Debug](https://github.com/brunomaletta/Biblioteca/blob/master/Codigo/Extra/debug.cpp)
 - [fastIO](https://github.com/brunomaletta/Biblioteca/blob/master/Codigo/Extra/fastIO.cpp)
 - [Hash](https://github.com/brunomaletta/Biblioteca/blob/master/Codigo/Extra/hash.sh)
-- [Line Hash](https://github.com/brunomaletta/Biblioteca/blob/master/Codigo/Extra/linehash.sh)
+- [Get Hash](https://github.com/brunomaletta/Biblioteca/blob/master/Codigo/Extra/gethash.sh)
 - [makefile](https://github.com/brunomaletta/Biblioteca/blob/master/Codigo/Extra/makefile)
 - [rand](https://github.com/brunomaletta/Biblioteca/blob/master/Codigo/Extra/rand.cpp)
 - [Stresstest](https://github.com/brunomaletta/Biblioteca/blob/master/Codigo/Extra/stress.sh)

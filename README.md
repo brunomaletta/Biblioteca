@@ -52,6 +52,7 @@ bash gethash.sh arquivo.cpp
     - [Segtree Iterativa com Lazy Propagation](https://github.com/brunomaletta/Biblioteca/blob/master/Codigo/Estruturas/SegTree/SegTreeIterativaComLazy.cpp)
     - [Segtree de PA](https://github.com/brunomaletta/Biblioteca/blob/master/Codigo/Estruturas/SegTree/SegTreePA.cpp)
     - [Segtree Persistente](https://github.com/brunomaletta/Biblioteca/blob/master/Codigo/Estruturas/SegTree/SegTreePersistent.cpp)
+    - [Segtree Persistente com Lazy](https://github.com/brunomaletta/Biblioteca/blob/master/Codigo/Estruturas/SegTree/SegTreePersistentComLazy.cpp)
 - [BIT (Fenwick Tree)](https://github.com/brunomaletta/Biblioteca/blob/master/Codigo/Estruturas/BIT.cpp)
 - [BIT 2D](https://github.com/brunomaletta/Biblioteca/blob/master/Codigo/Estruturas/BIT2D.cpp)
 - [BIT com Soma em Range](https://github.com/brunomaletta/Biblioteca/blob/master/Codigo/Estruturas/BIT-range.cpp)

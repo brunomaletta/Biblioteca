@@ -2,13 +2,14 @@
 //
 // insert - O(log n) amortizado
 // is_inside - O(log n)
-// d60998
+// 35c4e8
 
 struct upper {
 	set<pt> se;
+	set<pt>::iterator it;
 
 	int is_under(pt p) { // 1 -> inside ; 2 -> border
-		auto it = se.lower_bound(p);
+		it = se.lower_bound(p);
 		if (it == se.end()) return 0;
 		if (it == se.begin()) return p == *it ? 2 : 0;
 		if (ccw(p, *it, *prev(it))) return 1;
@@ -17,7 +18,6 @@ struct upper {
 	void insert(pt p) {
 		if (is_under(p)) return;
 
-		auto it = se.lower_bound(p);
 		if (it != se.end()) while (next(it) != se.end() and !ccw(*next(it), *it, p))
 			it = se.erase(it);
 		if (it != se.begin()) while (--it != se.begin() and !ccw(p, *it, *prev(it)))

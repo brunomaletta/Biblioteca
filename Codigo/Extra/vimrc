@@ -1,2 +1,3 @@
 set ts=4 si ai sw=4 nu mouse=a undofile
 syntax on
+vnoremap <C-H> :w !sed '/^\#w/d' \| cpp -dD -P -fpreprocessed \| tr -d '[:space:]' \| md5sum \| cut -c-6<CR>

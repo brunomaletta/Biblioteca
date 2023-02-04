@@ -6,7 +6,7 @@
 // 	adiciona aresta de a pra b com capacidade c
 //
 // Mesma complexidade do Dinitz
-// 5f2379
+// e8f30e
 
 struct lb_max_flow : dinitz {
 	vector<int> d;

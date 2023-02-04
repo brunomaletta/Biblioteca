@@ -59,6 +59,7 @@ bash gethash.sh arquivo.cpp
 - [Convex Hull Trick Dinâmico](https://github.com/brunomaletta/Biblioteca/blob/master/Codigo/Estruturas/CHT-Dinamico.cpp)
 - [DSU (e variações)](https://github.com/brunomaletta/Biblioteca/blob/master/Codigo/Estruturas/dsu.cpp)
 - [Li-Chao Tree](https://github.com/brunomaletta/Biblioteca/blob/master/Codigo/Estruturas/lichao.cpp)
+- [Li-Chao Tree Lazy](https://github.com/brunomaletta/Biblioteca/blob/master/Codigo/Estruturas/lichaoLazy.cpp)
 - [MergeSort Tree](https://github.com/brunomaletta/Biblioteca/blob/master/Codigo/Estruturas/mergeSortTree.cpp)
 - [Minqueue - Deque](https://github.com/brunomaletta/Biblioteca/blob/master/Codigo/Estruturas/minqueueDeque.cpp)
 - [Minqueue - Stack](https://github.com/brunomaletta/Biblioteca/blob/master/Codigo/Estruturas/minqueueStack.cpp)

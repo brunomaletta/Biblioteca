@@ -6,7 +6,8 @@ using namespace std;
 #define RED "\033[0;31m"
 #define RESET "\033[0m"
 
-int HASH_LEN = 2;
+int SMALL_HASH_LEN = 2;
+int BIG_HASH_LEN = 2;
 int LINE_HASH_LEN = 2;
 
 string NO_HASH = "nohash";
@@ -14,9 +15,7 @@ string NO_PRINT = "noprint";
 
 string path = "../Codigo/";
 string hash_cmd = "sed -n 1','10000' p' tmp.cpp | sed '/^#w/d' "
-"| cpp -dD -P -fpreprocessed | tr -d '[:space:]' | md5sum | cut -c-" + to_string(HASH_LEN);
-string hash_line_cmd = "sed -n 1','1' p' tmp.cpp | sed '/^#w/d' "
-"| cpp -dD -P -fpreprocessed | tr -d '[:space:]' | md5sum | cut -c-" + to_string(LINE_HASH_LEN);
+"| cpp -dD -P -fpreprocessed | tr -d '[:space:]' | md5sum | cut -c-";
 
 bool print_all = false;
 
@@ -31,14 +30,14 @@ string exec(string cmd) {
 	return result;
 }
 
-string get_hash_arquivo(string s) {
+string get_hash_arquivo(string s, int size) {
 	ifstream fin(s.c_str());
 	ofstream tmp("tmp.cpp", ios::out);
 	string line;
 	while (getline(fin, line)) tmp << line << '\n';
 	fin.close();
 	tmp.close();
-	string hash = exec(hash_cmd);
+	string hash = exec(hash_cmd + to_string(size));
 	return hash;
 }
 
@@ -135,11 +134,11 @@ void printa_arquivo_codigo(string file, bool extra = false) {
 			ofstream tmp("tmp.cpp", ios::out);
 			tmp << line;
 			tmp.close();
-			string hash_line = exec(hash_line_cmd);
-			string hash_pref = get_hash_arquivo("pref.cpp");
+			string hash_line = exec(hash_cmd + to_string(LINE_HASH_LEN));
+			string hash_pref = get_hash_arquivo("pref.cpp", SMALL_HASH_LEN);
 			if (comment) {
 				if (depth != 0) {
-					for (int i = 0; i < HASH_LEN + LINE_HASH_LEN + 2; i++)
+					for (int i = 0; i < SMALL_HASH_LEN + LINE_HASH_LEN + 2; i++)
 						cout << " ";
 				}
 			} else cout << hash_pref << " " << hash_line << " ";
@@ -185,7 +184,7 @@ bool printa_listing(string sub, string file, bool extra = false) {
 	if (!print_all and flags.count(NO_PRINT)) return false;
 
 	if (!extra and !flags.count(NO_HASH)) {
-		if (!find_in_file(file, get_hash_arquivo(file)))
+		if (!find_in_file(file, get_hash_arquivo(file, BIG_HASH_LEN)))
 			cerr << RED << "WARNING" << RESET << ": hash nao encontrado para: "
 			<< file.substr(10) << '\n';
 	}

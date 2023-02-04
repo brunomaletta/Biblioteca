@@ -30,8 +30,6 @@ bash gethash.sh arquivo.cpp
 
 ### Programação Dinâmica
 
-- [Convex Hull Trick](https://github.com/brunomaletta/Biblioteca/blob/master/Codigo/DP/CHT.cpp)
-- [Convex Hull Trick - Dinâmico](https://github.com/brunomaletta/Biblioteca/blob/master/Codigo/DP/CHT-Dinamico.cpp)
 - [Divide and Conquer DP](https://github.com/brunomaletta/Biblioteca/blob/master/Codigo/DP/DC-DP.cpp)
 - [Longest Common Subsequence - O(n+m) de memória](https://github.com/brunomaletta/Biblioteca/blob/master/Codigo/DP/lcs.cpp)
 - [Mochila - O(n+cap) de memória](https://github.com/brunomaletta/Biblioteca/blob/master/Codigo/DP/mochila.cpp)
@@ -57,6 +55,8 @@ bash gethash.sh arquivo.cpp
 - [BIT 2D](https://github.com/brunomaletta/Biblioteca/blob/master/Codigo/Estruturas/BIT2D.cpp)
 - [BIT com Soma em Range](https://github.com/brunomaletta/Biblioteca/blob/master/Codigo/Estruturas/BIT-range.cpp)
 - [BIT-Sort Tree](https://github.com/brunomaletta/Biblioteca/blob/master/Codigo/Estruturas/bitSortTree.cpp)
+- [Convex Hull Trick](https://github.com/brunomaletta/Biblioteca/blob/master/Codigo/Estruturas/CHT.cpp)
+- [Convex Hull Trick Dinâmico](https://github.com/brunomaletta/Biblioteca/blob/master/Codigo/Estruturas/CHT-Dinamico.cpp)
 - [DSU (e variações)](https://github.com/brunomaletta/Biblioteca/blob/master/Codigo/Estruturas/dsu.cpp)
 - [Li-Chao Tree](https://github.com/brunomaletta/Biblioteca/blob/master/Codigo/Estruturas/lichao.cpp)
 - [MergeSort Tree](https://github.com/brunomaletta/Biblioteca/blob/master/Codigo/Estruturas/mergeSortTree.cpp)

@@ -1,4 +1,4 @@
-// Conectividade Dinamica
+// Conectividade Dinamica DC
 //
 // Offline com Divide and Conquer e
 // DSU com rollback

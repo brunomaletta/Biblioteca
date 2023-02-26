@@ -1,4 +1,4 @@
-// Max flow com lower bound nas arestas
+// Max flow com lower bound
 // 
 // add(a, b, l, r):
 // 	adiciona aresta de a pra b, onde precisa passar f de fluxo, l <= f <= r

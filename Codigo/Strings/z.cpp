@@ -1,4 +1,4 @@
-// Algoritmo Z
+// Z
 // 
 // z[i] = lcp(s, s[i..n))
 //

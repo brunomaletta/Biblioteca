@@ -1,4 +1,4 @@
-// Mo - numero de distintos em range
+// MO
 //
 // Para ter o bound abaixo, escolher
 // SQ = n / sqrt(q)

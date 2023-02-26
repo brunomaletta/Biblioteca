@@ -1,4 +1,4 @@
-// LIS2 - Longest Increasing Subsequence
+// LIS - tamanho
 //
 // Calcula o tamanho da LIS
 //

@@ -1,6 +1,6 @@
-// Dominator Tree - Kawakami
+// Dominator Tree
 //
-// Se vira pra usar ai
+// Codigo do Kawakami. Se vira pra usar ai
 //
 // build - O(m log(n))
 // dominates - O(1)

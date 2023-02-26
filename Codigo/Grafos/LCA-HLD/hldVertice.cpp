@@ -1,4 +1,4 @@
-// Heavy-Light Decomposition - vertice
+// HLD - vertice
 //
 // SegTree de soma
 // query / update de soma dos vertices

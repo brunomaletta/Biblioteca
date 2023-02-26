@@ -1,4 +1,4 @@
-// Automato de Sufixo
+// Suffix Automaton
 //
 // Automato que aceita os sufixos de uma string
 // Todas as funcoes sao lineares

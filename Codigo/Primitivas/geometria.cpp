@@ -1,4 +1,4 @@
-// Primitivas Geometricas
+// Geometria
 
 typedef double ld;
 const ld DINF = 1e18;

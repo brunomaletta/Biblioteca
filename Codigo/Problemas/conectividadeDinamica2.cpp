@@ -1,4 +1,4 @@
-// Conectividade Dinamica 2
+// Conectividade Dinamica LCT
 //
 // Offline com link-cut trees
 // O(n log(n))

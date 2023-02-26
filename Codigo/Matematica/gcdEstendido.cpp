@@ -1,4 +1,4 @@
-// Algoritmo de Euclides estendido
+// Euclides estendido
 //
 // Acha x e y tal que ax + by = mdc(a, b) (nao eh unico)
 // Assume a, b >= 0

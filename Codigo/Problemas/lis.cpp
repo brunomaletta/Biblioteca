@@ -1,4 +1,4 @@
-// LIS - Longest Increasing Subsequence
+// LIS - recupera
 // 
 // Calcula e retorna uma LIS
 //

@@ -1,4 +1,6 @@
-// Blossom - matching maximo em grafo geral
+// Blossom 
+//
+// Matching maximo em grafo geral
 //
 // O(n^3)
 // Se for bipartido, nao precisa da funcao

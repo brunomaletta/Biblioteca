@@ -1,4 +1,4 @@
-// Algoritmo MO - queries em caminhos de arvore
+// MO em Arvores
 // 
 // Problema que resolve: https://www.spoj.com/problems/COT2/
 //

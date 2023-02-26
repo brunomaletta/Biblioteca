@@ -1,4 +1,4 @@
-// Primitivas de fracao
+// Fracao
 //
 // Funciona com o Big Int
 

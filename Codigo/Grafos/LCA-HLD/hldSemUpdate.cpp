@@ -1,4 +1,4 @@
-// Heavy-Light Decomposition sem Update
+// HLD sem Update
 //
 // query de min do caminho
 //

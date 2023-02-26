@@ -1,4 +1,4 @@
-// Primitivas de matriz - exponenciacao
+// Matriz
 
 #define MODULAR false
 template<typename T> struct matrix : vector<vector<T>> {

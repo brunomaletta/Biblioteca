@@ -1,4 +1,4 @@
-// Eliminacao Gaussiana Z2
+// Gauss - Z2
 //
 // D eh dimensao do espaco vetorial
 // add(v) - adiciona o vetor v na base (retorna se ele jah pertencia ao span da base)

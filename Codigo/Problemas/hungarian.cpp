@@ -1,4 +1,4 @@
-// Algoritmo Hungaro
+// Hungaro
 //
 // Resolve o problema de assignment (matriz n x n)
 // Colocar os valores da matriz em 'a' (pode < 0)

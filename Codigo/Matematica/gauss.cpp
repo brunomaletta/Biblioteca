@@ -1,4 +1,4 @@
-// Eliminacao Gaussiana
+// Gauss
 //
 // Resolve sistema linear
 // Retornar um par com o numero de solucoes

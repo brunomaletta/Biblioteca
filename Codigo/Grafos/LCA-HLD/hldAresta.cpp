@@ -1,4 +1,4 @@
-// Heavy-Light Decomposition - aresta
+// HLD - aresta
 //
 // SegTree de soma
 // query / update de soma das arestas

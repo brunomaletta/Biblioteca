@@ -6,7 +6,6 @@
 // Da pra adaptar facil para outras dps
 //
 // O(n log^2 n), O(n) de memoria
-// 7c8896
 
 void lis2d(vector<vector<tuple<int, int, int>>>& v, vector<int>& dp, int l, int r) {
 	if (l == r) {

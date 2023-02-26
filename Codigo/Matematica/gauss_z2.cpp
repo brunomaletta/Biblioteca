@@ -8,7 +8,6 @@
 //
 // Complexidade:
 // add, coord, recover: O(D^2 / 64)
-// d0a4b3
 
 template<int D> struct Gauss_z2 {
 	bitset<D> basis[D], keep[D];

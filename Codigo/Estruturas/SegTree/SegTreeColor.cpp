@@ -15,7 +15,6 @@
 // query - O(log(n))
 // update - O(log(n))
 // paint - O(log(n)) amortizado
-// 2938e8
 
 struct seg_color {
 	struct node {

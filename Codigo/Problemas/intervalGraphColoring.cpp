@@ -6,7 +6,6 @@
 // As cores vao de 1 ate n
 //
 // O(n log(n))
-// 83a32d
 
 vector<int> coloring(vector<pair<int, int>>& v) {
 	int n = v.size();

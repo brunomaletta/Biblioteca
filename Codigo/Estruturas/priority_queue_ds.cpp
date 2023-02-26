@@ -14,8 +14,6 @@
 // pop - O(log(n) * T(n)) amortizado
 //
 // onde T(n) eh a complexidade do update
-//
-// 54a75e
 
 // assumes all priorities are distinct
 template<typename DS, typename UPD> struct priority_queue_ds {

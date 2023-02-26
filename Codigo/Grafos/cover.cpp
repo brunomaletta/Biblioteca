@@ -5,7 +5,6 @@
 // Parece rodar com < 2 s pra N = 90
 //
 // O(n * 1.38^n)
-// 9c5024
 
 namespace cover {
 	const int MAX = 96;

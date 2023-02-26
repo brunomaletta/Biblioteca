@@ -5,8 +5,6 @@
 // Complexidades:
 // build - O(|s|)
 // operator() - O(1)
-//
-// d3c0f0
 
 const ll MOD = (1ll<<61) - 1;
 ll mulmod(ll a, ll b) {

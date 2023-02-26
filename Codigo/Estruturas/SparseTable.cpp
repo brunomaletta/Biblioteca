@@ -6,7 +6,6 @@
 // Complexidades:
 // build - O(n log(n))
 // query - O(1)
-// 7aa4c9
 
 namespace sparse {
 	int m[MAX2][MAX], n;

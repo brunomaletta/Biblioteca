@@ -7,7 +7,6 @@
 // Usar aritmetica modular
 //
 // O(n^2 log k), em que n = |s|
-// 8644e3
 
 template<typename T> T evaluate(vector<T> c, vector<T> s, ll k) {
 	int n = c.size();

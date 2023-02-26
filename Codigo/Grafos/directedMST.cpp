@@ -5,7 +5,6 @@
 // Se nao tem como, retorna LINF
 //
 // O(m log(n))
-// dc345b
 
 struct node {
 	pair<ll, int> val;

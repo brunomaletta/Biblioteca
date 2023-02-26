@@ -7,7 +7,6 @@
 // Complexidades:
 // construir - O(n log(n))
 // update e query - O(log^2(n))
-// 6a760a
 
 template<class T = int> struct bit2d {
 	vector<T> X;

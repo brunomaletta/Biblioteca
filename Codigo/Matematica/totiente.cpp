@@ -1,7 +1,6 @@
 // Totiente
 //
 // O(sqrt(n))
-// faeca3
 
 int tot(int n){
 	int ret = n;

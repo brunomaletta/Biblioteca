@@ -6,7 +6,6 @@
 // Complexidades:
 // build - O(n log(n))
 // query - O(1)
-// fd81ae
 
 namespace sparse {
 	int m[MAX2][2*MAX], n, v[2*MAX];

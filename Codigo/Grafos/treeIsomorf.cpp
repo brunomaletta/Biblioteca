@@ -4,7 +4,6 @@
 // Duas arvores sao isomorfas sse seu hash eh o mesmo
 //
 // O(|V|.log(|V|))
-// 8fb6bb
 
 map<vector<int>, int> mphash;
 

@@ -8,7 +8,6 @@
 //
 // O(log(n)) amortizado por insercao
 // O(log(n)) por query
-// 978376
 
 struct Line {
 	mutable ll a, b, p;

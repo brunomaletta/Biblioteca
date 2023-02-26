@@ -1,4 +1,4 @@
-// Kuhn [nohash]
+// Kuhn
 //
 // Computa matching maximo em grafo bipartido
 // 'n' e 'm' sao quantos vertices tem em cada particao
@@ -14,7 +14,6 @@
 
 mt19937 rng((int) chrono::steady_clock::now().time_since_epoch().count());
 
-// b0dda3
 struct kuhn {
 	int n, m;
 	vector<vector<int>> g;
@@ -49,7 +48,6 @@ struct kuhn {
 	}
 };
 
-// 55fb67
 pair<vector<int>, vector<int>> recover(kuhn& K) {
 	K.matching();
 	int n = K.n, m = K.m;

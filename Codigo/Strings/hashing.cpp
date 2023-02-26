@@ -3,7 +3,6 @@
 // Complexidades:
 // construtor - O(|s|)
 // operator() - O(1)
-// 918dfb
 
 mt19937 rng((int) chrono::steady_clock::now().time_since_epoch().count());
  

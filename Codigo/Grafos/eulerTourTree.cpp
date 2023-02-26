@@ -16,7 +16,6 @@
 // is_in_subtree(v, u) responde se o vertice u esta na sub-arvore de v
 //
 // Tudo O(log(n)) com alta probabilidade
-// c97d63
 
 mt19937 rng((int) chrono::steady_clock::now().time_since_epoch().count());
 

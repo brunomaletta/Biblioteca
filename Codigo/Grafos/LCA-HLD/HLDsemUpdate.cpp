@@ -5,7 +5,6 @@
 // Complexidades:
 // build - O(n)
 // query_path - O(log(n))
-// ee6991
 
 namespace hld {
 	vector<pair<int, int> > g[MAX];

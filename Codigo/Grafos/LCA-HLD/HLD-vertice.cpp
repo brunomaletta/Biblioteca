@@ -12,7 +12,6 @@
 
 // namespace seg { ... }
 
-// de3d84
 namespace hld {
 	vector<int> g[MAX];
 	int pos[MAX], sz[MAX];

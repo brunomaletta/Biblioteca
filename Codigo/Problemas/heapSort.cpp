@@ -1,7 +1,6 @@
 // Heap Sort
 //
 // O(n log n)
-// 385e91
 
 void down(vector<int>& v, int n, int i) {
 	while ((i = 2*i+1) < n) {

@@ -3,7 +3,6 @@
 // Offline com Divide and Conquer e
 // DSU com rollback
 // O(n log^2(n))
-// 043d93
 
 typedef pair<int, int> T;
 

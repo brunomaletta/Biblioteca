@@ -1,4 +1,4 @@
-// FFT [nohash]
+// FFT
 //
 // Chamar convolution com vector<complex<double>> para FFT
 // Precisa do mint para NTT
@@ -6,7 +6,6 @@
 // O(n log(n))
 
 // Para FFT
-// de56b9
 void get_roots(bool f, int n, vector<complex<double>>& roots) {
 	const static double PI = acosl(-1);
 	for (int i = 0; i < n/2; i++) {
@@ -17,7 +16,6 @@ void get_roots(bool f, int n, vector<complex<double>>& roots) {
 }
 
 // Para NTT
-// 91cd08
 template<int p>
 void get_roots(bool f, int n, vector<mod_int<p>>& roots) {
 	mod_int<p> r;
@@ -39,7 +37,6 @@ void get_roots(bool f, int n, vector<mod_int<p>>& roots) {
 	for (int i = 1; i < n/2; i++) roots[i] = roots[i-1]*r;
 }
 
-// d5c432
 template<typename T> void fft(vector<T> &a, bool f, int N, vector<int> &rev) {
 	for (int i = 0; i < N; i++) if (i < rev[i]) swap(a[i], a[rev[i]]);
 	int l, r, m;
@@ -87,7 +84,6 @@ template<typename T> vector<T> convolution(vector<T> &a, vector<T> &b) {
 }
 
 // NTT
-// 3bf256
 template<int p, typename T> vector<mod_int<p>> ntt(vector<T>& a, vector<T>& b) {
 	vector<mod_int<p>> A(a.begin(), a.end()), B(b.begin(), b.end());
 	return convolution(A, B);
@@ -101,8 +97,6 @@ template<int p, typename T> vector<mod_int<p>> ntt(vector<T>& a, vector<T>& b) {
 // [0,1]       - <int, 1>
 // [-1e5, 1e5] - <ll, 2>
 // [-1e9, 1e9] - <__int128, 3>
-//
-// 053a7d
 template<typename T, int mods>
 vector<T> int_convolution(vector<int>& a, vector<int>& b) {
 	static const int M1 = 998244353, M2 = 754974721, M3 = 167772161;

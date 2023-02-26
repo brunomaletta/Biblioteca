@@ -1,4 +1,4 @@
-// Crivo de Eratosthenes [nohash]
+// Crivo de Eratosthenes
 
 // "O" crivo
 //
@@ -10,7 +10,6 @@
 // crivo - O(n log(log(n)))
 // fact - O(log(n))
 
-// hash (crivo e fact): def8f3
 int divi[MAX];
 
 void crivo(int lim) {
@@ -32,7 +31,6 @@ void fact(vector<int>& v, int n) {
 //
 // O(n)
 
-// 792458
 int divi[MAX];
 vector<int> primes;
 
@@ -54,7 +52,6 @@ void crivo(int lim) {
 //
 // O(n log(n))
 
-// 9bf7b6
 int divi[MAX];
 
 void crivo(int lim) {
@@ -76,7 +73,6 @@ void crivo(int lim) {
 //
 // O(n log(log(n)))
 
-// 266461
 int tot[MAX];
 
 void crivo(int lim) {
@@ -91,7 +87,6 @@ void crivo(int lim) {
 //
 // O(n log(log(n)))
 
-// 58d036
 char meb[MAX];
 
 void crivo(int lim) {
@@ -114,8 +109,6 @@ void crivo(int lim) {
 // Se quiser computar f(p^k) dado p e k, usar os comentarios
 //
 // O(n)
-
-// 66886a
 
 vector<int> primes;
 int f[MAX], pot[MAX];

@@ -4,7 +4,6 @@
 //
 // O(n * max(w))
 // O(max(w)) de memoria
-// d888b0
 
 int subset_sum(vector<int> w, int t) {
 	int pref = 0, k = 0;

@@ -20,7 +20,6 @@
 // Arvore tem no maximo 2n vertices
 //
 // O(n+m)
-// 056fa2
 
 struct block_cut_tree {
 	vector<vector<int>> g, blocks, tree;

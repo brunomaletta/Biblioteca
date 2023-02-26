@@ -7,7 +7,6 @@
 // Cuidado com overflow! Tem que caber o quadrado dos valores
 //
 // O(log(min(a, b)))
-// 2e8259
 
 template<typename T> tuple<ll, T, T> ext_gcd(ll a, ll b) {
     if (!a) return {b, 0, 1};

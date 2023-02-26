@@ -3,7 +3,6 @@
 // O(n^3)
 // Se for bipartido, nao precisa da funcao
 // 'contract', e roda em O(nm)
-// 4426a4
 
 vector<int> g[MAX];
 int match[MAX]; // match[i] = com quem i esta matchzado ou -1

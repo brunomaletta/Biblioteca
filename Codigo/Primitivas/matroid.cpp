@@ -1,4 +1,4 @@
-// Matroid [nohash]
+// Matroid
 //
 // Matroids de Grafo e Particao
 // De modo geral, toda Matroid contem um build() linear
@@ -17,7 +17,6 @@
 //
 // build() : O(n)
 // oracle() : O(1)
-// 691847
 
 struct graphic_matroid {
 	int n, m, t;
@@ -63,7 +62,6 @@ struct graphic_matroid {
 // 
 // build() : O(n)
 // oracle() : O(1)
-// caa72a
 
 struct partition_matroid {
 	vector<int> cap, color, d;
@@ -87,7 +85,6 @@ struct partition_matroid {
 // que eh independente tanto para M1 quanto para M2
 //
 // O(r^2*n)
-// 899f94
 
 // Matroid "pesada" deve ser a M2
 template<typename Matroid1, typename Matroid2>
@@ -133,7 +130,6 @@ vector<int> matroid_intersection(int n, Matroid1 M1, Matroid2 M2) {
 //
 // O(r^3*n) com SPFA
 // O(r^2*n*log(n)) com Dijkstra e potencial
-// 3a09d1
 
 template<typename T, typename Matroid1, typename Matroid2>
 vector<int> weighted_matroid_intersection(int n, vector<T> w, Matroid1 M1, Matroid2 M2) {

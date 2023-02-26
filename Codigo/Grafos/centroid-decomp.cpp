@@ -4,7 +4,6 @@
 // Mudar depois do comentario
 //
 // O(n log(n))
-// fe2541
 
 vector<int> g[MAX];
 int sz[MAX], rem[MAX];

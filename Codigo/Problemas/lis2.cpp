@@ -3,7 +3,6 @@
 // Calcula o tamanho da LIS
 //
 // O(n log(n))
-// 402def
 
 template<typename T> int lis(vector<T> &v){
 	vector<T> ans;

@@ -4,7 +4,6 @@
 //
 // Complexidade sendo c = O(update) e SQ = sqrt(n):
 // O((n + q) * sqrt(n) * c)
-// 395329
 
 const int MAX = 40010, SQ = 400;
 

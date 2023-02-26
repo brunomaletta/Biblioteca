@@ -4,7 +4,6 @@
 // Se tiver empate, retorna o que minimiza o comprimento total
 //
 // O(n log(n))
-// c4dbe2
 
 vector<int> ind_set(vector<tuple<int, int, int>>& v) {
 	vector<tuple<int, int, int>> w;

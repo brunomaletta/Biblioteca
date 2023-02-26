@@ -4,7 +4,6 @@
 // Assume a, b >= 0
 //
 // O(log(min(a, b)))
-// 35411d
 
 tuple<ll, ll, ll> ext_gcd(ll a, ll b) {
     if (!a) return {b, 0, 1};

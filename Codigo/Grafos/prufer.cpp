@@ -1,4 +1,4 @@
-// Prufer code [nohash]
+// Prufer code
 //
 // Traduz de lista de arestas para prufer code
 // e vice-versa
@@ -8,7 +8,6 @@
 // 
 // O(n)
 
-// d3b324
 vector<int> to_prufer(vector<pair<int, int>> tree) {
 	int n = tree.size()+1;
 	vector<int> d(n, 0);
@@ -34,7 +33,6 @@ vector<int> to_prufer(vector<pair<int, int>> tree) {
 	return ret;
 }
 
-// 765413
 vector<pair<int, int>> from_prufer(vector<int> p) {
 	int n = p.size()+2;
 	vector<int> d(n, 1);

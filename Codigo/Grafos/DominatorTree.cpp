@@ -4,7 +4,6 @@
 //
 // build - O(m log(n))
 // dominates - O(1)
-// c80920
 
 int n;
 

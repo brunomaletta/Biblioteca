@@ -1,10 +1,9 @@
-// Dinitz [nohash]
+// Dinitz
 //
 // O(min(m * max_flow, n^2 m))
 // Grafo com capacidades 1: O(min(m sqrt(m), m * n^(2/3)))
 // Todo vertice tem grau de entrada ou saida 1: O(m sqrt(n))
 
-// 86fd2c
 struct dinitz {
 	const bool scaling = false; // com scaling -> O(nm log(MAXCAP)),
 	int lim;                    // com constante alta
@@ -59,7 +58,6 @@ struct dinitz {
 };
 
 // Recupera as arestas do corte s-t
-// 1e889c
 vector<pair<int, int>> get_cut(dinitz& g, int s, int t) {
 	g.max_flow(s, t);
 	vector<pair<int, int>> cut;

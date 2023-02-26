@@ -4,7 +4,6 @@
 // Assume que nao existem pontos coincidentes
 //
 // O(n^2 log n)
-// 6bb68d
 
 void sweep_direction(vector<pt> v) {
 	int n = v.size();

@@ -12,7 +12,6 @@
 
 // namespace seg { ... }
 
-// 599946
 namespace hld {
 	vector<pair<int, int> > g[MAX];
 	int pos[MAX], sz[MAX];

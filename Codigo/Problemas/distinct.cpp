@@ -2,7 +2,6 @@
 //
 // build - O(n (log n + log(sigma)))
 // query - O(log(sigma))
-// 5c7aa1
 
 namespace perseg { };
 

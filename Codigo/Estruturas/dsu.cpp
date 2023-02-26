@@ -1,9 +1,8 @@
-// DSU [nohash]
+// DSU
 //
 // Une dois conjuntos e acha a qual conjunto um elemento pertence por seu id
 //
 // find e unite: O(a(n)) ~= O(1) amortizado
-// 8e197e
 
 struct dsu {
 	vector<int> id, sz;
@@ -26,7 +25,6 @@ struct dsu {
 // Informa se a componente de um vertice e bipartida
 //
 // find e unite: O(log(n))
-// 118050
 
 struct dsu {
 	vector<int> id, sz, bip, c;
@@ -59,7 +57,6 @@ struct dsu {
 // incrementando o 't' no une
 //
 // find e unite: O(log(n))
-// 6c63a4
 
 struct dsu {
 	vector<int> id, sz, ti;
@@ -93,7 +90,6 @@ struct dsu {
 // checkpoint: O(1)
 // rollback: O(m) em que m e o numero de vezes que alguma
 // variavel mudou de valor desde o ultimo checkpoint
-// c6e923
 
 struct dsu {
 	vector<int> id, sz;

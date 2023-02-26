@@ -5,7 +5,6 @@
 // retorna {custo do triangulo, {j, k}}
 //
 // O(m sqrt(m) log(n)) se chamar para todos os vertices
-// f1adbc
 
 vector<pair<int, int>> g[MAX]; // {para, peso}
 

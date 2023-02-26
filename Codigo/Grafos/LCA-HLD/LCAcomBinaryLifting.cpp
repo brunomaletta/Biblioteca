@@ -1,4 +1,4 @@
-// LCA com binary lifting [nohash]
+// LCA com binary lifting
 //
 // Assume que um vertice eh ancestral dele mesmo, ou seja,
 // se a eh ancestral de b, lca(a, b) = a
@@ -7,7 +7,6 @@
 // Complexidades:
 // build - O(n log(n))
 // lca - O(log(n))
-// b674ca
 
 vector<vector<int> > g(MAX);
 int n, p;
@@ -56,7 +55,6 @@ int lca(int a, int b) {
 //
 // build - O(n)
 // kth, lca, dist - O(log(n))
-// 89a97a
 
 int d[MAX], p[MAX], pp[MAX];
 

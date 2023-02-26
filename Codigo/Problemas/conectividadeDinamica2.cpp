@@ -2,7 +2,6 @@
 //
 // Offline com link-cut trees
 // O(n log(n))
-// d38e4e
 
 namespace lct {
 	struct node {

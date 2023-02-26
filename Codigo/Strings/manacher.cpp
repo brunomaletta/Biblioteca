@@ -1,4 +1,4 @@
-// Manacher [nohash]
+// Manacher
 //
 // manacher recebe um vetor de T e retorna o vetor com tamanho dos palindromos
 // ret[2*i] = tamanho do maior palindromo centrado em i
@@ -9,7 +9,6 @@
 // palindrome - <O(n), O(1)>
 // pal_end - O(n)
 
-// ebb184
 template<typename T> vector<int> manacher(const T& s) {
 	int l = 0, r = -1, n = s.size();
 	vector<int> d1(n), d2(n);
@@ -32,7 +31,6 @@ template<typename T> vector<int> manacher(const T& s) {
 	return ret;
 }
 
-// 60c6f5
 // verifica se a string s[i..j] eh palindromo
 template<typename T> struct palindrome {
 	vector<int> man;
@@ -43,7 +41,6 @@ template<typename T> struct palindrome {
 	}
 };
 
-// 8bd4d5
 // tamanho do maior palindromo que termina em cada posicao
 template<typename T> vector<int> pal_end(const T& s) {
 	vector<int> ret(s.size());

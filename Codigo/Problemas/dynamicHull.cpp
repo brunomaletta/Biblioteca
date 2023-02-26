@@ -2,7 +2,6 @@
 //
 // insert - O(log n) amortizado
 // is_inside - O(log n)
-// 35c4e8
 
 struct upper {
 	set<pt> se;

@@ -12,7 +12,6 @@
 // Valores no X tem que ser de 0 ateh NX
 // Para q operacoes, usa O(q log(NX)) de memoria, e as
 // operacoes custa O(log(q) log(NX))
-// 75f2d0
 
 const int ZERO = INF;
 const int op(int l, int r) { return min(l, r); }

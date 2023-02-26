@@ -10,7 +10,6 @@
 // build - O(n)
 // query - O(log(n))
 // update - O(log(n))
-// 7447e3
 
 const int MAX = 1e5+10, UPD = 1e5+10, LOG = 18;
 const int MAXS = 2*MAX + 4*UPD*LOG;

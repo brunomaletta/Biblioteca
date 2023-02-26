@@ -5,7 +5,6 @@
 // Se chamar com ^, usar tamanho potencia de 2!!
 //
 // O(n log(n))
-// 50e84f
 
 template<char op, class T> vector<T> FWHT(vector<T> f, bool inv = false) {
 	int n = f.size();

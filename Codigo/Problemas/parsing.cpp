@@ -3,8 +3,6 @@
 // Operacoes associativas a esquerda por default
 // Para mudar isso, colocar em r_assoc
 // Operacoes com maior prioridade sao feitas primeiro
-//
-// 9ad15a
 
 bool blank(char c) {
 	return c == ' ';

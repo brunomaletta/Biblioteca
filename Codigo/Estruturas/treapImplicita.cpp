@@ -2,7 +2,6 @@
 //
 // Todas as operacoes custam
 // O(log(n)) com alta probabilidade
-// 63ba4d
 
 mt19937 rng((int) chrono::steady_clock::now().time_since_epoch().count());
 

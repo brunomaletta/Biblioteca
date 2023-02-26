@@ -1,7 +1,6 @@
 // Min queue - deque
 //
 // Tudo O(1) amortizado
-// c13c57
 
 template<class T> struct minqueue {
 	deque<pair<T, int>> q;

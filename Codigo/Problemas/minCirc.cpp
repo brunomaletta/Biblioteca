@@ -1,7 +1,6 @@
 // Minimum Enclosing Circle
 //
 // O(n) com alta probabilidade
-// b0a6ba
 
 const double EPS = 1e-12;
 mt19937 rng((int) chrono::steady_clock::now().time_since_epoch().count());

@@ -8,8 +8,6 @@
 // A profundidade de x na arvore eh dp[x]
 // DP funciona para ateh 300, mas a arvore soh funciona
 // para ateh 148
-//
-// 84fcff
 
 // recuperacao certa soh ateh 148 (erra para 149, 233, 298)
 pair<vector<int>, vector<int>> addition_chain() {

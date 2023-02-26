@@ -3,7 +3,6 @@
 // O(n) pra buildar, query O(1)
 // Se tiver varios minimos, retorna
 // o de menor indice
-// bab412
 
 template<typename T> struct rmq {
 	vector<T> v;

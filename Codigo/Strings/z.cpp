@@ -5,7 +5,6 @@
 // Complexidades:
 // z - O(|s|)
 // match - O(|s| + |p|)
-// 74a9e1
 
 vector<int> get_z(string s) {
 	int n = s.size();

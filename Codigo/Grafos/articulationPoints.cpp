@@ -6,7 +6,6 @@
 // se art[i] >= 1, entao vertice i eh ponto de articulacao
 // 
 // O(n+m)
-// 0e405b
 
 int n;
 vector<vector<int>> g;

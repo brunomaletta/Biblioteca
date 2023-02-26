@@ -1,4 +1,4 @@
-// Minkowski Sum [nohash]
+// Minkowski Sum
 //
 // Computa A+B = {a+b : a \in A, b \in B}, em que
 // A e B sao poligonos convexos
@@ -6,7 +6,6 @@
 //
 // O(|A|+|B|)
 
-// d7cca8
 vector<pt> minkowski(vector<pt> p, vector<pt> q) {
 	auto fix = [](vector<pt>& P) {
 		rotate(P.begin(), min_element(P.begin(), P.end()), P.end());
@@ -24,7 +23,6 @@ vector<pt> minkowski(vector<pt> p, vector<pt> q) {
 	return ret;
 }
 
-// 2f5dd2
 ld dist_convex(vector<pt> p, vector<pt> q) {
 	for (pt& i : p) i = i * -1;
 	auto s = minkowski(p, q);

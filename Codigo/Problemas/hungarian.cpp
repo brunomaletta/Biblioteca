@@ -6,7 +6,6 @@
 // assignment minimo, e a coluna escolhida por cada linha
 //
 // O(n^3)
-// 64c53e
 
 template<typename T> struct hungarian {
 	int n;

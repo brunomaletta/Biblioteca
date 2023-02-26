@@ -12,7 +12,6 @@
 // Retorna um vetor v de tamanho |A| onde v[i] guarda o match de i.
 //
 // O(|A| * |B|)
-// 0ff8d5
 
 vector<int> stable_marriage(vector<vector<int>> &a, vector<vector<int>> &b) {
 	int n = a.size(), m = b.size();

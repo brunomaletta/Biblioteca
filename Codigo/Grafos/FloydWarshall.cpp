@@ -8,7 +8,6 @@
 // (i, j) de peso w, INF caso contrario
 //
 // O(n^3)
-// ea05be
 
 int n;
 int d[MAX][MAX];

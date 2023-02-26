@@ -8,7 +8,6 @@
 // build - O(n)
 // query - O(log(n))
 // update - O(log(n))
-// f91737
 
 namespace bit {
 	ll bit[2][MAX+2];

@@ -4,7 +4,6 @@
 // SQ = n / sqrt(q)
 // 
 // O(n * sqrt(q))
-// e94f60
 
 const int MAX = 1e5+10;
 const int SQ = sqrt(MAX);

@@ -2,7 +2,6 @@
 //
 // binom(n, k, p) retorna a probabilidade de k sucessos
 // numa binomial(n, p)
-// 00d38f
 
 double logfact[MAX];
 

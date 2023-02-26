@@ -6,7 +6,6 @@
 // exceto o merge, que custa O(log(N)) amortizado
 // Usa O(min(N, n log(N))) de memoria, sendo 'n' o
 // numero de elementos distintos no set
-// 2d2d8a
 
 template<typename T, bool MULTI=false, typename SIZE_T=int> struct sms {
 	struct node {

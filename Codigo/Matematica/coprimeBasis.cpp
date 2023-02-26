@@ -12,8 +12,6 @@
 // se MAX <= 1e9 fica 10*n
 // se MAX <= 1e18 fica 16*n
 // se MAX <= 1e36 fica 26*n
-//
-// 6714d3
 
 template <typename T> struct coprime_basis {
 	vector<T> basis;

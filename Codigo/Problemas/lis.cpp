@@ -3,7 +3,6 @@
 // Calcula e retorna uma LIS
 //
 // O(n.log(n))
-// 4749e8
 
 template<typename T> vector<T> lis(vector<T>& v) {
 	int n = v.size(), m = -1;

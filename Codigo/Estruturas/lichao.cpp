@@ -7,7 +7,6 @@
 // convex hull trick
 //
 // O(log(MA-MI)), O(n) de memoria
-// 59ba68
 
 template<ll MI = ll(-1e9), ll MA = ll(1e9)> struct lichao {
 	struct line {

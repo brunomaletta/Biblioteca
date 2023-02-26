@@ -11,7 +11,6 @@
 // Complexidades:
 // construir - O(n log^2(n)) 
 // query - O(log^2(n)) 
-// 8d0749 
 
 template<typename T> struct ms_bit {
     int n;

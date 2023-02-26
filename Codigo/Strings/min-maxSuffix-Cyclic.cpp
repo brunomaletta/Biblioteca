@@ -4,7 +4,6 @@
 // da string, lexicograficamente
 //
 // O(n)
-// af0367
 
 template<typename T> int max_suffix(T s, bool mi = false) {
 	s.push_back(*min_element(s.begin(), s.end())-1);

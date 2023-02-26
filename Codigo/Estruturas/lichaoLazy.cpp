@@ -10,7 +10,6 @@
 // No inicio eh tudo LINF, se inserir {0, 0} fica tudo 0
 //
 // O(n log N) de memoria ; O(n) de memoria se nao usar as operacoes de range
-// 285a00
 
 template<int MI = int(-1e9), int MA = int(1e9)> struct lichao {
 	struct line {

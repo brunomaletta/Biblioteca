@@ -4,7 +4,6 @@
 // O(1) de memoria
 // Retorna um par com o tanto que tem que andar
 // do f0 ate o inicio do ciclo e o tam do ciclo
-// 899f20
 
 pair<ll, ll> find_cycle() {
 	ll tort = f(f0);

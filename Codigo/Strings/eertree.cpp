@@ -8,7 +8,6 @@
 // substrings pal. com repeticao
 //
 // O(n) amortizado, considerando alfabeto O(1)
-// a2e693
 
 struct eertree {
 	vector<vector<int>> t;

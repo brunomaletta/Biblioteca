@@ -7,7 +7,6 @@
 // Complexidades:
 // query - O(log(n))
 // update - O(log(n))
-// d7f6d1
 
 template<typename T> struct seg {
 	struct node {

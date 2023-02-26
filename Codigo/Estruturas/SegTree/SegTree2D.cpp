@@ -17,7 +17,6 @@
 // build - O(n^2)
 // query - O(log^2(n))
 // update - O(log^2(n))
-// 67b9e5
 
 int seg[2*MAX][2*MAX], n;
 

@@ -1,4 +1,4 @@
-// KMP [nohash]
+// KMP
 //
 // matching(s, t) retorna os indices das ocorrencias
 // de s em t
@@ -10,7 +10,6 @@
 // construir o automato - O(|sigma|*n)
 // n = |padrao| e m = |texto|
 
-// f50359
 template<typename T> vector<int> pi(T s) {
 	vector<int> p(s.size());
 	for (int i = 1, j = 0; i < s.size(); i++) {
@@ -21,7 +20,6 @@ template<typename T> vector<int> pi(T s) {
 	return p;
 }
 
-// c82524
 template<typename T> vector<int> matching(T& s, T& t) {
 	vector<int> p = pi(s), match;
 	for (int i = 0, j = 0; i < t.size(); i++) {
@@ -32,7 +30,6 @@ template<typename T> vector<int> matching(T& s, T& t) {
 	return match;
 }
 
-// 79bd9e
 struct KMPaut : vector<vector<int>> {
 	KMPaut(){}
 	KMPaut (string& s) : vector<vector<int>>(26, vector<int>(s.size()+1)) {

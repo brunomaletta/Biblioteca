@@ -3,7 +3,6 @@
 // build - O(n log(n))
 // query - O(log^2(n))
 // update - O(log^2(n))
-// 2306f3
 
 #include <ext/pb_ds/assoc_container.hpp>
 #include <ext/pb_ds/tree_policy.hpp>

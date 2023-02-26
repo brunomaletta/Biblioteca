@@ -3,7 +3,6 @@
 // Resolve mochila, recuperando a resposta
 //
 // O(n * cap), O(n + cap) de memoria
-// 400885
 
 int v[MAX], w[MAX]; // valor e peso
 int dp[2][MAX_CAP];

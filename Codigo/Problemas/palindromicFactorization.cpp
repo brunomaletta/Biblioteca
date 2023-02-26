@@ -5,7 +5,6 @@
 // prefixo da string em strings palindromicas
 //
 // O(n log n), considerando alfabeto O(1)
-// 9e6e22
 
 struct eertree { ... };
 

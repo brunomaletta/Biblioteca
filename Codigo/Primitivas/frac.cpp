@@ -1,7 +1,6 @@
 // Primitivas de fracao
 //
 // Funciona com o Big Int
-// cdb445
 
 template<typename T = int> struct frac {
 	T num, den;

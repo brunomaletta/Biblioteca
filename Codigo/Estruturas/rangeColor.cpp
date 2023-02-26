@@ -7,7 +7,6 @@
 // Complexidades (para q operacoes):
 // update - O(log(q)) amortizado
 // query - O(log(q))
-// 9e9cab
 
 template<typename T> struct color {
 	set<tuple<int, int, T>> se;

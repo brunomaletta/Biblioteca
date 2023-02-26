@@ -4,7 +4,6 @@
 // queries tem que ser feitas em ordem de x
 //
 // linear
-// 30323e
 
 struct CHT {
 	int it;

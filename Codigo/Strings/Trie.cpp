@@ -9,7 +9,6 @@
 // T.count_pref(s) numero de strings que possuem s como prefixo - O(|s|)
 //
 // Nao funciona para string vazia
-// 979609
 
 struct trie {
 	vector<vector<int>> to;

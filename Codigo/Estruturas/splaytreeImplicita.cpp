@@ -5,7 +5,6 @@
 // O construtor a partir do vector
 // eh linear, todas as outras operacoes
 // custam O(log(n)) amortizado
-// a3575a
 
 template<typename T> struct splay {
 	struct node {

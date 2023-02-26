@@ -8,7 +8,6 @@
 // build - O(1)
 // query - O(log(n))
 // update - O(log(n))
-// dc37e6
 
 namespace seg {
 	int seg[MAX], lazy[MAX], R[MAX], L[MAX], ptr;

@@ -9,7 +9,6 @@
 // build - O(n)
 // query - O(log(n))
 // update - O(log(n))
-// 6dc475
 
 namespace seg {
 	ll seg[2*MAX], lazy[2*MAX];

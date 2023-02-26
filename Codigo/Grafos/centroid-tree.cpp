@@ -6,7 +6,6 @@
 // e o k-esimo ancestral na arvore da centroid
 //
 // O(n log(n)) de tempo e memoria
-// a0e7c7
 
 vector<int> g[MAX], dist[MAX];
 int sz[MAX], rem[MAX], p[MAX];

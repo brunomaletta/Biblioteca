@@ -11,7 +11,6 @@
 // voce pode usar o LCAcomHLD, por exemplo
 //
 // O(k log(k))
-// 42d990
 
 vector<pair<int, int>> virt[MAX];
 

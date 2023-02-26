@@ -1,7 +1,6 @@
 // Closest pair of points
 //
 // O(nlogn)
-// f90265
 
 pair<pt, pt> closest_pair_of_points(vector<pt> v) {
 	int n = v.size();

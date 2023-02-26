@@ -4,7 +4,6 @@
 // Soma, subtracao, comparacao - O(n)
 // Multiplicacao - O(n log(n))
 // Divisao, resto - O(n^2)
-// 6c3c3a
 
 struct bint {
 	static const int BASE = 1e9;

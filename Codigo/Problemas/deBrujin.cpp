@@ -8,7 +8,6 @@
 // (assume que lim <= k^n)
 //
 // Linear no tamanho da resposta
-// 19720c
 
 vector<int> de_brujin(int n, int k, int lim = INF) {
 	if (k == 1) return vector<int>(lim == INF ? 1 : n, 0);

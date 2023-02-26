@@ -1,8 +1,7 @@
-// Geometria - inteiro [nohash]
+// Geometria - inteiro
 
 #define sq(x) ((x)*(ll)(x))
 
-// 840720
 struct pt { // ponto
 	int x, y;
 	pt(int x_ = 0, int y_ = 0) : x(x_), y(y_) {}
@@ -23,7 +22,6 @@ struct pt { // ponto
 	}
 };
 
-// 7ab617
 struct line { // reta
 	pt p, q;
 	line() {}
@@ -35,51 +33,42 @@ struct line { // reta
 
 // PONTO & VETOR
 
-// 51563e
 ll dist2(pt p, pt q) { // quadrado da distancia
 	return sq(p.x - q.x) + sq(p.y - q.y);
 }
 
-// bf431d
 ll sarea2(pt p, pt q, pt r) { // 2 * area com sinal
 	return (q-p)^(r-q);
 }
 
-// a082d3
 bool col(pt p, pt q, pt r) { // se p, q e r sao colin.
 	return sarea2(p, q, r) == 0;
 }
 
-// 42bb09
 bool ccw(pt p, pt q, pt r) { // se p, q, r sao ccw
 	return sarea2(p, q, r) > 0;
 }
 
-// fcf924
 int quad(pt p) { // quadrante de um ponto
 	return (p.x<0)^3*(p.y<0);
 }
 
-// 77187b
 bool compare_angle(pt p, pt q) { // retorna se ang(p) < ang(q)
 	if (quad(p) != quad(q)) return quad(p) < quad(q);
 	return ccw(q, pt(0, 0), p);
 }
 
-// e4ad5e
 pt rotate90(pt p) { // rotaciona 90 graus
 	return pt(-p.y, p.x);
 }
 
 // RETA
 
-// c9f07f
 bool isinseg(pt p, line r) { // se p pertence ao seg de r
 	pt a = r.p - p, b = r.q - p;
 	return (a ^ b) == 0 and (a * b) <= 0;
 }
 
-// 35998c
 bool interseg(line r, line s) { // se o seg de r intersecta o seg de s
 	if (isinseg(r.p, s) or isinseg(r.q, s)
 		or isinseg(s.p, r) or isinseg(s.q, r)) return 1;
@@ -88,12 +77,10 @@ bool interseg(line r, line s) { // se o seg de r intersecta o seg de s
 			ccw(s.p, s.q, r.p) != ccw(s.p, s.q, r.q);
 }
 
-// dd8702
 int segpoints(line r) { // numero de pontos inteiros no segmento
 	return 1 + __gcd(abs(r.p.x - r.q.x), abs(r.p.y - r.q.y));
 }
 
-// d273be
 double get_t(pt v, line r) { // retorna t tal que t*v pertence a reta r
 	return (r.p^r.q) / (double) ((r.p-r.q)^v);
 }
@@ -102,7 +89,6 @@ double get_t(pt v, line r) { // retorna t tal que t*v pertence a reta r
 
 // quadrado da distancia entre os retangulos a e b (lados paralelos aos eixos)
 // assume que ta representado (inferior esquerdo, superior direito)
-// e13018
 ll dist2_rect(pair<pt, pt> a, pair<pt, pt> b) {
 	int hor = 0, vert = 0;
 	if (a.second.x < b.first.x) hor = b.first.x - a.second.x;
@@ -112,7 +98,6 @@ ll dist2_rect(pair<pt, pt> a, pair<pt, pt> b) {
 	return sq(hor) + sq(vert);
 }
 
-// d5f693
 ll polarea2(vector<pt> v) { // 2 * area do poligono
 	ll ret = 0;
 	for (int i = 0; i < v.size(); i++)
@@ -122,7 +107,6 @@ ll polarea2(vector<pt> v) { // 2 * area do poligono
 
 // se o ponto ta dentro do poligono: retorna 0 se ta fora,
 // 1 se ta no interior e 2 se ta na borda
-// afd587
 int inpol(vector<pt>& v, pt p) { // O(n)
 	int qt = 0;
 	for (int i = 0; i < v.size(); i++) {
@@ -141,7 +125,6 @@ int inpol(vector<pt>& v, pt p) { // O(n)
 	return qt != 0;
 }
 
-// 10d7e0
 vector<pt> convex_hull(vector<pt> v) { // convex hull - O(n log(n))
 	sort(v.begin(), v.end());
 	v.erase(unique(v.begin(), v.end()), v.end());
@@ -162,7 +145,6 @@ vector<pt> convex_hull(vector<pt> v) { // convex hull - O(n log(n))
 	return l;
 }
 
-// af2d96
 ll interior_points(vector<pt> v) { // pontos inteiros dentro de um poligono simples
 	ll b = 0;
 	for (int i = 0; i < v.size(); i++)
@@ -178,7 +160,6 @@ struct convex_pol {
 	convex_pol(vector<pt> v) : pol(convex_hull(v)) {}
 
 	// se o ponto ta dentro do hull - O(log(n))
-	// 6b097f
 	bool is_inside(pt p) {
 		if (pol.size() == 0) return false;
 		if (pol.size() == 1) return p == pol[0];
@@ -194,7 +175,6 @@ struct convex_pol {
 	}
 	// ponto extremo em relacao a cmp(p, q) = p mais extremo q
 	// (copiado de https://github.com/gustavoM32/caderno-zika)
-	// 56ccd2
 	int extreme(const function<bool(pt, pt)>& cmp) {
 		int n = pol.size();
 		auto extr = [&](int i, bool& cur_dir) {
@@ -226,7 +206,6 @@ struct convex_pol {
 	}
 };
 
-// dca598
 bool operator <(const line& a, const line& b) { // comparador pra reta
 	// assume que as retas tem p < q
 	pt v1 = a.q - a.p, v2 = b.q - b.p;
@@ -239,7 +218,6 @@ bool operator ==(const line& a, const line& b) {
 }
 
 // comparador pro set pra fazer sweep line com segmentos
-// 6774df
 struct cmp_sweepline {
 	bool operator () (const line& a, const line& b) const {
 		// assume que os segmentos tem p < q
@@ -251,7 +229,6 @@ struct cmp_sweepline {
 };
 
 // comparador pro set pra fazer sweep angle com segmentos
-// 1ee7f5
 pt dir;
 struct cmp_sweepangle {
     bool operator () (const line& a, const line& b) const {

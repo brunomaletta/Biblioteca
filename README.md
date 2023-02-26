@@ -18,6 +18,8 @@ e então execute `./getlatex.sh` na pasta latex.
 
 O *theoretical guide* (documento com teoremas, identidades e informações teóricas relevantes) pode ser encontrado [aqui](https://github.com/brunomaletta/Biblioteca/blob/master/pdf/theoretical.pdf).
 
+Link para o latex do theoretical: [link](https://www.overleaf.com/read/xrbtzvvkmkxs).
+
 #### Hash
 
 No PDF, a coluna de hash é o hash de cada linha, exceto se a linha contem um caractere `}`. Nesse caso, o hash da linha é o hash a partir da linha mais acima que tem um `{` fechando na linha atual.

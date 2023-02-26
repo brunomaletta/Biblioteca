@@ -7,7 +7,7 @@
 // Complexidades:
 // query - O(log(n))
 // update - O(log(n))
-// 072a21
+// d7f6d1
 
 template<typename T> struct seg {
 	struct node {
@@ -85,5 +85,5 @@ template<typename T> struct seg {
 		}
 		return min(query(at->ch[0], a, b, l, m, i-1), query(at->ch[1], a, b, m+1, r, i-1));
 	}
-	T query(T l, T r) { return query(root, l, r, 0, (1<<n)-1, n-1); }
+	T query(T l, T r) { return query(root, l, r, 0, (T(1)<<n)-1, n-1); }
 };

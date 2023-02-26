@@ -20,11 +20,9 @@ O *theoretical guide* (documento com teoremas, identidades e informações teór
 
 #### Hash
 
-No PDF, tem duas colunas de hash: a primeira é o hash do prefixo do arquivo até essa linha, e a segunda é o hash da linha. Para rodar o hash de um arquivo, chamar:
+No PDF, a coluna de hash é o hash de cada linha, exceto se a linha contem um caractere `}`. Nesse caso, o hash da linha é o hash a partir da linha mais acima que tem um `{` fechando na linha atual.
 
-```
-bash gethash.sh arquivo.cpp
-```
+Para ver o hash no vim, seleciona as linhas com `Shift+v`, e aperta `Ctrl+h`.
 
 ## Conteúdo
 

@@ -6,9 +6,8 @@ using namespace std;
 #define RED "\033[0;31m"
 #define RESET "\033[0m"
 
-int SMALL_HASH_LEN = 2;
-int BIG_HASH_LEN = 2;
-int LINE_HASH_LEN = 2;
+bool LOOK_FOR_HASH_IN_FILE = false;
+int HASH_LEN = 3;
 
 string NO_HASH = "nohash";
 string NO_PRINT = "noprint";
@@ -30,11 +29,15 @@ string exec(string cmd) {
 	return result;
 }
 
-string get_hash_arquivo(string s, int size) {
+// linhas [l, r], hash de tamanho size
+string get_hash_arquivo(string s, int size, int l = 0, int r = 1e9) {
 	ifstream fin(s.c_str());
 	ofstream tmp("tmp.cpp", ios::out);
 	string line;
-	while (getline(fin, line)) tmp << line << '\n';
+	for (int i = 0; i <= r; i++) {
+		if (!getline(fin, line)) break;
+		if (i >= l) tmp << line << '\n';
+	}
 	fin.close();
 	tmp.close();
 	string hash = exec(hash_cmd + to_string(size));
@@ -113,37 +116,32 @@ void printa_arquivo_codigo(string file, bool extra = false) {
 	string line;
 	int count = 0;
 	bool started_code = false;
-	ofstream pref("pref.cpp", ios::out);
-	pref.close();
 	int depth = 0;
-	while (getline(fin, line)) {
+	stack<int> st;
+	for (int line_idx = 0; getline(fin, line); line_idx++) {
+		st.push(line_idx);
 		if (count++ < 2 and !extra) continue;
 
 		for (char c : line) {
-			if (c == '{') depth++;
-			if (c == '}') depth--;
+			if (c == '{') depth++, st.push(line_idx);
+			if (c == '}') depth--, st.pop();
 		}
 		
 		bool comment = is_comment(line);
 		if (!comment) started_code = true;
 
 		if (!extra and started_code) {
-			ofstream pref("pref.cpp", ios::app);
-			pref << line << '\n';
-			pref.close();
-			ofstream tmp("tmp.cpp", ios::out);
-			tmp << line;
-			tmp.close();
-			string hash_line = exec(hash_cmd + to_string(LINE_HASH_LEN));
-			string hash_pref = get_hash_arquivo("pref.cpp", SMALL_HASH_LEN);
+			string hash = get_hash_arquivo(file, HASH_LEN, st.top(), line_idx);
+
 			if (comment) {
 				if (depth != 0) {
-					for (int i = 0; i < SMALL_HASH_LEN + LINE_HASH_LEN + 2; i++)
+					for (int i = 0; i < HASH_LEN + 1; i++)
 						cout << " ";
 				}
-			} else cout << hash_pref << " " << hash_line << " ";
+			} else cout << hash << " ";
 		}
 		cout << line << endl;
+		st.pop();
 	}
 	fin.close();
 	cout << "\\end{lstlisting}\n\n";
@@ -183,8 +181,8 @@ bool printa_listing(string sub, string file, bool extra = false) {
 
 	if (!print_all and flags.count(NO_PRINT)) return false;
 
-	if (!extra and !flags.count(NO_HASH)) {
-		if (!find_in_file(file, get_hash_arquivo(file, BIG_HASH_LEN)))
+	if (LOOK_FOR_HASH_IN_FILE and !extra and !flags.count(NO_HASH)) {
+		if (!find_in_file(file, get_hash_arquivo(file, HASH_LEN)))
 			cerr << RED << "WARNING" << RESET << ": hash nao encontrado para: "
 			<< file.substr(10) << '\n';
 	}

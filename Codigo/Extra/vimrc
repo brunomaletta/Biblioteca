@@ -1,3 +1,23 @@
-set ts=4 si ai sw=4 nu mouse=a undofile
-syntax on
-vnoremap <C-H> :w !sed '/^\#w/d' \| cpp -dD -P -fpreprocessed \| tr -d '[:space:]' \| md5sum \| cut -c-6<CR>
+set ts=4 sw=4 mouse=a nu ai si undofile
+function Hash(l)
+	return system("sed '/^\w/d' \| cpp -dD -P -fpreprocessed \| tr -d '[:space:]' \| md5sum \| cut -c-6", a:l)
+endfunction
+function PrintHash() range
+	let l = getline(a:firstline, a:lastline)
+	let stk = []
+	for i in range(len(l))
+		call add(stk, i)
+		for c in str2list(l[i])
+			if c == char2nr('{')
+				call add(stk, i)
+			endif
+			if c == char2nr('}')
+				call remove(stk, -1)
+			endif
+		endfor
+		let ini = stk[-1]
+		echo Hash(join(l[ini:i], "\n"))[0:2] l[i]
+		call remove(stk, -1)
+	endfor
+endfunction
+vmap <C-H> :call PrintHash()<CR>

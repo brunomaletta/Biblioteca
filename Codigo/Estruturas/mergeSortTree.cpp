@@ -7,7 +7,7 @@
 //		elementos de v[i..j] que pertencem a [a, b]
 //		retorna o vetor ordenado
 // Se for construida sobre pontos (x, y):
-//		count(x1, x2, y1, x2) retorna quantos pontos
+//		count(x1, x2, y1, y2) retorna quantos pontos
 //		pertencem ao retangulo (x1, y1), (x2, y2)
 //		report(x1, x2, y1, y2) retorna os indices dos pontos que
 //		pertencem ao retangulo (x1, y1), (x2, y2)

@@ -12,7 +12,7 @@ void solve(int k, int l, int r, int lk, int rk) {
 	int m = (l+r)/2, p = -1;
 	auto& ans = dp[m][k&1] = LINF;
 	for (int i = max(m, lk); i <= rk; i++) {
-		int at = dp[i+1][~k&1] + query(m, i);
+		ll at = dp[i+1][~k&1] + query(m, i);
 		if (at < ans) ans = at, p = i;
 	}
 	solve(k, l, m-1, lk, p), solve(k, m+1, r, p, rk);

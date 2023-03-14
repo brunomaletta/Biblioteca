@@ -15,7 +15,8 @@ struct CHT {
 	bool useless(){
 		int sz = a.size();
 		int r = sz-1, m = sz-2, l = sz-3;
-		return	(b[l] - b[r])*(a[m] - a[l]) <
+#warning cuidado com overflow!
+		return (b[l] - b[r])*(a[m] - a[l]) <
 			(b[l] - b[m])*(a[r] - a[l]);
 	}
 	void add(ll A, ll B){

@@ -44,6 +44,7 @@ struct dynamic_hull : multiset<Line, less<>> {
 	ll query(ll x) {
 		assert(!empty());
 		auto l = *lower_bound(x);
+#warning cuidado com overflow!
 		return l.a * x + l.b;
 	}
 };

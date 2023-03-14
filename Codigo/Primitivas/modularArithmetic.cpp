@@ -3,13 +3,15 @@
 // O mod tem q ser primo
 
 template<int p> struct mod_int {
-	ll pow(ll b, ll e) {
-		if (e == 0) return 1;
-		ll r = pow(b*b%p, e/2);
-		if (e%2 == 1) r = (r*b)%p;
-		return r;
+	ll expo(ll b, ll e) {
+		ll ret = 1;
+		while (e) {
+			if (e % 2) ret = ret * b % p;
+			e /= 2, b = b * b % p;
+		}
+		return ret;
 	}
-	ll inv(ll b) { return pow(b, p-2); }
+	ll inv(ll b) { return expo(b, p-2); }
 
 	using m = mod_int;
 	int v;
@@ -19,49 +21,49 @@ template<int p> struct mod_int {
 		if (v_ < 0) v_ += p;
 		v = v_;
 	}
-	m& operator+=(const m &a) {
+	m& operator +=(const m& a) {
 		v += a.v;
 		if (v >= p) v -= p;
 		return *this;
 	}
-	m& operator-=(const m &a) {
+	m& operator -=(const m& a) {
 		v -= a.v;
 		if (v < 0) v += p;
 		return *this;
 	}
-	m& operator*=(const m &a) {
+	m& operator *=(const m& a) {
 		v = v * ll(a.v) % p;
 		return *this;
 	}
-	m& operator/=(const m &a) {
-		v = v* inv(a.v) % p;
+	m& operator /=(const m& a) {
+		v = v * inv(a.v) % p;
 		return *this;
 	}
-	m operator-(){ return m(-v); }
-	m& operator^=(ll e) {
-		if (e < 0){
+	m operator -(){ return m(-v); }
+	m& operator ^=(ll e) {
+		if (e < 0) {
 			v = inv(v);
 			e = -e;
 		}
-		v = pow(v, e%(p-1));
+		v = expo(v, e%(p-1));
 		return *this;
 	}
-	bool operator==(const m &a) { return v == a.v; }
-	bool operator!=(const m &a) { return v != a.v; }
+	bool operator ==(const m& a) { return v == a.v; }
+	bool operator !=(const m& a) { return v != a.v; }
 
-	friend istream &operator>>(istream &in, m& a) {
+	friend istream& operator >>(istream& in, m& a) {
 		ll val; in >> val;
 		a = m(val);
 		return in;
 	}
-	friend ostream &operator<<(ostream &out, m a) {
+	friend ostream& operator <<(ostream& out, m a) {
 		return out << a.v;
 	}
-	friend m operator+(m a, m b) { return a+=b; }
-	friend m operator-(m a, m b) { return a-=b; }
-	friend m operator*(m a, m b) { return a*=b; }
-	friend m operator/(m a, m b) { return a/=b; }
-	friend m operator^(m a, ll e) { return a^=e; }
+	friend m operator +(m a, m b) { return a += b; }
+	friend m operator -(m a, m b) { return a -= b; }
+	friend m operator *(m a, m b) { return a *= b; }
+	friend m operator /(m a, m b) { return a /= b; }
+	friend m operator ^(m a, ll e) { return a ^= e; }
 };
 
 typedef mod_int<(int)1e9+7> mint;

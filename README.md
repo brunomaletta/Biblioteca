@@ -226,6 +226,7 @@ Para ver o hash no vim, seleciona as linhas com `Shift+v`, e aperta `Ctrl+h`.
 - [Hash](https://github.com/brunomaletta/Biblioteca/blob/master/Codigo/Extra/hash.sh)
 - [Get Hash](https://github.com/brunomaletta/Biblioteca/blob/master/Codigo/Extra/gethash.sh)
 - [makefile](https://github.com/brunomaletta/Biblioteca/blob/master/Codigo/Extra/makefile)
+- [Pragmas](https://github.com/brunomaletta/Biblioteca/blob/master/Codigo/Extra/pragma.cpp)
 - [rand](https://github.com/brunomaletta/Biblioteca/blob/master/Codigo/Extra/rand.cpp)
 - [Stresstest](https://github.com/brunomaletta/Biblioteca/blob/master/Codigo/Extra/stress.sh)
 - [Template C++](https://github.com/brunomaletta/Biblioteca/blob/master/Codigo/Extra/template.cpp)

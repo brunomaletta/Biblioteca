@@ -119,19 +119,19 @@ void printa_arquivo_codigo(string file, bool extra = false) {
 	int depth = 0;
 	stack<int> st;
 	for (int line_idx = 0; getline(fin, line); line_idx++) {
-		st.push(line_idx);
+		int start_line = line_idx;
 		if (count++ < 2 and !extra) continue;
 
 		for (char c : line) {
 			if (c == '{') depth++, st.push(line_idx);
-			if (c == '}') depth--, st.pop();
+			if (c == '}') depth--, start_line = st.top(), st.pop();
 		}
 		
 		bool comment = is_comment(line);
 		if (!comment) started_code = true;
 
 		if (!extra and started_code) {
-			string hash = get_hash_arquivo(file, HASH_LEN, st.top(), line_idx);
+			string hash = get_hash_arquivo(file, HASH_LEN, start_line, line_idx);
 
 			if (comment) {
 				if (depth != 0) {
@@ -141,7 +141,6 @@ void printa_arquivo_codigo(string file, bool extra = false) {
 			} else cout << hash << " ";
 		}
 		cout << line << endl;
-		st.pop();
 	}
 	fin.close();
 	cout << "\\end{lstlisting}\n\n";
@@ -206,7 +205,10 @@ void dfs(vector<pair<string, string>>& files, string s, bool extra = false) {
 		if (entry->d_type == DT_DIR) dfs(files, s + "/" + string(entry->d_name), extra);
 		else {
 			if (!extra) files.emplace_back(entry->d_name, s + "/" + string(entry->d_name));
-			else printa_listing(entry->d_name, s + "/" + entry->d_name, extra);
+			else printa_listing(entry->d_name, s + "/" + entry->d_name,
+					extra and strcmp(entry->d_name, "vimrc"));
+			//	A condicao acima printa o hash do vimrc.
+			//	Para tirar, deixar apenas "extra".
 		}
 	}
 }

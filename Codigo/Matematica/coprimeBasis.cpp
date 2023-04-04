@@ -8,10 +8,10 @@
 // O(n*(n*loglog(MAX) + log(MAX)^2))
 //
 // No pior caso, podemos trocar n*loglog(MAX) por
-// se MAX <= 1e6 fica 8*n
-// se MAX <= 1e9 fica 10*n
-// se MAX <= 1e18 fica 16*n
-// se MAX <= 1e36 fica 26*n
+//  8n, se MAX <= 1e6
+// 10n, se MAX <= 1e9
+// 16n, se MAX <= 1e18
+// 26n, se MAX <= 1e36
 
 template <typename T> struct coprime_basis {
 	vector<T> basis;

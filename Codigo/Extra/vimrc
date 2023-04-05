@@ -6,20 +6,17 @@ function Hash(l)
 	return system("sed '/^\#w/d' \| cpp -dD -P -fpreprocessed \| tr -d '[:space:]' \| md5sum \| cut -c-6", a:l)
 endfunction
 function PrintHash() range
-	let l = getline(a:firstline, a:lastline)
-	let stk = []
-	for i in range(len(l))
-		let ini = i
-		for c in str2list(l[i])
-			if c == char2nr('{')
-				call add(stk, i)
-			endif
-			if c == char2nr('}')
-				let ini = stk[-1]
-				call remove(stk, -1)
+	for i in range(a:firstline, a:lastline)
+		let k = i
+		let l = getline(i)
+		for j in range(len(l))
+			if l[j] == '}'
+				call cursor(i, j+1)
+				let k = searchpair('{', '', '}', 'b')
 			endif
 		endfor
-		echo Hash(join(l[ini:i], "\n"))[0:2] l[i]
+		echo Hash(join(getline(k, i), "\n"))[0:2] l
+		call cursor(i, 0)
 	endfor
 endfunction
 vmap <C-H> :call PrintHash()<CR>

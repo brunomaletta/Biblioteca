@@ -15,7 +15,7 @@ function PrintHash() range
 				let k = searchpair('{', '', '}', 'b')
 			endif
 		endfor
-		echo Hash(getline(k, i))[0:2] l
+		echo Hash(join("\n", getline(k, i)))[0:2] l
 		call cursor(i, len(l))
 	endfor
 endfunction

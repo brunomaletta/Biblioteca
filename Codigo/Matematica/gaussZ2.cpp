@@ -9,13 +9,13 @@
 // Complexidade:
 // add, coord, recover: O(D^2 / 64)
 
-template<int D> struct Gauss_z2 {
+template<int D> struct gauss_z2 {
 	bitset<D> basis[D], keep[D];
 	int rk, in;
 	vector<int> id;
-	
-	Gauss_z2 () : rk(0), in(-1), id(D, -1) {};
-
+ 
+	gauss_z2 () : rk(0), in(-1), id(D, -1) {};
+ 
 	bool add(bitset<D> v) {
 		in++;
 		bitset<D> k;

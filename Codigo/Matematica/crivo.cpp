@@ -19,11 +19,11 @@ void crivo(int lim) {
 		for (int j = i; j <= lim; j += i) divi[j] = i;
 }
 
+#warning A funcao fact ira adicionar o 1 no vetor se voce tentar fatorar especificamente o numero 1
 void fact(vector<int>& v, int n) {
 	if (n != divi[n]) fact(v, n/divi[n]);
 	v.push_back(divi[n]);
 }
-#warning A função fact irá adicionar o 1 no vetor se você tentar fatorar especificamente o número 1.
 
 // Crivo linear
 //

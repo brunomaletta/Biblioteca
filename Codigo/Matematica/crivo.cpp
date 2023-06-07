@@ -23,6 +23,7 @@ void fact(vector<int>& v, int n) {
 	if (n != divi[n]) fact(v, n/divi[n]);
 	v.push_back(divi[n]);
 }
+#warning A função fact irá adicionar o 1 no vetor se você tentar fatorar especificamente o número 1.
 
 // Crivo linear
 //

@@ -109,6 +109,7 @@ Para ver o hash no vim, seleciona as linhas com `Shift+v`, e aperta `Ctrl+h`.
 - [Floyd-Warshall](https://github.com/brunomaletta/Biblioteca/blob/master/Codigo/Grafos/floydWarshall.cpp)
 - [Functional Graph](https://github.com/brunomaletta/Biblioteca/blob/master/Codigo/Grafos/functionalGraph.cpp)
 - [Isomorfismo de Árvores](https://github.com/brunomaletta/Biblioteca/blob/master/Codigo/Grafos/treeIsomorf.cpp)
+- [Johnson](https://github.com/brunomaletta/Biblioteca/blob/master/Codigo/Grafos/johnson.cpp)
 - [Kosaraju](https://github.com/brunomaletta/Biblioteca/blob/master/Codigo/Grafos/kosaraju.cpp)
 - [Kruskal](https://github.com/brunomaletta/Biblioteca/blob/master/Codigo/Grafos/kruskal.cpp)
 - [Kuhn](https://github.com/brunomaletta/Biblioteca/blob/master/Codigo/Grafos/kuhn.cpp)

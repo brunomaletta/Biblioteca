@@ -27,7 +27,7 @@ bool prime(ll n) {
 	if (n % 2 == 0) return 0;
 
 	ll r = __builtin_ctzll(n - 1), d = n >> r;
-	for (int a : {2, 325, 9375, 28178, 450775, 9780504, 795265022}) {
+	for (int a : {2, 325, 9375, 28178, 450775, 9780504, 1795265022}) {
 		ll x = pow(a, d, n);
 		if (x == 1 or x == n - 1 or a % n == 0) continue;
 		

@@ -43,7 +43,7 @@ Para ver o hash no vim, seleciona as linhas com `Shift+v`, e aperta `Ctrl+h`.
     - [Segtree 2D (iterativa)](https://github.com/brunomaletta/Biblioteca/blob/master/Codigo/Estruturas/Segtree/segTree2D.cpp)
     - [Segtreap (equivalente a seg 2D esparsa)](https://github.com/brunomaletta/Biblioteca/blob/master/Codigo/Estruturas/Segtree/segTreap.cpp)
     - [Segtree Beats](https://github.com/brunomaletta/Biblioteca/blob/master/Codigo/Estruturas/Segtree/segTreeBeats.cpp)
-    - [Segtree Colorida (lê os comentários pra saber o que faz)](https://github.com/brunomaletta/Biblioteca/blob/master/Codigo/Estruturas/Segtree/segTreeColorida.cpp)
+    - [Segtree Colorida (lê os comentários pra saber o que faz)](https://github.com/brunomaletta/Biblioteca/blob/master/Codigo/Estruturas/Segtree/segTreeColor.cpp)
     - [Segtree Esparsa - Lazy](https://github.com/brunomaletta/Biblioteca/blob/master/Codigo/Estruturas/Segtree/segTreeEsparsa.cpp)
     - [Segtree Esparsa - O(q) Memória](https://github.com/brunomaletta/Biblioteca/blob/master/Codigo/Estruturas/Segtree/segTreeEsparsa2.cpp)
     - [Segtree Iterativa](https://github.com/brunomaletta/Biblioteca/blob/master/Codigo/Estruturas/Segtree/segTreeIterativa.cpp)

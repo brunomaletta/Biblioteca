@@ -2,8 +2,7 @@
 //
 // BIT de soma 0-based
 // 
-// upper_bound(x) retorna o menor p tal que
-// query(1, p+1) > x 
+// upper_bound(x) retorna o menor p tal que pref(p) > x 
 //
 // Complexidades:
 // build - O(n)

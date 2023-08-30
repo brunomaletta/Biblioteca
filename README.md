@@ -159,6 +159,7 @@ Para ver o hash no vim, seleciona as linhas com `Shift+v`, e aperta `Ctrl+h`.
 - [Big Integer - C++](https://github.com/brunomaletta/Biblioteca/blob/master/Codigo/Primitivas/bigint.cpp)
 - [Fração](https://github.com/brunomaletta/Biblioteca/blob/master/Codigo/Primitivas/frac.cpp)
 - [Matroid](https://github.com/brunomaletta/Biblioteca/blob/master/Codigo/Primitivas/matroid.cpp)
+- [Primitiva de Calendário](https://github.com/brunomaletta/Biblioteca/blob/master/Codigo/Primitivas/calendario.cpp)
 - [Primitivas de Matriz - Exponenciação](https://github.com/brunomaletta/Biblioteca/blob/master/Codigo/Primitivas/matrix.cpp)
 - [Primitivas Geométricas](https://github.com/brunomaletta/Biblioteca/blob/master/Codigo/Primitivas/geometria.cpp)
 - [Primitivas Geométricas Inteiras](https://github.com/brunomaletta/Biblioteca/blob/master/Codigo/Primitivas/geometriaInt.cpp)

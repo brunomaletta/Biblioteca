@@ -10,7 +10,7 @@ function PrintHash() range
 		let k = i
 		let l = getline(i)
 		for j in range(len(l))
-			if l[j] == '}'
+			if l[j] == "{}"[1]
 				call cursor(i, j+1)
 				let k = searchpair('{', '', '}', 'b')
 			endif

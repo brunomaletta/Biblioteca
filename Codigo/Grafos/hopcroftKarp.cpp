@@ -6,7 +6,9 @@
 // da particao A, e o cara j da particao B
 // (entao i < n, j < m)
 //
-// O(|E| * sqrt(|V|))
+// O(|E| * sqrt(|V|)) com constante baixa
+// Para grafos esparsos gerados aleatoriamente, roda em O(|E| * log(|V|))
+// com alta probabilidade
 
 mt19937 rng((int) chrono::steady_clock::now().time_since_epoch().count());
 
@@ -16,7 +18,7 @@ struct hopcroft_karp {
 	vector<int> dist, nxt, ma, mb;
 
 	hopcroft_karp(int n_, int m_) : n(n_), m(m_), g(n),
-	dist(n), nxt(n), ma(n, -1), mb(m, -1) {}
+		dist(n), nxt(n), ma(n, -1), mb(m, -1) {}
 
 	void add(int a, int b) { g[a].push_back(b); }
 
@@ -31,7 +33,7 @@ struct hopcroft_karp {
 		return false;
 	}
 	bool bfs() {
-		dist.assign(n, n);
+		for (int i = 0; i < n; i++) dist[i] = n;
 		queue<int> q;
 		for (int i = 0; i < n; i++) if (ma[i] == -1) {
 			dist[i] = 0;
@@ -54,7 +56,7 @@ struct hopcroft_karp {
 		int ret = 0;
 		for (auto& i : g) shuffle(i.begin(), i.end(), rng);
 		while (bfs()) {
-			nxt.assign(n, 0);
+			for (int i = 0; i < n; i++) nxt[i] = 0;
 			for (int i = 0; i < n; i++)
 				if (ma[i] == -1 and dfs(i)) ret++;
 		}

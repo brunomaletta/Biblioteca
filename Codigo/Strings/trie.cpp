@@ -29,7 +29,7 @@ struct trie {
 			}
 			x = nxt, pref[x]++;
 		}
-		end[x]++;
+		end[x]++, pref[0]++;
 	}
 	void erase(string s) {
 		int x = 0;
@@ -38,7 +38,7 @@ struct trie {
 			x = nxt, pref[x]--;
 			if(!pref[x]) nxt = 0;
 		}
-		end[x]--;
+		end[x]--, pref[0]--;
 	}
 	int find(string s) {
 		int x = 0;

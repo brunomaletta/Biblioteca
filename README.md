@@ -150,6 +150,8 @@ Para ver o hash no vim, seleciona as linhas com `Shift+v`, e aperta `Ctrl+h`.
 - [Logaritmo Discreto](https://github.com/brunomaletta/Biblioteca/blob/master/Codigo/Matematica/logDiscreto.cpp)
 - [Miller-Rabin](https://github.com/brunomaletta/Biblioteca/blob/master/Codigo/Matematica/millerRabin.cpp)
 - [Mulmod O(1)](https://github.com/brunomaletta/Biblioteca/blob/master/Codigo/Matematica/mulmod.cpp)
+- [NTT](https://github.com/brunomaletta/Biblioteca/blob/master/Codigo/Matematica/ntt.cpp)
+- [Operações em Séries de Potências](https://github.com/brunomaletta/Biblioteca/blob/master/Codigo/Matematica/powerSeries.cpp)
 - [Simplex](https://github.com/brunomaletta/Biblioteca/blob/master/Codigo/Matematica/simplex.cpp)
 - [Teorema Chines do Resto](https://github.com/brunomaletta/Biblioteca/blob/master/Codigo/Matematica/chinese.cpp)
 - [Totiente](https://github.com/brunomaletta/Biblioteca/blob/master/Codigo/Matematica/totiente.cpp)

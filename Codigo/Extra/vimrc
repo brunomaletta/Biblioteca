@@ -2,22 +2,15 @@
 
 "" {
 set ts=4 sw=4 mouse=a nu ai si undofile
-function Hash(l)
+function H(l)
 	return system("sed '/^#/d' | cpp -dD -P -fpreprocessed | tr -d '[:space:]' | md5sum", a:l)
 endfunction
-function PrintHash() range
+function P() range
 	for i in range(a:firstline, a:lastline)
-		let k = i
 		let l = getline(i)
-		for j in range(len(l))
-			if l[j] == "{}"[1]
-				call cursor(i, j+1)
-				let k = searchpair('{', '', '}', 'b')
-			endif
-		endfor
-		echo Hash(join("\n", getline(k, i)))[0:2] l
 		call cursor(i, len(l))
+		echo H(getline(search('{}'[1], 'bc', i) ? searchpair('{', '', '}', 'bn') : i, i))[0:2] l
 	endfor
 endfunction
-vmap <C-H> :call PrintHash()<CR>
+vmap <C-H> :call P()<CR>
 "" }

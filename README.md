@@ -22,7 +22,7 @@ Link para o latex do theoretical: [link](https://www.overleaf.com/read/xrbtzvvkm
 
 #### Hash
 
-No PDF, a coluna de hash é o hash de cada linha, exceto se a linha contem um caractere `}`. Nesse caso, o hash da linha é o hash a partir da linha mais acima que tem um `{` fechando na linha atual.
+No PDF, a coluna de hash é o hash de cada linha, exceto se a linha contem um caractere `}`. Nesse caso, o hash da linha é o hash a partir da linha que fecha o último `}` da linha atual.
 
 Para ver o hash no vim, seleciona as linhas com `Shift+v`, e aperta `Ctrl+h`.
 

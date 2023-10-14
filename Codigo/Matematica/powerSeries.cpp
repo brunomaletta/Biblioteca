@@ -1,4 +1,4 @@
-// Operacoes em Series de Potencias
+// Operacoes em Polinomios e Series de Potencias
 //
 // Precisa do NTT
 // O exp nao foi bem testado
@@ -6,9 +6,11 @@
 // Fonte: github.com/celiopassos/competitive-programming/blob/master/algorithms/mathematics/formal_power_series.hpp
 //
 // D, I: O(n)
-// inv, log e exp: O(n log(n))
+// inv, divmod, log e exp: O(n log(n))
 
 using poly = vector<mint>;
+
+const int MAGIC = 512;
 
 poly D(poly p) {
 	if (p.empty()) return p;
@@ -45,6 +47,35 @@ poly inv(poly p) {
 	}
 	q.resize(n);
 	return q;
+}
+
+pair<poly, poly> divslow(const poly& a, const poly& b) {
+	poly q, r = a;
+	while (r.size() >= b.size()) {
+		q.push_back(r.back() / b.back());
+		if (q.back() != 0)
+			for (int i = 0; i < b.size(); i++)
+				r.end()[-i-1] -= q.back() * b.end()[-i-1];
+		r.pop_back();
+	}
+	reverse(q.begin(), q.end());
+	return {q, r};
+}
+
+// retorna (q, r) : a(x) = b(x) * q(x) + r(x)
+pair<poly, poly> divmod(const poly& a, const poly& b) {
+	if (a.size() < b.size()) return {{}, a};
+	if (max(b.size(), a.size() - b.size()) < MAGIC) return divslow(a, b);
+	poly ra = poly(a.rbegin(), a.rend());
+	poly rb = poly(b.rbegin(), b.rend());
+	int k = a.size() - b.size() + 1;
+	rb.resize(k);
+	poly irb = inv(move(rb)), q = convolution(ra, irb);
+	q = poly(q.rend() - k, q.rend());
+	poly r = convolution(move(q), b);
+	for (int i = 0; i < r.size(); i++) r[i] = a[i] - r[i];
+	while (r.size() > 1 && r.back() == 0) r.pop_back();
+	return {q, r};
 }
 
 poly log(poly p) {

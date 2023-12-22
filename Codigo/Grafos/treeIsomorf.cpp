@@ -100,7 +100,7 @@ struct tree {
 		return ll(P + h1) * (P + h2) % MOD;
 	}
 	int forest_hash() {
-	    std::fill(sz.begin(), sz.end(), 0);
+		std::fill(sz.begin(), sz.end(), 0);
 		int hash = 1;
 		for (int v = 0; v < fn; v++) if (!sz[v] and !forb[v]) {
 			hash = hash * ll(P2 + tree_hash(v)) % MOD;

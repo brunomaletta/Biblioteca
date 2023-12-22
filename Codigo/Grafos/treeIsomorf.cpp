@@ -48,7 +48,7 @@ struct tree {
 //
 // O(|V|.log(|V|))
 
-std::mt19937 rng(std::chrono::steady_clock::now().time_since_epoch().count());
+mt19937 rng(chrono::steady_clock::now().time_since_epoch().count());
 
 int uniform(ll l, ll r) {
 	uniform_int_distribution<ll> uid(l, r);
@@ -100,7 +100,7 @@ struct tree {
 		return ll(P + h1) * (P + h2) % MOD;
 	}
 	int forest_hash() {
-		std::fill(sz.begin(), sz.end(), 0);
+		fill(sz.begin(), sz.end(), 0);
 		int hash = 1;
 		for (int v = 0; v < fn; v++) if (!sz[v] and !forb[v]) {
 			hash = hash * ll(P2 + tree_hash(v)) % MOD;

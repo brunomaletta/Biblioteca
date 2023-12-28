@@ -67,6 +67,7 @@ Para ver o hash no vim, seleciona as linhas com `Shift+v`, e aperta `Ctrl+h`.
 - [Order Statistic Set (GCC)](https://github.com/brunomaletta/Biblioteca/blob/master/Codigo/Estruturas/orderStatisticSet.cpp)
 - [Range Color](https://github.com/brunomaletta/Biblioteca/blob/master/Codigo/Estruturas/rangeColor.cpp)
 - [RMQ <O(n), O(1)>](https://github.com/brunomaletta/Biblioteca/blob/master/Codigo/Estruturas/rmq.cpp)
+- [Slope Trick](https://github.com/brunomaletta/Biblioteca/blob/master/Codigo/Estruturas/slopeTrick.cpp)
 - [Sparse Table](https://github.com/brunomaletta/Biblioteca/blob/master/Codigo/Estruturas/sparseTable.cpp)
 - [Sparse Table Disjunta](https://github.com/brunomaletta/Biblioteca/blob/master/Codigo/Estruturas/sparseTableDisjunta.cpp)
 - [Splaytree](https://github.com/brunomaletta/Biblioteca/blob/master/Codigo/Estruturas/splaytree.cpp)

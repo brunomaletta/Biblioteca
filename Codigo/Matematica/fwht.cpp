@@ -27,7 +27,7 @@ template<char op, class T> vector<T> FWHT(vector<T> f, bool inv = false) {
 // Se possivel, hardcodar a multiplicacao de matriz 
 // feita em cada iteracao faz ficar bem mais rapido
 //
-// O(n b^2 log_b(n))
+// O(n b log_b(n))
 
 template<class T>
 vector<T> FWHT(vector<T> f, int b, T g, bool inv = false) {

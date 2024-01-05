@@ -45,7 +45,10 @@ template<int p> struct mod_int {
 			v = inv(v);
 			e = -e;
 		}
-		v = expo(v, e%(p-1));
+		v = expo(v, e);
+		// possivel otimizacao:
+		// cuidado com 0^0
+		// v = expo(v, e%(p-1)); 
 		return *this;
 	}
 	bool operator ==(const m& a) { return v == a.v; }

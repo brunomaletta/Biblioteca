@@ -3,7 +3,7 @@
 // adds tem que serem feitos em ordem de slope
 // queries tem que ser feitas em ordem de x
 //
-// linear
+// add O(1) amortizado, get O(1) amortizado
 
 struct CHT {
 	int it;
@@ -25,10 +25,10 @@ struct CHT {
 			if ((a.size() < 3) || !useless()) break;
 			a.erase(a.end() - 2);
 			b.erase(b.end() - 2);
+			it--;
 		}
 	}
 	ll get(ll x){
-		it = min(it, int(a.size()) - 1);
 		while (it+1 < a.size()){
 			if (eval(it+1, x) > eval(it, x)) it++;
 			else break;

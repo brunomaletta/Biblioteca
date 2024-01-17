@@ -25,8 +25,8 @@ struct CHT {
 			if ((a.size() < 3) || !useless()) break;
 			a.erase(a.end() - 2);
 			b.erase(b.end() - 2);
-			it--;
 		}
+		it = min(it, int(a.size()) - 1);
 	}
 	ll get(ll x){
 		while (it+1 < a.size()){

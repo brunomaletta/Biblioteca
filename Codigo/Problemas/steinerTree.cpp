@@ -4,6 +4,7 @@
 // get_steiner: retorna o valor minimo e as arestas de uma solucao
 // se nao tiver solucao retorna LINF
 //
+// grafo nao pode ter pesos negativos
 // se so tiver peso nas arestas/vertices pode deletar os vw/w no codigo
 //
 // k = |S|

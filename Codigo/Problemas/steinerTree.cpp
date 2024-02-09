@@ -10,7 +10,7 @@
 // O(3^k * n + 2^k * m log m)
 
 //otimizacao: joga um vertice x do S fora e pegue a resposta em dp[...][x] e reconstrua a arvore a partir dele
-//ta comentado no codigo as mudanças necessarias
+//ta comentado no codigo as mudancas necessarias
 
 int n;// numero de vertices
 vector<pair<int, int>> g[MAX]; // {vizinho, peso}

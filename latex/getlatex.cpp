@@ -13,8 +13,13 @@ string NO_HASH = "nohash";
 string NO_PRINT = "noprint";
 
 string path = "../Codigo/";
+#ifdef __clang__
+string hash_cmd = "sed -n 1','10000' p' tmp.cpp | sed '/^#w/d' "
+           "| clang -E -x c++ -dD -P - | tr -d '[:space:]' | md5sum | cut -c-";
+#else
 string hash_cmd = "sed -n 1','10000' p' tmp.cpp | sed '/^#w/d' "
 "| cpp -dD -P -fpreprocessed | tr -d '[:space:]' | md5sum | cut -c-";
+#endif
 
 bool print_all = false;
 
@@ -199,7 +204,7 @@ void dfs(vector<pair<string, string>>& files, string s, bool extra = false) {
 	struct dirent* entry = nullptr;
 	DIR* dp = nullptr;
 	dp = opendir(s.c_str());
-	if (dp != nullptr) while (entry = readdir(dp)) {
+	if (dp != nullptr) while ((entry = readdir(dp))) {
 		if (entry->d_name[0] == '.') continue;	
 
 		if (entry->d_type == DT_DIR) dfs(files, s + "/" + string(entry->d_name), extra);
@@ -242,7 +247,7 @@ int main(int argc, char** argv) {
 	struct dirent* entry = nullptr;
 	DIR* dp = nullptr;
 	dp = opendir(path.c_str());
-	if (dp != nullptr) while (entry = readdir(dp)) {
+	if (dp != nullptr) while ((entry = readdir(dp))) {
 		if (entry->d_name[0] == '.') continue;
 		if (entry->d_type != DT_DIR) continue;
 

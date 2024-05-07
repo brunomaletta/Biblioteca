@@ -27,6 +27,10 @@ jobs:
 
       - name: Install Node.js dependencies
         run: "[[ -f package-lock.json || -f npm-shrinkwrap.json ]] && npm ci || true"
+      
+      - name: Get Hugo modules
+        run: |
+          hugo mod get
 
       - name: Build site with Hugo
         run: hugo --minify --baseURL "${{ steps.pages.outputs.base_url }}/"

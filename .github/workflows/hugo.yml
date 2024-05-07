@@ -26,7 +26,7 @@ jobs:
           hugo-version: ${{ env.HUGO_VERSION }}
 
       - name: Install Node.js dependencies
-        run: npm ci
+        run: "[[ -f package-lock.json || -f npm-shrinkwrap.json ]] && npm ci || true"
 
       - name: Build site with Hugo
         run: hugo --minify --baseURL "${{ steps.pages.outputs.base_url }}/"

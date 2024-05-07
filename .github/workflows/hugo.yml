@@ -41,13 +41,3 @@ jobs:
         with:
           name: hugo-site
           path: ./public
-
-  deploy:
-    runs-on: ubuntu-latest
-    needs: build
-    steps:
-      - name: Deploy to GitHub Pages
-        uses: peaceiris/actions-gh-pages@v3
-        with:
-          deploy_key: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./public

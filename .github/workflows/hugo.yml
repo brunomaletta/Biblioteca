@@ -46,12 +46,12 @@ jobs:
 
       - name: Build site with Hugo
         run: hugo --minify --baseURL "${{ steps.pages.outputs.base_url }}/"
-
+      
       - name: Upload artifact
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-pages-artifact@v3
         with:
-          name: github-pages
           path: ./public
+
 # Deployment job
   deploy:
     environment:

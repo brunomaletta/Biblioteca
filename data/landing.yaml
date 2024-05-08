@@ -37,7 +37,7 @@ hero:
   cta2Button:
     icon: library_books
     btnText: "Documentação"
-    url: "/docs"
+    url: "/Biblioteca/docs/"
 
   info: "**Open Source** MIT Licensed."
 

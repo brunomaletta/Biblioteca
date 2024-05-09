@@ -3,8 +3,8 @@ weight: 10
 title: "Convex Hull Trick Estatico"
 draft: false
 toc: true
-date: "2024-05-09T17:19:25-0300"
-publishdate: "2024-05-09T17:19:25-0300"
+date: "2024-05-09T18:39:18-0300"
+publishdate: "2024-05-09T18:39:18-0300"
 description: ""
 ---
 

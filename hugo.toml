@@ -7,7 +7,7 @@ enableEmoji = true
 defaultContentLanguage = 'pt'
 [languages]
   [languages.pt]
-    title = "Lotus Docs Example Site"
+    title = "Biblioteca Maratona UFMG"
     languageName = "Português"
     weight = 10
   # [languages.fr]

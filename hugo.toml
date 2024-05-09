@@ -1,4 +1,4 @@
-baseURL = "https://luizacbcampos.github.io/Biblioteca" # (or set via env variable HUGO_BASEURL)
+baseURL = "https://brunomaletta.github.io/Biblioteca" # (or set via env variable HUGO_BASEURL)
 languageCode = "pt-BR"
 title = "Biblioteca"
 contentDir = "content"

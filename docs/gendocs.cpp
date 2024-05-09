@@ -362,8 +362,8 @@ void create_directory(string path_docs) {
 
 	while (!directory.empty()) {
 		if (!fs::exists(directory)) {
-			// std::cerr << "Directory " << directory.string() << " does not exist." << std::endl;
-			create_section(directory.string(), "");
+			std::cerr << "Directory " << directory.stem().string() << " does not exist." << std::endl;
+			create_section(directory.stem().string(), directory.parent_path().string()+"/");
 		}
 		directory = directory.parent_path();
 	}

@@ -43,17 +43,19 @@ jobs:
       - name: Get Hugo modules
         run: |
           hugo mod get
+          
       - name: Get baseURL from hugo.toml
         id: get_base_url
         run: |
-          echo "::set-output name=url::$(grep -Po '(?<=^baseURL = ")[^"]*' hugo.toml)"
+          echo "HUGO_BASE_URL=$(grep -Po '(?<=^baseURL = ")[^"]*' hugo.toml)" >> $GITHUB_ENV
           
       - name: Build site with Hugo
         env:
           # For maximum backward compatibility with Hugo modules
           HUGO_ENVIRONMENT: production
           HUGO_ENV: production
-        run: hugo --gc --minify --baseURL "${{ steps.get_base_url.outputs.url }}/"
+          HUGO_BASE_URL: ${{ env.HUGO_BASE_URL }}
+        run: hugo --gc --minify --baseURL "${{ env.HUGO_BASE_URL }}/"
       
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3

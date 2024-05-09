@@ -15,11 +15,11 @@ hero:
       desktop: "gradient-desktop.webp"
       mobile: "gradient-mobile.webp"
 
-  # titleLogo:
-  #   path: "images/logos"
-  #   filename: "title_logo.png"
-  #   alt: "Lotus Docs Logo"
-  #   height: 80px
+  titleLogo:
+    path: "images/"
+    filename: "balloon.png"
+    alt: "Balloon Logo - Balloon icons created by Stockio - Flaticon"
+    height: 80px
 
 
   image:

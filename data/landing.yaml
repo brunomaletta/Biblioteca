@@ -1,0 +1,59 @@
+# Note: Template blocks require a 'weight' parameter so they're correctly ordered on the landing page
+
+# Hero
+hero:
+  enable: true
+  weight: 10
+  template: hero
+
+  title: "Biblioteca"
+  subtitle: Biblioteca de algoritmos, estruturas de dados e primitivas para Maratona de Programação da UFMG.
+  
+  backgroundImage:
+    path: "images/templates/hero"
+    filename:
+      desktop: "gradient-desktop.webp"
+      mobile: "gradient-mobile.webp"
+
+  titleLogo:
+    path: "images/"
+    filename: "balloon.png"
+    alt: "Balloon Logo - Balloon icons created by Stockio - Flaticon"
+    height: 80px
+
+
+  image:
+    # path: "images" # path to image under configured assets directory. default 'images'
+    # filename: "lotus_docs_screenshot.png" # filename of your hero image (including file extension)
+    # alt: "Lotus Docs Screenshot" # Optional but recommended
+    boxShadow: false # default 'false' (excludes .svg images)
+    rounded: false # round the image corners? default 'false' (excludes .svg images)
+
+  # ctaButton:
+  #   icon: rocket_launch
+  #   btnText: "Get Started"
+  #   url: "/docs/quickstart/#create-a-new-lotus-docs-site"
+
+  cta2Button:
+    icon: library_books
+    btnText: "Documentação"
+    url: "/Biblioteca/docs/"
+
+  info: "**Open Source** MIT Licensed."
+
+# Feature Grid
+featureGrid:
+  enable: false
+  weight: 20
+  template: feature grid
+
+imageText:
+  enable: false
+  weight: 25
+  template: image text
+
+# Image compare
+imageCompare:
+  enable: false
+  weight: 30
+  template: image compare

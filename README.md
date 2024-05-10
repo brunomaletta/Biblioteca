@@ -4,23 +4,42 @@ Biblioteca de algoritmos, estruturas de dados e primitivas para Maratona de Prog
 
 Códigos em C++, em maior parte implementados pelos alunos da universidade.
 
-#### PDF
+### PDF
 
 Versão em PDF dos algoritmos pode ser encontrada [aqui](https://github.com/brunomaletta/Biblioteca/blob/master/pdf/biblioteca.pdf).
-
-Para atualizar o PDF primeiro instale o latex executando 
-```
-sudo apt install texlive-full
-sudo apt install rubber
-```
-e então execute `./getlatex.sh` na pasta latex.
-
 
 O *theoretical guide* (documento com teoremas, identidades e informações teóricas relevantes) pode ser encontrado [aqui](https://github.com/brunomaletta/Biblioteca/blob/master/pdf/theoretical.pdf).
 
 Link para o latex do theoretical: [link](https://www.overleaf.com/read/xrbtzvvkmkxs).
 
-#### Hash
+#### Atualizar o PDF
+
+<details>
+<summary>Detalhes</summary>
+
+Para atualizar o PDF primeiro instale o latex executando 
+```
+sudo apt install texlive-full
+```
+O pdf é gerado usando a ferramenta [rubber](https://gitlab.com/latex-rubber/rubber). Para baixá-la execute:
+
+```
+sudo apt install rubber
+```
+ou 
+```
+pip install latex-rubber
+```
+
+Por fim, execute
+
+```
+cd latex
+./getlatex.sh
+```
+</details>
+
+### Hash
 
 No PDF, a coluna de hash é o hash de cada linha, exceto se a linha contem um caractere `}`. Nesse caso, o hash da linha é o hash a partir da linha que fecha o último `}` da linha atual.
 

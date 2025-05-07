@@ -11,8 +11,8 @@
 // criadas apos a remocao de i do grafo g
 // Se art[i] >= 1, i eh ponto de articulacao
 // 
-// Para todo i <= blocks.size()
-// blocks[i] eh uma componente 2-vertce-conexa maximal
+// Para todo i < blocks.size()
+// blocks[i] eh uma componente 2-vertice-conexa maximal
 // edgblocks[i] sao as arestas do bloco i
 // tree[i] eh um vertice da arvore que corresponde ao bloco i
 // 

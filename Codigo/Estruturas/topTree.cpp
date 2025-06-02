@@ -1,7 +1,7 @@
 // Top Tree
 //
-// lct<int> t(n, w) armazena uma floresta enraizada dinamica com 'n'
-// vertices indexados de 0 a n-1 com peso w[i].
+// lct<T> t(n, w) armazena uma floresta enraizada dinamica com 'n'
+// vertices indexados de 0 a n-1 com peso w[i] do tipo T.
 // Varias operacoes podem ser realizadas.
 //
 // Complexidades:

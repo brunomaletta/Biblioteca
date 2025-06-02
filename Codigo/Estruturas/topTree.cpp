@@ -1,78 +1,78 @@
 // Top Tree
 //
-// lct<int> t(n, w) armazena uma floresta enraizada dinâmica com 'n'
-// vértices indexados de 0 a n-1 com peso w[i].
-// Várias operações podem ser realizadas.
+// lct<int> t(n, w) armazena uma floresta enraizada dinamica com 'n'
+// vertices indexados de 0 a n-1 com peso w[i].
+// Varias operacoes podem ser realizadas.
 //
 // Complexidades:
-// Construção - O(n) espaço e tempo
-// Todas as outras operações - O(log(n)) amortizado, \Theta(n) pior caso
-// O(n) memória em qualquer momento
+// Construcao - O(n) espaco e tempo
+// Todas as outras operacoes - O(log(n)) amortizado, \Theta(n) pior caso
+// O(n) memoria em qualquer momento
 //
 // 1. Consultas estruturais
-// - find_root(v): raiz do vértice v (seguindo arestas pai)
-// - lca(v, u): ancestral comum mais baixo entre v e u, ou -1 se não existir
-// - connected(v, u): se v e u estão no mesmo componente conexo
-// - parent(v, k): k-ésimo pai de v (seguindo k arestas), ou -1 se não existir
-// - depth(v): número de arestas entre v e sua raiz
-// - dist(v, u): distância entre v e u na árvore não direcionada
-// - subtree_size(v): número de vértices na subárvore de v
+// - find_root(v): raiz do vertice v (seguindo arestas pai)
+// - lca(v, u): ancestral comum mais baixo entre v e u, ou -1 se nao existir
+// - connected(v, u): se v e u estao no mesmo componente conexo
+// - parent(v, k): k-esimo pai de v (seguindo k arestas), ou -1 se nao existir
+// - depth(v): numero de arestas entre v e sua raiz
+// - dist(v, u): distancia entre v e u na arvore nao direcionada
+// - subtree_size(v): numero de vertices na sub-arvore de v
 // - adjacent(v, u): se existe uma aresta {v, u}
 //
-// 2. Atualizações estruturais
+// 2. Atualizacoes estruturais
 // - evert(v): rotaciona para que v seja a raiz de seu componente
-// - link(v, u): adiciona aresta v -> u (pai de v é u)
-//   . Pré-condição: não deve criar ciclo!
-//   . Se v não é raiz, é feito evert(v)
+// - link(v, u): adiciona aresta v -> u (pai de v eh u)
+//   . Pre-condicao: nao deve criar ciclo!
+//   . Se v nao eh raiz, eh feito evert(v)
 // - cut(v): remove aresta de v para seu pai
 // - cut(v, u): remove aresta {v, u}
-//   . Pré-condição: aresta {v, u} deve existir!
+//   . Pre-condicao: aresta {v, u} deve existir!
 //
-// 3. Operações em vértices
+// 3. Operacoes em vertices
 // - t[v]: retorna w[v]
 //   . Pode ser usado para atualizar: t[v]++
 //
-// Para as seguintes operações que agregam w:
+// Para as seguintes operacoes que agregam w:
 //
-// Defina uma tag lazy associativa e comutativa para combinar atualizações em 'struct lazy'
-// - Defina o que é a tag lazy (int)
+// Defina uma tag lazy associativa e comutativa para combinar atualizacoes em 'struct lazy'
+// - Defina o que eh a tag lazy (int)
 // - Defina o elemento neutro (0)
 // - Defina como combinar tags lazy em 'operator+=' (+=)
 // - Defina como aplicar a tag lazy em um valor em 'apply_lazy(val, lz)' (+=)
 //
 // Defina um agregado associativo em 'struct data':
-// - Defina o que você quer manter (soma/mínimo/tamanho/...)
-//   . Manter tamanho é obrigatório!
+// - Defina o que sera mantido (soma/mínimo/tamanho/...)
+//   . Manter tamanho eh obrigatório!
 // - Defina o elemento neutro (0/INF/...)
 // - Defina como agregar em 'operator+=' (+=/min=/...)
 // - Defina como aplicar tag lazy no agregado em 'apply_lazy(lz)'
-// - Se a operação não for comutativa:
+// - Se a operacao nao for comutativa:
 //   . Defina como reverter um intervalo em reverse()
 //
-// 4. Operações em caminhos
-// - path_query(v): retorna o agregado de w de v até sua raiz
-//   . Nessa ordem, para operações não comutativas!
-// - path_query(v, u): retorna o agregado de w de v até u (não direcionado)
-//   . Nessa ordem, para operações não comutativas!
-// - path_update(v, u, val): aplica lazy(val) em w de v até u (não direcionado)
+// 4. Operacoes em caminhos
+// - path_query(v): retorna o agregado de w de v ate sua raiz
+//   . Nessa ordem, para operacoes nao comutativas!
+// - path_query(v, u): retorna o agregado de w de v até u (nao direcionado)
+//   . Nessa ordem, para operacoes nao comutativas!
+// - path_update(v, u, val): aplica lazy(val) em w de v ate u (nao direcionado)
 //
-// 5. Operações em subárvores
-// - subtree_query(v, exclude_v): retorna o agregado de w na subárvore de v
+// 5. Operacoes em sub-arvores
+// - subtree_query(v, exclude_v): retorna o agregado de w na sub-arvore de v
 //   . Se exclude_v, exclui v do agregado
-//   . Ordem não é definida para operações não comutativas!
-// - subtree_update(v, val, exclude_v): aplica lazy(val) em w na subárvore de v
-//   . Se exclude_v, exclui v da atualização
+//   . Ordem nao eh definida para operacoes nao comutativas!
+// - subtree_update(v, val, exclude_v): aplica lazy(val) em w na sub-arvore de v
+//   . Se exclude_v, exclui v da atualizacao
 //
-// Para a próxima operação que combina agregados de filhos:
+// Para a proxima operacao que combina agregados de filhos:
 //
-// Defina uma combinação associativa e comutativa de filhos em 'data_child'
+// Defina uma combinacao associativa e comutativa de filhos em 'data_child'
 // - Defina o elemento neutro
 // - Defina o valor de um filho, dado seu agregado (tamanho/tamanho^2/soma/...)
 // - Defina como combinar valores de filhos (+=/min=/...)
 //
-// 6. Combinação de dados dos filhos
-// - combine_children(v): retorna a combinação dos filhos de v
-//   . Se você definir data_child() = 1 e combinar com +=,
+// 6. Combinacao de dados dos filhos
+// - combine_children(v): retorna a combinacao dos filhos de v
+//   . Se voce definir data_child() = 1 e combinar com +=,
 //     returna numero de filhos
 
 template<typename T> struct lct {
@@ -112,8 +112,8 @@ template<typename T> struct lct {
 		int cnt;
 
 		data_child() : cnt(0) {}
-		data_child(data sub) { // 'sub' represents the subtree data
-			cnt = 1; // for number of children
+		data_child(data sub) { // 'sub' representa dado da sub-arvore
+			cnt = 1; // para numero de filhos
 		}
 		data_child& operator +=(const data_child& d) {
 			cnt += d.cnt;
@@ -176,7 +176,7 @@ template<typename T> struct lct {
 		if (!t[v].fake and virt) prop_path(v, lz);
 		else t[v].all = t[v].path + t[v].sub;
 	}
-	void prop(int v) { // lazy does not include the vertex
+	void prop(int v) { // lazy nao inclui o vertice
 		if (v == -1) return;
 		if (t[v].rev) {
 			for (int i = 0; i < 2; i++) prop_rev(t[v].ch[i]);
@@ -266,7 +266,7 @@ template<typename T> struct lct {
 		splay(v);
 		return t[v].p;
 	}
-	int access(int v) { // returns last accessed node
+	int access(int v) { // retorna ultimo vertice acessado
 		update(v);
 		splay(v);
 		add_virt_ch(v, t[v].ch[1]);
@@ -285,7 +285,7 @@ template<typename T> struct lct {
 		return w;
 	}
 
-	// structure queries
+	// consultas estruturais
 	int find_root(int v) {
 		access(v);
 		while (t[v].ch[0]+1) v = t[v].ch[0], prop(v);
@@ -329,37 +329,37 @@ template<typename T> struct lct {
 		return connected(v, u) and dist(v, u) == 1;
 	}
 
-	// structure updates
-	void evert(int v) { // makes so v is the root
+	// atualizacoes estruturais
+	void evert(int v) { // rotaciona para que v seja a raiz
 		access(v);
 		prop_rev(v);
 	}
-	void link(int v, int u) { // adds edge v -> u (v's parent is u) - must not create cycle!
+	void link(int v, int u) { // adiciona aresta v -> u (pai de v eh u) - nao pode criar ciclo!
 		evert(v), access(u);
 		add_virt_ch(u, v);
 	}
-	void cut(int v) { // cuts edge from v to parent
+	void cut(int v) { // corta aresta de v para o pai
 		access(v);
 		if (t[v].ch[0]+1) t[t[v].ch[0]].p = -1;
 		t[v].ch[0] = -1;
 		update(v);
 	}
-	void cut(int v, int u) { // edge {v, u} must exist!
+	void cut(int v, int u) { // aresta {v, u} deve existir!
 		cut(depth(v) > depth(u) ? v : u);
 	}
 
-	// vertex operations
-	T& operator[](int v) { // w[v] (can be changed)
+	// operacao de vertice
+	T& operator[](int v) { // w[v] (pode ser alterado)
 		access(v);
 		return t[v].val;
 	}
 
-	// path operatrions - vertices must be connected!
-	data path_query(int v) { // from v to the root
+	// operacoes de caminho - vertices devem estar no mesmo componente!
+	data path_query(int v) { // de v para a raiz
 		access(v);
 		return t[v].path;
 	}
-	data path_query(int v, int u) { // from v to u
+	data path_query(int v, int u) { // de v para u
 		int rt = find_root(v);
 		evert(u), access(v);
 		auto ret = t[v].path;
@@ -373,7 +373,7 @@ template<typename T> struct lct {
 		evert(rt);
 	}
 
-	// subtree operations
+	// operacoes de sub-arvore
 	data subtree_query(int v, bool exclude_v = false) {
 		access(v);
 		data ret = get_ch(v, 2).all + get_ch(v, 3).all;
@@ -387,7 +387,7 @@ template<typename T> struct lct {
 		if (!exclude_v) apply_lazy(t[v].val, lazy(val));
 	}
 
-	// combines children data
+	// combinacao de dados das sub-arvores dos filhos
 	data_child combine_children(int v) {
 		access(v);
 		return get_ch(v, 2).data_ch + get_ch(v, 3).data_ch;

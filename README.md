@@ -94,6 +94,7 @@ Para ver o hash no vim, seleciona as linhas com `Shift+v`, e aperta `Ctrl+h`.
 - [Split-Merge Set](https://github.com/brunomaletta/Biblioteca/blob/master/Codigo/Estruturas/splitMergeSet.cpp)
 - [Split-Merge Set - Lazy](https://github.com/brunomaletta/Biblioteca/blob/master/Codigo/Estruturas/splitMergeSetLazy.cpp)
 - [SQRT Tree](https://github.com/brunomaletta/Biblioteca/blob/master/Codigo/Estruturas/sqrtTree.cpp)
+- [Top Tree](https://github.com/brunomaletta/Biblioteca/blob/master/Codigo/Estruturas/topTree.cpp)
 - [Treap](https://github.com/brunomaletta/Biblioteca/blob/master/Codigo/Estruturas/treap.cpp)
 - [Treap Implícita](https://github.com/brunomaletta/Biblioteca/blob/master/Codigo/Estruturas/treapImplicita.cpp)
 - [Treap Implícita Persistente](https://github.com/brunomaletta/Biblioteca/blob/master/Codigo/Estruturas/treapPersistent.cpp)

@@ -142,7 +142,7 @@ Para ver o hash no vim, seleciona as linhas com `Shift+v`, e aperta `Ctrl+h`.
 - [Sack (DSU em árvores)](https://github.com/brunomaletta/Biblioteca/blob/master/Codigo/Grafos/sack.cpp)
 - [Stable Marriage](https://github.com/brunomaletta/Biblioteca/blob/master/Codigo/Grafos/stableMarriage.cpp)
 - [Tarjan (SCC) e Compressão de Ciclos (bridge tree)](https://github.com/brunomaletta/Biblioteca/blob/master/Codigo/Grafos/tarjan.cpp)
-- [Top Tree](https://github.com/brunomaletta/Biblioteca/blob/master/Codigo/Codigo/topTree.cpp)
+- [Top Tree](https://github.com/brunomaletta/Biblioteca/blob/master/Codigo/Grafos/topTree.cpp)
 - [Topological Sort](https://github.com/brunomaletta/Biblioteca/blob/master/Codigo/Grafos/topoSort.cpp)
 - [Vertex Cover](https://github.com/brunomaletta/Biblioteca/blob/master/Codigo/Grafos/cover.cpp)
 - [Virtual Tree](https://github.com/brunomaletta/Biblioteca/blob/master/Codigo/Grafos/virtualTree.cpp)

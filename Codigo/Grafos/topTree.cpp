@@ -41,8 +41,8 @@
 // - Defina como aplicar a tag lazy em um valor em 'apply_lazy(val, lz)' (+=)
 //
 // Defina um agregado associativo em 'struct data':
-// - Defina o que sera mantido (soma/mínimo/tamanho/...)
-//   . Manter tamanho eh obrigatório!
+// - Defina o que serah mantido (soma/minimo/tamanho/...)
+//   . Manter tamanho eh obrigatorio!
 // - Defina o elemento neutro (0/INF/...)
 // - Defina como agregar em 'operator+=' (+=/min=/...)
 // - Defina como aplicar tag lazy no agregado em 'apply_lazy(lz)'
@@ -52,7 +52,7 @@
 // 4. Operacoes em caminhos
 // - path_query(v): retorna o agregado de w de v ate sua raiz
 //   . Nessa ordem, para operacoes nao comutativas!
-// - path_query(v, u): retorna o agregado de w de v até u (nao direcionado)
+// - path_query(v, u): retorna o agregado de w de v ateh u (nao direcionado)
 //   . Nessa ordem, para operacoes nao comutativas!
 // - path_update(v, u, val): aplica lazy(val) em w de v ate u (nao direcionado)
 //

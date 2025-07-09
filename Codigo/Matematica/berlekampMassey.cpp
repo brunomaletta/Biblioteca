@@ -42,19 +42,18 @@ template<typename T> T evaluate(vector<T> c, vector<T> s, ll k) {
 mint fast_evaluate(poly c, poly s, ll k) {
 	if (k < s.size()) return s[k];
 	int n = c.size();
-	assert(c.size() <= s.size());
 
-	auto f = poly(n + 1, 1);
+	poly f(n + 1, 1);
 	for (int i = 0; i < n; i++) f[i] = -c[n-i-1];
 
-	poly a = n == 1 ? poly({c[0]}) : poly({0, 1}), x = {1};
+	poly a = {0, 1}, x = {1};
 	while (k) {
 		if (k&1) x = divmod(convolution(x, a), f).second;
 		a = divmod(convolution(a, a), f).second, k >>= 1;
 	}
 
 	mint ret = 0;
-	for (int i = 0; i < n; i++) ret += x[i] * s[i];
+	for (int i = 0; i < x.size(); i++) ret += x[i] * s[i];
 	return ret;
 }
 

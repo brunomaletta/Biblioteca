@@ -33,8 +33,7 @@ void ntt(vector<mint>& a, bool rev) {
 
 vector<mint> convolution(const vector<mint>& a, const vector<mint>& b) {
 	vector<mint> l(a.begin(), a.end()), r(b.begin(), b.end());
-	int N = l.size()+r.size()-1, n = 1;
-	while (n <= N) n *= 2;
+	int N = l.size()+r.size()-1, n = 1 << __lg(2*N - 1);
 	l.resize(n);
 	r.resize(n);
 	ntt(l, false);

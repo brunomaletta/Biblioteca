@@ -30,7 +30,6 @@ poly I(poly p) {
 }
 
 poly inv(poly p) {
-	assert(!p.empty() && p[0] == 1);
 	poly q = {mint(1) / p[0]};
 	int n = p.size(), k = 1;
 	while (k < n) {

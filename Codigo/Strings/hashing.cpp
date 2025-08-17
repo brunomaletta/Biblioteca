@@ -11,7 +11,7 @@ int uniform(int l, int r) {
 	return uid(rng);
 }
  
-template<int MOD> struct str_hash { // 116fcb
+template<int MOD> struct str_hash {
 	static int P;
 	vector<ll> h, p;
 	str_hash(string s) : h(s.size()), p(s.size()) {

@@ -10,7 +10,7 @@ Versão em PDF dos algoritmos pode ser encontrada [aqui](https://github.com/brun
 
 O *theoretical guide* (documento com teoremas, identidades e informações teóricas relevantes) pode ser encontrado [aqui](https://github.com/brunomaletta/Biblioteca/blob/master/pdf/theoretical.pdf).
 
-Link para o latex do theoretical: [link](https://www.overleaf.com/read/xrbtzvvkmkxs).
+Link para o latex do theoretical: [link](https://github.com/brunomaletta/Biblioteca/blob/master/theoretical/theoretical.tex).
 
 #### Atualizar o PDF
 
@@ -37,6 +37,15 @@ Por fim, execute
 cd latex
 ./getlatex.sh
 ```
+
+Para atualizar o PDF do *Theoretical*: (o último comando remove os arquivos auxiliares)
+
+```
+cd theoretical
+latexmk -pdf theoretical -outdir=../pdf
+latexmk -pdf theoretical -outdir=../pdf -c
+```
+
 </details>
 
 ### Hash

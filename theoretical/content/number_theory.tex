@@ -1,0 +1,173 @@
+\section{Number Theory}
+
+\subsection{Identities}
+
+$$ \sum_{d|n} \varphi(d) = n$$
+
+$$ \sum_{\substack{i < n \\ \text{gcd}(i, n) = 1}} i = n \cdot \frac{\varphi(n)}{2} $$
+
+$$ |\{(x, y) : \, 1 \leq x, y \leq n, \, \text{gcd}(x, y) = 1\}| = \sum_{d = 1}^n \mu(d) \left \lfloor \frac{n}{d} \right \rfloor^2$$
+
+$$\sum_{x = 1}^n \sum_{y = 1}^n \text{gcd}(x, y)
+= \sum_{k = 1}^n k \sum_{k|l}^{n} \left \lfloor \frac{n}{l} \right \rfloor^2 \mu\left(\frac{l}{k}\right)$$
+
+$$\sum_{x = 1}^n \sum_{y = x}^n \text{gcd}(x, y) = \sum_{g = 1}^n \sum_{g|d}^n g \cdot \varphi\left(\frac{d}{g}\right)$$
+
+$$\sum_{x = 1}^n \sum_{y = 1}^n \text{lcm}(x, y)
+= \sum_{d = 1}^n d \, \mu(d) \sum_{d|l}^{n} l \binom{\lfloor \frac{n}{l} \rfloor + 1}{2}^2$$
+
+$$\sum_{x = 1}^n \sum_{y = x+1}^n \text{lcm}(x, y) = \sum_{g = 1}^n \sum_{g|d}^n d \cdot \varphi\left(\frac{d}{g}\right) \cdot \frac{d}{g} \cdot \frac 1 2$$
+
+$$\sum_{x \in A} \sum_{y \in A} \text{gcd}(x, y)
+= \sum_{t = 1}^n \left(\sum_{l | t} \frac{t}{l} \mu(l)\right) \left(\sum_{t|a} \text{freq}[a]\right)^2$$
+
+$$\sum_{x \in A} \sum_{y \in A} \text{lcm}(x, y)
+= \sum_{t = 1}^n \left(\sum_{l | t} \frac{l}{t} \mu(l)\right) \left(\sum_{a \in A, \, t|a} a\right)^2$$
+
+\subsection{Large Prime Gaps}
+For numbers until $10^9$ the largest gap is 400.\\
+For numbers until $10^{18}$ the largest gap is 1500.\\[0.5cm]
+
+\subsection{Prime counting function - \texorpdfstring{$\pi(x)$}{}} The prime counting function is asymptotic to $\frac{x}{\log x}$, by the prime number theorem.
+
+\ 
+
+\begin{tabular}{|c|c|c|c|c|c|c|c|c|}
+\hline
+  \cellcolor{gray!40} x&10&$10^2$&$10^3$&$10^4$&$10^5$&$10^6$&$10^7$&$10^8$\\ \hline
+  \cellcolor{gray!40} $\pi(x)$& 4 & 25 & 168 & 1\,229 & 9\,592 & 78\,498 & 664\,579 & 5\,761\,455\\ \hline
+\end{tabular}
+
+\ 
+
+\subsection{Some Primes}
+
+999999937 $\quad$ 1000000007 $\quad$ 1000000009 $\quad$ 1000000021 $\quad$ 1000000033
+$10^{18} - 11 \quad\quad 10^{18} + 3 \quad\quad\quad 2305843009213693951 = 2^{61} - 1$
+
+\subsection{Number of Divisors}
+
+\begin{table}[H]
+    \centering
+    \begin{tabular}{|c|c|c|c|c|c|c|c|c|c|c|c|c|}
+        \hline
+        \cellcolor{gray!40} $n$ & 6 & 60 & 360 & 5040 & 55440 & 720720 & 4324320 & 21621600 \\
+        \hline
+        \cellcolor{gray!40} $d(n)$ & 4 & 12 & 24 & 60 & 120 & 240 & 384 & 576 \\
+        \hline
+    \end{tabular}
+\end{table}
+
+\vspace{-30pt}
+
+%  367567200 d(n) = 1152
+%  6983776800 d(n) = 2304
+%  13967553600 d(n) = 2688
+%  321253732800 d(n) = 5376
+%  18401055938125660800 d(n) = 184320
+
+\begin{table}[H]
+    \centering
+    \begin{tabular}{|c|c|c|c|c|}
+        \hline
+        \cellcolor{gray!40} $n$ & 367567200 & 6983776800 & 13967553600 & 321253732800
+        \\
+        \hline
+        \cellcolor{gray!40} $d(n)$ & 1152 & 2304 &  2688 &
+        5376 \\
+        \hline
+    \end{tabular}
+\end{table}
+
+18401055938125660800 $\approx 2\text{e}18$ is   highly composite with 184320 divisors.
+
+For numbers up to $10^{88}$, $d(n) < 3.6 \sqrt[3]{n}$.
+
+\subsection{Lucas's Theorem}
+
+$$ \binom{n}{m} \equiv \prod_{i=0}^k \binom{n_i}{m_i} \quad (\text{mod } p) $$ 
+
+For $p$ prime. $n_i$ and $m_i$ are the coefficients of the representations of $n$    and $m$ in base $p$. In particular, $\binom{n}{m}$ is odd if and only if $n$ is a submask of $m$.
+
+\subsection{Fermat's Theorems}
+Let $p$ be a prime number and $a$ an integer, then:
+$$a^p \equiv a \quad (\text{mod } p)$$
+$$a^{p-1} \equiv 1 \quad (\text{mod } p)$$
+
+\textbf{Lemma:} Let $p$ be a prime number and $a$ and $b$ integers, then: 
+$$(a+b)^{p} \equiv a^{p} + b^{p} \quad (\text{mod } p)$$
+
+\textbf{Lemma:} Let $p$ be a prime number and $a$ an integer. The inverse of $a$ modulo $p$ is $a^{p-2}$:
+
+$$a^{-1} \equiv a^{p-2} \quad (\text{mod } p)$$
+
+\subsection{Taking modulo at the exponent}
+
+If $a$ and $m$ are coprime, then
+
+$$ a^n \equiv a^{n \text{ mod } \varphi(m)} \quad (\text{mod } m) $$
+
+Generally, if $n \geq \log_2 m$, then
+
+$$ a^n \equiv a^{\varphi(m) + [n \text{ mod } \varphi(m)]} \quad (\text{mod } m) $$
+
+\subsection{Mobius invertion}
+
+If $g(n) = \sum_{d|n} f(d)$, then $f(n) = \sum_{d|n} g(d) \mu(\frac{n}{d})$.
+
+A more useful definition is: $\sum_{d|n} \mu(d) = [n = 1]$
+
+Example, sum of LCM:
+
+\begin{align*}
+    \sum_{i = 1}^n \sum_{j = 1}^n \text{lcm}(i, j) &=
+    \sum_{k = 1}^n\sum_{i=1}^n\sum_{j=1}^n [\text{gcd}(i, j) = k] \frac{ij}{k} \\
+    &= \sum_{k = 1}^n\sum_{a=1}^{\lfloor \frac{n}{k} \rfloor}\sum_{b=1}^{\lfloor \frac{n}{k} \rfloor} [\text{gcd}(a, b) = 1] abk \\
+    &= \sum_{k = 1}^n k \sum_{a=1}^{\lfloor \frac{n}{k} \rfloor} a \sum_{b=1}^{\lfloor \frac{n}{k} \rfloor} b \sum_{d=1}^{\lfloor \frac{n}{k} \rfloor}[d|a]\,[d|b] \, \mu(d) \\
+    &= \sum_{k = 1}^n k \sum_{d=1}^{\lfloor \frac{n}{k} \rfloor}  \mu(d) \left(\sum_{a=1}^{\lfloor \frac{n}{k} \rfloor} [d|a] \, a\right) \left(\sum_{b=1}^{\lfloor \frac{n}{k} \rfloor} [d|b] \, b\right) \\
+    &= \sum_{k = 1}^n k \sum_{d=1}^{\lfloor \frac{n}{k} \rfloor}  \mu(d) \left(\sum_{p=1}^{\lfloor \frac{n}{kd} \rfloor} p\right) \left(\sum_{q=1}^{\lfloor \frac{n}{kd} \rfloor} q\right) \\
+\end{align*}
+
+\subsection{Chicken McNugget Theorem}
+
+Given two \textbf{coprime} numbers $n, m$, the largest number that cannot be written as a linear combination of them is $nm - n - m$.
+
+\begin{itemize}
+    \item There are $\frac{(n-1)(m-1)}{2}$ non-negative integers that cannot be written as a linear combination of $n$ and $m$;
+    \item For each pair $(k, nm - n - m - k)$, for $k \geq 0$, exactly one can be written.
+\end{itemize}
+
+
+% \subsection{Maximum number of divisors}
+
+% For numbers up to $10^{88}$, $d(n) < 3.6 \sqrt[3]{n}$.
+
+% \begin{table}[H]
+% \centering
+% \scalebox{0.8}{
+% \begin{tabular}{|c|r|r|r|r|r|r|r|r|r|}
+% \hline
+% \backslashbox{$r$}{$c$} & $1$ & $2$ & $3$ & $4$ & $5$ & $6$ & $7$ & $8$ & $9$ \\ \hline 
+% $0$ & $1$ & $2$ & $2$ & $3$ & $3$ & $4$ & $4$ & $4$ & $4$\\ \hline
+% $1$ & $4$ & $6$ & $8$ & $9$ & $10$ & $12$ & $12$ & $12$ & $12$\\\hline
+% $2$ & $12$ & $18$ & $20$ & $24$ & $24$ & $24$ & $24$ & $30$ & $32$\\\hline
+% $3$ & $32$ & $40$ & $48$ & $48$ & $48$ & $60$ & $60$ & $64$ & $64$\\\hline
+% $4$ & $64$ & $80$ & $96$ & $96$ & $100$ & $120$ & $120$ & $120$ & $128$\\\hline
+% $5$ & $128$ & $160$ & $180$ & $192$ & $200$ & $216$ & $224$ & $240$ & $240$\\\hline
+% $6$ & $240$ & $288$ & $336$ & $360$ & $384$ & $384$ & $400$ & $432$ & $448$\\\hline
+% $7$ & $448$ & $512$ & $576$ & $640$ & $672$ & $672$ & $720$ & $768$ & $768$\\\hline
+% $8$ & $768$ & $960$ & $1024$ & $1152$ & $1152$ & $1200$ & $1280$ & $1344$ & $1344$\\\hline
+% $9$ & $1344$ & $1536$ & $1792$ & $1920$ & $2016$ & $2048$ & $2304$ & $2304$ & $2304$\\\hline
+% $10$ & $2304$ & $2688$ & $3072$ & $3072$ & $3456$ & $3456$ & $3584$ & $3600$ & $3840$\\\hline
+% $11$ & $4032$ & $4608$ & $5040$ & $5376$ & $5760$ & $5760$ & $6144$ & $6144$ & $6144$\\\hline
+% $12$ & $6720$ & $7680$ & $8064$ & $8640$ & $9216$ & $9216$ & $10080$ & $10080$ & $10368$\\\hline
+% $13$ & $10752$ & $12288$ & $13440$ & $13824$ & $14400$ & $15360$ & $16128$ & $16128$ & $16128$\\\hline
+% $14$ & $17280$ & $20160$ & $21504$ & $23040$ & $23040$ & $24576$ & $24576$ & $25920$ & $26880$\\\hline
+% $15$ & $26880$ & $30720$ & $32768$ & $34560$ & $36864$ & $36864$ & $40320$ & $40320$ & $41472$\\\hline
+% $16$ & $41472$ & $48384$ & $51840$ & $55296$ & $57600$ & $57600$ & $61440$ & $64512$ & $64512$\\\hline
+% $17$ & $64512$ & $73728$ & $82944$ & $86016$ & $92160$ & $92160$ & $96768$ & $98304$ & $103680$\\\hline
+% $18$ & $103680$ & $115200$ & $124416$ & $129024$ & $138240$ & $138240$ & $147456$ & $147456$ & $153600$ \\
+% \hline
+% \end{tabular}}
+% \caption*{Upper bound on the number of divisors of the integers in $[1, c10^r]$.}
+% \end{table}

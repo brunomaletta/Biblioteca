@@ -1,0 +1,77 @@
+\section{Graphs}
+
+\subsection{Planar Graphs}
+\begin{enumerate}
+\item If $G$ has $k$ connected components, then $n - m + f = k + 1$.
+\item $m \leq  3n - 6 $. If $G$ has no triangles, $m \leq 2n - 4$.
+\item The minimum degree is less or equal 5. And can be $6$ colored in $\mathcal{O}(n+m)$.
+\end{enumerate}
+
+\subsection{Counting Minimum Spanning Trees - \texorpdfstring{$\tau(G)$}{}}
+
+\begin{itemize}
+    \item \textbf{Cayley's Formula}:
+    $\tau(K_n) = n^{n-2}$.
+    
+    \item \textbf{Complete Bipartite Graphs}:
+    $\tau(K_{p,q}) = p^{q-1}q^{p-1}$.
+    
+    \item \textbf{Kirchhoff's Theorem}:
+    More generally, if we define the Laplacian matrix
+    $\mathbf{L}(G) = \mathbf{D} - \mathbf{A}$, where $\mathbf{D}$ is the diagonal matrix with entries equal to the degree of vertices and $\mathbf{A}$ is the adjacency matrix. For $\mathbf{L}(G)_{ab}$ equal to $\mathbf{L}(G)$ without row $a$ and column $b$, we have $\tau(G) = \det{\mathbf{L}(G)_{ab}}$, for any row $a$ and column $b$.
+    
+\end{itemize}
+
+\subsection{Prüfer's Sequence}
+The Prüfer sequence is a bijection between labeled trees with $n$ vertices and sequences with $n-2$ numbers from 1 to $n$.
+
+To get the sequence from the tree:
+
+\begin{itemize}
+    \item While there are more than 2 vertices, remove the leaf with smallest label and append it's neighbour to the end of the sequence.
+\end{itemize}
+
+To get the tree from the sequence:
+
+\begin{itemize}
+    \item The degree of each vertex is 1 more than the number of occurrences of that vertex in the sequence. Compute the degree $d$, then do the following: for every value $x$ in the sequence (in order), find the vertex with smallest label $y$ such that $d(y) = 1$ and add an edge between $x$ and $y$, and also decrease their degrees by 1. At the end of this procedure, there will be two vertices left with degree 1; add an edge between them.
+\end{itemize}
+
+\subsection{\texorpdfstring{Erd\H{o}s}{}-Gallai Theorem}
+A sequence of non-negative integers $d_1 \geq ... \geq d_n$ can be represented as the degree sequence of a finite simple graph on $n$ vertices if and only if $d_1 + ... + d_n$ is even and
+$$\sum_{i=1}^{k} d_i \,\, \leq \,\, k(k-1) + \sum_{i=k+1}^{n} min(d_i, k)$$
+holds for every $k$ in 1 $\leq k \leq n$.
+
+\subsection{Maximum Matching in Complete Multipartite graphs}
+
+The size of the maximum matching in a complete multipartite graph with $n$ vertices and $k$ vertices in its largest partition is (\href{http://math.furman.edu/~mwoodard/fuejum/content/1996/1996paper2.pdf}{reference}):
+
+$$ |M| = \min\left(\left\lfloor \frac{n}{2} \right\rfloor, n - k\right) $$
+
+\subsection{Dilworth's Theorem}
+
+\subsubsection{Node-disjoint Path Cover}
+
+The node disjoint path cover in a {\tt DAG} is equal to $|V| - |M|$, where $M$ is the maximum matching in the bipartite flow network.
+
+\subsubsection{General Path Cover}
+
+The general path cover in a {\tt DAG} is equal to $|V| - |M|$, where $M$ is the maximum matching in the bipartite flow network of the transitive closure graph.
+
+\subsubsection{Dilworth's Theorem}
+
+The size of the maximum \textbf{antichain} in a {\tt DAG}, that is, the maximum size of a set $S$ of vertices such that no vertex in $S$ can reach another vertex in $S$, is equal to size of the minimum \textbf{general} path cover.
+
+\subsection{Sum of Subtrees of a Tree}
+
+For a rooted tree $T$ with $n$ vertices, let $sz(v)$ be the size of the subtree of $v$. Then the following holds:
+
+$$ \sum_{v \in V} \left[\text{sz}(v) + \sum_{u \text{ child of } v} \text{sz}(u)(\text{sz}(v) - \text{sz}(u))\right] = n^2 $$
+
+\subsection{Number of eulerian subgraphs}
+
+Let $G$ be a graph with $n$ vertices, $m$ edges and $c$ connected components. We consider an eulerian subgraph of $G$ to be any subgraph $H$ with the same vertex set as $G$ and where every vertex has even degree. The number of such subgraphs is:
+
+$$
+2^{m-n+c}
+$$

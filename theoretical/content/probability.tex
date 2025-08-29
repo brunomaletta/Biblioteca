@@ -1,0 +1,32 @@
+\section{Probability}
+
+\subsection{Moment Generating Functions}
+
+Let $X$ be a random variable. Define $M_X(t) = E[e^{tX}]$.
+\begin{minipage}{.23\textwidth}
+$$\text{when }X\text{ is Discrete}$$
+$$M_X(t) = \sum_{i=1}^{\infty} e^{tx_i}p_i$$
+\end{minipage}
+\begin{minipage}{.23\textwidth}
+$$\text{when }X \text{ is Continuous}$$
+$$M_X(t) = \int_{-\infty}^{\infty} e^{tx}f(x)dx$$
+\end{minipage}
+
+Then we have:
+$$M_X(0) = 0 \qquad M_{X}^{'}(0) = E[x] \qquad  \frac{d^k M_{X} (0)}{d t^k} = E[x^k]$$
+
+\subsection{Distributions}
+\subsubsection{Binomial}
+
+\begin{itemize}
+\item  $X$ is the number of successes in a sequence of $n$ independent experiments.
+\end{itemize}
+$$P(X = k) = \binom{n}{k}\,p^{k}(1-p)^{n-k} \qquad E[X] = np \qquad Var(X) = np(1-p)$$
+
+\subsubsection{Geometric}
+\begin{itemize}
+\item $X$ is the number of failures in a sequence of independent experiment of Bernoulli until the first success. 
+$$P(X = k) = (1-p)^{k}p \qquad E[X] = \frac{1}{p} \qquad Var(X) = \frac{1-p}{p^2}$$
+
+\end{itemize}
+

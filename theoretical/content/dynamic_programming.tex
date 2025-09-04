@@ -1,0 +1,36 @@
+\section{Dynamic Programming Optimizations}
+
+% Tabela to blog: https://codeforces.com/blog/entry/8219
+
+% \begin{table}[H]
+%     \centering
+%     \resizebox{0.75\textwidth}{!}{\begin{minipage}{\textwidth}
+%     \begin{tabular}{|c|c|c|c|c|}
+%         \hline
+%         \textbf{Optimization} & \textbf{Recurrence} & \begin{tabular}[c]{@{}c@{}}\textbf{Sufficient}\\\textbf{Condition}\end{tabular} & \begin{tabular}[c]{@{}c@{}}\textbf{Original}\\\textbf{Complexity}\end{tabular} & \begin{tabular}[c]{@{}c@{}}\textbf{Optimized}\\\textbf{Complexity}\end{tabular} \\
+%         \hline
+%         Convex Hull 1  & \begin{tabular}[c]{@{}l@{}} $dp[i] = $ \\ $\min_{j < i}\left( dp[j] + b[j] \star a[i] \right)$ \end{tabular} & \begin{tabular}[c]{@{}c@{}} $b[j] \geq b[j+1]$ \\ $a[i] \leq a[i+1]$ \end{tabular} & $\mathcal{O}(n^2)$ & $\mathcal{O}(n)$ \\
+%         \hline
+%         Convex Hull 2  & \begin{tabular}[c]{@{}l@{}} $dp[i][j] = $ \\ $\min_{k < j}\left( dp[i-1][k] + b[k] \cdot a[j] \right)$ \end{tabular} & \begin{tabular}[c]{@{}c@{}} $b[k] \geq b[k+1]$ \\ $a[j] \leq a[j+1]$ \end{tabular} & $\mathcal{O}(k n^2)$ & $\mathcal{O}(k n)$ \\
+%         \hline
+%         \begin{tabular}[c]{@{}c@{}} Divide and \\ Conquer \end{tabular} & \begin{tabular}[c]{@{}l@{}} $dp[i][j] = $ \\ $\min_{k < j}\left( dp[i-1][k] + C[k][j] \right)$ \end{tabular} & $A[i][j] \leq A[i][j+1]$ & $\mathcal{O}(k n^2)$ & $\mathcal{O}(k n \log n)$ \\
+%         \hline
+%     \end{tabular}
+%         \end{minipage}}
+% \end{table}
+
+\subsection{Divide and Conquer}
+
+\textsc{dp} to compute the minimum cost to divide an array into $k$ subarrays; the cost of a solution is equal to the sum of the costs of each subarray. The cost of a subarray $A[i..j]$ is $c(i, j)$.
+
+$$dp[i][k] = \min_{j \ge i} \left( dp[j+1][k-1] + c(i, j) \right)$$
+
+\begin{itemize}
+    \item  Define $A$ to be the functions satisfying 
+    $$dp[i][k] = dp[A(i, k) + 1][k-1] + c(i, A(i, k)).$$
+    If $A$ also satisfy $A(i, k) \le A(i+1, k)$, then the $dp$ is optimizable. 
+    
+    \item Another sufficient condition is, for every $a < b < c < d$:
+    
+    $$ c(a, d) + c(b, c) \geq c(a, c) + c(b, d) $$
+\end{itemize}

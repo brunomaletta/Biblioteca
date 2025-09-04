@@ -1,0 +1,98 @@
+\section{Other}
+
+\subsection{Branching factors}
+
+The recurrence $T(n) = T(n-i) + T(n-j)$ is $\mathcal{O}(\tau(i, j)^n)$. Also, the recurrence $T(n) = T(n-i) + T(n-j) + f(n)$ is $\mathcal{O}(\tau(i, j)^n \cdot f(n))$.
+
+\begin{table}[H]
+\centering
+\begin{tabular}{|c|c|c|c|c|c|}
+\hline
+\cellcolor{gray!40} \backslashbox[20pt]{\kern-0.5em $i$}{$j$\kern-0.25em} & \cellcolor{gray!40} $1$ & \cellcolor{gray!40} $2$ & \cellcolor{gray!40} $3$ & \cellcolor{gray!40} $4$ & \cellcolor{gray!40} $5$ \\ \hline 
+\cellcolor{gray!40} $1$ & $2.0000$ & $1.6181$ & $1.4656$ & $1.3803$ & $1.3248$\\ \hline
+\cellcolor{gray!40} $2$ & $1.6181$ & $1.4143$ & $1.3248$ & $1.2721$ & $1.2366$\\ \hline
+\cellcolor{gray!40} $3$ & $1.4656$ & $1.3248$ & $1.2560$ & $1.2208$ & $1.1939$\\ \hline
+\cellcolor{gray!40} $4$ & $1.3803$ & $1.2721$ & $1.2208$ & $1.1893$ & $1.1674$\\ \hline
+\cellcolor{gray!40} $5$ & $1.3248$ & $1.2366$ & $1.1939$ & $1.1674$ & $1.1487$\\
+\hline
+\end{tabular}
+\caption*{Branching factors of binary branching vectors $\tau(i, j)$, rounded up.}
+\end{table}
+
+
+
+
+\subsection{Lagrange}
+
+Given a set of $k+1$ points 
+$$(x_0, y_0), \dots, (x_j, y_j), \dots, (x_k, y_k)$$
+where no two $x_j$ are the same, the interpolation polynomial in the Lagrange form is a linear combination
+$$L(x) := \sum_{j=0}^{k}{y_jl_j(x)}$$
+of Lagrange basis polynomials
+$$l_j(x) := \prod_{\substack{0 \leq m \leq k \\ m \neq j}} \frac{x - x_m}{x_j - x_m} = \frac{(x-x_0)}{(x_j-x_0)} \dots \frac{(x-x_{j-1})}{(x_j-x_{j-1})} \frac{(x-x_{j+1})}{(x_j-x_{j+1})} \dots \frac{(x-x_k)}{(x_j-x_k)}$$
+
+
+
+\subsection{Rational Root Theorem}
+
+The rational roots $\pm \frac p q$ of $P(x) = \sum_{i=0}^n a_i x^i$, with $a_i \in \mathbb Z$ and $a_0, a_n \neq 0$ are such that $p \,|\, a_0$ and $q \,|\, a_n$. Note that we require that $a_0 \neq 0$; if this is not the case. take the least significant non-zero coefficient.
+
+\subsection{Slope Trick}
+
+\begin{itemize}
+    \item A function is slope-trick-able if it satisfies 3 conditions:
+
+
+\begin{enumerate}
+    \item It is continuous.
+    \item It can be divided into multiple sections, where each section is a linear function with an integer slope.
+    \item It is convex/concave. 
+\end{enumerate}
+
+\item A slope-trick-able function can be represented by a linear function of the rightmost section and a multiset \textbf{S} containing all the slope changing points where the slope changes by 1.
+
+\item If $f(x)$ and $g(x)$ are slope-trick-able, then so is $f(x) + g(x)$ (merge the multiset and sum the linear functions).
+
+\item Example: given an array, each operation you are allowed to increase or decrease an element's value by 1. Find the minimum number of operations to make the array non decreasing.   
+
+\item $f_i(x) = $ minimum number of operations to make the first $i$ elements of the array non-decreasing, with the condition that $a_i \leq x$ is slope-trick-able.
+
+\item  The dual of the problem is: given an array with the price of some stock by day, each day we can either buy or sell one unity of stock or do nothing. What is the largest possible profit?
+
+\end{itemize}
+
+\subsection{Manhattan Distance Trick}
+
+This section is about $\mathbb Z^2$. Let $\mathcal L((x, y)) = (x+y, x-y)$. We have the distance functions:
+
+\begin{itemize}
+    \item Manhattan distance: $M(p, q) = |p.x - q.x| + |p.y - q.y|$
+    \item Chebyshev distance: $C(p, q) = \max(|p.x - q.x|, |p.y - q.y|)$
+\end{itemize}
+
+Then:
+
+\begin{itemize}
+    \item $\mathcal L(\mathbb Z^2)$ scales $\mathbb Z^2$ by $\sqrt 2$;
+    \item $\mathcal L(\mathbb Z^2)$ rotates $\mathbb Z^2$ by $\frac \pi 4$ clock-wise;
+    \item For some $p \in \mathbb Z^2$, $\mathcal L(\{q : M(q, p) \leq d\})$ forms an axis-aligned square in $\mathcal L(\mathbb Z^2)$, with bottom-left corner $\mathcal L(p) - (d, d)$ and upper-right corner $\mathcal L(p) + (d, d)$;
+    \item $M(p, q) = C(\mathcal L(p), \mathcal L(q))$, and $C(p, q) = M(\mathcal L^{-1}(p), \mathcal L^{-1}(q))$.
+\end{itemize}
+
+\subsubsection{Higher Dimensions}
+
+On $\mathbb Z^d$, the last fact generalizes as a $2^{d-1}$ dimension transformation:
+
+$$ \mathcal L(p)_{i} = p_0 + \sum_{j=1}^{d-1} (-1)^{(i>>j\&1)} p_j, $$
+
+that is, the sign of the first coordinate is positive, and the others iterate through all $2^{d-1}$ possibilities.
+
+\subsubsection{String Matching with Wildcards}
+
+
+Consider a text $T$ and a pattern $P$. $P$ and $T$ may have wildcards that will match any character. The problem is to get the positions where $P$ occur in $T$.
+
+If we define the value of the characters such that the wildcard is zero and the other characters are positive, there is a matching at position $i$ iff $\sum_{j=0}^{|P|-1}P[j]T[i+j](P[j] - T[i + j])^2 = 0$. Then, one can evaluate each term of 
+$$ \sum_{j=0}^{|P|-1}(P[j]^3T[i+j] - 2P[j]^2T[i+j]^2 + P[j]T[i + j]^3) $$ 
+
+using three convolutions.

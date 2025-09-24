@@ -12,16 +12,16 @@ O *theoretical guide* (documento com teoremas, identidades e informações teór
 
 Link para o latex do theoretical: [link](https://github.com/brunomaletta/Biblioteca/blob/master/theoretical/theoretical.tex).
 
-#### Atualizar o PDF
+#### Atualizar os PDFs
 
 <details>
 <summary>Detalhes</summary>
 
-Para atualizar o PDF primeiro instale o latex executando 
+Para atualizar os PDFs primeiro instale o latex executando
 ```
 sudo apt install texlive-full
 ```
-O pdf é gerado usando a ferramenta [rubber](https://gitlab.com/latex-rubber/rubber). Para baixá-la execute:
+O pdf da biblioteca é gerado usando a ferramenta [rubber](https://gitlab.com/latex-rubber/rubber). Para baixá-la execute:
 
 ```
 sudo apt install rubber
@@ -38,12 +38,18 @@ cd latex
 ./getlatex.sh
 ```
 
-Para atualizar o PDF do *Theoretical*: (o último comando remove os arquivos auxiliares)
+##### Customização
+
+Caso queira customizar o nome do time, integrantes e universidade, basta definir as seguintes variáveis de ambiente:
+
+- `TEAMNAME`: nome do time (default: `Xerebêlerebébis`)
+- `MEMBERS`: lista de membros (default: `Emanuel Silva, Bruno Monteiro \\& Rafael Grandsire`)
+- `UNIVERSITY`: universidade (default: `UFMG`)
+
+Por exemplo, o comando abaixo compila os PDFs customizando as três variáveis para outros valores:
 
 ```
-cd theoretical
-latexmk -pdf theoretical -outdir=../pdf
-latexmk -pdf theoretical -outdir=../pdf -c
+TEAMNAME="Amigos Pessoais" MEMBERS="Laila Melo, Luis Higino \\& Thiago Assis" UNIVERSITY="HGH" ./getlatex.sh 
 ```
 
 </details>

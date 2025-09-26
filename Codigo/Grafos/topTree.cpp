@@ -73,7 +73,7 @@
 // 6. Combinacao de dados dos filhos
 // - combine_children(v): retorna a combinacao dos filhos de v
 //   . Se voce definir data_child() = 1 e combinar com +=,
-//     returna numero de filhos
+//     retorna numero de filhos
 
 template<typename T> struct lct {
 	struct lazy {

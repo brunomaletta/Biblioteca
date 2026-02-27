@@ -3,8 +3,8 @@ weight: 10
 title: "stress.sh"
 draft: false
 toc: true
-date: "2026-02-27T16:29:55-0300"
-publishdate: "2026-02-27T16:29:55-0300"
+date: "2026-02-27T17:02:42-0300"
+publishdate: "2026-02-27T17:02:42-0300"
 description: ""
 ---
 
@@ -13,6 +13,8 @@ Link original: [stress.sh](https://github.com/brunomaletta/Biblioteca/tree/maste
 
 ## Código
 ```cpp
+P=a
+make ${P} ${P}2 gen || exit 1
 for ((i = 1; ; i++)) do
 	./gen $i > in
 	./${P} < in > out

@@ -3,8 +3,8 @@ weight: 10
 title: "debug.cpp"
 draft: false
 toc: true
-date: "2026-02-27T16:29:55-0300"
-publishdate: "2026-02-27T16:29:55-0300"
+date: "2026-02-27T17:02:42-0300"
+publishdate: "2026-02-27T17:02:42-0300"
 description: ""
 ---
 
@@ -13,6 +13,8 @@ Link original: [debug.cpp](https://github.com/brunomaletta/Biblioteca/tree/maste
 
 ## Código
 ```cpp
+void debug_out(string s, int line) { cerr << endl; }
+template<typename H, typename... T>
 void debug_out(string s, int line, H h, T... t) {
     if (s[0] != ',') cerr << "Line(" << line << ") ";
     do { cerr << s[0]; s = s.substr(1);

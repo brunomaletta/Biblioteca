@@ -3,8 +3,8 @@ weight: 10
 title: "Block-Cut Tree"
 draft: false
 toc: true
-date: "2024-05-09T18:39:19-0300"
-publishdate: "2024-05-09T18:39:19-0300"
+date: "2026-02-27T17:02:42-0300"
+publishdate: "2026-02-27T17:02:42-0300"
 description: ""
 ---
 
@@ -31,9 +31,9 @@ description: ""
 
  
 
- Para todo i <= blocks.size()
+ Para todo i < blocks.size()
 
- blocks[i] eh uma componente 2-vertce-conexa maximal
+ blocks[i] eh uma componente 2-vertice-conexa maximal
 
  edgblocks[i] sao as arestas do bloco i
 

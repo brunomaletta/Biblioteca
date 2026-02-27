@@ -3,8 +3,8 @@ weight: 10
 title: "vimrc"
 draft: false
 toc: true
-date: "2026-02-27T16:29:55-0300"
-publishdate: "2026-02-27T16:29:55-0300"
+date: "2026-02-27T17:02:42-0300"
+publishdate: "2026-02-27T17:02:42-0300"
 description: ""
 ---
 
@@ -13,6 +13,8 @@ Link original: [vimrc](https://github.com/brunomaletta/Biblioteca/tree/master/Co
 
 ## Código
 ```cpp
+"" vimrc
+
 "" {
 set ts=4 sw=4 mouse=a nu ai si undofile
 function H(l)

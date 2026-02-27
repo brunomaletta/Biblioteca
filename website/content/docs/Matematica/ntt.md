@@ -3,8 +3,8 @@ weight: 10
 title: "NTT"
 draft: false
 toc: true
-date: "2024-05-09T18:39:19-0300"
-publishdate: "2024-05-09T18:39:19-0300"
+date: "2026-02-27T17:02:42-0300"
+publishdate: "2026-02-27T17:02:42-0300"
 description: ""
 ---
 
@@ -50,8 +50,7 @@ void ntt(vector<mint>& a, bool rev) {
 
 vector<mint> convolution(const vector<mint>& a, const vector<mint>& b) {
 	vector<mint> l(a.begin(), a.end()), r(b.begin(), b.end());
-	int N = l.size()+r.size()-1, n = 1;
-	while (n <= N) n *= 2;
+	int N = l.size()+r.size()-1, n = 1 << __lg(2*N - 1);
 	l.resize(n);
 	r.resize(n);
 	ntt(l, false);

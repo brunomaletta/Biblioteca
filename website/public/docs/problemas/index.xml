@@ -6,271 +6,271 @@
     <description>Recent content in Problemas on Biblioteca Maratona UFMG</description>
     <generator>Hugo</generator>
     <language>pt</language>
-    <lastBuildDate>Thu, 09 May 2024 18:39:18 -0300</lastBuildDate>
+    <lastBuildDate>Fri, 27 Feb 2026 17:02:42 -0300</lastBuildDate>
     <atom:link href="http://localhost:1313/Biblioteca/docs/problemas/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Angle Range Intersection</title>
       <link>http://localhost:1313/Biblioteca/docs/problemas/anglerange/</link>
-      <pubDate>Thu, 09 May 2024 18:39:18 -0300</pubDate>
+      <pubDate>Fri, 27 Feb 2026 17:02:42 -0300</pubDate>
       <guid>http://localhost:1313/Biblioteca/docs/problemas/anglerange/</guid>
       <description>Sobre linkComputa intersecao de angulos&#xA;Os angulos (arcos) precisam ter comprimeiro &amp;lt; pi&#xA;(caso contrario a intersecao eh estranha)&#xA;Tudo O(1)&#xA;Link original: angleRange.cpp&#xA;Código link struct angle_range { static constexpr ld ALL = 1e9, NIL = -1e9; ld l, r; angle_range() : l(ALL), r(ALL) {} angle_range(ld l_, ld r_) : l(l_), r(r_) { fix(l), fix(r); } void fix(ld&amp;amp; theta) { if (theta == ALL or theta == NIL) return; if (theta &amp;gt; 2*pi) theta -= 2*pi; if (theta &amp;lt; 0) theta &amp;#43;= 2*pi; } bool empty() { return l == NIL; } bool contains(ld q) { fix(q); if (l == ALL) return true; if (l == NIL) return false; if (l &amp;lt; r) return l &amp;lt; q and q &amp;lt; r; return q &amp;gt; l or q &amp;lt; r; } friend angle_range operator &amp;amp;(angle_range p, angle_range q) { if (p.</description>
     </item>
     <item>
       <title>Area da Uniao de Retangulos</title>
       <link>http://localhost:1313/Biblioteca/docs/problemas/areauniaoretangulo/</link>
-      <pubDate>Thu, 09 May 2024 18:39:18 -0300</pubDate>
+      <pubDate>Fri, 27 Feb 2026 17:02:42 -0300</pubDate>
       <guid>http://localhost:1313/Biblioteca/docs/problemas/areauniaoretangulo/</guid>
       <description>Sobre linkO(n log(n))&#xA;5d8d2f&#xA;Link original: areaUniaoRetangulo.cpp&#xA;Código link namespace seg { pair&amp;lt;int, ll&amp;gt; seg[4*MAX]; ll lazy[4*MAX], *v; int n; pair&amp;lt;int, ll&amp;gt; merge(pair&amp;lt;int, ll&amp;gt; l, pair&amp;lt;int, ll&amp;gt; r){ if (l.second == r.second) return {l.first&amp;#43;r.first, l.second}; else if (l.second &amp;lt; r.second) return l; else return r; } pair&amp;lt;int, ll&amp;gt; build(int p=1, int l=0, int r=n-1) { lazy[p] = 0; if (l == r) return seg[p] = {1, v[l]}; int m = (l&amp;#43;r)/2; return seg[p] = merge(build(2*p, l, m), build(2*p&amp;#43;1, m&amp;#43;1, r)); } void build(int n2, ll* v2) { n = n2, v = v2; build(); } void prop(int p, int l, int r) { seg[p].</description>
     </item>
     <item>
       <title>Area Maxima de Histograma</title>
       <link>http://localhost:1313/Biblioteca/docs/problemas/areahistograma/</link>
-      <pubDate>Thu, 09 May 2024 18:39:18 -0300</pubDate>
+      <pubDate>Fri, 27 Feb 2026 17:02:42 -0300</pubDate>
       <guid>http://localhost:1313/Biblioteca/docs/problemas/areahistograma/</guid>
       <description>Sobre linkAssume que todas as barras tem largura 1,&#xA;e altura dada no vetor v&#xA;O(n)&#xA;Link original: areaHistograma.cpp&#xA;Código link ll area(vector&amp;lt;int&amp;gt; v) { ll ret = 0; stack&amp;lt;int&amp;gt; s; // valores iniciais pra dar tudo certo v.insert(v.begin(), -1); v.insert(v.end(), -1); s.push(0); for(int i = 0; i &amp;lt; (int) v.size(); i&amp;#43;&amp;#43;) { while (v[s.top()] &amp;gt; v[i]) { ll h = v[s.top()]; s.pop(); ret = max(ret, h * (i - s.</description>
     </item>
     <item>
       <title>Binomial modular</title>
       <link>http://localhost:1313/Biblioteca/docs/problemas/binomial/</link>
-      <pubDate>Thu, 09 May 2024 18:39:18 -0300</pubDate>
+      <pubDate>Fri, 27 Feb 2026 17:02:42 -0300</pubDate>
       <guid>http://localhost:1313/Biblioteca/docs/problemas/binomial/</guid>
       <description>Sobre linkComputa C(n, k) mod m em O(m + log(m) log(n))&#xA;= O(rapido)&#xA;Link original: binomial.cpp&#xA;Código link ll divi[MAX]; ll expo(ll a, ll b, ll m) { if (!b) return 1; ll ans = expo(a*a%m, b/2, m); if (b%2) ans *= a; return ans%m; } ll inv(ll a, ll b){ return 1&amp;lt;a ? b - inv(b%a,a)*b/a : 1; } template&amp;lt;typename T&amp;gt; tuple&amp;lt;T, T, T&amp;gt; ext_gcd(T a, T b) { if (!</description>
     </item>
     <item>
       <title>Closest pair of points</title>
       <link>http://localhost:1313/Biblioteca/docs/problemas/closestpairofpoints/</link>
-      <pubDate>Thu, 09 May 2024 18:39:18 -0300</pubDate>
+      <pubDate>Fri, 27 Feb 2026 17:02:42 -0300</pubDate>
       <guid>http://localhost:1313/Biblioteca/docs/problemas/closestpairofpoints/</guid>
       <description>Sobre linkO(nlogn)&#xA;Link original: closestPairOfPoints.cpp&#xA;Código link pair&amp;lt;pt, pt&amp;gt; closest_pair_of_points(vector&amp;lt;pt&amp;gt; v) { int n = v.size(); sort(v.begin(), v.end()); for (int i = 1; i &amp;lt; n; i&amp;#43;&amp;#43;) if (v[i] == v[i-1]) return {v[i-1], v[i]}; auto cmp_y = [&amp;amp;](const pt &amp;amp;l, const pt &amp;amp;r) { if (l.y != r.y) return l.y &amp;lt; r.y; return l.x &amp;lt; r.x; }; set&amp;lt;pt, decltype(cmp_y)&amp;gt; s(cmp_y); int l = 0, r = -1; ll d2_min = numeric_limits&amp;lt;ll&amp;gt;::max(); pt pl, pr; const int magic = 5; while (r&amp;#43;1 &amp;lt; n) { auto it = s.</description>
     </item>
     <item>
       <title>Coloracao de Grafo de Intervalo</title>
       <link>http://localhost:1313/Biblioteca/docs/problemas/intervalgraphcoloring/</link>
-      <pubDate>Thu, 09 May 2024 18:39:18 -0300</pubDate>
+      <pubDate>Fri, 27 Feb 2026 17:02:42 -0300</pubDate>
       <guid>http://localhost:1313/Biblioteca/docs/problemas/intervalgraphcoloring/</guid>
       <description>Sobre linkColore os intervalos com o numero minimo&#xA;de cores de tal forma que dois intervalos&#xA;que se interceptam tem cores diferentes&#xA;As cores vao de 1 ate n&#xA;O(n log(n))&#xA;Link original: intervalGraphColoring.cpp&#xA;Código link vector&amp;lt;int&amp;gt; coloring(vector&amp;lt;pair&amp;lt;int, int&amp;gt;&amp;gt;&amp;amp; v) { int n = v.size(); vector&amp;lt;pair&amp;lt;int, pair&amp;lt;int, int&amp;gt;&amp;gt;&amp;gt; ev; for (int i = 0; i &amp;lt; n; i&amp;#43;&amp;#43;) { ev.push_back({v[i].first, {1, i}}); ev.push_back({v[i].second, {0, i}}); } sort(ev.begin(), ev.end()); vector&amp;lt;int&amp;gt; ans(n), avl(n); for (int i = 0; i &amp;lt; n; i&amp;#43;&amp;#43;) avl.</description>
     </item>
     <item>
       <title>Conectividade Dinamica DC</title>
       <link>http://localhost:1313/Biblioteca/docs/problemas/conectividadedinamica/</link>
-      <pubDate>Thu, 09 May 2024 18:39:18 -0300</pubDate>
+      <pubDate>Fri, 27 Feb 2026 17:02:42 -0300</pubDate>
       <guid>http://localhost:1313/Biblioteca/docs/problemas/conectividadedinamica/</guid>
       <description>Sobre linkOffline com Divide and Conquer e&#xA;DSU com rollback&#xA;O(n log^2(n))&#xA;Link original: conectividadeDinamica.cpp&#xA;Código link typedef pair&amp;lt;int, int&amp;gt; T; namespace data { int n, ans; int p[MAX], sz[MAX]; stack&amp;lt;int&amp;gt; S; void build(int n2) { n = n2; for (int i = 0; i &amp;lt; n; i&amp;#43;&amp;#43;) p[i] = i, sz[i] = 1; ans = n; } int find(int k) { while (p[k] != k) k = p[k]; return k; } void add(T x) { int a = x.</description>
     </item>
     <item>
       <title>Conectividade Dinamica LCT</title>
       <link>http://localhost:1313/Biblioteca/docs/problemas/conectividadedinamica2/</link>
-      <pubDate>Thu, 09 May 2024 18:39:18 -0300</pubDate>
+      <pubDate>Fri, 27 Feb 2026 17:02:42 -0300</pubDate>
       <guid>http://localhost:1313/Biblioteca/docs/problemas/conectividadedinamica2/</guid>
       <description>Sobre linkOffline com link-cut trees&#xA;O(n log(n))&#xA;Link original: conectividadeDinamica2.cpp&#xA;Código link namespace lct { struct node { int p, ch[2]; int val, sub; bool rev; node() {} node(int v) : p(-1), val(v), sub(v), rev(0) { ch[0] = ch[1] = -1; } }; node t[2*MAX]; // MAXN &amp;#43; MAXQ map&amp;lt;pair&amp;lt;int, int&amp;gt;, int&amp;gt; aresta; int sz; void prop(int x) { if (t[x].rev) { swap(t[x].ch[0], t[x].ch[1]); if (t[x].ch[0]&amp;#43;1) t[t[x].ch[0]].rev ^= 1; if (t[x].</description>
     </item>
     <item>
       <title>Conj. Indep. Maximo com Peso em Grafo de Intervalo</title>
       <link>http://localhost:1313/Biblioteca/docs/problemas/intervalgraphindset/</link>
-      <pubDate>Thu, 09 May 2024 18:39:18 -0300</pubDate>
+      <pubDate>Fri, 27 Feb 2026 17:02:42 -0300</pubDate>
       <guid>http://localhost:1313/Biblioteca/docs/problemas/intervalgraphindset/</guid>
       <description>Sobre linkRetorna os indices ordenados dos intervalos selecionados&#xA;Se tiver empate, retorna o que minimiza o comprimento total&#xA;O(n log(n))&#xA;Link original: intervalGraphIndSet.cpp&#xA;Código link vector&amp;lt;int&amp;gt; ind_set(vector&amp;lt;tuple&amp;lt;int, int, int&amp;gt;&amp;gt;&amp;amp; v) { vector&amp;lt;tuple&amp;lt;int, int, int&amp;gt;&amp;gt; w; for (int i = 0; i &amp;lt; v.size(); i&amp;#43;&amp;#43;) { w.push_back(tuple(get&amp;lt;0&amp;gt;(v[i]), 0, i)); w.push_back(tuple(get&amp;lt;1&amp;gt;(v[i]), 1, i)); } sort(w.begin(), w.end()); vector&amp;lt;int&amp;gt; nxt(v.size()); vector&amp;lt;pair&amp;lt;ll, int&amp;gt;&amp;gt; dp(v.size()); int last = -1; for (auto [fim, t, i] : w) { if (t == 0) { nxt[i] = last; continue; } dp[i] = {0, 0}; if (last !</description>
     </item>
     <item>
       <title>Convex Hull Dinamico</title>
       <link>http://localhost:1313/Biblioteca/docs/problemas/dynamichull/</link>
-      <pubDate>Thu, 09 May 2024 18:39:18 -0300</pubDate>
+      <pubDate>Fri, 27 Feb 2026 17:02:42 -0300</pubDate>
       <guid>http://localhost:1313/Biblioteca/docs/problemas/dynamichull/</guid>
       <description>Sobre linkinsert - O(log n) amortizado&#xA;is_inside - O(log n)&#xA;Link original: dynamicHull.cpp&#xA;Código link struct upper { set&amp;lt;pt&amp;gt; se; set&amp;lt;pt&amp;gt;::iterator it; int is_under(pt p) { // 1 -&amp;gt; inside ; 2 -&amp;gt; border it = se.lower_bound(p); if (it == se.end()) return 0; if (it == se.begin()) return p == *it ? 2 : 0; if (ccw(p, *it, *prev(it))) return 1; return ccw(p, *prev(it), *it) ? 0 : 2; } void insert(pt p) { if (is_under(p)) return; if (it !</description>
     </item>
     <item>
       <title>Distancia maxima entre dois pontos</title>
       <link>http://localhost:1313/Biblioteca/docs/problemas/maxdist/</link>
-      <pubDate>Thu, 09 May 2024 18:39:18 -0300</pubDate>
+      <pubDate>Fri, 27 Feb 2026 17:02:42 -0300</pubDate>
       <guid>http://localhost:1313/Biblioteca/docs/problemas/maxdist/</guid>
       <description>Sobre linkmax_dist2(v) - O(n log(n))&#xA;max_dist_manhattan - O(n)&#xA;Quadrado da Distancia Euclidiana (precisa copiar convex_hull, ccw e pt)&#xA;Link original: maxDist.cpp&#xA;Código link ll max_dist2(vector&amp;lt;pt&amp;gt; v) { v = convex_hull(v); if (v.size() &amp;lt;= 2) return dist2(v[0], v[1%v.size()]); ll ans = 0; int n = v.size(), j = 0; for (int i = 0; i &amp;lt; n; i&amp;#43;&amp;#43;) { while (!ccw(v[(i&amp;#43;1)%n]-v[i], pt(0, 0), v[(j&amp;#43;1)%n]-v[j])) j = (j&amp;#43;1)%n; ans = max({ans, dist2(v[i], v[j]), dist2(v[(i&amp;#43;1)%n], v[j])}); } return ans; } // Distancia de Manhattan template&amp;lt;typename T&amp;gt; T max_dist_manhattan(vector&amp;lt;pair&amp;lt;T, T&amp;gt;&amp;gt; v) { T min_sum, max_sum, min_dif, max_dif; min_sum = max_sum = v[0].</description>
     </item>
     <item>
       <title>Distinct Range Query</title>
       <link>http://localhost:1313/Biblioteca/docs/problemas/distinct/</link>
-      <pubDate>Thu, 09 May 2024 18:39:18 -0300</pubDate>
+      <pubDate>Fri, 27 Feb 2026 17:02:42 -0300</pubDate>
       <guid>http://localhost:1313/Biblioteca/docs/problemas/distinct/</guid>
       <description>Sobre linkbuild - O(n (log n + log(sigma)))&#xA;query - O(log(sigma))&#xA;Link original: distinct.cpp&#xA;Código link namespace perseg { }; int qt[MAX]; void build(vector&amp;lt;int&amp;gt;&amp;amp; v) { int n = v.size(); perseg::build(n); map&amp;lt;int, int&amp;gt; last; int at = 0; for (int i = 0; i &amp;lt; n; i&amp;#43;&amp;#43;) { if (last.count(v[i])) { perseg::update(last[v[i]], -1); at&amp;#43;&amp;#43;; } perseg::update(i, 1); qt[i] = &amp;#43;&amp;#43;at; last[v[i]] = i; } } int query(int l, int r) { return perseg::query(l, r, qt[r]); } </description>
     </item>
     <item>
       <title>Distinct Range Query com Update</title>
       <link>http://localhost:1313/Biblioteca/docs/problemas/distinctupdate/</link>
-      <pubDate>Thu, 09 May 2024 18:39:18 -0300</pubDate>
+      <pubDate>Fri, 27 Feb 2026 17:02:42 -0300</pubDate>
       <guid>http://localhost:1313/Biblioteca/docs/problemas/distinctupdate/</guid>
       <description>Sobre linkbuild - O(n log(n))&#xA;query - O(log^2(n))&#xA;update - O(log^2(n))&#xA;Link original: distinctUpdate.cpp&#xA;Código link #include &amp;lt;ext/pb_ds/assoc_container.hpp&amp;gt; #include &amp;lt;ext/pb_ds/tree_policy.hpp&amp;gt; using namespace __gnu_pbds; template &amp;lt;class T&amp;gt; using ord_set = tree&amp;lt;T, null_type, less&amp;lt;T&amp;gt;, rb_tree_tag, tree_order_statistics_node_update&amp;gt;; int v[MAX], n, nxt[MAX], prv[MAX]; map&amp;lt;int, set&amp;lt;int&amp;gt; &amp;gt; ocor; namespace bit { ord_set&amp;lt;pair&amp;lt;int, int&amp;gt;&amp;gt; bit[MAX]; void build() { for (int i = 1; i &amp;lt;= n; i&amp;#43;&amp;#43;) bit[i].insert({nxt[i-1], i-1}); for (int i = 1; i &amp;lt;= n; i&amp;#43;&amp;#43;) { int j = i &amp;#43; (i&amp;amp;-i); if (j &amp;lt;= n) for (auto x : bit[i]) bit[j].</description>
     </item>
     <item>
       <title>Dominator Points</title>
       <link>http://localhost:1313/Biblioteca/docs/problemas/dominatorpoints/</link>
-      <pubDate>Thu, 09 May 2024 18:39:18 -0300</pubDate>
+      <pubDate>Fri, 27 Feb 2026 17:02:42 -0300</pubDate>
       <guid>http://localhost:1313/Biblioteca/docs/problemas/dominatorpoints/</guid>
       <description>Sobre linkSe um ponto A tem ambas as coordenadas &amp;gt;= B, dizemos&#xA;que A domina B&#xA;is_dominated(p) fala se existe algum ponto no conjunto&#xA;que domina p&#xA;insert(p) insere p no conjunto&#xA;(se p for dominado por alguem, nao vai inserir)&#xA;o multiset &amp;lsquo;quina&amp;rsquo; guarda informacao sobre os pontos&#xA;nao dominados por um elemento do conjunto que nao dominam&#xA;outro ponto nao dominado por um elemento do conjunto&#xA;No caso, armazena os valores de x+y esses pontos</description>
     </item>
     <item>
       <title>DP de Dominacao 3D</title>
       <link>http://localhost:1313/Biblioteca/docs/problemas/dominacao3d/</link>
-      <pubDate>Thu, 09 May 2024 18:39:18 -0300</pubDate>
+      <pubDate>Fri, 27 Feb 2026 17:02:42 -0300</pubDate>
       <guid>http://localhost:1313/Biblioteca/docs/problemas/dominacao3d/</guid>
       <description>Sobre linkComputa para todo ponto i,&#xA;dp[i] = 1 + max_{j dominado por i} dp[j]&#xA;em que ser dominado eh ter as 3 coordenadas menores&#xA;Da pra adaptar facil para outras dps&#xA;O(n log^2 n), O(n) de memoria&#xA;Link original: dominacao3d.cpp&#xA;Código link void lis2d(vector&amp;lt;vector&amp;lt;tuple&amp;lt;int, int, int&amp;gt;&amp;gt;&amp;gt;&amp;amp; v, vector&amp;lt;int&amp;gt;&amp;amp; dp, int l, int r) { if (l == r) { for (int i = 0; i &amp;lt; v[l].size(); i&amp;#43;&amp;#43;) { int ii = get&amp;lt;2&amp;gt;(v[l][i]); dp[ii] = max(dp[ii], 1); } return; } int m = (l&amp;#43;r)/2; lis2d(v, dp, l, m); vector&amp;lt;tuple&amp;lt;int, int, int&amp;gt;&amp;gt; vv[2]; vector&amp;lt;int&amp;gt; Z; for (int i = l; i &amp;lt;= r; i&amp;#43;&amp;#43;) for (auto it : v[i]) { vv[i &amp;gt; m].</description>
     </item>
     <item>
       <title>Gray Code</title>
       <link>http://localhost:1313/Biblioteca/docs/problemas/graycode/</link>
-      <pubDate>Thu, 09 May 2024 18:39:18 -0300</pubDate>
+      <pubDate>Fri, 27 Feb 2026 17:02:42 -0300</pubDate>
       <guid>http://localhost:1313/Biblioteca/docs/problemas/graycode/</guid>
       <description>Sobre linkGera uma permutacao de 0 a 2^n-1, de forma que&#xA;duas posicoes adjacentes diferem em exatamente 1 bit&#xA;O(2^n)&#xA;Link original: grayCode.cpp&#xA;Código link vector&amp;lt;int&amp;gt; gray_code(int n) { vector&amp;lt;int&amp;gt; ret(1&amp;lt;&amp;lt;n); for (int i = 0; i &amp;lt; (1&amp;lt;&amp;lt;n); i&amp;#43;&amp;#43;) ret[i] = i^(i&amp;gt;&amp;gt;1); return ret; } </description>
     </item>
     <item>
       <title>Half-plane intersection</title>
       <link>http://localhost:1313/Biblioteca/docs/problemas/halfplaneintersection/</link>
-      <pubDate>Thu, 09 May 2024 18:39:18 -0300</pubDate>
+      <pubDate>Fri, 27 Feb 2026 17:02:42 -0300</pubDate>
       <guid>http://localhost:1313/Biblioteca/docs/problemas/halfplaneintersection/</guid>
       <description>Sobre linkCada half-plane eh identificado por uma reta e a regiao ccw a ela&#xA;O(n log n)&#xA;Link original: halfPlaneIntersection.cpp&#xA;Código link vector&amp;lt;pt&amp;gt; hp_intersection(vector&amp;lt;line&amp;gt; &amp;amp;v) { deque&amp;lt;pt&amp;gt; dq = {{INF, INF}, {-INF, INF}, {-INF, -INF}, {INF, -INF}}; #warning considerar trocar por compare_angle sort(v.begin(), v.end(), [&amp;amp;](line r, line s) { return angle(r.q-r.p) &amp;lt; angle(s.q-s.p); }); for(int i = 0; i &amp;lt; v.size() and dq.size() &amp;gt; 1; i&amp;#43;&amp;#43;) { pt p1 = dq.</description>
     </item>
     <item>
       <title>Heap Sort</title>
       <link>http://localhost:1313/Biblioteca/docs/problemas/heapsort/</link>
-      <pubDate>Thu, 09 May 2024 18:39:18 -0300</pubDate>
+      <pubDate>Fri, 27 Feb 2026 17:02:42 -0300</pubDate>
       <guid>http://localhost:1313/Biblioteca/docs/problemas/heapsort/</guid>
       <description>Sobre linkO(n log n)&#xA;Link original: heapSort.cpp&#xA;Código link void down(vector&amp;lt;int&amp;gt;&amp;amp; v, int n, int i) { while ((i = 2*i&amp;#43;1) &amp;lt; n) { if (i&amp;#43;1 &amp;lt; n and v[i] &amp;lt; v[i&amp;#43;1]) i&amp;#43;&amp;#43;; if (v[i] &amp;lt; v[(i-1)/2]) break; swap(v[i], v[(i-1)/2]); } } void heap_sort(vector&amp;lt;int&amp;gt;&amp;amp; v) { int n = v.size(); for (int i = n/2-1; i &amp;gt;= 0; i--) down(v, n, i); for (int i = n-1; i &amp;gt; 0; i--) swap(v[0], v[i]), down(v, i, 0); } </description>
     </item>
     <item>
       <title>Hungaro</title>
       <link>http://localhost:1313/Biblioteca/docs/problemas/hungarian/</link>
-      <pubDate>Thu, 09 May 2024 18:39:18 -0300</pubDate>
+      <pubDate>Fri, 27 Feb 2026 17:02:42 -0300</pubDate>
       <guid>http://localhost:1313/Biblioteca/docs/problemas/hungarian/</guid>
       <description>Sobre linkResolve o problema de assignment (matriz n x n)&#xA;Colocar os valores da matriz em &amp;lsquo;a&amp;rsquo; (pode &amp;lt; 0)&#xA;assignment() retorna um par com o valor do&#xA;assignment minimo, e a coluna escolhida por cada linha&#xA;O(n^3)&#xA;Link original: hungarian.cpp&#xA;Código link template&amp;lt;typename T&amp;gt; struct hungarian { int n; vector&amp;lt;vector&amp;lt;T&amp;gt;&amp;gt; a; vector&amp;lt;T&amp;gt; u, v; vector&amp;lt;int&amp;gt; p, way; T inf; hungarian(int n_) : n(n_), u(n&amp;#43;1), v(n&amp;#43;1), p(n&amp;#43;1), way(n&amp;#43;1) { a = vector&amp;lt;vector&amp;lt;T&amp;gt;&amp;gt;(n, vector&amp;lt;T&amp;gt;(n)); inf = numeric_limits&amp;lt;T&amp;gt;::max(); } pair&amp;lt;T, vector&amp;lt;int&amp;gt;&amp;gt; assignment() { for (int i = 1; i &amp;lt;= n; i&amp;#43;&amp;#43;) { p[0] = i; int j0 = 0; vector&amp;lt;T&amp;gt; minv(n&amp;#43;1, inf); vector&amp;lt;int&amp;gt; used(n&amp;#43;1, 0); do { used[j0] = true; int i0 = p[j0], j1 = -1; T delta = inf; for (int j = 1; j &amp;lt;= n; j&amp;#43;&amp;#43;) if (!</description>
     </item>
     <item>
       <title>Inversion Count</title>
       <link>http://localhost:1313/Biblioteca/docs/problemas/inversioncount/</link>
-      <pubDate>Thu, 09 May 2024 18:39:18 -0300</pubDate>
+      <pubDate>Fri, 27 Feb 2026 17:02:42 -0300</pubDate>
       <guid>http://localhost:1313/Biblioteca/docs/problemas/inversioncount/</guid>
       <description>Sobre linkComputa o numero de inversoes para transformar&#xA;l em r (se nao tem como, retorna -1)&#xA;O(n log(n))&#xA;Link original: inversionCount.cpp&#xA;Código link template&amp;lt;typename T&amp;gt; ll inv_count(vector&amp;lt;T&amp;gt; l, vector&amp;lt;T&amp;gt; r = {}) { if (!r.size()) { r = l; sort(r.begin(), r.end()); } int n = l.size(); vector&amp;lt;int&amp;gt; v(n), bit(n); vector&amp;lt;pair&amp;lt;T, int&amp;gt;&amp;gt; w; for (int i = 0; i &amp;lt; n; i&amp;#43;&amp;#43;) w.push_back({r[i], i&amp;#43;1}); sort(w.begin(), w.end()); for (int i = 0; i &amp;lt; n; i&amp;#43;&amp;#43;) { auto it = lower_bound(w.</description>
     </item>
     <item>
       <title>LIS - recupera</title>
       <link>http://localhost:1313/Biblioteca/docs/problemas/lis/</link>
-      <pubDate>Thu, 09 May 2024 18:39:18 -0300</pubDate>
+      <pubDate>Fri, 27 Feb 2026 17:02:42 -0300</pubDate>
       <guid>http://localhost:1313/Biblioteca/docs/problemas/lis/</guid>
       <description>Sobre linkCalcula e retorna uma LIS&#xA;O(n.log(n))&#xA;Link original: lis.cpp&#xA;Código link template&amp;lt;typename T&amp;gt; vector&amp;lt;T&amp;gt; lis(vector&amp;lt;T&amp;gt;&amp;amp; v) { int n = v.size(), m = -1; vector&amp;lt;T&amp;gt; d(n&amp;#43;1, INF); vector&amp;lt;int&amp;gt; l(n); d[0] = -INF; for (int i = 0; i &amp;lt; n; i&amp;#43;&amp;#43;) { // Para non-decreasing use upper_bound() int t = lower_bound(d.begin(), d.end(), v[i]) - d.begin(); d[t] = v[i], l[i] = t, m = max(m, t); } int p = n; vector&amp;lt;T&amp;gt; ret; while (p--) if (l[p] == m) { ret.</description>
     </item>
     <item>
       <title>LIS - tamanho</title>
       <link>http://localhost:1313/Biblioteca/docs/problemas/lis2/</link>
-      <pubDate>Thu, 09 May 2024 18:39:18 -0300</pubDate>
+      <pubDate>Fri, 27 Feb 2026 17:02:42 -0300</pubDate>
       <guid>http://localhost:1313/Biblioteca/docs/problemas/lis2/</guid>
       <description>Sobre linkCalcula o tamanho da LIS&#xA;O(n log(n))&#xA;Link original: lis2.cpp&#xA;Código link template&amp;lt;typename T&amp;gt; int lis(vector&amp;lt;T&amp;gt; &amp;amp;v){ vector&amp;lt;T&amp;gt; ans; for (T t : v){ // Para non-decreasing use upper_bound() auto it = lower_bound(ans.begin(), ans.end(), t); if (it == ans.end()) ans.push_back(t); else *it = t; } return ans.size(); } </description>
     </item>
     <item>
       <title>Minimum Enclosing Circle</title>
       <link>http://localhost:1313/Biblioteca/docs/problemas/mincirc/</link>
-      <pubDate>Thu, 09 May 2024 18:39:18 -0300</pubDate>
+      <pubDate>Fri, 27 Feb 2026 17:02:42 -0300</pubDate>
       <guid>http://localhost:1313/Biblioteca/docs/problemas/mincirc/</guid>
       <description>Sobre linkO(n) com alta probabilidade&#xA;Link original: minCirc.cpp&#xA;Código link const double EPS = 1e-12; mt19937 rng((int) chrono::steady_clock::now().time_since_epoch().count()); struct pt { double x, y; pt(double x_ = 0, double y_ = 0) : x(x_), y(y_) {} pt operator &amp;#43; (const pt&amp;amp; p) const { return pt(x&amp;#43;p.x, y&amp;#43;p.y); } pt operator - (const pt&amp;amp; p) const { return pt(x-p.x, y-p.y); } pt operator * (double c) const { return pt(x*c, y*c); } pt operator / (double c) const { return pt(x/c, y/c); } }; double dot(pt p, pt q) { return p.</description>
     </item>
     <item>
       <title>Minkowski Sum</title>
       <link>http://localhost:1313/Biblioteca/docs/problemas/minkowski/</link>
-      <pubDate>Thu, 09 May 2024 18:39:18 -0300</pubDate>
+      <pubDate>Fri, 27 Feb 2026 17:02:42 -0300</pubDate>
       <guid>http://localhost:1313/Biblioteca/docs/problemas/minkowski/</guid>
       <description>Sobre linkComputa A+B = {a+b : a \in A, b \in B}, em que&#xA;A e B sao poligonos convexos&#xA;A+B eh um poligono convexo com no max |A|+|B| pontos&#xA;O(|A|+|B|)&#xA;Link original: minkowski.cpp&#xA;Código link vector&amp;lt;pt&amp;gt; minkowski(vector&amp;lt;pt&amp;gt; p, vector&amp;lt;pt&amp;gt; q) { auto fix = [](vector&amp;lt;pt&amp;gt;&amp;amp; P) { rotate(P.begin(), min_element(P.begin(), P.end()), P.end()); P.push_back(P[0]), P.push_back(P[1]); }; fix(p), fix(q); vector&amp;lt;pt&amp;gt; ret; int i = 0, j = 0; while (i &amp;lt; p.size()-2 or j &amp;lt; q.</description>
     </item>
     <item>
       <title>MO</title>
       <link>http://localhost:1313/Biblioteca/docs/problemas/mo/</link>
-      <pubDate>Thu, 09 May 2024 18:39:18 -0300</pubDate>
+      <pubDate>Fri, 27 Feb 2026 17:02:42 -0300</pubDate>
       <guid>http://localhost:1313/Biblioteca/docs/problemas/mo/</guid>
       <description>Sobre linkPara ter o bound abaixo, escolher&#xA;SQ = n / sqrt(q)&#xA;O(n * sqrt(q))&#xA;Link original: mo.cpp&#xA;Código link const int MAX = 1e5&amp;#43;10; const int SQ = sqrt(MAX); int v[MAX]; int ans, freq[MAX]; inline void insert(int p) { int o = v[p]; freq[o]&amp;#43;&amp;#43;; ans &amp;#43;= (freq[o] == 1); } inline void erase(int p) { int o = v[p]; ans -= (freq[o] == 1); freq[o]--; } inline ll hilbert(int x, int y) { static int N = 1 &amp;lt;&amp;lt; (__builtin_clz(0) - __builtin_clz(MAX)); int rx, ry, s; ll d = 0; for (s = N/2; s &amp;gt; 0; s /= 2) { rx = (x &amp;amp; s) &amp;gt; 0, ry = (y &amp;amp; s) &amp;gt; 0; d &amp;#43;= s * ll(s) * ((3 * rx) ^ ry); if (ry == 0) { if (rx == 1) x = N-1 - x, y = N-1 - y; swap(x, y); } } return d; } #define HILBERT true vector&amp;lt;int&amp;gt; MO(vector&amp;lt;pair&amp;lt;int, int&amp;gt;&amp;gt; &amp;amp;q) { ans = 0; int m = q.</description>
     </item>
     <item>
       <title>MO - DSU</title>
       <link>http://localhost:1313/Biblioteca/docs/problemas/modsu/</link>
-      <pubDate>Thu, 09 May 2024 18:39:18 -0300</pubDate>
+      <pubDate>Fri, 27 Feb 2026 17:02:42 -0300</pubDate>
       <guid>http://localhost:1313/Biblioteca/docs/problemas/modsu/</guid>
       <description>Sobre linkDado uma lista de arestas de um grafo, responde&#xA;para cada query(l, r), quantos componentes conexos&#xA;o grafo tem se soh considerar as arestas l, l+1, &amp;hellip;, r&#xA;Da pra adaptar pra usar MO com qualquer estrutura rollbackavel&#xA;O(m sqrt(q) log(n))&#xA;Link original: moDsu.cpp&#xA;Código link struct dsu { int n, ans; vector&amp;lt;int&amp;gt; p, sz; stack&amp;lt;int&amp;gt; S; dsu(int n_) : n(n_), ans(n), p(n), sz(n) { for (int i = 0; i &amp;lt; n; i&amp;#43;&amp;#43;) p[i] = i, sz[i] = 1; } int find(int k) { while (p[k] !</description>
     </item>
     <item>
       <title>MO em Arvores</title>
       <link>http://localhost:1313/Biblioteca/docs/problemas/moontrees/</link>
-      <pubDate>Thu, 09 May 2024 18:39:18 -0300</pubDate>
+      <pubDate>Fri, 27 Feb 2026 17:02:42 -0300</pubDate>
       <guid>http://localhost:1313/Biblioteca/docs/problemas/moontrees/</guid>
       <description>Sobre linkProblema que resolve: https://www.spoj.com/problems/COT2/&#xA;Complexidade sendo c = O(update) e SQ = sqrt(n):&#xA;O((n + q) * sqrt(n) * c)&#xA;Link original: moOnTrees.cpp&#xA;Código link const int MAX = 40010, SQ = 400; vector&amp;lt;int&amp;gt; g[MAX]; namespace LCA { ... } int in[MAX], out[MAX], vtx[2 * MAX]; bool on[MAX]; int dif, freq[MAX]; vector&amp;lt;int&amp;gt; w; void dfs(int v, int p, int &amp;amp;t) { vtx[t] = v, in[v] = t&amp;#43;&amp;#43;; for (int u : g[v]) if (u !</description>
     </item>
     <item>
       <title>Palindromic Factorization</title>
       <link>http://localhost:1313/Biblioteca/docs/problemas/palindromicfactorization/</link>
-      <pubDate>Thu, 09 May 2024 18:39:18 -0300</pubDate>
+      <pubDate>Fri, 27 Feb 2026 17:02:42 -0300</pubDate>
       <guid>http://localhost:1313/Biblioteca/docs/problemas/palindromicfactorization/</guid>
       <description>Sobre linkPrecisa da eertree&#xA;Computa o numero de formas de particionar cada&#xA;prefixo da string em strings palindromicas&#xA;O(n log n), considerando alfabeto O(1)&#xA;Link original: palindromicFactorization.cpp&#xA;Código link struct eertree { ... }; ll factorization(string s) { int n = s.size(), sz = 2; eertree PT(n); vector&amp;lt;int&amp;gt; diff(n&amp;#43;2), slink(n&amp;#43;2), sans(n&amp;#43;2), dp(n&amp;#43;1); dp[0] = 1; for (int i = 1; i &amp;lt;= n; i&amp;#43;&amp;#43;) { PT.add(s[i-1]); if (PT.size()&amp;#43;2 &amp;gt; sz) { diff[sz] = PT.</description>
     </item>
     <item>
       <title>Parsing de Expressao</title>
       <link>http://localhost:1313/Biblioteca/docs/problemas/parsing/</link>
-      <pubDate>Thu, 09 May 2024 18:39:18 -0300</pubDate>
+      <pubDate>Fri, 27 Feb 2026 17:02:42 -0300</pubDate>
       <guid>http://localhost:1313/Biblioteca/docs/problemas/parsing/</guid>
       <description>Sobre linkOperacoes associativas a esquerda por default&#xA;Para mudar isso, colocar em r_assoc&#xA;Operacoes com maior prioridade sao feitas primeiro&#xA;Link original: parsing.cpp&#xA;Código link bool blank(char c) { return c == &amp;#39; &amp;#39;; } bool is_unary(char c) { return c == &amp;#39;&amp;#43;&amp;#39; or c == &amp;#39;-&amp;#39;; } bool is_op(char c) { if (is_unary(c)) return true; return c == &amp;#39;*&amp;#39; or c == &amp;#39;/&amp;#39; or c == &amp;#39;&amp;#43;&amp;#39; or c == &amp;#39;-&amp;#39;; } bool r_assoc(char op) { // operator unario - deve ser assoc.</description>
     </item>
     <item>
       <title>RMQ com Divide and Conquer</title>
       <link>http://localhost:1313/Biblioteca/docs/problemas/rmqoffline/</link>
-      <pubDate>Thu, 09 May 2024 18:39:18 -0300</pubDate>
+      <pubDate>Fri, 27 Feb 2026 17:02:42 -0300</pubDate>
       <guid>http://localhost:1313/Biblioteca/docs/problemas/rmqoffline/</guid>
       <description>Sobre linkResponde todas as queries em&#xA;O(n log(n))&#xA;Link original: rmqOffline.cpp&#xA;Código link typedef pair&amp;lt;pair&amp;lt;int, int&amp;gt;, int&amp;gt; iii; #define f first #define s second int n, q, v[MAX]; iii qu[MAX]; int ans[MAX], pref[MAX], sulf[MAX]; void solve(int l=0, int r=n-1, int ql=0, int qr=q-1) { if (l &amp;gt; r or ql &amp;gt; qr) return; int m = (l&amp;#43;r)/2; int qL = partition(qu&amp;#43;ql, qu&amp;#43;qr&amp;#43;1, [=](iii x){return x.f.s &amp;lt; m;}) - qu; int qR = partition(qu&amp;#43;qL, qu&amp;#43;qr&amp;#43;1, [=](iii x){return x.</description>
     </item>
     <item>
       <title>Segment Intersection</title>
       <link>http://localhost:1313/Biblioteca/docs/problemas/segmentintersection/</link>
-      <pubDate>Thu, 09 May 2024 18:39:18 -0300</pubDate>
+      <pubDate>Fri, 27 Feb 2026 17:02:42 -0300</pubDate>
       <guid>http://localhost:1313/Biblioteca/docs/problemas/segmentintersection/</guid>
       <description>Sobre linkVerifica, dado n segmentos, se existe algum par de segmentos&#xA;que se intersecta&#xA;O(n log n)&#xA;Link original: segmentIntersection.cpp&#xA;Código link bool operator &amp;lt; (const line&amp;amp; a, const line&amp;amp; b) { // comparador pro sweepline if (a.p == b.p) return ccw(a.p, a.q, b.q); if (!eq(a.p.x, a.q.x) and (eq(b.p.x, b.q.x) or a.p.x&amp;#43;eps &amp;lt; b.p.x)) return ccw(a.p, a.q, b.p); return ccw(a.p, b.q, b.p); } bool has_intersection(vector&amp;lt;line&amp;gt; v) { auto intersects = [&amp;amp;](pair&amp;lt;line, int&amp;gt; a, pair&amp;lt;line, int&amp;gt; b) { return interseg(a.</description>
     </item>
     <item>
       <title>Sequencia de de Brujin</title>
       <link>http://localhost:1313/Biblioteca/docs/problemas/debrujin/</link>
-      <pubDate>Thu, 09 May 2024 18:39:18 -0300</pubDate>
+      <pubDate>Fri, 27 Feb 2026 17:02:42 -0300</pubDate>
       <guid>http://localhost:1313/Biblioteca/docs/problemas/debrujin/</guid>
       <description>Sobre linkSe passar sem o terceiro parametro, gera um vetor com valores&#xA;em [0, k) de tamanho k^n de forma que todos os subarrays ciclicos&#xA;de tamanho n ocorrem exatamente uma vez&#xA;Se passar com um limite lim, gera o menor vetor com valores&#xA;em [0, k) que possui lim subarrays de tamanho n distintos&#xA;(assume que lim &amp;lt;= k^n)&#xA;Linear no tamanho da resposta&#xA;Link original: deBrujin.cpp&#xA;Código link vector&amp;lt;int&amp;gt; de_brujin(int n, int k, int lim = INF) { if (k == 1) return vector&amp;lt;int&amp;gt;(lim == INF ?</description>
     </item>
     <item>
       <title>Shortest Addition Chain</title>
       <link>http://localhost:1313/Biblioteca/docs/problemas/additionchain/</link>
-      <pubDate>Thu, 09 May 2024 18:39:18 -0300</pubDate>
+      <pubDate>Fri, 27 Feb 2026 17:02:42 -0300</pubDate>
       <guid>http://localhost:1313/Biblioteca/docs/problemas/additionchain/</guid>
       <description>Sobre linkComputa o menor numero de adicoes para construir&#xA;cada valor, comecando com 1 (e podendo salvar variaveis)&#xA;Retorna um par com a dp e o pai na arvore&#xA;A arvore eh tao que o taminho da raiz (1) ate x&#xA;contem os valores que devem ser criados para gerar x&#xA;A profundidade de x na arvore eh dp[x]&#xA;DP funciona para ateh 300, mas a arvore soh funciona&#xA;para ateh 148</description>
     </item>
     <item>
       <title>Simple Polygon</title>
       <link>http://localhost:1313/Biblioteca/docs/problemas/simplepolygon/</link>
-      <pubDate>Thu, 09 May 2024 18:39:18 -0300</pubDate>
+      <pubDate>Fri, 27 Feb 2026 17:02:42 -0300</pubDate>
       <guid>http://localhost:1313/Biblioteca/docs/problemas/simplepolygon/</guid>
       <description>Sobre linkVerifica se um poligono com n pontos eh simples&#xA;O(n log n)&#xA;Link original: simplePolygon.cpp&#xA;Código link bool operator &amp;lt; (const line&amp;amp; a, const line&amp;amp; b) { // comparador pro sweepline if (a.p == b.p) return ccw(a.p, a.q, b.q); if (!eq(a.p.x, a.q.x) and (eq(b.p.x, b.q.x) or a.p.x&amp;#43;eps &amp;lt; b.p.x)) return ccw(a.p, a.q, b.p); return ccw(a.p, b.q, b.p); } bool simple(vector&amp;lt;pt&amp;gt; v) { auto intersects = [&amp;amp;](pair&amp;lt;line, int&amp;gt; a, pair&amp;lt;line, int&amp;gt; b) { if ((a.</description>
     </item>
     <item>
       <title>Steiner Tree</title>
       <link>http://localhost:1313/Biblioteca/docs/problemas/steinertree/</link>
-      <pubDate>Thu, 09 May 2024 18:39:18 -0300</pubDate>
+      <pubDate>Fri, 27 Feb 2026 17:02:42 -0300</pubDate>
       <guid>http://localhost:1313/Biblioteca/docs/problemas/steinertree/</guid>
       <description>Sobre linksteiner: retorna o peso da menor arvore que cobre os vertices S&#xA;get_steiner: retorna o valor minimo e as arestas de uma solucao&#xA;se nao tiver solucao retorna LINF&#xA;grafo nao pode ter pesos negativos&#xA;se so tiver peso nas arestas/vertices pode deletar os vw/w no codigo&#xA;k = |S|&#xA;O(3^k * n + 2^k * m log m)&#xA;otimizacao: joga um vertice x do S fora e pegue a resposta em dp[&amp;hellip;][x] e reconstrua a arvore a partir dele</description>
     </item>
     <item>
       <title>Sweep Direction</title>
       <link>http://localhost:1313/Biblioteca/docs/problemas/sweepdirection/</link>
-      <pubDate>Thu, 09 May 2024 18:39:18 -0300</pubDate>
+      <pubDate>Fri, 27 Feb 2026 17:02:42 -0300</pubDate>
       <guid>http://localhost:1313/Biblioteca/docs/problemas/sweepdirection/</guid>
       <description>Sobre linkPassa por todas as ordenacoes dos pontos definitas por &amp;ldquo;direcoes&amp;rdquo;&#xA;Assume que nao existem pontos coincidentes&#xA;O(n^2 log n)&#xA;Link original: sweepDirection.cpp&#xA;Código link void sweep_direction(vector&amp;lt;pt&amp;gt; v) { int n = v.size(); sort(v.begin(), v.end(), [](pt a, pt b) { if (a.x != b.x) return a.x &amp;lt; b.x; return a.y &amp;gt; b.y; }); vector&amp;lt;int&amp;gt; at(n); iota(at.begin(), at.end(), 0); vector&amp;lt;pair&amp;lt;int, int&amp;gt;&amp;gt; swapp; for (int i = 0; i &amp;lt; n; i&amp;#43;&amp;#43;) for (int j = i&amp;#43;1; j &amp;lt; n; j&amp;#43;&amp;#43;) swapp.</description>
     </item>
     <item>
       <title>Triangulacao de Delaunay</title>
       <link>http://localhost:1313/Biblioteca/docs/problemas/delaunay/</link>
-      <pubDate>Thu, 09 May 2024 18:39:18 -0300</pubDate>
+      <pubDate>Fri, 27 Feb 2026 17:02:42 -0300</pubDate>
       <guid>http://localhost:1313/Biblioteca/docs/problemas/delaunay/</guid>
       <description>Sobre linkComputa a triangulacao de Delaunay, o dual&#xA;do diagrama de Voronoi (a menos de casos degenerados)&#xA;Retorna um grafo indexado pelos indices dos pontos, e as arestas&#xA;sao as arestas da triangulacao&#xA;As arestas partindo de um vertice ja vem ordenadas por angulo,&#xA;ou seja, se o vertice v nao esta no convex hull, (v, v_i, v_{i+1})&#xA;eh um triangulo da triangulacao, em que v_i eh o i-esimo vizinho</description>
     </item>
     <item>
       <title>Triangulos em Grafos</title>
       <link>http://localhost:1313/Biblioteca/docs/problemas/graphtriangles/</link>
-      <pubDate>Thu, 09 May 2024 18:39:18 -0300</pubDate>
+      <pubDate>Fri, 27 Feb 2026 17:02:42 -0300</pubDate>
       <guid>http://localhost:1313/Biblioteca/docs/problemas/graphtriangles/</guid>
       <description>Sobre linkget_triangles(i) encontra todos os triangulos ijk no grafo&#xA;Custo nas arestas&#xA;retorna {custo do triangulo, {j, k}}&#xA;O(m sqrt(m) log(n)) se chamar para todos os vertices&#xA;Link original: graphTriangles.cpp&#xA;Código link vector&amp;lt;pair&amp;lt;int, int&amp;gt;&amp;gt; g[MAX]; // {para, peso} #warning o &amp;#39;g&amp;#39; deve estar ordenado vector&amp;lt;pair&amp;lt;int, pair&amp;lt;int, int&amp;gt;&amp;gt;&amp;gt; get_triangles(int i) { vector&amp;lt;pair&amp;lt;int, pair&amp;lt;int, int&amp;gt;&amp;gt;&amp;gt; tri; for (pair&amp;lt;int, int&amp;gt; j : g[i]) { int a = i, b = j.first; if (g[a].size() &amp;gt; g[b].</description>
     </item>

@@ -3,8 +3,8 @@ weight: 10
 title: "String Hashing"
 draft: false
 toc: true
-date: "2024-05-09T18:39:18-0300"
-publishdate: "2024-05-09T18:39:18-0300"
+date: "2026-02-27T17:02:42-0300"
+publishdate: "2026-02-27T17:02:42-0300"
 description: ""
 ---
 
@@ -28,7 +28,7 @@ int uniform(int l, int r) {
 	return uid(rng);
 }
  
-template<int MOD> struct str_hash { // 116fcb
+template<int MOD> struct str_hash {
 	static int P;
 	vector<ll> h, p;
 	str_hash(string s) : h(s.size()), p(s.size()) {

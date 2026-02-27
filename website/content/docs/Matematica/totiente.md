@@ -3,8 +3,8 @@ weight: 10
 title: "Totiente"
 draft: false
 toc: true
-date: "2024-05-09T18:39:19-0300"
-publishdate: "2024-05-09T18:39:19-0300"
+date: "2026-02-27T17:02:42-0300"
+publishdate: "2026-02-27T17:02:42-0300"
 description: ""
 ---
 
@@ -17,7 +17,7 @@ Link original: [totiente.cpp](https://github.com/brunomaletta/Biblioteca/tree/ma
 
 ## Código
 ```cpp
-int tot(int n){
+int tot(int n) {
 	int ret = n;
 
 	for (int i = 2; i*i <= n; i++) if (n % i == 0) {

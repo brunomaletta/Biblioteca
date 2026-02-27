@@ -3,8 +3,8 @@ weight: 10
 title: "Unrooted Euler Tour Tree"
 draft: false
 toc: true
-date: "2026-02-27T16:07:11-0300"
-publishdate: "2026-02-27T16:07:11-0300"
+date: "2026-02-27T17:02:42-0300"
+publishdate: "2026-02-27T17:02:42-0300"
 description: ""
 ---
 

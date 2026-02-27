@@ -6,201 +6,201 @@
     <description>Recent content in Estruturas on Biblioteca Maratona UFMG</description>
     <generator>Hugo</generator>
     <language>pt</language>
-    <lastBuildDate>Thu, 09 May 2024 18:39:18 -0300</lastBuildDate>
+    <lastBuildDate>Fri, 27 Feb 2026 17:02:42 -0300</lastBuildDate>
     <atom:link href="http://localhost:1313/Biblioteca/docs/estruturas/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>BIT</title>
       <link>http://localhost:1313/Biblioteca/docs/estruturas/bit/</link>
-      <pubDate>Thu, 09 May 2024 18:39:18 -0300</pubDate>
+      <pubDate>Fri, 27 Feb 2026 17:02:42 -0300</pubDate>
       <guid>http://localhost:1313/Biblioteca/docs/estruturas/bit/</guid>
       <description>Sobre linkBIT de soma 0-based&#xA;upper_bound(x) retorna o menor p tal que pref(p) &amp;gt; x&#xA;Complexidades:&#xA;build - O(n)&#xA;update - O(log(n))&#xA;query - O(log(n))&#xA;upper_bound - O(log(n))&#xA;Link original: bit.cpp&#xA;Código link struct Bit { int n; vector&amp;lt;ll&amp;gt; bit; Bit(int _n=0) : n(_n), bit(n &amp;#43; 1) {} Bit(vector&amp;lt;int&amp;gt;&amp;amp; v) : n(v.size()), bit(n &amp;#43; 1) { for (int i = 1; i &amp;lt;= n; i&amp;#43;&amp;#43;) { bit[i] &amp;#43;= v[i - 1]; int j = i &amp;#43; (i &amp;amp; -i); if (j &amp;lt;= n) bit[j] &amp;#43;= bit[i]; } } void update(int i, ll x) { // soma x na posicao i for (i&amp;#43;&amp;#43;; i &amp;lt;= n; i &amp;#43;= i &amp;amp; -i) bit[i] &amp;#43;= x; } ll pref(int i) { // soma [0, i] ll ret = 0; for (i&amp;#43;&amp;#43;; i; i -= i &amp;amp; -i) ret &amp;#43;= bit[i]; return ret; } ll query(int l, int r) { // soma [l, r] return pref(r) - pref(l - 1); } int upper_bound(ll x) { int p = 0; for (int i = __lg(n); i&amp;#43;1; i--) if (p &amp;#43; (1&amp;lt;&amp;lt;i) &amp;lt;= n and bit[p &amp;#43; (1&amp;lt;&amp;lt;i)] &amp;lt;= x) x -= bit[p &amp;#43;= (1 &amp;lt;&amp;lt; i)]; return p; } }; </description>
     </item>
     <item>
       <title>BIT 2D</title>
       <link>http://localhost:1313/Biblioteca/docs/estruturas/bit2d/</link>
-      <pubDate>Thu, 09 May 2024 18:39:18 -0300</pubDate>
+      <pubDate>Fri, 27 Feb 2026 17:02:42 -0300</pubDate>
       <guid>http://localhost:1313/Biblioteca/docs/estruturas/bit2d/</guid>
       <description>Sobre linkBIT de soma, update incrementa posicao&#xA;Tem que construir com um vetor com todos os pontos&#xA;que vc quer um dia atualizar (os pontos q vc vai chamar update)&#xA;Complexidades:&#xA;construir - O(n log(n))&#xA;update e query - O(log^2(n))&#xA;Link original: bit2d.cpp&#xA;Código link template&amp;lt;class T = int&amp;gt; struct bit2d { vector&amp;lt;T&amp;gt; X; vector&amp;lt;vector&amp;lt;T&amp;gt;&amp;gt; Y, t; int ub(vector&amp;lt;T&amp;gt;&amp;amp; v, T x) { return upper_bound(v.begin(), v.end(), x) - v.begin(); } bit2d(vector&amp;lt;pair&amp;lt;T, T&amp;gt;&amp;gt; v) { for (auto [x, y] : v) X.</description>
     </item>
     <item>
       <title>BIT com update em range</title>
       <link>http://localhost:1313/Biblioteca/docs/estruturas/bitrange/</link>
-      <pubDate>Thu, 09 May 2024 18:39:18 -0300</pubDate>
+      <pubDate>Fri, 27 Feb 2026 17:02:42 -0300</pubDate>
       <guid>http://localhost:1313/Biblioteca/docs/estruturas/bitrange/</guid>
       <description>Sobre linkOperacoes 0-based&#xA;query(l, r) retorna a soma de v[l..r]&#xA;update(l, r, x) soma x em v[l..r]&#xA;Complexidades:&#xA;build - O(n)&#xA;query - O(log(n))&#xA;update - O(log(n))&#xA;Link original: bitRange.cpp&#xA;Código link namespace bit { ll bit[2][MAX&amp;#43;2]; int n; void build(int n2, int* v) { n = n2; for (int i = 1; i &amp;lt;= n; i&amp;#43;&amp;#43;) bit[1][min(n&amp;#43;1, i&amp;#43;(i&amp;amp;-i))] &amp;#43;= bit[1][i] &amp;#43;= v[i-1]; } ll get(int x, int i) { ll ret = 0; for (; i; i -= i&amp;amp;-i) ret &amp;#43;= bit[x][i]; return ret; } void add(int x, int i, ll val) { for (; i &amp;lt;= n; i &amp;#43;= i&amp;amp;-i) bit[x][i] &amp;#43;= val; } ll get2(int p) { return get(0, p) * p &amp;#43; get(1, p); } ll query(int l, int r) { return get2(r&amp;#43;1) - get2(l); } void update(int l, int r, ll x) { add(0, l&amp;#43;1, x), add(0, r&amp;#43;2, -x); add(1, l&amp;#43;1, -x*l), add(1, r&amp;#43;2, x*(r&amp;#43;1)); } }; </description>
     </item>
     <item>
       <title>BIT-Sort Tree</title>
       <link>http://localhost:1313/Biblioteca/docs/estruturas/bitsorttree/</link>
-      <pubDate>Thu, 09 May 2024 18:39:18 -0300</pubDate>
+      <pubDate>Fri, 27 Feb 2026 17:02:42 -0300</pubDate>
       <guid>http://localhost:1313/Biblioteca/docs/estruturas/bitsorttree/</guid>
       <description>Sobre linkTipo uma MergeSort Tree usando Bit&#xA;Apesar da complexidade ser pior, fica melhor na pratica.&#xA;query(l, r, k) retorna o numero de elementos menores que k&#xA;no intervalo [l, r]&#xA;Usa O(n log(n)) de memoria&#xA;Complexidades:&#xA;construir - O(n log^2(n))&#xA;query - O(log^2(n))&#xA;Link original: bitSortTree.cpp&#xA;Código link template&amp;lt;typename T&amp;gt; struct ms_bit { int n; vector&amp;lt;vector&amp;lt;T&amp;gt;&amp;gt; bit; ms_bit(vector&amp;lt;T&amp;gt;&amp;amp; v) : n(v.size()), bit(n&amp;#43;1) { for (int i = 0; i &amp;lt; n; i&amp;#43;&amp;#43;) for (int j = i&amp;#43;1; j &amp;lt;= n; j &amp;#43;= j&amp;amp;-j) bit[j].</description>
     </item>
     <item>
       <title>Convex Hull Trick Dinamico</title>
       <link>http://localhost:1313/Biblioteca/docs/estruturas/chtdinamico/</link>
-      <pubDate>Thu, 09 May 2024 18:39:18 -0300</pubDate>
+      <pubDate>Fri, 27 Feb 2026 17:02:42 -0300</pubDate>
       <guid>http://localhost:1313/Biblioteca/docs/estruturas/chtdinamico/</guid>
       <description>Sobre linkpara double, use LINF = 1/.0, div(a, b) = a/b&#xA;update(x) atualiza o ponto de intersecao da reta x&#xA;overlap(x) verifica se a reta x sobrepoe a proxima&#xA;add(a, b) adiciona reta da forma ax + b&#xA;query(x) computa maximo de ax + b para entre as retas&#xA;O(log(n)) amortizado por insercao&#xA;O(log(n)) por query&#xA;Link original: chtDinamico.cpp&#xA;Código link struct Line { mutable ll a, b, p; bool operator&amp;lt;(const Line&amp;amp; o) const { return a &amp;lt; o.</description>
     </item>
     <item>
       <title>Convex Hull Trick Estatico</title>
       <link>http://localhost:1313/Biblioteca/docs/estruturas/cht/</link>
-      <pubDate>Thu, 09 May 2024 18:39:18 -0300</pubDate>
+      <pubDate>Fri, 27 Feb 2026 17:02:42 -0300</pubDate>
       <guid>http://localhost:1313/Biblioteca/docs/estruturas/cht/</guid>
       <description>Sobre linkadds tem que serem feitos em ordem de slope&#xA;queries tem que ser feitas em ordem de x&#xA;add O(1) amortizado, get O(1) amortizado&#xA;Link original: cht.cpp&#xA;Código link struct CHT { int it; vector&amp;lt;ll&amp;gt; a, b; CHT():it(0){} ll eval(int i, ll x){ return a[i]*x &amp;#43; b[i]; } bool useless(){ int sz = a.size(); int r = sz-1, m = sz-2, l = sz-3; #warning cuidado com overflow! return (b[l] - b[r])*(a[m] - a[l]) &amp;lt; (b[l] - b[m])*(a[r] - a[l]); } void add(ll A, ll B){ a.</description>
     </item>
     <item>
       <title>DSU</title>
       <link>http://localhost:1313/Biblioteca/docs/estruturas/dsu/</link>
-      <pubDate>Thu, 09 May 2024 18:39:18 -0300</pubDate>
+      <pubDate>Fri, 27 Feb 2026 17:02:42 -0300</pubDate>
       <guid>http://localhost:1313/Biblioteca/docs/estruturas/dsu/</guid>
       <description>Sobre linkUne dois conjuntos e acha a qual conjunto um elemento pertence por seu id&#xA;find e unite: O(a(n)) ~= O(1) amortizado&#xA;Link original: dsu.cpp&#xA;Código link struct dsu { vector&amp;lt;int&amp;gt; id, sz; dsu(int n) : id(n), sz(n, 1) { iota(id.begin(), id.end(), 0); } int find(int a) { return a == id[a] ? a : id[a] = find(id[a]); } void unite(int a, int b) { a = find(a), b = find(b); if (a == b) return; if (sz[a] &amp;lt; sz[b]) swap(a, b); sz[a] &amp;#43;= sz[b], id[b] = a; } }; // DSU de bipartido // // Une dois vertices e acha a qual componente um vertice pertence // Informa se a componente de um vertice e bipartida // // find e unite: O(log(n)) struct dsu { vector&amp;lt;int&amp;gt; id, sz, bip, c; dsu(int n) : id(n), sz(n, 1), bip(n, 1), c(n) { iota(id.</description>
     </item>
     <item>
       <title>Li-Chao Tree</title>
       <link>http://localhost:1313/Biblioteca/docs/estruturas/lichao/</link>
-      <pubDate>Thu, 09 May 2024 18:39:18 -0300</pubDate>
+      <pubDate>Fri, 27 Feb 2026 17:02:42 -0300</pubDate>
       <guid>http://localhost:1313/Biblioteca/docs/estruturas/lichao/</guid>
       <description>Sobre linkAdiciona retas (ax+b), e computa o minimo entre as retas&#xA;em um dado &amp;lsquo;x&amp;rsquo;&#xA;Cuidado com overflow!&#xA;Se tiver overflow, tenta comprimir o &amp;lsquo;x&amp;rsquo; ou usar&#xA;convex hull trick&#xA;O(log(MA-MI)), O(n) de memoria&#xA;Link original: lichao.cpp&#xA;Código link template&amp;lt;ll MI = ll(-1e9), ll MA = ll(1e9)&amp;gt; struct lichao { struct line { ll a, b; array&amp;lt;int, 2&amp;gt; ch; line(ll a_ = 0, ll b_ = LINF) : a(a_), b(b_), ch({-1, -1}) {} ll operator ()(ll x) { return a*x &amp;#43; b; } }; vector&amp;lt;line&amp;gt; ln; int ch(int p, int d) { if (ln[p].</description>
     </item>
     <item>
       <title>Li-Chao Tree - Lazy</title>
       <link>http://localhost:1313/Biblioteca/docs/estruturas/lichaolazy/</link>
-      <pubDate>Thu, 09 May 2024 18:39:18 -0300</pubDate>
+      <pubDate>Fri, 27 Feb 2026 17:02:42 -0300</pubDate>
       <guid>http://localhost:1313/Biblioteca/docs/estruturas/lichaolazy/</guid>
       <description>Sobre linkSendo N = MA-MI:&#xA;insert({a, b}) minimiza tudo com ax+b - O(log N)&#xA;insert({a, b}, l, r) minimiza com ax+b no range [l, r] - O(log^2 N)&#xA;shift({a, b}) soma ax+b em tudo - O(1)&#xA;shift({a, b}, l, r) soma ax+b no range [l, r] - O(log^2 N)&#xA;query(x) retorna o valor da posicao x - O(log N)&#xA;No inicio eh tudo LINF, se inserir {0, 0} fica tudo 0</description>
     </item>
     <item>
       <title>MergeSort Tree</title>
       <link>http://localhost:1313/Biblioteca/docs/estruturas/mergesorttree/</link>
-      <pubDate>Thu, 09 May 2024 18:39:18 -0300</pubDate>
+      <pubDate>Fri, 27 Feb 2026 17:02:42 -0300</pubDate>
       <guid>http://localhost:1313/Biblioteca/docs/estruturas/mergesorttree/</guid>
       <description>Sobre linkSe for construida sobre um array:&#xA;count(i, j, a, b) retorna quantos elementos de v[i..j] pertencem a [a, b] report(i, j, a, b) retorna os indices dos elementos de v[i..j] que pertencem a [a, b] retorna o vetor ordenado Se for construida sobre pontos (x, y):&#xA;count(x1, x2, y1, y2) retorna quantos pontos pertencem ao retangulo (x1, y1), (x2, y2) report(x1, x2, y1, y2) retorna os indices dos pontos que pertencem ao retangulo (x1, y1), (x2, y2) retorna os pontos ordenados lexicograficamente (assume x1 &amp;lt;= x2, y1 &amp;lt;= y2) kth(y1, y2, k) retorna o indice do ponto com k-esimo menor</description>
     </item>
     <item>
       <title>Min queue - deque</title>
       <link>http://localhost:1313/Biblioteca/docs/estruturas/minqueuedeque/</link>
-      <pubDate>Thu, 09 May 2024 18:39:18 -0300</pubDate>
+      <pubDate>Fri, 27 Feb 2026 17:02:42 -0300</pubDate>
       <guid>http://localhost:1313/Biblioteca/docs/estruturas/minqueuedeque/</guid>
       <description>Sobre linkTudo O(1) amortizado&#xA;Link original: minqueueDeque.cpp&#xA;Código link template&amp;lt;class T&amp;gt; struct minqueue { deque&amp;lt;pair&amp;lt;T, int&amp;gt;&amp;gt; q; void push(T x) { int ct = 1; while (q.size() and x &amp;lt; q.front().first) ct &amp;#43;= q.front().second, q.pop_front(); q.emplace_front(x, ct); } void pop() { if (q.back().second &amp;gt; 1) q.back().second--; else q.pop_back(); } T min() { return q.back().first; } }; </description>
     </item>
     <item>
       <title>Min queue - stack</title>
       <link>http://localhost:1313/Biblioteca/docs/estruturas/minqueuestack/</link>
-      <pubDate>Thu, 09 May 2024 18:39:18 -0300</pubDate>
+      <pubDate>Fri, 27 Feb 2026 17:02:42 -0300</pubDate>
       <guid>http://localhost:1313/Biblioteca/docs/estruturas/minqueuestack/</guid>
       <description>Sobre linkTudo O(1) amortizado&#xA;Link original: minqueueStack.cpp&#xA;Código link template&amp;lt;class T&amp;gt; struct minstack { stack&amp;lt;pair&amp;lt;T, T&amp;gt;&amp;gt; s; void push(T x) { if (!s.size()) s.push({x, x}); else s.emplace(x, std::min(s.top().second, x)); } T top() { return s.top().first;&#x9;} T pop() { T ans = s.top().first; s.pop(); return ans; } int size() { return s.size(); } T min() { return s.top().second; } }; template&amp;lt;class T&amp;gt; struct minqueue { minstack&amp;lt;T&amp;gt; s1, s2; void push(T x) { s1.</description>
     </item>
     <item>
       <title>Order Statistic Set</title>
       <link>http://localhost:1313/Biblioteca/docs/estruturas/orderstatisticset/</link>
-      <pubDate>Thu, 09 May 2024 18:39:18 -0300</pubDate>
+      <pubDate>Fri, 27 Feb 2026 17:02:42 -0300</pubDate>
       <guid>http://localhost:1313/Biblioteca/docs/estruturas/orderstatisticset/</guid>
       <description>Sobre linkFunciona do C++11 pra cima&#xA;Link original: orderStatisticSet.cpp&#xA;Código link #include &amp;lt;ext/pb_ds/assoc_container.hpp&amp;gt; #include &amp;lt;ext/pb_ds/tree_policy.hpp&amp;gt; using namespace __gnu_pbds; template &amp;lt;class T&amp;gt; using ord_set = tree&amp;lt;T, null_type, less&amp;lt;T&amp;gt;, rb_tree_tag, tree_order_statistics_node_update&amp;gt;; // para declarar: // ord_set&amp;lt;int&amp;gt; s; // coisas do set normal funcionam: // for (auto i : s) cout &amp;lt;&amp;lt; i &amp;lt;&amp;lt; endl; // cout &amp;lt;&amp;lt; s.size() &amp;lt;&amp;lt; endl; // k-esimo maior elemento O(log|s|): // k=0: menor elemento // cout &amp;lt;&amp;lt; *s.</description>
     </item>
     <item>
       <title>Priority Queue DS</title>
       <link>http://localhost:1313/Biblioteca/docs/estruturas/priorityqueueds/</link>
-      <pubDate>Thu, 09 May 2024 18:39:18 -0300</pubDate>
+      <pubDate>Fri, 27 Feb 2026 17:02:42 -0300</pubDate>
       <guid>http://localhost:1313/Biblioteca/docs/estruturas/priorityqueueds/</guid>
       <description>Sobre linkMantem updates aplicados em uma estrutura de dados&#xA;que permita rollback e nao seja amortizada.&#xA;Cada update possui uma prioridade,&#xA;sendo possivel remover o update com maior prioridade.&#xA;Os updates devem ser comutativos, ou seja, o estado&#xA;da estrutura deve ser o mesmo independente da ordem&#xA;que eles sejam aplicados.&#xA;Complexidades:&#xA;update - O(log(n) + T(n))&#xA;query - T(n)&#xA;pop - O(log(n) * T(n)) amortizado&#xA;onde T(n) eh a complexidade do update</description>
     </item>
     <item>
       <title>Range color</title>
       <link>http://localhost:1313/Biblioteca/docs/estruturas/rangecolor/</link>
-      <pubDate>Thu, 09 May 2024 18:39:18 -0300</pubDate>
+      <pubDate>Fri, 27 Feb 2026 17:02:42 -0300</pubDate>
       <guid>http://localhost:1313/Biblioteca/docs/estruturas/rangecolor/</guid>
       <description>Sobre linkupdate(l, r, c) colore o range [l, r] com a cor c,&#xA;e retorna os ranges que foram coloridos {l, r, cor}&#xA;query(i) returna a cor da posicao i&#xA;Complexidades (para q operacoes):&#xA;update - O(log(q)) amortizado&#xA;query - O(log(q))&#xA;Link original: rangeColor.cpp&#xA;Código link template&amp;lt;typename T&amp;gt; struct color { set&amp;lt;tuple&amp;lt;int, int, T&amp;gt;&amp;gt; se; vector&amp;lt;tuple&amp;lt;int, int, T&amp;gt;&amp;gt; update(int l, int r, T val) { auto it = se.upper_bound({r, INF, val}); if (it !</description>
     </item>
     <item>
       <title>RMQ &lt;O(n), O(1)&gt; - min queue</title>
       <link>http://localhost:1313/Biblioteca/docs/estruturas/rmq/</link>
-      <pubDate>Thu, 09 May 2024 18:39:18 -0300</pubDate>
+      <pubDate>Fri, 27 Feb 2026 17:02:42 -0300</pubDate>
       <guid>http://localhost:1313/Biblioteca/docs/estruturas/rmq/</guid>
       <description>Sobre linkO(n) pra buildar, query O(1)&#xA;Se tiver varios minimos, retorna&#xA;o de menor indice&#xA;Link original: rmq.cpp&#xA;Código link template&amp;lt;typename T&amp;gt; struct rmq { vector&amp;lt;T&amp;gt; v; int n; static const int b = 30; vector&amp;lt;int&amp;gt; mask, t; int op(int x, int y) { return v[x] &amp;lt;= v[y] ? x : y; } int msb(int x) { return __builtin_clz(1)-__builtin_clz(x); } int small(int r, int sz = b) { return r-msb(mask[r]&amp;amp;((1&amp;lt;&amp;lt;sz)-1)); } rmq() {} rmq(const vector&amp;lt;T&amp;gt;&amp;amp; v_) : v(v_), n(v.</description>
     </item>
     <item>
       <title>SlopeTrick</title>
       <link>http://localhost:1313/Biblioteca/docs/estruturas/slopetrick/</link>
-      <pubDate>Thu, 09 May 2024 18:39:18 -0300</pubDate>
+      <pubDate>Fri, 27 Feb 2026 17:02:42 -0300</pubDate>
       <guid>http://localhost:1313/Biblioteca/docs/estruturas/slopetrick/</guid>
       <description>Sobre linkArmazena uma estrutura convexa piecewise linear&#xA;Permite adicionar slopes sem peso e realizar query de minimo&#xA;Comentarios acima das funcoes para explicar o que cada uma faz&#xA;Link original: slopeTrick.cpp&#xA;Código link template&amp;lt;typename T&amp;gt; struct SlopeTrick { T inf = numeric_limits&amp;lt;T&amp;gt;::max() / 3; T min_f; priority_queue&amp;lt;T, vector&amp;lt;T&amp;gt;, less&amp;lt;&amp;gt;&amp;gt; L; priority_queue&amp;lt;T, vector&amp;lt;T&amp;gt;, greater&amp;lt;&amp;gt;&amp;gt; R; T add_l, add_r; T top_R() { if (R.empty()) return inf; else return R.top() &amp;#43; add_r; } T pop_R() { T val = top_R(); if (R.</description>
     </item>
     <item>
       <title>Sparse Table</title>
       <link>http://localhost:1313/Biblioteca/docs/estruturas/sparsetable/</link>
-      <pubDate>Thu, 09 May 2024 18:39:18 -0300</pubDate>
+      <pubDate>Fri, 27 Feb 2026 17:02:42 -0300</pubDate>
       <guid>http://localhost:1313/Biblioteca/docs/estruturas/sparsetable/</guid>
       <description>Sobre linkResolve RMQ&#xA;MAX2 = log(MAX)&#xA;Complexidades:&#xA;build - O(n log(n))&#xA;query - O(1)&#xA;Link original: sparseTable.cpp&#xA;Código link namespace sparse { int m[MAX2][MAX], n; void build(int n2, int* v) { n = n2; for (int i = 0; i &amp;lt; n; i&amp;#43;&amp;#43;) m[0][i] = v[i]; for (int j = 1; (1&amp;lt;&amp;lt;j) &amp;lt;= n; j&amp;#43;&amp;#43;) for (int i = 0; i&amp;#43;(1&amp;lt;&amp;lt;j) &amp;lt;= n; i&amp;#43;&amp;#43;) m[j][i] = min(m[j-1][i], m[j-1][i&amp;#43;(1&amp;lt;&amp;lt;(j-1))]); } int query(int a, int b) { int j = __builtin_clz(1) - __builtin_clz(b-a&amp;#43;1); return min(m[j][a], m[j][b-(1&amp;lt;&amp;lt;j)&amp;#43;1]); } } </description>
     </item>
     <item>
       <title>Sparse Table Disjunta</title>
       <link>http://localhost:1313/Biblioteca/docs/estruturas/sparsetabledisjunta/</link>
-      <pubDate>Thu, 09 May 2024 18:39:18 -0300</pubDate>
+      <pubDate>Fri, 27 Feb 2026 17:02:42 -0300</pubDate>
       <guid>http://localhost:1313/Biblioteca/docs/estruturas/sparsetabledisjunta/</guid>
       <description>Sobre linkResolve qualquer operacao associativa&#xA;MAX2 = log(MAX)&#xA;Complexidades:&#xA;build - O(n log(n))&#xA;query - O(1)&#xA;Link original: sparseTableDisjunta.cpp&#xA;Código link namespace sparse { int m[MAX2][2*MAX], n, v[2*MAX]; int op(int a, int b) { return min(a, b); } void build(int n2, int* v2) { n = n2; for (int i = 0; i &amp;lt; n; i&amp;#43;&amp;#43;) v[i] = v2[i]; while (n&amp;amp;(n-1)) n&amp;#43;&amp;#43;; for (int j = 0; (1&amp;lt;&amp;lt;j) &amp;lt; n; j&amp;#43;&amp;#43;) { int len = 1&amp;lt;&amp;lt;j; for (int c = len; c &amp;lt; n; c &amp;#43;= 2*len) { m[j][c] = v[c], m[j][c-1] = v[c-1]; for (int i = c&amp;#43;1; i &amp;lt; c&amp;#43;len; i&amp;#43;&amp;#43;) m[j][i] = op(m[j][i-1], v[i]); for (int i = c-2; i &amp;gt;= c-len; i--) m[j][i] = op(v[i], m[j][i&amp;#43;1]); } } } int query(int l, int r) { if (l == r) return v[l]; int j = __builtin_clz(1) - __builtin_clz(l^r); return op(m[j][l], m[j][r]); } } </description>
     </item>
     <item>
       <title>Splay Tree</title>
       <link>http://localhost:1313/Biblioteca/docs/estruturas/splaytree/</link>
-      <pubDate>Thu, 09 May 2024 18:39:18 -0300</pubDate>
+      <pubDate>Fri, 27 Feb 2026 17:02:42 -0300</pubDate>
       <guid>http://localhost:1313/Biblioteca/docs/estruturas/splaytree/</guid>
       <description>Sobre linkSEMPRE QUE DESCER NA ARVORE, DAR SPLAY NO&#xA;NODE MAIS PROFUNDO VISITADO&#xA;Todas as operacoes sao O(log(n)) amortizado&#xA;Se quiser colocar mais informacao no node,&#xA;mudar em &amp;lsquo;update&amp;rsquo;&#xA;Link original: splaytree.cpp&#xA;Código link template&amp;lt;typename T&amp;gt; struct splaytree { struct node { node *ch[2], *p; int sz; T val; node(T v) { ch[0] = ch[1] = p = NULL; sz = 1; val = v; } void update() { sz = 1; for (int i = 0; i &amp;lt; 2; i&amp;#43;&amp;#43;) if (ch[i]) { sz &amp;#43;= ch[i]-&amp;gt;sz; } } }; node* root; splaytree() { root = NULL; } splaytree(const splaytree&amp;amp; t) { throw logic_error(&amp;#34;Nao copiar a splaytree!</description>
     </item>
     <item>
       <title>Splay Tree Implicita</title>
       <link>http://localhost:1313/Biblioteca/docs/estruturas/splaytreeimplicita/</link>
-      <pubDate>Thu, 09 May 2024 18:39:18 -0300</pubDate>
+      <pubDate>Fri, 27 Feb 2026 17:02:42 -0300</pubDate>
       <guid>http://localhost:1313/Biblioteca/docs/estruturas/splaytreeimplicita/</guid>
       <description>Sobre linkvector da NASA&#xA;Um pouco mais rapido q a treap&#xA;O construtor a partir do vector&#xA;eh linear, todas as outras operacoes&#xA;custam O(log(n)) amortizado&#xA;Link original: splaytreeImplicita.cpp&#xA;Código link template&amp;lt;typename T&amp;gt; struct splay { struct node { node *ch[2], *p; int sz; T val, sub, lazy; bool rev; node(T v) { ch[0] = ch[1] = p = NULL; sz = 1; sub = val = v; lazy = 0; rev = false; } void prop() { if (lazy) { val &amp;#43;= lazy, sub &amp;#43;= lazy*sz; if (ch[0]) ch[0]-&amp;gt;lazy &amp;#43;= lazy; if (ch[1]) ch[1]-&amp;gt;lazy &amp;#43;= lazy; } if (rev) { swap(ch[0], ch[1]); if (ch[0]) ch[0]-&amp;gt;rev ^= 1; if (ch[1]) ch[1]-&amp;gt;rev ^= 1; } lazy = 0, rev = 0; } void update() { sz = 1, sub = val; for (int i = 0; i &amp;lt; 2; i&amp;#43;&amp;#43;) if (ch[i]) { ch[i]-&amp;gt;prop(); sz &amp;#43;= ch[i]-&amp;gt;sz; sub &amp;#43;= ch[i]-&amp;gt;sub; } } }; node* root; splay() { root = NULL; } splay(node* x) { root = x; if (root) root-&amp;gt;p = NULL; } splay(vector&amp;lt;T&amp;gt; v) { // O(n) root = NULL; for (T i : v) { node* x = new node(i); x-&amp;gt;ch[0] = root; if (root) root-&amp;gt;p = x; root = x; root-&amp;gt;update(); } } splay(const splay&amp;amp; t) { throw logic_error(&amp;#34;Nao copiar a splay!</description>
     </item>
     <item>
       <title>Split-Merge Set</title>
       <link>http://localhost:1313/Biblioteca/docs/estruturas/splitmergeset/</link>
-      <pubDate>Thu, 09 May 2024 18:39:18 -0300</pubDate>
+      <pubDate>Fri, 27 Feb 2026 17:02:42 -0300</pubDate>
       <guid>http://localhost:1313/Biblioteca/docs/estruturas/splitmergeset/</guid>
       <description>Sobre linkRepresenta um conjunto de inteiros nao negativos&#xA;Todas as operacoes custam O(log(N)),&#xA;em que N = maior elemento do set,&#xA;exceto o merge, que custa O(log(N)) amortizado&#xA;Usa O(min(N, n log(N))) de memoria, sendo &amp;rsquo;n&amp;rsquo; o&#xA;numero de elementos distintos no set&#xA;Link original: splitMergeSet.cpp&#xA;Código link template&amp;lt;typename T, bool MULTI=false, typename SIZE_T=int&amp;gt; struct sms { struct node { node *l, *r; SIZE_T cnt; node() : l(NULL), r(NULL), cnt(0) {} void update() { cnt = 0; if (l) cnt &amp;#43;= l-&amp;gt;cnt; if (r) cnt &amp;#43;= r-&amp;gt;cnt; } }; node* root; T N; sms() : root(NULL), N(0) {} sms(T v) : sms() { while (v &amp;gt;= N) N = 2*N&amp;#43;1; } sms(const sms&amp;amp; t) : root(NULL), N(t.</description>
     </item>
     <item>
       <title>Split-Merge Set - Lazy</title>
       <link>http://localhost:1313/Biblioteca/docs/estruturas/splitmergesetlazy/</link>
-      <pubDate>Thu, 09 May 2024 18:39:18 -0300</pubDate>
+      <pubDate>Fri, 27 Feb 2026 17:02:42 -0300</pubDate>
       <guid>http://localhost:1313/Biblioteca/docs/estruturas/splitmergesetlazy/</guid>
       <description>Sobre linkRepresenta um conjunto de inteiros nao negativos&#xA;Todas as operacoes custam O(log(N)),&#xA;em que N = maior elemento do set,&#xA;exceto o merge e o insert_range, que custa O(log(N)) amortizado&#xA;Usa O(min(N, n log(N))) de memoria, sendo &amp;rsquo;n&amp;rsquo; o&#xA;numero de elementos distintos no set&#xA;Link original: splitMergeSetLazy.cpp&#xA;Código link template&amp;lt;typename T&amp;gt; struct sms { struct node { node *l, *r; int cnt; bool flip; node() : l(NULL), r(NULL), cnt(0), flip(0) {} void update() { cnt = 0; if (l) cnt &amp;#43;= l-&amp;gt;cnt; if (r) cnt &amp;#43;= r-&amp;gt;cnt; } }; void prop(node* x, int size) { if (!</description>
     </item>
     <item>
       <title>SQRT Tree</title>
       <link>http://localhost:1313/Biblioteca/docs/estruturas/sqrttree/</link>
-      <pubDate>Thu, 09 May 2024 18:39:18 -0300</pubDate>
+      <pubDate>Fri, 27 Feb 2026 17:02:42 -0300</pubDate>
       <guid>http://localhost:1313/Biblioteca/docs/estruturas/sqrttree/</guid>
       <description>Sobre linkRMQ em O(log log n) com O(n log log n) pra buildar&#xA;Funciona com qualquer operacao associativa&#xA;Tao rapido quanto a sparse table, mas usa menos memoria&#xA;(log log (1e9) &amp;lt; 5, entao a query eh praticamente O(1))&#xA;build - O(n log log n)&#xA;query - O(log log n)&#xA;Link original: sqrtTree.cpp&#xA;Código link namespace sqrtTree { int n, *v; int pref[4][MAX], sulf[4][MAX], getl[4][MAX], entre[4][MAX], sz[4]; int op(int a, int b) { return min(a, b); } inline int getblk(int p, int i) { return (i-getl[p][i])/sz[p]; } void build(int p, int l, int r) { if (l&amp;#43;1 &amp;gt;= r) return; for (int i = l; i &amp;lt;= r; i&amp;#43;&amp;#43;) getl[p][i] = l; for (int L = l; L &amp;lt;= r; L &amp;#43;= sz[p]) { int R = min(L&amp;#43;sz[p]-1, r); pref[p][L] = v[L], sulf[p][R] = v[R]; for (int i = L&amp;#43;1; i &amp;lt;= R; i&amp;#43;&amp;#43;) pref[p][i] = op(pref[p][i-1], v[i]); for (int i = R-1; i &amp;gt;= L; i--) sulf[p][i] = op(v[i], sulf[p][i&amp;#43;1]); build(p&amp;#43;1, L, R); } for (int i = 0; i &amp;lt;= sz[p]; i&amp;#43;&amp;#43;) { int at = entre[p][l&amp;#43;i*sz[p]&amp;#43;i] = sulf[p][l&amp;#43;i*sz[p]]; for (int j = i&amp;#43;1; j &amp;lt;= sz[p]; j&amp;#43;&amp;#43;) entre[p][l&amp;#43;i*sz[p]&amp;#43;j] = at = op(at, sulf[p][l&amp;#43;j*sz[p]]); } } void build(int n2, int* v2) { n = n2, v = v2; for (int p = 0; p &amp;lt; 4; p&amp;#43;&amp;#43;) sz[p] = n2 = sqrt(n2); build(0, 0, n-1); } int query(int l, int r) { if (l&amp;#43;1 &amp;gt;= r) return l == r ?</description>
     </item>
     <item>
       <title>Treap</title>
       <link>http://localhost:1313/Biblioteca/docs/estruturas/treap/</link>
-      <pubDate>Thu, 09 May 2024 18:39:18 -0300</pubDate>
+      <pubDate>Fri, 27 Feb 2026 17:02:42 -0300</pubDate>
       <guid>http://localhost:1313/Biblioteca/docs/estruturas/treap/</guid>
       <description>Sobre linkTodas as operacoes custam&#xA;O(log(n)) com alta probabilidade, exceto meld&#xA;meld custa O(log^2 n) amortizado com alta prob.,&#xA;e permite unir duas treaps sem restricao adicional&#xA;Na pratica, esse meld tem constante muito boa e&#xA;o pior caso eh meio estranho de acontecer&#xA;Link original: treap.cpp&#xA;Código link mt19937 rng((int) chrono::steady_clock::now().time_since_epoch().count()); template&amp;lt;typename T&amp;gt; struct treap { struct node { node *l, *r; int p, sz; T val, mi; node(T v) : l(NULL), r(NULL), p(rng()), sz(1), val(v), mi(v) {} void update() { sz = 1; mi = val; if (l) sz &amp;#43;= l-&amp;gt;sz, mi = min(mi, l-&amp;gt;mi); if (r) sz &amp;#43;= r-&amp;gt;sz, mi = min(mi, r-&amp;gt;mi); } }; node* root; treap() { root = NULL; } treap(const treap&amp;amp; t) { throw logic_error(&amp;#34;Nao copiar a treap!</description>
     </item>
     <item>
       <title>Treap Implicita</title>
       <link>http://localhost:1313/Biblioteca/docs/estruturas/treapimplicita/</link>
-      <pubDate>Thu, 09 May 2024 18:39:18 -0300</pubDate>
+      <pubDate>Fri, 27 Feb 2026 17:02:42 -0300</pubDate>
       <guid>http://localhost:1313/Biblioteca/docs/estruturas/treapimplicita/</guid>
       <description>Sobre linkTodas as operacoes custam&#xA;O(log(n)) com alta probabilidade&#xA;Link original: treapImplicita.cpp&#xA;Código link mt19937 rng((int) chrono::steady_clock::now().time_since_epoch().count()); template&amp;lt;typename T&amp;gt; struct treap { struct node { node *l, *r; int p, sz; T val, sub, lazy; bool rev; node(T v) : l(NULL), r(NULL), p(rng()), sz(1), val(v), sub(v), lazy(0), rev(0) {} void prop() { if (lazy) { val &amp;#43;= lazy, sub &amp;#43;= lazy*sz; if (l) l-&amp;gt;lazy &amp;#43;= lazy; if (r) r-&amp;gt;lazy &amp;#43;= lazy; } if (rev) { swap(l, r); if (l) l-&amp;gt;rev ^= 1; if (r) r-&amp;gt;rev ^= 1; } lazy = 0, rev = 0; } void update() { sz = 1, sub = val; if (l) l-&amp;gt;prop(), sz &amp;#43;= l-&amp;gt;sz, sub &amp;#43;= l-&amp;gt;sub; if (r) r-&amp;gt;prop(), sz &amp;#43;= r-&amp;gt;sz, sub &amp;#43;= r-&amp;gt;sub; } }; node* root; treap() { root = NULL; } treap(const treap&amp;amp; t) { throw logic_error(&amp;#34;Nao copiar a treap!</description>
     </item>
     <item>
       <title>Treap Persistent Implicita</title>
       <link>http://localhost:1313/Biblioteca/docs/estruturas/treappersistent/</link>
-      <pubDate>Thu, 09 May 2024 18:39:18 -0300</pubDate>
+      <pubDate>Fri, 27 Feb 2026 17:02:42 -0300</pubDate>
       <guid>http://localhost:1313/Biblioteca/docs/estruturas/treappersistent/</guid>
       <description>Sobre linkTodas as operacoes custam&#xA;O(log(n)) com alta probabilidade&#xA;Link original: treapPersistent.cpp&#xA;Código link mt19937_64 rng((int) chrono::steady_clock::now().time_since_epoch().count()); struct node { node *l, *r; ll sz, val, sub; node(ll v) : l(NULL), r(NULL), sz(1), val(v), sub(v) {} node(node* x) : l(x-&amp;gt;l), r(x-&amp;gt;r), sz(x-&amp;gt;sz), val(x-&amp;gt;val), sub(x-&amp;gt;sub) {} void update() { sz = 1, sub = val; if (l) sz &amp;#43;= l-&amp;gt;sz, sub &amp;#43;= l-&amp;gt;sub; if (r) sz &amp;#43;= r-&amp;gt;sz, sub &amp;#43;= r-&amp;gt;sub; sub %= MOD; } }; ll size(node* x) { return x ?</description>
     </item>
     <item>
       <title>Wavelet Tree</title>
       <link>http://localhost:1313/Biblioteca/docs/estruturas/wavelettree/</link>
-      <pubDate>Thu, 09 May 2024 18:39:18 -0300</pubDate>
+      <pubDate>Fri, 27 Feb 2026 17:02:42 -0300</pubDate>
       <guid>http://localhost:1313/Biblioteca/docs/estruturas/wavelettree/</guid>
       <description>Sobre linkUsa O(sigma + n log(sigma)) de memoria,&#xA;onde sigma = MAXN - MINN&#xA;Depois do build, o v fica ordenado&#xA;count(i, j, x, y) retorna o numero de elementos de&#xA;v[i, j) que pertencem a [x, y]&#xA;kth(i, j, k) retorna o elemento que estaria&#xA;na poscicao k-1 de v[i, j), se ele fosse ordenado&#xA;sum(i, j, x, y) retorna a soma dos elementos de&#xA;v[i, j) que pertencem a [x, y]</description>
     </item>

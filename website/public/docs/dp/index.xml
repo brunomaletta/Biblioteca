@@ -6,40 +6,40 @@
     <description>Recent content in DP on Biblioteca Maratona UFMG</description>
     <generator>Hugo</generator>
     <language>pt</language>
-    <lastBuildDate>Thu, 09 May 2024 18:39:19 -0300</lastBuildDate>
+    <lastBuildDate>Fri, 27 Feb 2026 17:02:42 -0300</lastBuildDate>
     <atom:link href="http://localhost:1313/Biblioteca/docs/dp/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Divide and Conquer DP</title>
       <link>http://localhost:1313/Biblioteca/docs/dp/dcdp/</link>
-      <pubDate>Thu, 09 May 2024 18:39:19 -0300</pubDate>
+      <pubDate>Fri, 27 Feb 2026 17:02:42 -0300</pubDate>
       <guid>http://localhost:1313/Biblioteca/docs/dp/dcdp/</guid>
       <description>Sobre linkParticiona o array em k subarrays&#xA;minimizando o somatorio das queries&#xA;O(k n log n), assumindo quer query(l, r) eh O(1)&#xA;Link original: dcDp.cpp&#xA;Código link ll dp[MAX][2]; void solve(int k, int l, int r, int lk, int rk) { if (l &amp;gt; r) return; int m = (l&amp;#43;r)/2, p = -1; auto&amp;amp; ans = dp[m][k&amp;amp;1] = LINF; for (int i = max(m, lk); i &amp;lt;= rk; i&amp;#43;&amp;#43;) { ll at = dp[i&amp;#43;1][~k&amp;amp;1] &amp;#43; query(m, i); if (at &amp;lt; ans) ans = at, p = i; } solve(k, l, m-1, lk, p), solve(k, m&amp;#43;1, r, p, rk); } ll DC(int n, int k) { dp[n][0] = dp[n][1] = 0; for (int i = 0; i &amp;lt; n; i&amp;#43;&amp;#43;) dp[i][0] = LINF; for (int i = 1; i &amp;lt;= k; i&amp;#43;&amp;#43;) solve(i, 0, n-i, 0, n-i); return dp[0][k&amp;amp;1]; } </description>
     </item>
     <item>
       <title>Longest Common Subsequence</title>
       <link>http://localhost:1313/Biblioteca/docs/dp/lcs/</link>
-      <pubDate>Thu, 09 May 2024 18:39:19 -0300</pubDate>
+      <pubDate>Fri, 27 Feb 2026 17:02:42 -0300</pubDate>
       <guid>http://localhost:1313/Biblioteca/docs/dp/lcs/</guid>
       <description>Sobre linkComputa a LCS entre dois arrays usando&#xA;o algoritmo de Hirschberg para recuperar&#xA;O(n*m), O(n+m) de memoria&#xA;Link original: lcs.cpp&#xA;Código link int lcs_s[MAX], lcs_t[MAX]; int dp[2][MAX]; // dp[0][j] = max lcs(s[li...ri], t[lj, lj&amp;#43;j]) void dp_top(int li, int ri, int lj, int rj) { memset(dp[0], 0, (rj-lj&amp;#43;1)*sizeof(dp[0][0])); for (int i = li; i &amp;lt;= ri; i&amp;#43;&amp;#43;) { for (int j = rj; j &amp;gt;= lj; j--) dp[0][j - lj] = max(dp[0][j - lj], (lcs_s[i] == lcs_t[j]) &amp;#43; (j &amp;gt; lj ?</description>
     </item>
     <item>
       <title>Mochila</title>
       <link>http://localhost:1313/Biblioteca/docs/dp/mochila/</link>
-      <pubDate>Thu, 09 May 2024 18:39:19 -0300</pubDate>
+      <pubDate>Fri, 27 Feb 2026 17:02:42 -0300</pubDate>
       <guid>http://localhost:1313/Biblioteca/docs/dp/mochila/</guid>
       <description>Sobre linkResolve mochila, recuperando a resposta&#xA;O(n * cap), O(n + cap) de memoria&#xA;Link original: mochila.cpp&#xA;Código link int v[MAX], w[MAX]; // valor e peso int dp[2][MAX_CAP]; // DP usando os itens [l, r], com capacidade = cap void get_dp(int x, int l, int r, int cap) { memset(dp[x], 0, (cap&amp;#43;1)*sizeof(dp[x][0])); for (int i = l; i &amp;lt;= r; i&amp;#43;&amp;#43;) for (int j = cap; j &amp;gt;= 0; j--) if (j - w[i] &amp;gt;= 0) dp[x][j] = max(dp[x][j], v[i] &amp;#43; dp[x][j - w[i]]); } void solve(vector&amp;lt;int&amp;gt;&amp;amp; ans, int l, int r, int cap) { if (l == r) { if (w[l] &amp;lt;= cap) ans.</description>
     </item>
     <item>
       <title>SOS DP</title>
       <link>http://localhost:1313/Biblioteca/docs/dp/sosdp/</link>
-      <pubDate>Thu, 09 May 2024 18:39:19 -0300</pubDate>
+      <pubDate>Fri, 27 Feb 2026 17:02:42 -0300</pubDate>
       <guid>http://localhost:1313/Biblioteca/docs/dp/sosdp/</guid>
       <description>Sobre linkO(n 2^n)&#xA;soma de sub-conjunto&#xA;Link original: sosDP.cpp&#xA;Código link vector&amp;lt;ll&amp;gt; sos_dp(vector&amp;lt;ll&amp;gt; f) { int N = __builtin_ctz(f.size()); assert((1&amp;lt;&amp;lt;N) == f.size()); for (int i = 0; i &amp;lt; N; i&amp;#43;&amp;#43;) for (int mask = 0; mask &amp;lt; (1&amp;lt;&amp;lt;N); mask&amp;#43;&amp;#43;) if (mask&amp;gt;&amp;gt;i&amp;amp;1) f[mask] &amp;#43;= f[mask^(1&amp;lt;&amp;lt;i)]; return f; } // soma de super-conjunto vector&amp;lt;ll&amp;gt; sos_dp(vector&amp;lt;ll&amp;gt; f) { int N = __builtin_ctz(f.size()); assert((1&amp;lt;&amp;lt;N) == f.size()); for (int i = 0; i &amp;lt; N; i&amp;#43;&amp;#43;) for (int mask = 0; mask &amp;lt; (1&amp;lt;&amp;lt;N); mask&amp;#43;&amp;#43;) if (~mask&amp;gt;&amp;gt;i&amp;amp;1) f[mask] &amp;#43;= f[mask^(1&amp;lt;&amp;lt;i)]; return f; } </description>
     </item>
     <item>
       <title>Subset sum</title>
       <link>http://localhost:1313/Biblioteca/docs/dp/subsetsum/</link>
-      <pubDate>Thu, 09 May 2024 18:39:19 -0300</pubDate>
+      <pubDate>Fri, 27 Feb 2026 17:02:42 -0300</pubDate>
       <guid>http://localhost:1313/Biblioteca/docs/dp/subsetsum/</guid>
       <description>Sobre linkRetorna max(x &amp;lt;= t tal que existe subset de w que soma x)&#xA;O(n * max(w))&#xA;O(max(w)) de memoria&#xA;Link original: subsetSum.cpp&#xA;Código link int subset_sum(vector&amp;lt;int&amp;gt; w, int t) { int pref = 0, k = 0; while (k &amp;lt; w.size() and pref &amp;#43; w[k] &amp;lt;= t) pref &amp;#43;= w[k&amp;#43;&amp;#43;]; if (k == w.size()) return pref; int W = *max_element(w.begin(), w.end()); vector&amp;lt;int&amp;gt; last, dp(2*W, -1); dp[W - (t-pref)] = k; for (int i = k; i &amp;lt; w.</description>
     </item>

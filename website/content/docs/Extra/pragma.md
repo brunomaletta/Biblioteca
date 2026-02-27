@@ -3,18 +3,19 @@ weight: 10
 title: "pragma.cpp"
 draft: false
 toc: true
-date: "2026-02-27T16:29:55-0300"
-publishdate: "2026-02-27T16:29:55-0300"
+date: "2026-02-27T17:02:42-0300"
+publishdate: "2026-02-27T17:02:42-0300"
 description: ""
 ---
 
 ## Sobre
- Auto explicativo
-
 Link original: [pragma.cpp](https://github.com/brunomaletta/Biblioteca/tree/master/Codigo/Extra/pragma.cpp)
 
 ## Código
 ```cpp
+// Otimizacoes agressivas, pode deixar mais rapido ou mais devagar
+#pragma GCC optimize("Ofast")
+// Auto explicativo
 #pragma GCC optimize("unroll-loops")
 // Vetorizacao
 #pragma GCC target("avx2")

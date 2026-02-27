@@ -3,8 +3,8 @@ weight: 10
 title: "Minkowski Sum"
 draft: false
 toc: true
-date: "2024-05-09T18:39:18-0300"
-publishdate: "2024-05-09T18:39:18-0300"
+date: "2026-02-27T17:02:42-0300"
+publishdate: "2026-02-27T17:02:42-0300"
 description: ""
 ---
 
@@ -46,7 +46,6 @@ ld dist_convex(vector<pt> p, vector<pt> q) {
 	for (pt& i : p) i = i * -1;
 	auto s = minkowski(p, q);
 	if (inpol(s, pt(0, 0))) return 0;
-	return 1;
 	ld ans = DINF;
 	for (int i = 0; i < s.size(); i++) ans = min(ans,
 			disttoseg(pt(0, 0), line(s[(i+1)%s.size()], s[i])));

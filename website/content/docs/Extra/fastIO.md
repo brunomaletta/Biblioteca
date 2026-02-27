@@ -3,8 +3,8 @@ weight: 10
 title: "fastIO.cpp"
 draft: false
 toc: true
-date: "2026-02-27T16:29:55-0300"
-publishdate: "2026-02-27T16:29:55-0300"
+date: "2026-02-27T17:02:42-0300"
+publishdate: "2026-02-27T17:02:42-0300"
 description: ""
 ---
 
@@ -13,6 +13,8 @@ Link original: [fastIO.cpp](https://github.com/brunomaletta/Biblioteca/tree/mast
 
 ## Código
 ```cpp
+int read_int() {
+    bool minus = false;
     int result = 0;
     char ch;
     ch = getchar();

@@ -6,96 +6,96 @@
     <description>Recent content in Strings on Biblioteca Maratona UFMG</description>
     <generator>Hugo</generator>
     <language>pt</language>
-    <lastBuildDate>Thu, 09 May 2024 18:39:18 -0300</lastBuildDate>
+    <lastBuildDate>Fri, 27 Feb 2026 17:02:42 -0300</lastBuildDate>
     <atom:link href="http://localhost:1313/Biblioteca/docs/strings/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Aho-corasick</title>
       <link>http://localhost:1313/Biblioteca/docs/strings/ahocorasick/</link>
-      <pubDate>Thu, 09 May 2024 18:39:18 -0300</pubDate>
+      <pubDate>Fri, 27 Feb 2026 17:02:42 -0300</pubDate>
       <guid>http://localhost:1313/Biblioteca/docs/strings/ahocorasick/</guid>
       <description>Sobre linkquery retorna o somatorio do numero de matches de&#xA;todas as stringuinhas na stringona&#xA;insert - O(|s| log(SIGMA))&#xA;build - O(N), onde N = somatorio dos tamanhos das strings&#xA;query - O(|s|)&#xA;Link original: ahocorasick.cpp&#xA;Código link namespace aho { map&amp;lt;char, int&amp;gt; to[MAX]; int link[MAX], idx, term[MAX], exit[MAX], sobe[MAX]; void insert(string&amp;amp; s) { int at = 0; for (char c : s) { auto it = to[at].find(c); if (it == to[at].</description>
     </item>
     <item>
       <title>eertree</title>
       <link>http://localhost:1313/Biblioteca/docs/strings/eertree/</link>
-      <pubDate>Thu, 09 May 2024 18:39:18 -0300</pubDate>
+      <pubDate>Fri, 27 Feb 2026 17:02:42 -0300</pubDate>
       <guid>http://localhost:1313/Biblioteca/docs/strings/eertree/</guid>
       <description>Sobre linkConstroi a eertree, caractere a caractere&#xA;Inicializar com a quantidade de caracteres maxima&#xA;size() retorna a quantidade de substrings pal. distintas&#xA;depois de chamar propagate(), cada substring palindromica&#xA;ocorre qt[i] vezes. O propagate() retorna o numero de&#xA;substrings pal. com repeticao&#xA;O(n) amortizado, considerando alfabeto O(1)&#xA;Link original: eertree.cpp&#xA;Código link struct eertree { vector&amp;lt;vector&amp;lt;int&amp;gt;&amp;gt; t; int n, last, sz; vector&amp;lt;int&amp;gt; s, len, link, qt; eertree(int N) { t = vector(N&amp;#43;2, vector(26, int())); s = len = link = qt = vector&amp;lt;int&amp;gt;(N&amp;#43;2); s[0] = -1; link[0] = 1, len[0] = 0, link[1] = 1, len[1] = -1; sz = 2, last = 0, n = 1; } void add(char c) { s[n&amp;#43;&amp;#43;] = c -= &amp;#39;a&amp;#39;; while (s[n-len[last]-2] !</description>
     </item>
     <item>
       <title>KMP</title>
       <link>http://localhost:1313/Biblioteca/docs/strings/kmp/</link>
-      <pubDate>Thu, 09 May 2024 18:39:18 -0300</pubDate>
+      <pubDate>Fri, 27 Feb 2026 17:02:42 -0300</pubDate>
       <guid>http://localhost:1313/Biblioteca/docs/strings/kmp/</guid>
       <description>Sobre linkmatching(s, t) retorna os indices das ocorrencias&#xA;de s em t&#xA;autKMP constroi o automato do KMP&#xA;Complexidades:&#xA;pi - O(n)&#xA;match - O(n + m)&#xA;construir o automato - O(|sigma|*n)&#xA;n = |padrao| e m = |texto|&#xA;Link original: kmp.cpp&#xA;Código link template&amp;lt;typename T&amp;gt; vector&amp;lt;int&amp;gt; pi(T s) { vector&amp;lt;int&amp;gt; p(s.size()); for (int i = 1, j = 0; i &amp;lt; s.size(); i&amp;#43;&amp;#43;) { while (j and s[j] != s[i]) j = p[j-1]; if (s[j] == s[i]) j&amp;#43;&amp;#43;; p[i] = j; } return p; } template&amp;lt;typename T&amp;gt; vector&amp;lt;int&amp;gt; matching(T&amp;amp; s, T&amp;amp; t) { vector&amp;lt;int&amp;gt; p = pi(s), match; for (int i = 0, j = 0; i &amp;lt; t.</description>
     </item>
     <item>
       <title>Manacher</title>
       <link>http://localhost:1313/Biblioteca/docs/strings/manacher/</link>
-      <pubDate>Thu, 09 May 2024 18:39:18 -0300</pubDate>
+      <pubDate>Fri, 27 Feb 2026 17:02:42 -0300</pubDate>
       <guid>http://localhost:1313/Biblioteca/docs/strings/manacher/</guid>
       <description>Sobre linkmanacher recebe um vetor de T e retorna o vetor com tamanho dos palindromos&#xA;ret[2*i] = tamanho do maior palindromo centrado em i&#xA;ret[2*i+1] = tamanho maior palindromo centrado em i e i+1&#xA;Complexidades:&#xA;manacher - O(n)&#xA;palindrome - &amp;lt;O(n), O(1)&amp;gt;&#xA;pal_end - O(n)&#xA;Link original: manacher.cpp&#xA;Código link template&amp;lt;typename T&amp;gt; vector&amp;lt;int&amp;gt; manacher(const T&amp;amp; s) { int l = 0, r = -1, n = s.size(); vector&amp;lt;int&amp;gt; d1(n), d2(n); for (int i = 0; i &amp;lt; n; i&amp;#43;&amp;#43;) { int k = i &amp;gt; r ?</description>
     </item>
     <item>
       <title>Min/max suffix/cyclic shift</title>
       <link>http://localhost:1313/Biblioteca/docs/strings/minmaxsuffixcyclic/</link>
-      <pubDate>Thu, 09 May 2024 18:39:18 -0300</pubDate>
+      <pubDate>Fri, 27 Feb 2026 17:02:42 -0300</pubDate>
       <guid>http://localhost:1313/Biblioteca/docs/strings/minmaxsuffixcyclic/</guid>
       <description>Sobre linkComputa o indice do menor/maior sufixo/cyclic shift&#xA;da string, lexicograficamente&#xA;O(n)&#xA;Link original: minMaxSuffixCyclic.cpp&#xA;Código link template&amp;lt;typename T&amp;gt; int max_suffix(T s, bool mi = false) { s.push_back(*min_element(s.begin(), s.end())-1); int ans = 0; for (int i = 1; i &amp;lt; s.size(); i&amp;#43;&amp;#43;) { int j = 0; while (ans&amp;#43;j &amp;lt; i and s[i&amp;#43;j] == s[ans&amp;#43;j]) j&amp;#43;&amp;#43;; if (s[i&amp;#43;j] &amp;gt; s[ans&amp;#43;j]) { if (!mi or i != s.size()-2) ans = i; } else if (j) i &amp;#43;= j-1; } return ans; } template&amp;lt;typename T&amp;gt; int min_suffix(T s) { for (auto&amp;amp; i : s) i *= -1; s.</description>
     </item>
     <item>
       <title>String Hashing</title>
       <link>http://localhost:1313/Biblioteca/docs/strings/hashing/</link>
-      <pubDate>Thu, 09 May 2024 18:39:18 -0300</pubDate>
+      <pubDate>Fri, 27 Feb 2026 17:02:42 -0300</pubDate>
       <guid>http://localhost:1313/Biblioteca/docs/strings/hashing/</guid>
-      <description>Sobre linkComplexidades:&#xA;construtor - O(|s|)&#xA;operator() - O(1)&#xA;Link original: hashing.cpp&#xA;Código link mt19937 rng((int) chrono::steady_clock::now().time_since_epoch().count()); int uniform(int l, int r) { uniform_int_distribution&amp;lt;int&amp;gt; uid(l, r); return uid(rng); } template&amp;lt;int MOD&amp;gt; struct str_hash { // 116fcb static int P; vector&amp;lt;ll&amp;gt; h, p; str_hash(string s) : h(s.size()), p(s.size()) { p[0] = 1, h[0] = s[0]; for (int i = 1; i &amp;lt; s.size(); i&amp;#43;&amp;#43;) p[i] = p[i - 1]*P%MOD, h[i] = (h[i - 1]*P &amp;#43; s[i])%MOD; } ll operator()(int l, int r) { // retorna hash s[l.</description>
+      <description>Sobre linkComplexidades:&#xA;construtor - O(|s|)&#xA;operator() - O(1)&#xA;Link original: hashing.cpp&#xA;Código link mt19937 rng((int) chrono::steady_clock::now().time_since_epoch().count()); int uniform(int l, int r) { uniform_int_distribution&amp;lt;int&amp;gt; uid(l, r); return uid(rng); } template&amp;lt;int MOD&amp;gt; struct str_hash { static int P; vector&amp;lt;ll&amp;gt; h, p; str_hash(string s) : h(s.size()), p(s.size()) { p[0] = 1, h[0] = s[0]; for (int i = 1; i &amp;lt; s.size(); i&amp;#43;&amp;#43;) p[i] = p[i - 1]*P%MOD, h[i] = (h[i - 1]*P &amp;#43; s[i])%MOD; } ll operator()(int l, int r) { // retorna hash s[l.</description>
     </item>
     <item>
       <title>String Hashing - modulo 2^61 - 1</title>
       <link>http://localhost:1313/Biblioteca/docs/strings/hashinglargemod/</link>
-      <pubDate>Thu, 09 May 2024 18:39:18 -0300</pubDate>
+      <pubDate>Fri, 27 Feb 2026 17:02:42 -0300</pubDate>
       <guid>http://localhost:1313/Biblioteca/docs/strings/hashinglargemod/</guid>
       <description>Sobre linkQuase duas vezes mais lento&#xA;Complexidades:&#xA;build - O(|s|)&#xA;operator() - O(1)&#xA;Link original: hashingLargeMod.cpp&#xA;Código link const ll MOD = (1ll&amp;lt;&amp;lt;61) - 1; ll mulmod(ll a, ll b) { const static ll LOWER = (1ll&amp;lt;&amp;lt;30) - 1, GET31 = (1ll&amp;lt;&amp;lt;31) - 1; ll l1 = a&amp;amp;LOWER, h1 = a&amp;gt;&amp;gt;30, l2 = b&amp;amp;LOWER, h2 = b&amp;gt;&amp;gt;30; ll m = l1*h2 &amp;#43; l2*h1, h = h1*h2; ll ans = l1*l2 &amp;#43; (h&amp;gt;&amp;gt;1) &amp;#43; ((h&amp;amp;1)&amp;lt;&amp;lt;60) &amp;#43; (m&amp;gt;&amp;gt;31) &amp;#43; ((m&amp;amp;GET31)&amp;lt;&amp;lt;30) &amp;#43; 1; ans = (ans&amp;amp;MOD) &amp;#43; (ans&amp;gt;&amp;gt;61), ans = (ans&amp;amp;MOD) &amp;#43; (ans&amp;gt;&amp;gt;61); return ans - 1; } mt19937_64 rng(chrono::steady_clock::now().</description>
     </item>
     <item>
       <title>Suffix Array - O(n log n)</title>
       <link>http://localhost:1313/Biblioteca/docs/strings/suffixarray2/</link>
-      <pubDate>Thu, 09 May 2024 18:39:18 -0300</pubDate>
+      <pubDate>Fri, 27 Feb 2026 17:02:42 -0300</pubDate>
       <guid>http://localhost:1313/Biblioteca/docs/strings/suffixarray2/</guid>
       <description>Sobre linkkasai recebe o suffix array e calcula lcp[i],&#xA;o lcp entre s[sa[i],&amp;hellip;,n-1] e s[sa[i+1],..,n-1]&#xA;Complexidades:&#xA;suffix_array - O(n log(n))&#xA;kasai - O(n)&#xA;Link original: suffixArray2.cpp&#xA;Código link vector&amp;lt;int&amp;gt; suffix_array(string s) { s &amp;#43;= &amp;#34;$&amp;#34;; int n = s.size(), N = max(n, 260); vector&amp;lt;int&amp;gt; sa(n), ra(n); for(int i = 0; i &amp;lt; n; i&amp;#43;&amp;#43;) sa[i] = i, ra[i] = s[i]; for(int k = 0; k &amp;lt; n; k ? k *= 2 : k&amp;#43;&amp;#43;) { vector&amp;lt;int&amp;gt; nsa(sa), nra(n), cnt(N); for(int i = 0; i &amp;lt; n; i&amp;#43;&amp;#43;) nsa[i] = (nsa[i]-k&amp;#43;n)%n, cnt[ra[i]]&amp;#43;&amp;#43;; for(int i = 1; i &amp;lt; N; i&amp;#43;&amp;#43;) cnt[i] &amp;#43;= cnt[i-1]; for(int i = n-1; i&amp;#43;1; i--) sa[--cnt[ra[nsa[i]]]] = nsa[i]; for(int i = 1, r = 0; i &amp;lt; n; i&amp;#43;&amp;#43;) nra[sa[i]] = r &amp;#43;= ra[sa[i]] !</description>
     </item>
     <item>
       <title>Suffix Array - O(n)</title>
       <link>http://localhost:1313/Biblioteca/docs/strings/suffixarray/</link>
-      <pubDate>Thu, 09 May 2024 18:39:18 -0300</pubDate>
+      <pubDate>Fri, 27 Feb 2026 17:02:42 -0300</pubDate>
       <guid>http://localhost:1313/Biblioteca/docs/strings/suffixarray/</guid>
       <description>Sobre linkRapidao&#xA;Computa o suffix array em &amp;lsquo;sa&amp;rsquo;, o rank em &amp;lsquo;rnk&amp;rsquo;&#xA;e o lcp em &amp;rsquo;lcp&amp;rsquo;&#xA;query(i, j) retorna o LCP entre s[i..n-1] e s[j..n-1]&#xA;Complexidades&#xA;O(n) para construir&#xA;query - O(1)&#xA;Link original: suffixArray.cpp&#xA;Código link template&amp;lt;typename T&amp;gt; struct rmq { vector&amp;lt;T&amp;gt; v; int n; static const int b = 30; vector&amp;lt;int&amp;gt; mask, t; int op(int x, int y) { return v[x] &amp;lt;= v[y] ? x : y; } int msb(int x) { return __builtin_clz(1)-__builtin_clz(x); } int small(int r, int sz = b) { return r-msb(mask[r]&amp;amp;((1&amp;lt;&amp;lt;sz)-1)); } rmq() {} rmq(const vector&amp;lt;T&amp;gt;&amp;amp; v_) : v(v_), n(v.</description>
     </item>
     <item>
       <title>Suffix Array Dinamico</title>
       <link>http://localhost:1313/Biblioteca/docs/strings/dynamicsuffixarray/</link>
-      <pubDate>Thu, 09 May 2024 18:39:18 -0300</pubDate>
+      <pubDate>Fri, 27 Feb 2026 17:02:42 -0300</pubDate>
       <guid>http://localhost:1313/Biblioteca/docs/strings/dynamicsuffixarray/</guid>
       <description>Sobre linkMantem o suffix array, lcp e rank de uma string,&#xA;premitindo push_front e pop_front&#xA;O operador [i] return um par com sa[i] e lcp[i]&#xA;lcp[i] tem o lcp entre sa[i] e sa[i-1] (lcp[0] = 0)&#xA;Complexidades:&#xA;Construir sobre uma string de tamanho n: O(n log n)&#xA;push_front e pop_front: O(log n) amortizado&#xA;Link original: dynamicSuffixArray.cpp&#xA;Código link struct dyn_sa { struct node { int sa, lcp; node *l, *r, *p; int sz, mi; node(int sa_, int lcp_, node* p_) : sa(sa_), lcp(lcp_), l(NULL), r(NULL), p(p_), sz(1), mi(lcp) {} void update() { sz = 1, mi = lcp; if (l) sz &amp;#43;= l-&amp;gt;sz, mi = min(mi, l-&amp;gt;mi); if (r) sz &amp;#43;= r-&amp;gt;sz, mi = min(mi, r-&amp;gt;mi); } }; node* root; vector&amp;lt;ll&amp;gt; tag; // tag of a suffix (reversed id) string s; // reversed dyn_sa() : root(NULL) {} dyn_sa(string s_) : dyn_sa() { reverse(s_.</description>
     </item>
     <item>
       <title>Suffix Automaton</title>
       <link>http://localhost:1313/Biblioteca/docs/strings/suffixautomaton/</link>
-      <pubDate>Thu, 09 May 2024 18:39:18 -0300</pubDate>
+      <pubDate>Fri, 27 Feb 2026 17:02:42 -0300</pubDate>
       <guid>http://localhost:1313/Biblioteca/docs/strings/suffixautomaton/</guid>
       <description>Sobre linkAutomato que aceita os sufixos de uma string&#xA;Todas as funcoes sao lineares&#xA;Link original: suffixAutomaton.cpp&#xA;Código link namespace sam { int cur, sz, len[2*MAX], link[2*MAX], acc[2*MAX]; int nxt[2*MAX][26]; void add(int c) { int at = cur; len[sz] = len[cur]&amp;#43;1, cur = sz&amp;#43;&amp;#43;; while (at != -1 and !nxt[at][c]) nxt[at][c] = cur, at = link[at]; if (at == -1) { link[cur] = 0; return; } int q = nxt[at][c]; if (len[q] == len[at]&amp;#43;1) { link[cur] = q; return; } int qq = sz&amp;#43;&amp;#43;; len[qq] = len[at]&amp;#43;1, link[qq] = link[q]; for (int i = 0; i &amp;lt; 26; i&amp;#43;&amp;#43;) nxt[qq][i] = nxt[q][i]; while (at !</description>
     </item>
     <item>
       <title>Trie</title>
       <link>http://localhost:1313/Biblioteca/docs/strings/trie/</link>
-      <pubDate>Thu, 09 May 2024 18:39:18 -0300</pubDate>
+      <pubDate>Fri, 27 Feb 2026 17:02:42 -0300</pubDate>
       <guid>http://localhost:1313/Biblioteca/docs/strings/trie/</guid>
       <description>Sobre linktrie T() constroi uma trie para o alfabeto das letras minusculas&#xA;trie T(tamanho do alfabeto, menor caracter) tambem pode ser usado&#xA;T.insert(s) - O(|s|*sigma)&#xA;T.erase(s) - O(|s|)&#xA;T.find(s) retorna a posicao, -1 se nao achar - O(|s|)&#xA;T.count_pref(s) numero de strings que possuem s como prefixo - O(|s|)&#xA;Link original: trie.cpp&#xA;Código link struct trie { vector&amp;lt;vector&amp;lt;int&amp;gt;&amp;gt; to; vector&amp;lt;int&amp;gt; end, pref; int sigma; char norm; trie(int sigma_=26, char norm_=&amp;#39;a&amp;#39;) : sigma(sigma_), norm(norm_) { to = {vector&amp;lt;int&amp;gt;(sigma)}; end = {0}, pref = {0}; } void insert(string s) { int x = 0; for (auto c : s) { int &amp;amp;nxt = to[x][c-norm]; if (!</description>
     </item>
     <item>
       <title>Z</title>
       <link>http://localhost:1313/Biblioteca/docs/strings/z/</link>
-      <pubDate>Thu, 09 May 2024 18:39:18 -0300</pubDate>
+      <pubDate>Fri, 27 Feb 2026 17:02:42 -0300</pubDate>
       <guid>http://localhost:1313/Biblioteca/docs/strings/z/</guid>
       <description>Sobre linkz[i] = lcp(s, s[i..n))&#xA;Complexidades:&#xA;z - O(|s|)&#xA;match - O(|s| + |p|)&#xA;Link original: z.cpp&#xA;Código link vector&amp;lt;int&amp;gt; get_z(string s) { int n = s.size(); vector&amp;lt;int&amp;gt; z(n, 0); int l = 0, r = 0; for (int i = 1; i &amp;lt; n; i&amp;#43;&amp;#43;) { if (i &amp;lt;= r) z[i] = min(r - i &amp;#43; 1, z[i - l]); while (i &amp;#43; z[i] &amp;lt; n and s[z[i]] == s[i &amp;#43; z[i]]) z[i]&amp;#43;&amp;#43;; if (i &amp;#43; z[i] - 1 &amp;gt; r) l = i, r = i &amp;#43; z[i] - 1; } return z; } </description>
     </item>

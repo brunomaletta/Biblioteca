@@ -30,7 +30,7 @@ string hash_cmd = "sed -n 1','10000' p' tmp.cpp | sed '/^#w/d' "
 #endif
 
 bool print_all = false;
-bool overwrite = false;
+bool overwrite = true;
 bool update = false;
 
 void strip(string& str) {
@@ -112,18 +112,19 @@ void remove_flags(string& line) {
 	while (line.size() and line.back() == ' ') line.pop_back();
 }
 
-pair<vector<string>, vector<string>> get_code(string file){
+pair<vector<string>, vector<string>> get_code(string file, bool extra = false){
 	ifstream fin(file.c_str());
 	string line;
 	int count = 0;
 	bool started_code = false;
+	if (extra) started_code = true;
 	int depth = 0;
 	stack<int> st;
 	vector<string> comment_lines;
 	vector<string> code_lines;
 	for (int line_idx = 0; getline(fin, line); line_idx++) {
 		int start_line = line_idx;
-		if (count++ < 2) continue;
+		if (!extra and count++ < 2) continue;
 
 		for (char c : line) {
 			if (c == '{') depth++, st.push(line_idx);
@@ -187,7 +188,12 @@ string time_to_string(time_t time, string format = "%Y-%m-%dT%H:%M:%S%z"){
 }
 
 string get_docs_path(string code_path) {
-	code_path.replace(code_path.find(".cpp"), sizeof(".cpp") - 1, ".md");
+    namespace fs = std::filesystem;
+
+    fs::path p(code_path);
+    p.replace_extension(".md");
+	code_path = p.string();
+
 	code_path.erase(0, PATH.size());
 	code_path.insert(0, docs_path);
 	return code_path;
@@ -283,9 +289,9 @@ void update_existing_file(string path_docs, string path_code, string title) {
 
 }
 
-void create_code_file(string path_docs, string path_code, string title) {
+void create_code_file(string path_docs, string path_code, string title, bool extra = false) {
 	// pair < comments, code >
-	pair<vector<string>, vector<string>> code = get_code(path_code);
+	pair<vector<string>, vector<string>> code = get_code(path_code, extra);
 
 	ofstream out(path_docs);
 	out << "---" << endl;
@@ -375,7 +381,7 @@ void print_all_files(vector<pair<string, string>> files, bool extra = false) {
 		// const fs::path path = inputPath;
 		string title = extra ? f : get_name(f_path);
 		strip(title);
-		string path_docs = extra ? (f_path + ".md") : get_docs_path(f_path);
+		string path_docs = get_docs_path(f_path);
 		cout << CYAN << "\t" << title << RESET << endl;
 
 		create_directory(path_docs);
@@ -383,13 +389,13 @@ void print_all_files(vector<pair<string, string>> files, bool extra = false) {
 
 
 		if (overwrite) {
-			create_code_file(path_docs, f_path, title);
+			create_code_file(path_docs, f_path, title, extra);
 			cerr << "\t" << f_path << " -> " << path_docs << endl;
 			continue;
 		}
 
 		if (!fs::exists(fs::path(path_docs))) {
-			create_code_file(path_docs, f_path, title);
+			create_code_file(path_docs, f_path, title, extra);
 			cerr << "\t" << f_path << " -> " << path_docs << endl;
 		}
 		else {

@@ -6,105 +6,245 @@
     <description>Recent content in Grafos on Biblioteca Maratona UFMG</description>
     <generator>Hugo</generator>
     <language>pt</language>
-    <lastBuildDate>Fri, 27 Feb 2026 16:07:11 -0300</lastBuildDate>
+    <lastBuildDate>Fri, 27 Feb 2026 17:02:42 -0300</lastBuildDate>
     <atom:link href="http://localhost:1313/Biblioteca/docs/grafos/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>Rooted Euler Tour Tree</title>
-      <link>http://localhost:1313/Biblioteca/docs/grafos/rootedett/</link>
-      <pubDate>Fri, 27 Feb 2026 16:07:11 -0300</pubDate>
-      <guid>http://localhost:1313/Biblioteca/docs/grafos/rootedett/</guid>
-      <description>Sobre linkMantem uma floresta enraizada dinamicamente&#xA;e permite queries/updates em sub-arvore&#xA;Chamar ETT E(n, w), passando n = numero de vertices&#xA;e w = vector com os valores de cada vertice&#xA;link(v, u) cria uma aresta de v pra u, de forma que u se torna&#xA;o pai de v (eh preciso que v seja raiz anteriormente)&#xA;cut(v) corta a resta de v para o pai&#xA;get_root(v) retorna a raiz de v</description>
-    </item>
-    <item>
-      <title>Top Tree</title>
-      <link>http://localhost:1313/Biblioteca/docs/grafos/toptree/</link>
-      <pubDate>Fri, 27 Feb 2026 16:07:11 -0300</pubDate>
-      <guid>http://localhost:1313/Biblioteca/docs/grafos/toptree/</guid>
-      <description>Sobre linklct t(n, w) armazena uma floresta enraizada dinamica com &amp;rsquo;n&#39;&#xA;vertices indexados de 0 a n-1 com peso w[i] do tipo T.&#xA;Varias operacoes podem ser realizadas.&#xA;Complexidades:&#xA;Construcao - O(n) espaco e tempo&#xA;Todas as outras operacoes - O(log(n)) amortizado, \Theta(n) pior caso&#xA;O(n) memoria em qualquer momento&#xA;Consultas estruturais find_root(v): raiz do vertice v (seguindo arestas pai)&#xA;lca(v, u): ancestral comum mais baixo entre v e u, ou -1 se nao existir</description>
-    </item>
-    <item>
-      <title>Unrooted Euler Tour Tree</title>
-      <link>http://localhost:1313/Biblioteca/docs/grafos/unrootedett/</link>
-      <pubDate>Fri, 27 Feb 2026 16:07:11 -0300</pubDate>
-      <guid>http://localhost:1313/Biblioteca/docs/grafos/unrootedett/</guid>
-      <description>Sobre linkMantem uma floresta dinamicamente&#xA;e permite queries/updates em componentes&#xA;Chamar ETT E(n, w), passando n = numero de vertices&#xA;e w = vector com os valores de cada vertice&#xA;link(v, u) cria uma aresta entre v e u&#xA;cut(v, u) corta aresta entre v e u&#xA;get_root(v) retorna a raiz de v&#xA;branc_query(v, u) e branch_update(v, u) operam sobre o componente&#xA;conexo de v se arestas {v, u} fosse removida do grafo</description>
-    </item>
     <item>
       <title>AGM Direcionada</title>
       <link>http://localhost:1313/Biblioteca/docs/grafos/directedmst/</link>
-      <pubDate>Thu, 09 May 2024 18:39:19 -0300</pubDate>
+      <pubDate>Fri, 27 Feb 2026 17:02:42 -0300</pubDate>
       <guid>http://localhost:1313/Biblioteca/docs/grafos/directedmst/</guid>
       <description>Sobre linkFala o menor custo para selecionar arestas tal que&#xA;o vertice &amp;lsquo;r&amp;rsquo; alcance todos&#xA;Se nao tem como, retorna LINF&#xA;O(m log(n))&#xA;Link original: directedMst.cpp&#xA;Código link struct node { pair&amp;lt;ll, int&amp;gt; val; ll lazy; node *l, *r; node() {} node(pair&amp;lt;int, int&amp;gt; v) : val(v), lazy(0), l(NULL), r(NULL) {} void prop() { val.first &amp;#43;= lazy; if (l) l-&amp;gt;lazy &amp;#43;= lazy; if (r) r-&amp;gt;lazy &amp;#43;= lazy; lazy = 0; } }; void merge(node*&amp;amp; a, node* b) { if (!</description>
     </item>
     <item>
       <title>Articulation Points</title>
       <link>http://localhost:1313/Biblioteca/docs/grafos/articulationpoints/</link>
-      <pubDate>Thu, 09 May 2024 18:39:19 -0300</pubDate>
+      <pubDate>Fri, 27 Feb 2026 17:02:42 -0300</pubDate>
       <guid>http://localhost:1313/Biblioteca/docs/grafos/articulationpoints/</guid>
       <description>Sobre linkComputa os pontos de articulacao (vertices criticos) de um grafo&#xA;art[i] armazena o numero de novas componentes criadas ao deletar vertice i&#xA;se art[i] &amp;gt;= 1, entao vertice i eh ponto de articulacao&#xA;O(n+m)&#xA;Link original: articulationPoints.cpp&#xA;Código link int n; vector&amp;lt;vector&amp;lt;int&amp;gt;&amp;gt; g; stack&amp;lt;int&amp;gt; s; vector&amp;lt;int&amp;gt; id, art; int dfs_art(int i, int&amp;amp; t, int p = -1) { int lo = id[i] = t&amp;#43;&amp;#43;; s.push(i); for (int j : g[i]) if (j !</description>
     </item>
     <item>
       <title>Bellman-Ford</title>
       <link>http://localhost:1313/Biblioteca/docs/grafos/bellmanford/</link>
-      <pubDate>Thu, 09 May 2024 18:39:19 -0300</pubDate>
+      <pubDate>Fri, 27 Feb 2026 17:02:42 -0300</pubDate>
       <guid>http://localhost:1313/Biblioteca/docs/grafos/bellmanford/</guid>
       <description>Sobre linkCalcula a menor distancia&#xA;entre a e todos os vertices e&#xA;detecta ciclo negativo&#xA;Retorna 1 se ha ciclo negativo&#xA;Nao precisa representar o grafo,&#xA;soh armazenar as arestas&#xA;O(nm)&#xA;Link original: bellmanFord.cpp&#xA;Código link int n, m; int d[MAX]; vector&amp;lt;pair&amp;lt;int, int&amp;gt;&amp;gt; ar; // vetor de arestas vector&amp;lt;int&amp;gt; w; // peso das arestas bool bellman_ford(int a) { for (int i = 0; i &amp;lt; n; i&amp;#43;&amp;#43;) d[i] = INF; d[a] = 0; for (int i = 0; i &amp;lt;= n; i&amp;#43;&amp;#43;) for (int j = 0; j &amp;lt; m; j&amp;#43;&amp;#43;) { if (d[ar[j].</description>
     </item>
     <item>
       <title>Block-Cut Tree</title>
       <link>http://localhost:1313/Biblioteca/docs/grafos/blockcuttree/</link>
-      <pubDate>Thu, 09 May 2024 18:39:19 -0300</pubDate>
+      <pubDate>Fri, 27 Feb 2026 17:02:42 -0300</pubDate>
       <guid>http://localhost:1313/Biblioteca/docs/grafos/blockcuttree/</guid>
       <description>Sobre linkCria a block-cut tree, uma arvore com os blocos&#xA;e os pontos de articulacao&#xA;Blocos sao componentes 2-vertice-conexos maximais&#xA;Uma 2-coloracao da arvore eh tal que uma cor sao&#xA;os blocos, e a outra cor sao os pontos de art.&#xA;Funciona para grafo nao conexo&#xA;art[i] responde o numero de novas componentes conexas&#xA;criadas apos a remocao de i do grafo g&#xA;Se art[i] &amp;gt;= 1, i eh ponto de articulacao</description>
     </item>
     <item>
       <title>Blossom</title>
       <link>http://localhost:1313/Biblioteca/docs/grafos/blossom/</link>
-      <pubDate>Thu, 09 May 2024 18:39:19 -0300</pubDate>
+      <pubDate>Fri, 27 Feb 2026 17:02:42 -0300</pubDate>
       <guid>http://localhost:1313/Biblioteca/docs/grafos/blossom/</guid>
       <description>Sobre linkMatching maximo em grafo geral&#xA;O(n^3)&#xA;Se for bipartido, nao precisa da funcao&#xA;&amp;lsquo;contract&amp;rsquo;, e roda em O(nm)&#xA;Link original: blossom.cpp&#xA;Código link vector&amp;lt;int&amp;gt; g[MAX]; int match[MAX]; // match[i] = com quem i esta matchzado ou -1 int n, pai[MAX], base[MAX], vis[MAX]; queue&amp;lt;int&amp;gt; q; void contract(int u, int v, bool first = 1) { static vector&amp;lt;bool&amp;gt; bloss; static int l; if (first) { bloss = vector&amp;lt;bool&amp;gt;(n, 0); vector&amp;lt;bool&amp;gt; teve(n, 0); int k = u; l = v; while (1) { teve[k = base[k]] = 1; if (match[k] == -1) break; k = pai[match[k]]; } while (!</description>
     </item>
     <item>
       <title>Centro de arvore</title>
       <link>http://localhost:1313/Biblioteca/docs/grafos/center/</link>
-      <pubDate>Thu, 09 May 2024 18:39:19 -0300</pubDate>
+      <pubDate>Fri, 27 Feb 2026 17:02:42 -0300</pubDate>
       <guid>http://localhost:1313/Biblioteca/docs/grafos/center/</guid>
       <description>Sobre linkRetorna o diametro e o(s) centro(s) da arvore&#xA;Uma arvore tem sempre um ou dois centros e estes estao no meio do diametro&#xA;O(n)&#xA;Link original: center.cpp&#xA;Código link vector&amp;lt;int&amp;gt; g[MAX]; int d[MAX], par[MAX]; pair&amp;lt;int, vector&amp;lt;int&amp;gt;&amp;gt; center() { int f, df; function&amp;lt;void(int)&amp;gt; dfs = [&amp;amp;] (int v) { if (d[v] &amp;gt; df) f = v, df = d[v]; for (int u : g[v]) if (u != par[v]) d[u] = d[v] &amp;#43; 1, par[u] = v, dfs(u); }; f = df = par[0] = -1, d[0] = 0; dfs(0); int root = f; f = df = par[root] = -1, d[root] = 0; dfs(root); vector&amp;lt;int&amp;gt; c; while (f !</description>
     </item>
     <item>
       <title>Centroid</title>
       <link>http://localhost:1313/Biblioteca/docs/grafos/centroid/</link>
-      <pubDate>Thu, 09 May 2024 18:39:19 -0300</pubDate>
+      <pubDate>Fri, 27 Feb 2026 17:02:42 -0300</pubDate>
       <guid>http://localhost:1313/Biblioteca/docs/grafos/centroid/</guid>
       <description>Sobre linkComputa os 2 centroids da arvore&#xA;O(n)&#xA;Link original: centroid.cpp&#xA;Código link int n, subsize[MAX]; vector&amp;lt;int&amp;gt; g[MAX]; void dfs(int k, int p=-1) { subsize[k] = 1; for (int i : g[k]) if (i != p) { dfs(i, k); subsize[k] &amp;#43;= subsize[i]; } } int centroid(int k, int p=-1, int size=-1) { if (size == -1) size = subsize[k]; for (int i : g[k]) if (i != p) if (subsize[i] &amp;gt; size/2) return centroid(i, k, size); return k; } pair&amp;lt;int, int&amp;gt; centroids(int k=0) { dfs(k); int i = centroid(k), i2 = i; for (int j : g[i]) if (2*subsize[j] == subsize[k]) i2 = j; return {i, i2}; } </description>
     </item>
     <item>
       <title>Centroid decomposition</title>
       <link>http://localhost:1313/Biblioteca/docs/grafos/centroiddecomp/</link>
-      <pubDate>Thu, 09 May 2024 18:39:19 -0300</pubDate>
+      <pubDate>Fri, 27 Feb 2026 17:02:42 -0300</pubDate>
       <guid>http://localhost:1313/Biblioteca/docs/grafos/centroiddecomp/</guid>
       <description>Sobre linkdecomp(0, k) computa numero de caminhos com &amp;lsquo;k&amp;rsquo; arestas&#xA;Mudar depois do comentario&#xA;O(n log(n))&#xA;Link original: centroidDecomp.cpp&#xA;Código link vector&amp;lt;int&amp;gt; g[MAX]; int sz[MAX], rem[MAX]; void dfs(vector&amp;lt;int&amp;gt;&amp;amp; path, int i, int l=-1, int d=0) { path.push_back(d); for (int j : g[i]) if (j != l and !rem[j]) dfs(path, j, i, d&amp;#43;1); } int dfs_sz(int i, int l=-1) { sz[i] = 1; for (int j : g[i]) if (j != l and !</description>
     </item>
     <item>
+      <title>Centroid Tree</title>
+      <link>http://localhost:1313/Biblioteca/docs/grafos/centroidtree/</link>
+      <pubDate>Fri, 27 Feb 2026 17:02:42 -0300</pubDate>
+      <guid>http://localhost:1313/Biblioteca/docs/grafos/centroidtree/</guid>
+      <description>Sobre linkConstroi a centroid tree&#xA;p[i] eh o pai de i na centroid-tree&#xA;dist[i][k] = distancia na arvore original entre i&#xA;e o k-esimo ancestral na arvore da centroid&#xA;O(n log(n)) de tempo e memoria&#xA;Link original: centroidTree.cpp&#xA;Código link vector&amp;lt;int&amp;gt; g[MAX], dist[MAX]; int sz[MAX], rem[MAX], p[MAX]; int dfs_sz(int i, int l=-1) { sz[i] = 1; for (int j : g[i]) if (j != l and !rem[j]) sz[i] &amp;#43;= dfs_sz(j, i); return sz[i]; } int centroid(int i, int l, int size) { for (int j : g[i]) if (j !</description>
+    </item>
+    <item>
+      <title>Dijkstra</title>
+      <link>http://localhost:1313/Biblioteca/docs/grafos/dijkstra/</link>
+      <pubDate>Fri, 27 Feb 2026 17:02:42 -0300</pubDate>
+      <guid>http://localhost:1313/Biblioteca/docs/grafos/dijkstra/</guid>
+      <description>Sobre linkencontra menor distancia de x&#xA;para todos os vertices&#xA;se ao final do algoritmo d[i] = LINF,&#xA;entao x nao alcanca i&#xA;O(m log(n))&#xA;Link original: dijkstra.cpp&#xA;Código link ll d[MAX]; vector&amp;lt;pair&amp;lt;int, int&amp;gt;&amp;gt; g[MAX]; // {vizinho, peso} int n; void dijkstra(int v) { for (int i = 0; i &amp;lt; n; i&amp;#43;&amp;#43;) d[i] = LINF; d[v] = 0; priority_queue&amp;lt;pair&amp;lt;ll, int&amp;gt;&amp;gt; pq; pq.emplace(0, v); while (pq.size()) { auto [ndist, u] = pq.</description>
+    </item>
+    <item>
       <title>Dinitz</title>
       <link>http://localhost:1313/Biblioteca/docs/grafos/dinitz/</link>
-      <pubDate>Thu, 09 May 2024 18:39:19 -0300</pubDate>
+      <pubDate>Fri, 27 Feb 2026 17:02:42 -0300</pubDate>
       <guid>http://localhost:1313/Biblioteca/docs/grafos/dinitz/</guid>
       <description>Sobre linkO(min(m * max_flow, n^2 m))&#xA;Grafo com capacidades 1: O(min(m sqrt(m), m * n^(2/3)))&#xA;Todo vertice tem grau de entrada ou saida 1: O(m sqrt(n))&#xA;Link original: dinitz.cpp&#xA;Código link struct dinitz { const bool scaling = false; // com scaling -&amp;gt; O(nm log(MAXCAP)), int lim; // com constante alta struct edge { int to, cap, rev, flow; bool res; edge(int to_, int cap_, int rev_, bool res_) : to(to_), cap(cap_), rev(rev_), flow(0), res(res_) {} }; vector&amp;lt;vector&amp;lt;edge&amp;gt;&amp;gt; g; vector&amp;lt;int&amp;gt; lev, beg; ll F; dinitz(int n) : g(n), F(0) {} void add(int a, int b, int c) { g[a].</description>
     </item>
     <item>
       <title>Dominator Tree</title>
       <link>http://localhost:1313/Biblioteca/docs/grafos/dominatortree/</link>
-      <pubDate>Thu, 09 May 2024 18:39:19 -0300</pubDate>
+      <pubDate>Fri, 27 Feb 2026 17:02:42 -0300</pubDate>
       <guid>http://localhost:1313/Biblioteca/docs/grafos/dominatortree/</guid>
       <description>Sobre linkCodigo do Kawakami. Se vira pra usar ai&#xA;build - O(m log(n))&#xA;dominates - O(1)&#xA;Link original: dominatorTree.cpp&#xA;Código link int n; namespace d_tree { vector&amp;lt;int&amp;gt; g[MAX]; // The dominator tree vector&amp;lt;int&amp;gt; tree[MAX]; int dfs_l[MAX], dfs_r[MAX]; // Auxiliary data vector&amp;lt;int&amp;gt; rg[MAX], bucket[MAX]; int idom[MAX], sdom[MAX], prv[MAX], pre[MAX]; int ancestor[MAX], label[MAX]; vector&amp;lt;int&amp;gt; preorder; void dfs(int v) { static int t = 0; pre[v] = &amp;#43;&amp;#43;t; sdom[v] = label[v] = v; preorder.</description>
     </item>
     <item>
       <title>Euler Path / Euler Cycle</title>
       <link>http://localhost:1313/Biblioteca/docs/grafos/eulerpath/</link>
-      <pubDate>Thu, 09 May 2024 18:39:19 -0300</pubDate>
+      <pubDate>Fri, 27 Feb 2026 17:02:42 -0300</pubDate>
       <guid>http://localhost:1313/Biblioteca/docs/grafos/eulerpath/</guid>
       <description>Sobre linkPara declarar: &amp;rsquo;euler E(n);&amp;rsquo; se quiser&#xA;direcionado e com &amp;rsquo;n&amp;rsquo; vertices&#xA;As funcoes retornam um par com um booleano&#xA;indicando se possui o cycle/path que voce pediu,&#xA;e um vector de {vertice, id da aresta para chegar no vertice}&#xA;Se for get_path, na primeira posicao o id vai ser -1&#xA;get_path(src) tenta achar um caminho ou ciclo euleriano&#xA;comecando no vertice &amp;lsquo;src&amp;rsquo;.&#xA;Se achar um ciclo, o primeiro e ultimo vertice serao &amp;lsquo;src&amp;rsquo;.</description>
+    </item>
+    <item>
+      <title>Floyd-Warshall</title>
+      <link>http://localhost:1313/Biblioteca/docs/grafos/floydwarshall/</link>
+      <pubDate>Fri, 27 Feb 2026 17:02:42 -0300</pubDate>
+      <guid>http://localhost:1313/Biblioteca/docs/grafos/floydwarshall/</guid>
+      <description>Sobre linkencontra o menor caminho entre todo&#xA;par de vertices e detecta ciclo negativo&#xA;returna 1 sse ha ciclo negativo&#xA;d[i][i] deve ser 0&#xA;para i != j, d[i][j] deve ser w se ha uma aresta&#xA;(i, j) de peso w, INF caso contrario&#xA;O(n^3)&#xA;Link original: floydWarshall.cpp&#xA;Código link int n; int d[MAX][MAX]; bool floyd_warshall() { for (int k = 0; k &amp;lt; n; k&amp;#43;&amp;#43;) for (int i = 0; i &amp;lt; n; i&amp;#43;&amp;#43;) for (int j = 0; j &amp;lt; n; j&amp;#43;&amp;#43;) d[i][j] = min(d[i][j], d[i][k] &amp;#43; d[k][j]); for (int i = 0; i &amp;lt; n; i&amp;#43;&amp;#43;) if (d[i][i] &amp;lt; 0) return 1; return 0; } </description>
+    </item>
+    <item>
+      <title>Functional Graph</title>
+      <link>http://localhost:1313/Biblioteca/docs/grafos/functionalgraph/</link>
+      <pubDate>Fri, 27 Feb 2026 17:02:42 -0300</pubDate>
+      <guid>http://localhost:1313/Biblioteca/docs/grafos/functionalgraph/</guid>
+      <description>Sobre linkrt[i] fala o ID da raiz associada ao vertice i&#xA;d[i] fala a profundidade (0 sse ta no ciclo)&#xA;pos[i] fala a posicao de i no array que eh a concat. dos ciclos&#xA;build(f, val) recebe a funcao f e o custo de ir de&#xA;i para f[i] (por default, val = f)&#xA;f_k(i, k) fala onde i vai parar se seguir k arestas&#xA;path(i, k) fala o custo (soma) seguir k arestas a partir de i</description>
+    </item>
+    <item>
+      <title>Hopcroft Karp</title>
+      <link>http://localhost:1313/Biblioteca/docs/grafos/hopcroftkarp/</link>
+      <pubDate>Fri, 27 Feb 2026 17:02:42 -0300</pubDate>
+      <guid>http://localhost:1313/Biblioteca/docs/grafos/hopcroftkarp/</guid>
+      <description>Sobre linkComputa matching maximo em grafo bipartido&#xA;&amp;rsquo;n&amp;rsquo; e &amp;rsquo;m&amp;rsquo; sao quantos vertices tem em cada particao&#xA;chamar add(i, j) para add aresta entre o cara i&#xA;da particao A, e o cara j da particao B&#xA;(entao i &amp;lt; n, j &amp;lt; m)&#xA;O(|E| * sqrt(|V|)) com constante baixa&#xA;Para grafos esparsos gerados aleatoriamente, roda em O(|E| * log(|V|))&#xA;com alta probabilidade&#xA;Link original: hopcroftKarp.cpp&#xA;Código link mt19937 rng((int) chrono::steady_clock::now().</description>
+    </item>
+    <item>
+      <title>Isomorfismo de arvores</title>
+      <link>http://localhost:1313/Biblioteca/docs/grafos/treeisomorf/</link>
+      <pubDate>Fri, 27 Feb 2026 17:02:42 -0300</pubDate>
+      <guid>http://localhost:1313/Biblioteca/docs/grafos/treeisomorf/</guid>
+      <description>Sobre linkthash() retorna o hash da arvore (usando centroids como vertices especiais).&#xA;Duas arvores sao isomorfas sse seu hash eh o mesmo&#xA;O(|V|.log(|V|))&#xA;Link original: treeIsomorf.cpp&#xA;Código link map&amp;lt;vector&amp;lt;int&amp;gt;, int&amp;gt; mphash; struct tree { int n; vector&amp;lt;vector&amp;lt;int&amp;gt;&amp;gt; g; vector&amp;lt;int&amp;gt; sz, cs; tree(int n_) : n(n_), g(n_), sz(n_) {} void dfs_centroid(int v, int p) { sz[v] = 1; bool cent = true; for (int u : g[v]) if (u != p) { dfs_centroid(u, v), sz[v] &amp;#43;= sz[u]; if(sz[u] &amp;gt; n/2) cent = false; } if (cent and n - sz[v] &amp;lt;= n/2) cs.</description>
+    </item>
+    <item>
+      <title>Johnson</title>
+      <link>http://localhost:1313/Biblioteca/docs/grafos/johnson/</link>
+      <pubDate>Fri, 27 Feb 2026 17:02:42 -0300</pubDate>
+      <guid>http://localhost:1313/Biblioteca/docs/grafos/johnson/</guid>
+      <description>Sobre linkfunciona igual ao Floyd-Warshall&#xA;encontra o menor caminho entre todo&#xA;par de vertices e retorna 1 sse tem&#xA;ciclo negativo no grafo&#xA;O(nm log(m))&#xA;Link original: johnson.cpp&#xA;Código link vector&amp;lt;pair&amp;lt;int, ll&amp;gt;&amp;gt; g[MAX]; // {vizinho, peso} ll d[MAX][MAX]; bool johnson(int n) { vector&amp;lt;ll&amp;gt; h(n, 0); for (int i = 0; i &amp;lt;= n; i&amp;#43;&amp;#43;) for (int v = 0; v &amp;lt; n; v&amp;#43;&amp;#43;) for (auto [u, w] : g[v]) if (h[u] &amp;gt; h[v] &amp;#43; w) { if (i == n) return 1; h[u] = h[v] &amp;#43; w; } for (int i = 0; i &amp;lt; n; i&amp;#43;&amp;#43;) { for (int j = 0; j &amp;lt; n; j&amp;#43;&amp;#43;) d[i][j] = LINF; d[i][i] = 0; priority_queue&amp;lt;pair&amp;lt;ll, int&amp;gt;&amp;gt; pq; pq.</description>
+    </item>
+    <item>
+      <title>Kosaraju</title>
+      <link>http://localhost:1313/Biblioteca/docs/grafos/kosaraju/</link>
+      <pubDate>Fri, 27 Feb 2026 17:02:42 -0300</pubDate>
+      <guid>http://localhost:1313/Biblioteca/docs/grafos/kosaraju/</guid>
+      <description>Sobre linkO(n + m)&#xA;Link original: kosaraju.cpp&#xA;Código link int n; vector&amp;lt;int&amp;gt; g[MAX]; vector&amp;lt;int&amp;gt; gi[MAX]; // grafo invertido int vis[MAX]; stack&amp;lt;int&amp;gt; S; int comp[MAX]; // componente conexo de cada vertice void dfs(int k) { vis[k] = 1; for (int i = 0; i &amp;lt; (int) g[k].size(); i&amp;#43;&amp;#43;) if (!vis[g[k][i]]) dfs(g[k][i]); S.push(k); } void scc(int k, int c) { vis[k] = 1; comp[k] = c; for (int i = 0; i &amp;lt; (int) gi[k].</description>
+    </item>
+    <item>
+      <title>Kruskal</title>
+      <link>http://localhost:1313/Biblioteca/docs/grafos/kruskal/</link>
+      <pubDate>Fri, 27 Feb 2026 17:02:42 -0300</pubDate>
+      <guid>http://localhost:1313/Biblioteca/docs/grafos/kruskal/</guid>
+      <description>Sobre linkGera e retorna uma AGM e seu custo total a partir do vetor de arestas (edg)&#xA;do grafo&#xA;O(m log(m) + m a(m))&#xA;864875&#xA;Link original: kruskal.cpp&#xA;Código link vector&amp;lt;tuple&amp;lt;int, int, int&amp;gt;&amp;gt; edg; // {peso,[x,y]} // DSU em O(a(n)) void dsu_build(); int find(int a); void unite(int a, int b); pair&amp;lt;ll, vector&amp;lt;tuple&amp;lt;int, int, int&amp;gt;&amp;gt;&amp;gt; kruskal(int n) { dsu_build(n); sort(edg.begin(), edg.end()); ll cost = 0; vector&amp;lt;tuple&amp;lt;int, int, int&amp;gt;&amp;gt; mst; for (auto [w,x,y] : edg) if (find(x) !</description>
+    </item>
+    <item>
+      <title>Kuhn</title>
+      <link>http://localhost:1313/Biblioteca/docs/grafos/kuhn/</link>
+      <pubDate>Fri, 27 Feb 2026 17:02:42 -0300</pubDate>
+      <guid>http://localhost:1313/Biblioteca/docs/grafos/kuhn/</guid>
+      <description>Sobre linkComputa matching maximo em grafo bipartido&#xA;&amp;rsquo;n&amp;rsquo; e &amp;rsquo;m&amp;rsquo; sao quantos vertices tem em cada particao&#xA;chamar add(i, j) para add aresta entre o cara i&#xA;da particao A, e o cara j da particao B&#xA;(entao i &amp;lt; n, j &amp;lt; m)&#xA;Para recuperar o matching, basta olhar &amp;lsquo;ma&amp;rsquo; e &amp;lsquo;mb&amp;rsquo;&#xA;&amp;lsquo;recover&amp;rsquo; recupera o min vertex cover como um par de&#xA;{caras da particao A, caras da particao B}</description>
+    </item>
+    <item>
+      <title>Line Tree</title>
+      <link>http://localhost:1313/Biblioteca/docs/grafos/linetree/</link>
+      <pubDate>Fri, 27 Feb 2026 17:02:42 -0300</pubDate>
+      <guid>http://localhost:1313/Biblioteca/docs/grafos/linetree/</guid>
+      <description>Sobre linkReduz min-query em arvore para RMQ&#xA;Se o grafo nao for uma arvore, as queries&#xA;sao sobre a arvore geradora maxima&#xA;Queries de minimo&#xA;build - O(n log(n))&#xA;query - O(log(n))&#xA;Link original: linetree.cpp&#xA;Código link int n; namespace linetree { int id[MAX], seg[2*MAX], pos[MAX]; vector&amp;lt;int&amp;gt; v[MAX], val[MAX]; vector&amp;lt;pair&amp;lt;int, pair&amp;lt;int, int&amp;gt; &amp;gt; &amp;gt; ar; void add(int a, int b, int p) { ar.push_back({p, {a, b}}); } void build() { sort(ar.</description>
+    </item>
+    <item>
+      <title>Max flow com lower bound</title>
+      <link>http://localhost:1313/Biblioteca/docs/grafos/lowerboundmaxflow/</link>
+      <pubDate>Fri, 27 Feb 2026 17:02:42 -0300</pubDate>
+      <guid>http://localhost:1313/Biblioteca/docs/grafos/lowerboundmaxflow/</guid>
+      <description>Sobre linkadd(a, b, l, r):&#xA;adiciona aresta de a pra b, onde precisa passar f de fluxo, l &amp;lt;= f &amp;lt;= r add(a, b, c):&#xA;adiciona aresta de a pra b com capacidade c Mesma complexidade do Dinitz&#xA;Link original: lowerBoundMaxFlow.cpp&#xA;Código link struct lb_max_flow : dinitz { vector&amp;lt;int&amp;gt; d; lb_max_flow(int n) : dinitz(n &amp;#43; 2), d(n, 0) {} void add(int a, int b, int l, int r) { d[a] -= l; d[b] &amp;#43;= l; dinitz::add(a, b, r - l); } void add(int a, int b, int c) { dinitz::add(a, b, c); } bool has_circulation() { int n = d.</description>
+    </item>
+    <item>
+      <title>MinCostMaxFlow</title>
+      <link>http://localhost:1313/Biblioteca/docs/grafos/mincostmaxflow/</link>
+      <pubDate>Fri, 27 Feb 2026 17:02:42 -0300</pubDate>
+      <guid>http://localhost:1313/Biblioteca/docs/grafos/mincostmaxflow/</guid>
+      <description>Sobre linkmin_cost_flow(s, t, f) computa o par (fluxo, custo)&#xA;com max(fluxo) &amp;lt;= f que tenha min(custo)&#xA;min_cost_flow(s, t) -&amp;gt; Fluxo maximo de custo minimo de s pra t&#xA;Se for um dag, da pra substituir o SPFA por uma DP pra nao&#xA;pagar O(nm) no comeco&#xA;Se nao tiver aresta com custo negativo, nao precisa do SPFA&#xA;O(nm + f * m log n)&#xA;Link original: minCostMaxFlow.cpp&#xA;Código link template&amp;lt;typename T&amp;gt; struct mcmf { struct edge { int to, rev, flow, cap; // para, id da reversa, fluxo, capacidade bool res; // se eh reversa T cost; // custo da unidade de fluxo edge() : to(0), rev(0), flow(0), cap(0), cost(0), res(false) {} edge(int to_, int rev_, int flow_, int cap_, T cost_, bool res_) : to(to_), rev(rev_), flow(flow_), cap(cap_), res(res_), cost(cost_) {} }; vector&amp;lt;vector&amp;lt;edge&amp;gt;&amp;gt; g; vector&amp;lt;int&amp;gt; par_idx, par; T inf; vector&amp;lt;T&amp;gt; dist; mcmf(int n) : g(n), par_idx(n), par(n), inf(numeric_limits&amp;lt;T&amp;gt;::max()/3) {} void add(int u, int v, int w, T cost) { // de u pra v com cap w e custo cost edge a = edge(v, g[v].</description>
+    </item>
+    <item>
+      <title>Prufer code</title>
+      <link>http://localhost:1313/Biblioteca/docs/grafos/prufer/</link>
+      <pubDate>Fri, 27 Feb 2026 17:02:42 -0300</pubDate>
+      <guid>http://localhost:1313/Biblioteca/docs/grafos/prufer/</guid>
+      <description>Sobre linkTraduz de lista de arestas para prufer code&#xA;e vice-versa&#xA;Os vertices tem label de 0 a n-1&#xA;Todo array com n-2 posicoes e valores de&#xA;0 a n-1 sao prufer codes validos&#xA;O(n)&#xA;Link original: prufer.cpp&#xA;Código link vector&amp;lt;int&amp;gt; to_prufer(vector&amp;lt;pair&amp;lt;int, int&amp;gt;&amp;gt; tree) { int n = tree.size()&amp;#43;1; vector&amp;lt;int&amp;gt; d(n, 0); vector&amp;lt;vector&amp;lt;int&amp;gt;&amp;gt; g(n); for (auto [a, b] : tree) d[a]&amp;#43;&amp;#43;, d[b]&amp;#43;&amp;#43;, g[a].push_back(b), g[b].push_back(a); vector&amp;lt;int&amp;gt; pai(n, -1); queue&amp;lt;int&amp;gt; q; q.push(n-1); while (q.</description>
+    </item>
+    <item>
+      <title>Rooted Euler Tour Tree</title>
+      <link>http://localhost:1313/Biblioteca/docs/grafos/rootedett/</link>
+      <pubDate>Fri, 27 Feb 2026 17:02:42 -0300</pubDate>
+      <guid>http://localhost:1313/Biblioteca/docs/grafos/rootedett/</guid>
+      <description>Sobre linkMantem uma floresta enraizada dinamicamente&#xA;e permite queries/updates em sub-arvore&#xA;Chamar ETT E(n, w), passando n = numero de vertices&#xA;e w = vector com os valores de cada vertice&#xA;link(v, u) cria uma aresta de v pra u, de forma que u se torna&#xA;o pai de v (eh preciso que v seja raiz anteriormente)&#xA;cut(v) corta a resta de v para o pai&#xA;get_root(v) retorna a raiz de v</description>
+    </item>
+    <item>
+      <title>Sack (DSU em arvores)</title>
+      <link>http://localhost:1313/Biblioteca/docs/grafos/sack/</link>
+      <pubDate>Fri, 27 Feb 2026 17:02:42 -0300</pubDate>
+      <guid>http://localhost:1313/Biblioteca/docs/grafos/sack/</guid>
+      <description>Sobre linkResponde queries de todas as sub-arvores&#xA;offline&#xA;O(n log(n))&#xA;Link original: sack.cpp&#xA;Código link int sz[MAX], cor[MAX], cnt[MAX]; vector&amp;lt;int&amp;gt; g[MAX]; void build(int k, int d=0) { sz[k] = 1; for (auto&amp;amp; i : g[k]) { build(i, d&amp;#43;1); sz[k] &amp;#43;= sz[i]; if (sz[i] &amp;gt; sz[g[k][0]]) swap(i, g[k][0]); } } void compute(int k, int x, bool dont=1) { cnt[cor[k]] &amp;#43;= x; for (int i = dont; i &amp;lt; g[k].size(); i&amp;#43;&amp;#43;) compute(g[k][i], x, 0); } void solve(int k, bool keep=0) { for (int i = int(g[k].</description>
+    </item>
+    <item>
+      <title>Stable Marriage</title>
+      <link>http://localhost:1313/Biblioteca/docs/grafos/stablemarriage/</link>
+      <pubDate>Fri, 27 Feb 2026 17:02:42 -0300</pubDate>
+      <guid>http://localhost:1313/Biblioteca/docs/grafos/stablemarriage/</guid>
+      <description>Sobre linkEmparelha todos os elementos de A com elementos de B&#xA;de forma que nao exista um par x \in A, y \in B&#xA;e x nao pareado com y tal que x prefira parear com y&#xA;e y prefira parear com x.&#xA;a[i] contem os elementos de B ordenados por preferencia de i&#xA;b[j] contem os elementos de A ordenados por preferencia de j&#xA;|A| &amp;lt;= |B|&#xA;Retorna um vetor v de tamanho |A| onde v[i] guarda o match de i.</description>
+    </item>
+    <item>
+      <title>Tarjan para SCC</title>
+      <link>http://localhost:1313/Biblioteca/docs/grafos/tarjan/</link>
+      <pubDate>Fri, 27 Feb 2026 17:02:42 -0300</pubDate>
+      <guid>http://localhost:1313/Biblioteca/docs/grafos/tarjan/</guid>
+      <description>Sobre linkO(n + m)&#xA;Link original: tarjan.cpp&#xA;Código link vector&amp;lt;int&amp;gt; g[MAX]; stack&amp;lt;int&amp;gt; s; int vis[MAX], comp[MAX]; int id[MAX]; // se quiser comprimir ciclo ou achar ponte em grafo nao direcionado, // colocar um if na dfs para nao voltar pro pai da DFS tree int dfs(int i, int&amp;amp; t) { int lo = id[i] = t&amp;#43;&amp;#43;; s.push(i); vis[i] = 2; for (int j : g[i]) { if (!vis[j]) lo = min(lo, dfs(j, t)); else if (vis[j] == 2) lo = min(lo, id[j]); } // aresta de i pro pai eh uma ponte (no caso nao direcionado) if (lo == id[i]) while (1) { int u = s.</description>
+    </item>
+    <item>
+      <title>Top Tree</title>
+      <link>http://localhost:1313/Biblioteca/docs/grafos/toptree/</link>
+      <pubDate>Fri, 27 Feb 2026 17:02:42 -0300</pubDate>
+      <guid>http://localhost:1313/Biblioteca/docs/grafos/toptree/</guid>
+      <description>Sobre linklct t(n, w) armazena uma floresta enraizada dinamica com &amp;rsquo;n&#39;&#xA;vertices indexados de 0 a n-1 com peso w[i] do tipo T.&#xA;Varias operacoes podem ser realizadas.&#xA;Complexidades:&#xA;Construcao - O(n) espaco e tempo&#xA;Todas as outras operacoes - O(log(n)) amortizado, \Theta(n) pior caso&#xA;O(n) memoria em qualquer momento&#xA;Consultas estruturais find_root(v): raiz do vertice v (seguindo arestas pai)&#xA;lca(v, u): ancestral comum mais baixo entre v e u, ou -1 se nao existir</description>
+    </item>
+    <item>
+      <title>Topological Sort</title>
+      <link>http://localhost:1313/Biblioteca/docs/grafos/toposort/</link>
+      <pubDate>Fri, 27 Feb 2026 17:02:42 -0300</pubDate>
+      <guid>http://localhost:1313/Biblioteca/docs/grafos/toposort/</guid>
+      <description>Sobre linkRetorna uma ordenacaoo topologica de g&#xA;Se g nao for DAG retorna um vetor vazio&#xA;O(n + m)&#xA;Link original: topoSort.cpp&#xA;Código link vector&amp;lt;int&amp;gt; g[MAX]; vector&amp;lt;int&amp;gt; topo_sort(int n) { vector&amp;lt;int&amp;gt; ret(n,-1), vis(n,0); int pos = n-1, dag = 1; function&amp;lt;void(int)&amp;gt; dfs = [&amp;amp;](int v) { vis[v] = 1; for (auto u : g[v]) { if (vis[u] == 1) dag = 0; else if (!vis[u]) dfs(u); } ret[pos--] = v, vis[v] = 2; }; for (int i = 0; i &amp;lt; n; i&amp;#43;&amp;#43;) if (!</description>
+    </item>
+    <item>
+      <title>Unrooted Euler Tour Tree</title>
+      <link>http://localhost:1313/Biblioteca/docs/grafos/unrootedett/</link>
+      <pubDate>Fri, 27 Feb 2026 17:02:42 -0300</pubDate>
+      <guid>http://localhost:1313/Biblioteca/docs/grafos/unrootedett/</guid>
+      <description>Sobre linkMantem uma floresta dinamicamente&#xA;e permite queries/updates em componentes&#xA;Chamar ETT E(n, w), passando n = numero de vertices&#xA;e w = vector com os valores de cada vertice&#xA;link(v, u) cria uma aresta entre v e u&#xA;cut(v, u) corta aresta entre v e u&#xA;get_root(v) retorna a raiz de v&#xA;branc_query(v, u) e branch_update(v, u) operam sobre o componente&#xA;conexo de v se arestas {v, u} fosse removida do grafo</description>
+    </item>
+    <item>
+      <title>Vertex cover</title>
+      <link>http://localhost:1313/Biblioteca/docs/grafos/cover/</link>
+      <pubDate>Fri, 27 Feb 2026 17:02:42 -0300</pubDate>
+      <guid>http://localhost:1313/Biblioteca/docs/grafos/cover/</guid>
+      <description>Sobre linkEncontra o tamanho do vertex cover minimo&#xA;Da pra alterar facil pra achar os vertices&#xA;Parece rodar com &amp;lt; 2 s pra N = 90&#xA;O(n * 1.38^n)&#xA;Link original: cover.cpp&#xA;Código link namespace cover { const int MAX = 96; vector&amp;lt;int&amp;gt; g[MAX]; bitset&amp;lt;MAX&amp;gt; bs[MAX]; int n; void add(int i, int j) { if (i == j) return; n = max({n, i&amp;#43;1, j&amp;#43;1}); bs[i][j] = bs[j][i] = 1; } int rec(bitset&amp;lt;MAX&amp;gt; m) { int ans = 0; for (int x = 0; x &amp;lt; n; x&amp;#43;&amp;#43;) if (m[x]) { bitset&amp;lt;MAX&amp;gt; comp; function&amp;lt;void(int)&amp;gt; dfs = [&amp;amp;](int i) { comp[i] = 1, m[i] = 0; for (int j : g[i]) if (m[j]) dfs(j); }; dfs(x); int ma, deg = -1, cyc = 1; for (int i = 0; i &amp;lt; n; i&amp;#43;&amp;#43;) if (comp[i]) { int d = (bs[i]&amp;amp;comp).</description>
+    </item>
+    <item>
+      <title>Virtual Tree</title>
+      <link>http://localhost:1313/Biblioteca/docs/grafos/virtualtree/</link>
+      <pubDate>Fri, 27 Feb 2026 17:02:42 -0300</pubDate>
+      <guid>http://localhost:1313/Biblioteca/docs/grafos/virtualtree/</guid>
+      <description>Sobre linkComprime uma arvore dado um conjunto S de vertices, de forma que&#xA;o conjunto de vertices da arvore comprimida contenha S e seja&#xA;minimal e fechado sobre a operacao de LCA&#xA;Se |S| = k, a arvore comprimida tem menos que 2k vertices&#xA;As arestas de virt possuem a distancia do vertice ate o vizinho&#xA;Retorna a raiz da virtual tree&#xA;lca::pos deve ser a ordem de visitacao no dfs</description>
     </item>
     <item>
       <title>Euler Tour Tree</title>
@@ -112,146 +252,6 @@
       <pubDate>Thu, 09 May 2024 18:39:19 -0300</pubDate>
       <guid>http://localhost:1313/Biblioteca/docs/grafos/eulertourtree/</guid>
       <description>Sobre linkMantem uma floresta enraizada dinamicamente&#xA;e permite queries/updates em sub-arvore&#xA;Chamar ETT E(n, v), passando n = numero de vertices&#xA;e v = vector com os valores de cada vertice (se for vazio,&#xA;constroi tudo com 0&#xA;link(v, u) cria uma aresta de v pra u, de forma que u se torna&#xA;o pai de v (eh preciso que v seja raiz anteriormente)&#xA;cut(v) corta a resta de v para o pai</description>
-    </item>
-    <item>
-      <title>Functional Graph</title>
-      <link>http://localhost:1313/Biblioteca/docs/grafos/functionalgraph/</link>
-      <pubDate>Thu, 09 May 2024 18:39:19 -0300</pubDate>
-      <guid>http://localhost:1313/Biblioteca/docs/grafos/functionalgraph/</guid>
-      <description>Sobre linkrt[i] fala o ID da raiz associada ao vertice i&#xA;d[i] fala a profundidade (0 sse ta no ciclo)&#xA;pos[i] fala a posicao de i no array que eh a concat. dos ciclos&#xA;build(f, val) recebe a funcao f e o custo de ir de&#xA;i para f[i] (por default, val = f)&#xA;f_k(i, k) fala onde i vai parar se seguir k arestas&#xA;path(i, k) fala o custo (soma) seguir k arestas a partir de i</description>
-    </item>
-    <item>
-      <title>Hopcroft Karp</title>
-      <link>http://localhost:1313/Biblioteca/docs/grafos/hopcroftkarp/</link>
-      <pubDate>Thu, 09 May 2024 18:39:19 -0300</pubDate>
-      <guid>http://localhost:1313/Biblioteca/docs/grafos/hopcroftkarp/</guid>
-      <description>Sobre linkComputa matching maximo em grafo bipartido&#xA;&amp;rsquo;n&amp;rsquo; e &amp;rsquo;m&amp;rsquo; sao quantos vertices tem em cada particao&#xA;chamar add(i, j) para add aresta entre o cara i&#xA;da particao A, e o cara j da particao B&#xA;(entao i &amp;lt; n, j &amp;lt; m)&#xA;O(|E| * sqrt(|V|)) com constante baixa&#xA;Para grafos esparsos gerados aleatoriamente, roda em O(|E| * log(|V|))&#xA;com alta probabilidade&#xA;Link original: hopcroftKarp.cpp&#xA;Código link mt19937 rng((int) chrono::steady_clock::now().</description>
-    </item>
-    <item>
-      <title>Isomorfismo de arvores</title>
-      <link>http://localhost:1313/Biblioteca/docs/grafos/treeisomorf/</link>
-      <pubDate>Thu, 09 May 2024 18:39:19 -0300</pubDate>
-      <guid>http://localhost:1313/Biblioteca/docs/grafos/treeisomorf/</guid>
-      <description>Sobre linkthash() retorna o hash da arvore (usando centroids como vertices especiais).&#xA;Duas arvores sao isomorfas sse seu hash eh o mesmo&#xA;O(|V|.log(|V|))&#xA;Link original: treeIsomorf.cpp&#xA;Código link map&amp;lt;vector&amp;lt;int&amp;gt;, int&amp;gt; mphash; struct tree { int n; vector&amp;lt;vector&amp;lt;int&amp;gt;&amp;gt; g; vector&amp;lt;int&amp;gt; sz, cs; tree(int n_) : n(n_), g(n_), sz(n_) {} void dfs_centroid(int v, int p) { sz[v] = 1; bool cent = true; for (int u : g[v]) if (u != p) { dfs_centroid(u, v), sz[v] &amp;#43;= sz[u]; if(sz[u] &amp;gt; n/2) cent = false; } if (cent and n - sz[v] &amp;lt;= n/2) cs.</description>
-    </item>
-    <item>
-      <title>Johnson</title>
-      <link>http://localhost:1313/Biblioteca/docs/grafos/johnson/</link>
-      <pubDate>Thu, 09 May 2024 18:39:19 -0300</pubDate>
-      <guid>http://localhost:1313/Biblioteca/docs/grafos/johnson/</guid>
-      <description>Sobre linkfunciona igual ao Floyd-Warshall&#xA;encontra o menor caminho entre todo&#xA;par de vertices e retorna 1 sse tem&#xA;ciclo negativo no grafo&#xA;O(nm log(m))&#xA;Link original: johnson.cpp&#xA;Código link vector&amp;lt;pair&amp;lt;int, ll&amp;gt;&amp;gt; g[MAX]; // {vizinho, peso} ll d[MAX][MAX]; bool johnson(int n) { vector&amp;lt;ll&amp;gt; h(n, 0); for (int i = 0; i &amp;lt;= n; i&amp;#43;&amp;#43;) for (int v = 0; v &amp;lt; n; v&amp;#43;&amp;#43;) for (auto [u, w] : g[v]) if (h[u] &amp;gt; h[v] &amp;#43; w) { if (i == n) return 1; h[u] = h[v] &amp;#43; w; } for (int i = 0; i &amp;lt; n; i&amp;#43;&amp;#43;) { for (int j = 0; j &amp;lt; n; j&amp;#43;&amp;#43;) d[i][j] = LINF; d[i][i] = 0; priority_queue&amp;lt;pair&amp;lt;ll, int&amp;gt;&amp;gt; pq; pq.</description>
-    </item>
-    <item>
-      <title>Kruskal</title>
-      <link>http://localhost:1313/Biblioteca/docs/grafos/kruskal/</link>
-      <pubDate>Thu, 09 May 2024 18:39:19 -0300</pubDate>
-      <guid>http://localhost:1313/Biblioteca/docs/grafos/kruskal/</guid>
-      <description>Sobre linkGera e retorna uma AGM e seu custo total a partir do vetor de arestas (edg)&#xA;do grafo&#xA;O(m log(m) + m a(m))&#xA;864875&#xA;Link original: kruskal.cpp&#xA;Código link vector&amp;lt;tuple&amp;lt;int, int, int&amp;gt;&amp;gt; edg; // {peso,[x,y]} // DSU em O(a(n)) void dsu_build(); int find(int a); void unite(int a, int b); pair&amp;lt;ll, vector&amp;lt;tuple&amp;lt;int, int, int&amp;gt;&amp;gt;&amp;gt; kruskal(int n) { dsu_build(n); sort(edg.begin(), edg.end()); ll cost = 0; vector&amp;lt;tuple&amp;lt;int, int, int&amp;gt;&amp;gt; mst; for (auto [w,x,y] : edg) if (find(x) !</description>
-    </item>
-    <item>
-      <title>Line Tree</title>
-      <link>http://localhost:1313/Biblioteca/docs/grafos/linetree/</link>
-      <pubDate>Thu, 09 May 2024 18:39:19 -0300</pubDate>
-      <guid>http://localhost:1313/Biblioteca/docs/grafos/linetree/</guid>
-      <description>Sobre linkReduz min-query em arvore para RMQ&#xA;Se o grafo nao for uma arvore, as queries&#xA;sao sobre a arvore geradora maxima&#xA;Queries de minimo&#xA;build - O(n log(n))&#xA;query - O(log(n))&#xA;Link original: linetree.cpp&#xA;Código link int n; namespace linetree { int id[MAX], seg[2*MAX], pos[MAX]; vector&amp;lt;int&amp;gt; v[MAX], val[MAX]; vector&amp;lt;pair&amp;lt;int, pair&amp;lt;int, int&amp;gt; &amp;gt; &amp;gt; ar; void add(int a, int b, int p) { ar.push_back({p, {a, b}}); } void build() { sort(ar.</description>
-    </item>
-    <item>
-      <title>Max flow com lower bound</title>
-      <link>http://localhost:1313/Biblioteca/docs/grafos/lowerboundmaxflow/</link>
-      <pubDate>Thu, 09 May 2024 18:39:19 -0300</pubDate>
-      <guid>http://localhost:1313/Biblioteca/docs/grafos/lowerboundmaxflow/</guid>
-      <description>Sobre linkadd(a, b, l, r):&#xA;adiciona aresta de a pra b, onde precisa passar f de fluxo, l &amp;lt;= f &amp;lt;= r add(a, b, c):&#xA;adiciona aresta de a pra b com capacidade c Mesma complexidade do Dinitz&#xA;Link original: lowerBoundMaxFlow.cpp&#xA;Código link struct lb_max_flow : dinitz { vector&amp;lt;int&amp;gt; d; lb_max_flow(int n) : dinitz(n &amp;#43; 2), d(n, 0) {} void add(int a, int b, int l, int r) { d[a] -= l; d[b] &amp;#43;= l; dinitz::add(a, b, r - l); } void add(int a, int b, int c) { dinitz::add(a, b, c); } bool has_circulation() { int n = d.</description>
-    </item>
-    <item>
-      <title>MinCostMaxFlow</title>
-      <link>http://localhost:1313/Biblioteca/docs/grafos/mincostmaxflow/</link>
-      <pubDate>Thu, 09 May 2024 18:39:19 -0300</pubDate>
-      <guid>http://localhost:1313/Biblioteca/docs/grafos/mincostmaxflow/</guid>
-      <description>Sobre linkmin_cost_flow(s, t, f) computa o par (fluxo, custo)&#xA;com max(fluxo) &amp;lt;= f que tenha min(custo)&#xA;min_cost_flow(s, t) -&amp;gt; Fluxo maximo de custo minimo de s pra t&#xA;Se for um dag, da pra substituir o SPFA por uma DP pra nao&#xA;pagar O(nm) no comeco&#xA;Se nao tiver aresta com custo negativo, nao precisa do SPFA&#xA;O(nm + f * m log n)&#xA;Link original: minCostMaxFlow.cpp&#xA;Código link template&amp;lt;typename T&amp;gt; struct mcmf { struct edge { int to, rev, flow, cap; // para, id da reversa, fluxo, capacidade bool res; // se eh reversa T cost; // custo da unidade de fluxo edge() : to(0), rev(0), flow(0), cap(0), cost(0), res(false) {} edge(int to_, int rev_, int flow_, int cap_, T cost_, bool res_) : to(to_), rev(rev_), flow(flow_), cap(cap_), res(res_), cost(cost_) {} }; vector&amp;lt;vector&amp;lt;edge&amp;gt;&amp;gt; g; vector&amp;lt;int&amp;gt; par_idx, par; T inf; vector&amp;lt;T&amp;gt; dist; mcmf(int n) : g(n), par_idx(n), par(n), inf(numeric_limits&amp;lt;T&amp;gt;::max()/3) {} void add(int u, int v, int w, T cost) { // de u pra v com cap w e custo cost edge a = edge(v, g[v].</description>
-    </item>
-    <item>
-      <title>Prufer code</title>
-      <link>http://localhost:1313/Biblioteca/docs/grafos/prufer/</link>
-      <pubDate>Thu, 09 May 2024 18:39:19 -0300</pubDate>
-      <guid>http://localhost:1313/Biblioteca/docs/grafos/prufer/</guid>
-      <description>Sobre linkTraduz de lista de arestas para prufer code&#xA;e vice-versa&#xA;Os vertices tem label de 0 a n-1&#xA;Todo array com n-2 posicoes e valores de&#xA;0 a n-1 sao prufer codes validos&#xA;O(n)&#xA;Link original: prufer.cpp&#xA;Código link vector&amp;lt;int&amp;gt; to_prufer(vector&amp;lt;pair&amp;lt;int, int&amp;gt;&amp;gt; tree) { int n = tree.size()&amp;#43;1; vector&amp;lt;int&amp;gt; d(n, 0); vector&amp;lt;vector&amp;lt;int&amp;gt;&amp;gt; g(n); for (auto [a, b] : tree) d[a]&amp;#43;&amp;#43;, d[b]&amp;#43;&amp;#43;, g[a].push_back(b), g[b].push_back(a); vector&amp;lt;int&amp;gt; pai(n, -1); queue&amp;lt;int&amp;gt; q; q.push(n-1); while (q.</description>
-    </item>
-    <item>
-      <title>Sack (DSU em arvores)</title>
-      <link>http://localhost:1313/Biblioteca/docs/grafos/sack/</link>
-      <pubDate>Thu, 09 May 2024 18:39:19 -0300</pubDate>
-      <guid>http://localhost:1313/Biblioteca/docs/grafos/sack/</guid>
-      <description>Sobre linkResponde queries de todas as sub-arvores&#xA;offline&#xA;O(n log(n))&#xA;Link original: sack.cpp&#xA;Código link int sz[MAX], cor[MAX], cnt[MAX]; vector&amp;lt;int&amp;gt; g[MAX]; void build(int k, int d=0) { sz[k] = 1; for (auto&amp;amp; i : g[k]) { build(i, d&amp;#43;1); sz[k] &amp;#43;= sz[i]; if (sz[i] &amp;gt; sz[g[k][0]]) swap(i, g[k][0]); } } void compute(int k, int x, bool dont=1) { cnt[cor[k]] &amp;#43;= x; for (int i = dont; i &amp;lt; g[k].size(); i&amp;#43;&amp;#43;) compute(g[k][i], x, 0); } void solve(int k, bool keep=0) { for (int i = int(g[k].</description>
-    </item>
-    <item>
-      <title>Stable Marriage</title>
-      <link>http://localhost:1313/Biblioteca/docs/grafos/stablemarriage/</link>
-      <pubDate>Thu, 09 May 2024 18:39:19 -0300</pubDate>
-      <guid>http://localhost:1313/Biblioteca/docs/grafos/stablemarriage/</guid>
-      <description>Sobre linkEmparelha todos os elementos de A com elementos de B&#xA;de forma que nao exista um par x \in A, y \in B&#xA;e x nao pareado com y tal que x prefira parear com y&#xA;e y prefira parear com x.&#xA;a[i] contem os elementos de B ordenados por preferencia de i&#xA;b[j] contem os elementos de A ordenados por preferencia de j&#xA;|A| &amp;lt;= |B|&#xA;Retorna um vetor v de tamanho |A| onde v[i] guarda o match de i.</description>
-    </item>
-    <item>
-      <title>Tarjan para SCC</title>
-      <link>http://localhost:1313/Biblioteca/docs/grafos/tarjan/</link>
-      <pubDate>Thu, 09 May 2024 18:39:19 -0300</pubDate>
-      <guid>http://localhost:1313/Biblioteca/docs/grafos/tarjan/</guid>
-      <description>Sobre linkO(n + m)&#xA;Link original: tarjan.cpp&#xA;Código link vector&amp;lt;int&amp;gt; g[MAX]; stack&amp;lt;int&amp;gt; s; int vis[MAX], comp[MAX]; int id[MAX]; // se quiser comprimir ciclo ou achar ponte em grafo nao direcionado, // colocar um if na dfs para nao voltar pro pai da DFS tree int dfs(int i, int&amp;amp; t) { int lo = id[i] = t&amp;#43;&amp;#43;; s.push(i); vis[i] = 2; for (int j : g[i]) { if (!vis[j]) lo = min(lo, dfs(j, t)); else if (vis[j] == 2) lo = min(lo, id[j]); } // aresta de i pro pai eh uma ponte (no caso nao direcionado) if (lo == id[i]) while (1) { int u = s.</description>
-    </item>
-    <item>
-      <title>Topological Sort</title>
-      <link>http://localhost:1313/Biblioteca/docs/grafos/toposort/</link>
-      <pubDate>Thu, 09 May 2024 18:39:19 -0300</pubDate>
-      <guid>http://localhost:1313/Biblioteca/docs/grafos/toposort/</guid>
-      <description>Sobre linkRetorna uma ordenacaoo topologica de g&#xA;Se g nao for DAG retorna um vetor vazio&#xA;O(n + m)&#xA;Link original: topoSort.cpp&#xA;Código link vector&amp;lt;int&amp;gt; g[MAX]; vector&amp;lt;int&amp;gt; topo_sort(int n) { vector&amp;lt;int&amp;gt; ret(n,-1), vis(n,0); int pos = n-1, dag = 1; function&amp;lt;void(int)&amp;gt; dfs = [&amp;amp;](int v) { vis[v] = 1; for (auto u : g[v]) { if (vis[u] == 1) dag = 0; else if (!vis[u]) dfs(u); } ret[pos--] = v, vis[v] = 2; }; for (int i = 0; i &amp;lt; n; i&amp;#43;&amp;#43;) if (!</description>
-    </item>
-    <item>
-      <title>Vertex cover</title>
-      <link>http://localhost:1313/Biblioteca/docs/grafos/cover/</link>
-      <pubDate>Thu, 09 May 2024 18:39:19 -0300</pubDate>
-      <guid>http://localhost:1313/Biblioteca/docs/grafos/cover/</guid>
-      <description>Sobre linkEncontra o tamanho do vertex cover minimo&#xA;Da pra alterar facil pra achar os vertices&#xA;Parece rodar com &amp;lt; 2 s pra N = 90&#xA;O(n * 1.38^n)&#xA;Link original: cover.cpp&#xA;Código link namespace cover { const int MAX = 96; vector&amp;lt;int&amp;gt; g[MAX]; bitset&amp;lt;MAX&amp;gt; bs[MAX]; int n; void add(int i, int j) { if (i == j) return; n = max({n, i&amp;#43;1, j&amp;#43;1}); bs[i][j] = bs[j][i] = 1; } int rec(bitset&amp;lt;MAX&amp;gt; m) { int ans = 0; for (int x = 0; x &amp;lt; n; x&amp;#43;&amp;#43;) if (m[x]) { bitset&amp;lt;MAX&amp;gt; comp; function&amp;lt;void(int)&amp;gt; dfs = [&amp;amp;](int i) { comp[i] = 1, m[i] = 0; for (int j : g[i]) if (m[j]) dfs(j); }; dfs(x); int ma, deg = -1, cyc = 1; for (int i = 0; i &amp;lt; n; i&amp;#43;&amp;#43;) if (comp[i]) { int d = (bs[i]&amp;amp;comp).</description>
-    </item>
-    <item>
-      <title>Virtual Tree</title>
-      <link>http://localhost:1313/Biblioteca/docs/grafos/virtualtree/</link>
-      <pubDate>Thu, 09 May 2024 18:39:19 -0300</pubDate>
-      <guid>http://localhost:1313/Biblioteca/docs/grafos/virtualtree/</guid>
-      <description>Sobre linkComprime uma arvore dado um conjunto S de vertices, de forma que&#xA;o conjunto de vertices da arvore comprimida contenha S e seja&#xA;minimal e fechado sobre a operacao de LCA&#xA;Se |S| = k, a arvore comprimida tem menos que 2k vertices&#xA;As arestas de virt possuem a distancia do vertice ate o vizinho&#xA;Retorna a raiz da virtual tree&#xA;lca::pos deve ser a ordem de visitacao no dfs</description>
-    </item>
-    <item>
-      <title>Centroid Tree</title>
-      <link>http://localhost:1313/Biblioteca/docs/grafos/centroidtree/</link>
-      <pubDate>Thu, 09 May 2024 18:39:18 -0300</pubDate>
-      <guid>http://localhost:1313/Biblioteca/docs/grafos/centroidtree/</guid>
-      <description>Sobre linkConstroi a centroid tree&#xA;p[i] eh o pai de i na centroid-tree&#xA;dist[i][k] = distancia na arvore original entre i&#xA;e o k-esimo ancestral na arvore da centroid&#xA;O(n log(n)) de tempo e memoria&#xA;Link original: centroidTree.cpp&#xA;Código link vector&amp;lt;int&amp;gt; g[MAX], dist[MAX]; int sz[MAX], rem[MAX], p[MAX]; int dfs_sz(int i, int l=-1) { sz[i] = 1; for (int j : g[i]) if (j != l and !rem[j]) sz[i] &amp;#43;= dfs_sz(j, i); return sz[i]; } int centroid(int i, int l, int size) { for (int j : g[i]) if (j !</description>
-    </item>
-    <item>
-      <title>Dijkstra</title>
-      <link>http://localhost:1313/Biblioteca/docs/grafos/dijkstra/</link>
-      <pubDate>Thu, 09 May 2024 18:39:18 -0300</pubDate>
-      <guid>http://localhost:1313/Biblioteca/docs/grafos/dijkstra/</guid>
-      <description>Sobre linkencontra menor distancia de x&#xA;para todos os vertices&#xA;se ao final do algoritmo d[i] = LINF,&#xA;entao x nao alcanca i&#xA;O(m log(n))&#xA;Link original: dijkstra.cpp&#xA;Código link ll d[MAX]; vector&amp;lt;pair&amp;lt;int, int&amp;gt;&amp;gt; g[MAX]; // {vizinho, peso} int n; void dijkstra(int v) { for (int i = 0; i &amp;lt; n; i&amp;#43;&amp;#43;) d[i] = LINF; d[v] = 0; priority_queue&amp;lt;pair&amp;lt;ll, int&amp;gt;&amp;gt; pq; pq.emplace(0, v); while (pq.size()) { auto [ndist, u] = pq.</description>
-    </item>
-    <item>
-      <title>Floyd-Warshall</title>
-      <link>http://localhost:1313/Biblioteca/docs/grafos/floydwarshall/</link>
-      <pubDate>Thu, 09 May 2024 18:39:18 -0300</pubDate>
-      <guid>http://localhost:1313/Biblioteca/docs/grafos/floydwarshall/</guid>
-      <description>Sobre linkencontra o menor caminho entre todo&#xA;par de vertices e detecta ciclo negativo&#xA;returna 1 sse ha ciclo negativo&#xA;d[i][i] deve ser 0&#xA;para i != j, d[i][j] deve ser w se ha uma aresta&#xA;(i, j) de peso w, INF caso contrario&#xA;O(n^3)&#xA;Link original: floydWarshall.cpp&#xA;Código link int n; int d[MAX][MAX]; bool floyd_warshall() { for (int k = 0; k &amp;lt; n; k&amp;#43;&amp;#43;) for (int i = 0; i &amp;lt; n; i&amp;#43;&amp;#43;) for (int j = 0; j &amp;lt; n; j&amp;#43;&amp;#43;) d[i][j] = min(d[i][j], d[i][k] &amp;#43; d[k][j]); for (int i = 0; i &amp;lt; n; i&amp;#43;&amp;#43;) if (d[i][i] &amp;lt; 0) return 1; return 0; } </description>
-    </item>
-    <item>
-      <title>Kosaraju</title>
-      <link>http://localhost:1313/Biblioteca/docs/grafos/kosaraju/</link>
-      <pubDate>Thu, 09 May 2024 18:39:18 -0300</pubDate>
-      <guid>http://localhost:1313/Biblioteca/docs/grafos/kosaraju/</guid>
-      <description>Sobre linkO(n + m)&#xA;Link original: kosaraju.cpp&#xA;Código link int n; vector&amp;lt;int&amp;gt; g[MAX]; vector&amp;lt;int&amp;gt; gi[MAX]; // grafo invertido int vis[MAX]; stack&amp;lt;int&amp;gt; S; int comp[MAX]; // componente conexo de cada vertice void dfs(int k) { vis[k] = 1; for (int i = 0; i &amp;lt; (int) g[k].size(); i&amp;#43;&amp;#43;) if (!vis[g[k][i]]) dfs(g[k][i]); S.push(k); } void scc(int k, int c) { vis[k] = 1; comp[k] = c; for (int i = 0; i &amp;lt; (int) gi[k].</description>
-    </item>
-    <item>
-      <title>Kuhn</title>
-      <link>http://localhost:1313/Biblioteca/docs/grafos/kuhn/</link>
-      <pubDate>Thu, 09 May 2024 18:39:18 -0300</pubDate>
-      <guid>http://localhost:1313/Biblioteca/docs/grafos/kuhn/</guid>
-      <description>Sobre linkComputa matching maximo em grafo bipartido&#xA;&amp;rsquo;n&amp;rsquo; e &amp;rsquo;m&amp;rsquo; sao quantos vertices tem em cada particao&#xA;chamar add(i, j) para add aresta entre o cara i&#xA;da particao A, e o cara j da particao B&#xA;(entao i &amp;lt; n, j &amp;lt; m)&#xA;Para recuperar o matching, basta olhar &amp;lsquo;ma&amp;rsquo; e &amp;lsquo;mb&amp;rsquo;&#xA;&amp;lsquo;recover&amp;rsquo; recupera o min vertex cover como um par de&#xA;{caras da particao A, caras da particao B}</description>
     </item>
   </channel>
 </rss>

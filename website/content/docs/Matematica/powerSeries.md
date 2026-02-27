@@ -3,8 +3,8 @@ weight: 10
 title: "Operacoes em Polinomios e Series de Potencias"
 draft: false
 toc: true
-date: "2024-05-09T18:39:19-0300"
-publishdate: "2024-05-09T18:39:19-0300"
+date: "2026-02-27T17:02:42-0300"
+publishdate: "2026-02-27T17:02:42-0300"
 description: ""
 ---
 
@@ -51,7 +51,6 @@ poly I(poly p) {
 }
 
 poly inv(poly p) {
-	assert(!p.empty() && p[0] == 1);
 	poly q = {mint(1) / p[0]};
 	int n = p.size(), k = 1;
 	while (k < n) {

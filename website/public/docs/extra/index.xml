@@ -6,21 +6,77 @@
     <description>Recent content in Extra on Biblioteca Maratona UFMG</description>
     <generator>Hugo</generator>
     <language>pt</language>
-    <lastBuildDate>Fri, 27 Feb 2026 16:24:59 -0300</lastBuildDate>
+    <lastBuildDate>Fri, 27 Feb 2026 17:02:42 -0300</lastBuildDate>
     <atom:link href="http://localhost:1313/Biblioteca/docs/extra/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>19937 rng((int) chrono::steady_clock::now().time_since_epoch().count());</title>
-      <link>http://localhost:1313/Biblioteca/docs/extra/rand/</link>
-      <pubDate>Fri, 27 Feb 2026 16:24:59 -0300</pubDate>
-      <guid>http://localhost:1313/Biblioteca/docs/extra/rand/</guid>
-      <description>Sobre linkLink original: rand.cpp&#xA;Código link int uniform(int l, int r){ uniform_int_distribution&amp;lt;int&amp;gt; uid(l, r); return uid(rng); } </description>
+      <title>debug.cpp</title>
+      <link>http://localhost:1313/Biblioteca/docs/extra/debug/</link>
+      <pubDate>Fri, 27 Feb 2026 17:02:42 -0300</pubDate>
+      <guid>http://localhost:1313/Biblioteca/docs/extra/debug/</guid>
+      <description>Sobre linkLink original: debug.cpp&#xA;Código link void debug_out(string s, int line) { cerr &amp;lt;&amp;lt; endl; } template&amp;lt;typename H, typename... T&amp;gt; void debug_out(string s, int line, H h, T... t) { if (s[0] != &amp;#39;,&amp;#39;) cerr &amp;lt;&amp;lt; &amp;#34;Line(&amp;#34; &amp;lt;&amp;lt; line &amp;lt;&amp;lt; &amp;#34;) &amp;#34;; do { cerr &amp;lt;&amp;lt; s[0]; s = s.substr(1); } while (s.size() and s[0] != &amp;#39;,&amp;#39;); cerr &amp;lt;&amp;lt; &amp;#34; = &amp;#34; &amp;lt;&amp;lt; h; debug_out(s, line, t...); } #ifdef DEBUG #define debug(.</description>
     </item>
     <item>
-      <title>timer T; T() -&gt; retorna o tempo em ms desde que declarou</title>
+      <title>fastIO.cpp</title>
+      <link>http://localhost:1313/Biblioteca/docs/extra/fastio/</link>
+      <pubDate>Fri, 27 Feb 2026 17:02:42 -0300</pubDate>
+      <guid>http://localhost:1313/Biblioteca/docs/extra/fastio/</guid>
+      <description>Sobre linkLink original: fastIO.cpp&#xA;Código link int read_int() { bool minus = false; int result = 0; char ch; ch = getchar(); while (1) { if (ch == &amp;#39;-&amp;#39;) break; if (ch &amp;gt;= &amp;#39;0&amp;#39; &amp;amp;&amp;amp; ch &amp;lt;= &amp;#39;9&amp;#39;) break; ch = getchar(); } if (ch == &amp;#39;-&amp;#39;) minus = true; else result = ch-&amp;#39;0&amp;#39;; while (1) { ch = getchar(); if (ch &amp;lt; &amp;#39;0&amp;#39; || ch &amp;gt; &amp;#39;9&amp;#39;) break; result = result*10 &amp;#43; (ch - &amp;#39;0&amp;#39;); } if (minus) return -result; else return result; } </description>
+    </item>
+    <item>
+      <title>hash.sh</title>
+      <link>http://localhost:1313/Biblioteca/docs/extra/hash/</link>
+      <pubDate>Fri, 27 Feb 2026 17:02:42 -0300</pubDate>
+      <guid>http://localhost:1313/Biblioteca/docs/extra/hash/</guid>
+      <description>Sobre linkLink original: hash.sh&#xA;Código link # Para usar (hash das linhas [l1, l2]): # bash hash.sh arquivo.cpp l1 l2 sed -n $2&amp;#39;,&amp;#39;$3&amp;#39; p&amp;#39; $1 | sed &amp;#39;/^#w/d&amp;#39; | cpp -dD -P -fpreprocessed | tr -d &amp;#39;[:space:]&amp;#39; | md5sum | cut -c-6 </description>
+    </item>
+    <item>
+      <title>makefile</title>
+      <link>http://localhost:1313/Biblioteca/docs/extra/makefile/</link>
+      <pubDate>Fri, 27 Feb 2026 17:02:42 -0300</pubDate>
+      <guid>http://localhost:1313/Biblioteca/docs/extra/makefile/</guid>
+      <description>Sobre linkLink original: makefile&#xA;Código link CXX = g&amp;#43;&amp;#43; CXXFLAGS = -fsanitize=address,undefined -fno-omit-frame-pointer -g -Wall -Wshadow -std=c&amp;#43;&amp;#43;17 -Wno-unused-result -Wno-sign-compare -Wno-char-subscripts #-fuse-ld=gold </description>
+    </item>
+    <item>
+      <title>pragma.cpp</title>
+      <link>http://localhost:1313/Biblioteca/docs/extra/pragma/</link>
+      <pubDate>Fri, 27 Feb 2026 17:02:42 -0300</pubDate>
+      <guid>http://localhost:1313/Biblioteca/docs/extra/pragma/</guid>
+      <description>Sobre linkLink original: pragma.cpp&#xA;Código link // Otimizacoes agressivas, pode deixar mais rapido ou mais devagar #pragma GCC optimize(&amp;#34;Ofast&amp;#34;) // Auto explicativo #pragma GCC optimize(&amp;#34;unroll-loops&amp;#34;) // Vetorizacao #pragma GCC target(&amp;#34;avx2&amp;#34;) // Para operacoes com bits #pragma GCC target(&amp;#34;bmi,bmi2,popcnt,lzcnt&amp;#34;) </description>
+    </item>
+    <item>
+      <title>rand.cpp</title>
+      <link>http://localhost:1313/Biblioteca/docs/extra/rand/</link>
+      <pubDate>Fri, 27 Feb 2026 17:02:42 -0300</pubDate>
+      <guid>http://localhost:1313/Biblioteca/docs/extra/rand/</guid>
+      <description>Sobre linkLink original: rand.cpp&#xA;Código link mt19937 rng((int) chrono::steady_clock::now().time_since_epoch().count()); int uniform(int l, int r){ uniform_int_distribution&amp;lt;int&amp;gt; uid(l, r); return uid(rng); } </description>
+    </item>
+    <item>
+      <title>stress.sh</title>
+      <link>http://localhost:1313/Biblioteca/docs/extra/stress/</link>
+      <pubDate>Fri, 27 Feb 2026 17:02:42 -0300</pubDate>
+      <guid>http://localhost:1313/Biblioteca/docs/extra/stress/</guid>
+      <description>Sobre linkLink original: stress.sh&#xA;Código link P=a make ${P} ${P}2 gen || exit 1 for ((i = 1; ; i&amp;#43;&amp;#43;)) do ./gen $i &amp;gt; in ./${P} &amp;lt; in &amp;gt; out ./${P}2 &amp;lt; in &amp;gt; out2 if (! cmp -s out out2) then echo &amp;#34;--&amp;gt; entrada:&amp;#34; cat in echo &amp;#34;--&amp;gt; saida1:&amp;#34; cat out echo &amp;#34;--&amp;gt; saida2:&amp;#34; cat out2 break; fi echo $i done </description>
+    </item>
+    <item>
+      <title>template.cpp</title>
+      <link>http://localhost:1313/Biblioteca/docs/extra/template/</link>
+      <pubDate>Fri, 27 Feb 2026 17:02:42 -0300</pubDate>
+      <guid>http://localhost:1313/Biblioteca/docs/extra/template/</guid>
+      <description>Sobre linkLink original: template.cpp&#xA;Código link #include &amp;lt;bits/stdc&amp;#43;&amp;#43;.h&amp;gt; using namespace std; #define _ ios_base::sync_with_stdio(0);cin.tie(0); #define endl &amp;#39;\n&amp;#39; typedef long long ll; const int INF = 0x3f3f3f3f; const ll LINF = 0x3f3f3f3f3f3f3f3fll; int main() { _ exit(0); } </description>
+    </item>
+    <item>
+      <title>timer.cpp</title>
       <link>http://localhost:1313/Biblioteca/docs/extra/timer/</link>
-      <pubDate>Fri, 27 Feb 2026 16:24:59 -0300</pubDate>
+      <pubDate>Fri, 27 Feb 2026 17:02:42 -0300</pubDate>
       <guid>http://localhost:1313/Biblioteca/docs/extra/timer/</guid>
-      <description>Sobre linkLink original: timer.cpp&#xA;Código link struct timer : high_resolution_clock { const time_point start; timer(): start(now()) {} int operator()() { return duration_cast&amp;lt;milliseconds&amp;gt;(now() - start).count(); } }; </description>
+      <description>Sobre linkLink original: timer.cpp&#xA;Código link // timer T; T() -&amp;gt; retorna o tempo em ms desde que declarou using namespace chrono; struct timer : high_resolution_clock { const time_point start; timer(): start(now()) {} int operator()() { return duration_cast&amp;lt;milliseconds&amp;gt;(now() - start).count(); } }; </description>
+    </item>
+    <item>
+      <title>vimrc</title>
+      <link>http://localhost:1313/Biblioteca/docs/extra/vimrc/</link>
+      <pubDate>Fri, 27 Feb 2026 17:02:42 -0300</pubDate>
+      <guid>http://localhost:1313/Biblioteca/docs/extra/vimrc/</guid>
+      <description>Sobre linkLink original: vimrc&#xA;Código link &amp;#34;&amp;#34; vimrc &amp;#34;&amp;#34; { set ts=4 sw=4 mouse=a nu ai si undofile function H(l) return system(&amp;#34;sed &amp;#39;/^#/d&amp;#39; | cpp -dD -P -fpreprocessed | tr -d &amp;#39;[:space:]&amp;#39; | md5sum&amp;#34;, a:l) endfunction function P() range for i in range(a:firstline, a:lastline) let l = getline(i) call cursor(i, len(l)) echo H(getline(search(&amp;#39;{}&amp;#39;[1], &amp;#39;bc&amp;#39;, i) ? searchpair(&amp;#39;{&amp;#39;, &amp;#39;&amp;#39;, &amp;#39;}&amp;#39;, &amp;#39;bn&amp;#39;) : i, i))[0:2] l endfor endfunction vmap &amp;lt;C-H&amp;gt; :call P()&amp;lt;CR&amp;gt; &amp;#34;&amp;#34; } </description>
     </item>
   </channel>
 </rss>

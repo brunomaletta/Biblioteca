@@ -21,6 +21,8 @@ jobs:
     env:
       HUGO_VERSION: 0.124.0
       GO111MODULE: on
+      GOPROXY: https://proxy.golang.org,direct
+      GOSUMDB: sum.golang.org
 
     steps:
       - name: Checkout repository

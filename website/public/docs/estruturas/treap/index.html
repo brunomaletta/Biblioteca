@@ -56,6 +56,8 @@ Link original: treap.cpp
 Código link mt19937 rng((int) chrono::steady_clock::now().time_since_epoch().count()); template&lt;typename T&gt; struct treap { struct node { node *l, *r; int p, sz; T val, mi; node(T v) : l(NULL), r(NULL), p(rng()), sz(1), val(v), mi(v) {} void update() { sz = 1; mi = val; if (l) sz &#43;= l-&gt;sz, mi = min(mi, l-&gt;mi); if (r) sz &#43;= r-&gt;sz, mi = min(mi, r-&gt;mi); } }; node* root; treap() { root = NULL; } treap(const treap&amp; t) { throw logic_error(&#34;Nao copiar a treap!"/>
 
     
+        <link rel="alternate" type="application/atom+xml" title="Atom feed for Biblioteca Maratona UFMG" href="/index.xml" />
+    
     <script>(()=>{var t=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches,e=localStorage.getItem("theme");t&&e===null&&(localStorage.setItem("theme","dark"),document.documentElement.setAttribute("data-dark-mode","")),t&&e==="dark"&&document.documentElement.setAttribute("data-dark-mode",""),e==="dark"&&document.documentElement.setAttribute("data-dark-mode","")})()</script>
     
     
@@ -85,7 +87,8 @@ Código link mt19937 rng((int) chrono::steady_clock::now().time_since_epoch().co
     <link rel="stylesheet" href="/Biblioteca/docs/scss/style.css" crossorigin="anonymous">
     
     
-    </head><body>
+    </head>
+<body>
         <div class="content">
             <div class="page-wrapper toggled">
 <nav id="sidebar" class="sidebar-wrapper">
@@ -1278,6 +1281,7 @@ Código link mt19937 rng((int) chrono::steady_clock::now().time_since_epoch().co
     
 </div>
 
+
                             <div class="container-fluid">
                                 <div class="layout-spacing">
                                     
@@ -1569,6 +1573,7 @@ template&lt;typename T&gt; struct treap {
 
 
     <script type="text/javascript" src="http://localhost:1313/Biblioteca/docs/js/bundle.js" defer></script>
+
         
 
         

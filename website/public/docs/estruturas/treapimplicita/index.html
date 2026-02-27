@@ -48,6 +48,8 @@ Link original: treapImplicita.cpp
 Código link mt19937 rng((int) chrono::steady_clock::now().time_since_epoch().count()); template&lt;typename T&gt; struct treap { struct node { node *l, *r; int p, sz; T val, sub, lazy; bool rev; node(T v) : l(NULL), r(NULL), p(rng()), sz(1), val(v), sub(v), lazy(0), rev(0) {} void prop() { if (lazy) { val &#43;= lazy, sub &#43;= lazy*sz; if (l) l-&gt;lazy &#43;= lazy; if (r) r-&gt;lazy &#43;= lazy; } if (rev) { swap(l, r); if (l) l-&gt;rev ^= 1; if (r) r-&gt;rev ^= 1; } lazy = 0, rev = 0; } void update() { sz = 1, sub = val; if (l) l-&gt;prop(), sz &#43;= l-&gt;sz, sub &#43;= l-&gt;sub; if (r) r-&gt;prop(), sz &#43;= r-&gt;sz, sub &#43;= r-&gt;sub; } }; node* root; treap() { root = NULL; } treap(const treap&amp; t) { throw logic_error(&#34;Nao copiar a treap!"/>
 
     
+        <link rel="alternate" type="application/atom+xml" title="Atom feed for Biblioteca Maratona UFMG" href="/index.xml" />
+    
     <script>(()=>{var t=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches,e=localStorage.getItem("theme");t&&e===null&&(localStorage.setItem("theme","dark"),document.documentElement.setAttribute("data-dark-mode","")),t&&e==="dark"&&document.documentElement.setAttribute("data-dark-mode",""),e==="dark"&&document.documentElement.setAttribute("data-dark-mode","")})()</script>
     
     
@@ -77,7 +79,8 @@ Código link mt19937 rng((int) chrono::steady_clock::now().time_since_epoch().co
     <link rel="stylesheet" href="/Biblioteca/docs/scss/style.css" crossorigin="anonymous">
     
     
-    </head><body>
+    </head>
+<body>
         <div class="content">
             <div class="page-wrapper toggled">
 <nav id="sidebar" class="sidebar-wrapper">
@@ -1270,6 +1273,7 @@ Código link mt19937 rng((int) chrono::steady_clock::now().time_since_epoch().co
     
 </div>
 
+
                             <div class="container-fluid">
                                 <div class="layout-spacing">
                                     
@@ -1541,6 +1545,7 @@ template&lt;typename T&gt; struct treap {
 
 
     <script type="text/javascript" src="http://localhost:1313/Biblioteca/docs/js/bundle.js" defer></script>
+
         
 
         

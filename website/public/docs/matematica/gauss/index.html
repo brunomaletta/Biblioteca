@@ -52,6 +52,8 @@ Link original: gauss.cpp
 Código link template&lt;typename T&gt; pair&lt;int, vector&lt;T&gt;&gt; gauss(vector&lt;vector&lt;T&gt;&gt; a, vector&lt;T&gt; b) { const double eps = 1e-6; int n = a.size(), m = a[0].size(); for (int i = 0; i &lt; n; i&#43;&#43;) a[i].push_back(b[i]); vector&lt;int&gt; where(m, -1); for (int col = 0, row = 0; col &lt; m and row &lt; n; col&#43;&#43;) { int sel = row; for (int i=row; i&lt;n; &#43;&#43;i) if (abs(a[i][col]) &gt; abs(a[sel][col])) sel = i; if (abs(a[sel][col]) &lt; eps) continue; for (int i = col; i &lt;= m; i&#43;&#43;) swap(a[sel][i], a[row][i]); where[col] = row; for (int i = 0; i &lt; n; i&#43;&#43;) if (i !"/>
 
     
+        <link rel="alternate" type="application/atom+xml" title="Atom feed for Biblioteca Maratona UFMG" href="/index.xml" />
+    
     <script>(()=>{var t=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches,e=localStorage.getItem("theme");t&&e===null&&(localStorage.setItem("theme","dark"),document.documentElement.setAttribute("data-dark-mode","")),t&&e==="dark"&&document.documentElement.setAttribute("data-dark-mode",""),e==="dark"&&document.documentElement.setAttribute("data-dark-mode","")})()</script>
     
     
@@ -81,7 +83,8 @@ Código link template&lt;typename T&gt; pair&lt;int, vector&lt;T&gt;&gt; gauss(v
     <link rel="stylesheet" href="/Biblioteca/docs/scss/style.css" crossorigin="anonymous">
     
     
-    </head><body>
+    </head>
+<body>
         <div class="content">
             <div class="page-wrapper toggled">
 <nav id="sidebar" class="sidebar-wrapper">
@@ -1274,6 +1277,7 @@ Código link template&lt;typename T&gt; pair&lt;int, vector&lt;T&gt;&gt; gauss(v
     
 </div>
 
+
                             <div class="container-fluid">
                                 <div class="layout-spacing">
                                     
@@ -1501,6 +1505,7 @@ pair&lt;int, vector&lt;T&gt;&gt; gauss(vector&lt;vector&lt;T&gt;&gt; a, vector&l
 
 
     <script type="text/javascript" src="http://localhost:1313/Biblioteca/docs/js/bundle.js" defer></script>
+
         
 
         

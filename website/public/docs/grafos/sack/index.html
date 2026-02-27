@@ -50,6 +50,8 @@ Link original: sack.cpp
 Código link int sz[MAX], cor[MAX], cnt[MAX]; vector&lt;int&gt; g[MAX]; void build(int k, int d=0) { sz[k] = 1; for (auto&amp; i : g[k]) { build(i, d&#43;1); sz[k] &#43;= sz[i]; if (sz[i] &gt; sz[g[k][0]]) swap(i, g[k][0]); } } void compute(int k, int x, bool dont=1) { cnt[cor[k]] &#43;= x; for (int i = dont; i &lt; g[k].size(); i&#43;&#43;) compute(g[k][i], x, 0); } void solve(int k, bool keep=0) { for (int i = int(g[k]."/>
 
     
+        <link rel="alternate" type="application/atom+xml" title="Atom feed for Biblioteca Maratona UFMG" href="/index.xml" />
+    
     <script>(()=>{var t=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches,e=localStorage.getItem("theme");t&&e===null&&(localStorage.setItem("theme","dark"),document.documentElement.setAttribute("data-dark-mode","")),t&&e==="dark"&&document.documentElement.setAttribute("data-dark-mode",""),e==="dark"&&document.documentElement.setAttribute("data-dark-mode","")})()</script>
     
     
@@ -79,7 +81,8 @@ Código link int sz[MAX], cor[MAX], cnt[MAX]; vector&lt;int&gt; g[MAX]; void bui
     <link rel="stylesheet" href="/Biblioteca/docs/scss/style.css" crossorigin="anonymous">
     
     
-    </head><body>
+    </head>
+<body>
         <div class="content">
             <div class="page-wrapper toggled">
 <nav id="sidebar" class="sidebar-wrapper">
@@ -1272,6 +1275,7 @@ Código link int sz[MAX], cor[MAX], cnt[MAX]; vector&lt;int&gt; g[MAX]; void bui
     
 </div>
 
+
                             <div class="container-fluid">
                                 <div class="layout-spacing">
                                     
@@ -1486,6 +1490,7 @@ void solve(int k, bool keep=0) {
 
 
     <script type="text/javascript" src="http://localhost:1313/Biblioteca/docs/js/bundle.js" defer></script>
+
         
 
         

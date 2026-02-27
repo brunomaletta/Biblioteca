@@ -48,6 +48,8 @@ Link original: areaUniaoRetangulo.cpp
 Código link namespace seg { pair&lt;int, ll&gt; seg[4*MAX]; ll lazy[4*MAX], *v; int n; pair&lt;int, ll&gt; merge(pair&lt;int, ll&gt; l, pair&lt;int, ll&gt; r){ if (l.second == r.second) return {l.first&#43;r.first, l.second}; else if (l.second &lt; r.second) return l; else return r; } pair&lt;int, ll&gt; build(int p=1, int l=0, int r=n-1) { lazy[p] = 0; if (l == r) return seg[p] = {1, v[l]}; int m = (l&#43;r)/2; return seg[p] = merge(build(2*p, l, m), build(2*p&#43;1, m&#43;1, r)); } void build(int n2, ll* v2) { n = n2, v = v2; build(); } void prop(int p, int l, int r) { seg[p]."/>
 
     
+        <link rel="alternate" type="application/atom+xml" title="Atom feed for Biblioteca Maratona UFMG" href="/index.xml" />
+    
     <script>(()=>{var t=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches,e=localStorage.getItem("theme");t&&e===null&&(localStorage.setItem("theme","dark"),document.documentElement.setAttribute("data-dark-mode","")),t&&e==="dark"&&document.documentElement.setAttribute("data-dark-mode",""),e==="dark"&&document.documentElement.setAttribute("data-dark-mode","")})()</script>
     
     
@@ -77,7 +79,8 @@ Código link namespace seg { pair&lt;int, ll&gt; seg[4*MAX]; ll lazy[4*MAX], *v;
     <link rel="stylesheet" href="/Biblioteca/docs/scss/style.css" crossorigin="anonymous">
     
     
-    </head><body>
+    </head>
+<body>
         <div class="content">
             <div class="page-wrapper toggled">
 <nav id="sidebar" class="sidebar-wrapper">
@@ -1270,6 +1273,7 @@ Código link namespace seg { pair&lt;int, ll&gt; seg[4*MAX]; ll lazy[4*MAX], *v;
     
 </div>
 
+
                             <div class="container-fluid">
                                 <div class="layout-spacing">
                                     
@@ -1540,6 +1544,7 @@ ll area_sq(vector&lt;pair&lt;pair&lt;int, int&gt;, pair&lt;int, int&gt;&gt;&gt; 
 
 
     <script type="text/javascript" src="http://localhost:1313/Biblioteca/docs/js/bundle.js" defer></script>
+
         
 
         

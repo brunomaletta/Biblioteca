@@ -58,6 +58,8 @@ Link original: dynamicSuffixArray.cpp
 Código link struct dyn_sa { struct node { int sa, lcp; node *l, *r, *p; int sz, mi; node(int sa_, int lcp_, node* p_) : sa(sa_), lcp(lcp_), l(NULL), r(NULL), p(p_), sz(1), mi(lcp) {} void update() { sz = 1, mi = lcp; if (l) sz &#43;= l-&gt;sz, mi = min(mi, l-&gt;mi); if (r) sz &#43;= r-&gt;sz, mi = min(mi, r-&gt;mi); } }; node* root; vector&lt;ll&gt; tag; // tag of a suffix (reversed id) string s; // reversed dyn_sa() : root(NULL) {} dyn_sa(string s_) : dyn_sa() { reverse(s_."/>
 
     
+        <link rel="alternate" type="application/atom+xml" title="Atom feed for Biblioteca Maratona UFMG" href="/index.xml" />
+    
     <script>(()=>{var t=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches,e=localStorage.getItem("theme");t&&e===null&&(localStorage.setItem("theme","dark"),document.documentElement.setAttribute("data-dark-mode","")),t&&e==="dark"&&document.documentElement.setAttribute("data-dark-mode",""),e==="dark"&&document.documentElement.setAttribute("data-dark-mode","")})()</script>
     
     
@@ -87,7 +89,8 @@ Código link struct dyn_sa { struct node { int sa, lcp; node *l, *r, *p; int sz,
     <link rel="stylesheet" href="/Biblioteca/docs/scss/style.css" crossorigin="anonymous">
     
     
-    </head><body>
+    </head>
+<body>
         <div class="content">
             <div class="page-wrapper toggled">
 <nav id="sidebar" class="sidebar-wrapper">
@@ -1280,6 +1283,7 @@ Código link struct dyn_sa { struct node { int sa, lcp; node *l, *r, *p; int sz,
     
 </div>
 
+
                             <div class="container-fluid">
                                 <div class="layout-spacing">
                                     
@@ -1649,6 +1653,7 @@ Código link struct dyn_sa { struct node { int sa, lcp; node *l, *r, *p; int sz,
 
 
     <script type="text/javascript" src="http://localhost:1313/Biblioteca/docs/js/bundle.js" defer></script>
+
         
 
         

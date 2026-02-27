@@ -46,6 +46,8 @@ Link original: minqueueDeque.cpp
 Código link template&lt;class T&gt; struct minqueue { deque&lt;pair&lt;T, int&gt;&gt; q; void push(T x) { int ct = 1; while (q.size() and x &lt; q.front().first) ct &#43;= q.front().second, q.pop_front(); q.emplace_front(x, ct); } void pop() { if (q.back().second &gt; 1) q.back().second--; else q.pop_back(); } T min() { return q.back().first; } }; "/>
 
     
+        <link rel="alternate" type="application/atom+xml" title="Atom feed for Biblioteca Maratona UFMG" href="/index.xml" />
+    
     <script>(()=>{var t=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches,e=localStorage.getItem("theme");t&&e===null&&(localStorage.setItem("theme","dark"),document.documentElement.setAttribute("data-dark-mode","")),t&&e==="dark"&&document.documentElement.setAttribute("data-dark-mode",""),e==="dark"&&document.documentElement.setAttribute("data-dark-mode","")})()</script>
     
     
@@ -75,7 +77,8 @@ Código link template&lt;class T&gt; struct minqueue { deque&lt;pair&lt;T, int&g
     <link rel="stylesheet" href="/Biblioteca/docs/scss/style.css" crossorigin="anonymous">
     
     
-    </head><body>
+    </head>
+<body>
         <div class="content">
             <div class="page-wrapper toggled">
 <nav id="sidebar" class="sidebar-wrapper">
@@ -1268,6 +1271,7 @@ Código link template&lt;class T&gt; struct minqueue { deque&lt;pair&lt;T, int&g
     
 </div>
 
+
                             <div class="container-fluid">
                                 <div class="layout-spacing">
                                     
@@ -1468,6 +1472,7 @@ Código link template&lt;class T&gt; struct minqueue { deque&lt;pair&lt;T, int&g
 
 
     <script type="text/javascript" src="http://localhost:1313/Biblioteca/docs/js/bundle.js" defer></script>
+
         
 
         

@@ -58,6 +58,8 @@ Link original: suffixArray.cpp
 Código link template&lt;typename T&gt; struct rmq { vector&lt;T&gt; v; int n; static const int b = 30; vector&lt;int&gt; mask, t; int op(int x, int y) { return v[x] &lt;= v[y] ? x : y; } int msb(int x) { return __builtin_clz(1)-__builtin_clz(x); } int small(int r, int sz = b) { return r-msb(mask[r]&amp;((1&lt;&lt;sz)-1)); } rmq() {} rmq(const vector&lt;T&gt;&amp; v_) : v(v_), n(v."/>
 
     
+        <link rel="alternate" type="application/atom+xml" title="Atom feed for Biblioteca Maratona UFMG" href="/index.xml" />
+    
     <script>(()=>{var t=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches,e=localStorage.getItem("theme");t&&e===null&&(localStorage.setItem("theme","dark"),document.documentElement.setAttribute("data-dark-mode","")),t&&e==="dark"&&document.documentElement.setAttribute("data-dark-mode",""),e==="dark"&&document.documentElement.setAttribute("data-dark-mode","")})()</script>
     
     
@@ -87,7 +89,8 @@ Código link template&lt;typename T&gt; struct rmq { vector&lt;T&gt; v; int n; s
     <link rel="stylesheet" href="/Biblioteca/docs/scss/style.css" crossorigin="anonymous">
     
     
-    </head><body>
+    </head>
+<body>
         <div class="content">
             <div class="page-wrapper toggled">
 <nav id="sidebar" class="sidebar-wrapper">
@@ -1280,6 +1283,7 @@ Código link template&lt;typename T&gt; struct rmq { vector&lt;T&gt; v; int n; s
     
 </div>
 
+
                             <div class="container-fluid">
                                 <div class="layout-spacing">
                                     
@@ -1648,6 +1652,7 @@ struct suffix_array {
 
 
     <script type="text/javascript" src="http://localhost:1313/Biblioteca/docs/js/bundle.js" defer></script>
+
         
 
         

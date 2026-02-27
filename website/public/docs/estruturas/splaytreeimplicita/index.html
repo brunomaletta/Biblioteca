@@ -54,6 +54,8 @@ Link original: splaytreeImplicita.cpp
 Código link template&lt;typename T&gt; struct splay { struct node { node *ch[2], *p; int sz; T val, sub, lazy; bool rev; node(T v) { ch[0] = ch[1] = p = NULL; sz = 1; sub = val = v; lazy = 0; rev = false; } void prop() { if (lazy) { val &#43;= lazy, sub &#43;= lazy*sz; if (ch[0]) ch[0]-&gt;lazy &#43;= lazy; if (ch[1]) ch[1]-&gt;lazy &#43;= lazy; } if (rev) { swap(ch[0], ch[1]); if (ch[0]) ch[0]-&gt;rev ^= 1; if (ch[1]) ch[1]-&gt;rev ^= 1; } lazy = 0, rev = 0; } void update() { sz = 1, sub = val; for (int i = 0; i &lt; 2; i&#43;&#43;) if (ch[i]) { ch[i]-&gt;prop(); sz &#43;= ch[i]-&gt;sz; sub &#43;= ch[i]-&gt;sub; } } }; node* root; splay() { root = NULL; } splay(node* x) { root = x; if (root) root-&gt;p = NULL; } splay(vector&lt;T&gt; v) { // O(n) root = NULL; for (T i : v) { node* x = new node(i); x-&gt;ch[0] = root; if (root) root-&gt;p = x; root = x; root-&gt;update(); } } splay(const splay&amp; t) { throw logic_error(&#34;Nao copiar a splay!"/>
 
     
+        <link rel="alternate" type="application/atom+xml" title="Atom feed for Biblioteca Maratona UFMG" href="/index.xml" />
+    
     <script>(()=>{var t=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches,e=localStorage.getItem("theme");t&&e===null&&(localStorage.setItem("theme","dark"),document.documentElement.setAttribute("data-dark-mode","")),t&&e==="dark"&&document.documentElement.setAttribute("data-dark-mode",""),e==="dark"&&document.documentElement.setAttribute("data-dark-mode","")})()</script>
     
     
@@ -83,7 +85,8 @@ Código link template&lt;typename T&gt; struct splay { struct node { node *ch[2]
     <link rel="stylesheet" href="/Biblioteca/docs/scss/style.css" crossorigin="anonymous">
     
     
-    </head><body>
+    </head>
+<body>
         <div class="content">
             <div class="page-wrapper toggled">
 <nav id="sidebar" class="sidebar-wrapper">
@@ -1276,6 +1279,7 @@ Código link template&lt;typename T&gt; struct splay { struct node { node *ch[2]
     
 </div>
 
+
                             <div class="container-fluid">
                                 <div class="layout-spacing">
                                     
@@ -1632,6 +1636,7 @@ Código link template&lt;typename T&gt; struct splay { struct node { node *ch[2]
 
 
     <script type="text/javascript" src="http://localhost:1313/Biblioteca/docs/js/bundle.js" defer></script>
+
         
 
         

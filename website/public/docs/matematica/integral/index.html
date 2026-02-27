@@ -48,6 +48,8 @@ Link original: integral.cpp
 Código link const int N = 3*100; // multiplo de 3 ld integrate(ld a, ld b, function&lt;ld(ld)&gt; f) { ld s = 0, h = (b - a)/N; for (int i = 1 ; i &lt; N; i&#43;&#43;) s &#43;= f(a &#43; i*h)*(i%3 ? 3 : 2); return (f(a) &#43; s &#43; f(b))*3*h/8; } "/>
 
     
+        <link rel="alternate" type="application/atom+xml" title="Atom feed for Biblioteca Maratona UFMG" href="/index.xml" />
+    
     <script>(()=>{var t=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches,e=localStorage.getItem("theme");t&&e===null&&(localStorage.setItem("theme","dark"),document.documentElement.setAttribute("data-dark-mode","")),t&&e==="dark"&&document.documentElement.setAttribute("data-dark-mode",""),e==="dark"&&document.documentElement.setAttribute("data-dark-mode","")})()</script>
     
     
@@ -77,7 +79,8 @@ Código link const int N = 3*100; // multiplo de 3 ld integrate(ld a, ld b, func
     <link rel="stylesheet" href="/Biblioteca/docs/scss/style.css" crossorigin="anonymous">
     
     
-    </head><body>
+    </head>
+<body>
         <div class="content">
             <div class="page-wrapper toggled">
 <nav id="sidebar" class="sidebar-wrapper">
@@ -1270,6 +1273,7 @@ Código link const int N = 3*100; // multiplo de 3 ld integrate(ld a, ld b, func
     
 </div>
 
+
                             <div class="container-fluid">
                                 <div class="layout-spacing">
                                     
@@ -1462,6 +1466,7 @@ ld integrate(ld a, ld b, function&lt;ld(ld)&gt; f) {
 
 
     <script type="text/javascript" src="http://localhost:1313/Biblioteca/docs/js/bundle.js" defer></script>
+
         
 
         

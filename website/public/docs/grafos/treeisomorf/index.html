@@ -50,6 +50,8 @@ Link original: treeIsomorf.cpp
 Código link map&lt;vector&lt;int&gt;, int&gt; mphash; struct tree { int n; vector&lt;vector&lt;int&gt;&gt; g; vector&lt;int&gt; sz, cs; tree(int n_) : n(n_), g(n_), sz(n_) {} void dfs_centroid(int v, int p) { sz[v] = 1; bool cent = true; for (int u : g[v]) if (u != p) { dfs_centroid(u, v), sz[v] &#43;= sz[u]; if(sz[u] &gt; n/2) cent = false; } if (cent and n - sz[v] &lt;= n/2) cs."/>
 
     
+        <link rel="alternate" type="application/atom+xml" title="Atom feed for Biblioteca Maratona UFMG" href="/index.xml" />
+    
     <script>(()=>{var t=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches,e=localStorage.getItem("theme");t&&e===null&&(localStorage.setItem("theme","dark"),document.documentElement.setAttribute("data-dark-mode","")),t&&e==="dark"&&document.documentElement.setAttribute("data-dark-mode",""),e==="dark"&&document.documentElement.setAttribute("data-dark-mode","")})()</script>
     
     
@@ -79,7 +81,8 @@ Código link map&lt;vector&lt;int&gt;, int&gt; mphash; struct tree { int n; vect
     <link rel="stylesheet" href="/Biblioteca/docs/scss/style.css" crossorigin="anonymous">
     
     
-    </head><body>
+    </head>
+<body>
         <div class="content">
             <div class="page-wrapper toggled">
 <nav id="sidebar" class="sidebar-wrapper">
@@ -1272,6 +1275,7 @@ Código link map&lt;vector&lt;int&gt;, int&gt; mphash; struct tree { int n; vect
     
 </div>
 
+
                             <div class="container-fluid">
                                 <div class="layout-spacing">
                                     
@@ -1562,6 +1566,7 @@ struct tree {
 
 
     <script type="text/javascript" src="http://localhost:1313/Biblioteca/docs/js/bundle.js" defer></script>
+
         
 
         

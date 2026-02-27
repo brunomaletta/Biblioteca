@@ -50,6 +50,8 @@ Link original: segmentIntersection.cpp
 Código link bool operator &lt; (const line&amp; a, const line&amp; b) { // comparador pro sweepline if (a.p == b.p) return ccw(a.p, a.q, b.q); if (!eq(a.p.x, a.q.x) and (eq(b.p.x, b.q.x) or a.p.x&#43;eps &lt; b.p.x)) return ccw(a.p, a.q, b.p); return ccw(a.p, b.q, b.p); } bool has_intersection(vector&lt;line&gt; v) { auto intersects = [&amp;](pair&lt;line, int&gt; a, pair&lt;line, int&gt; b) { return interseg(a."/>
 
     
+        <link rel="alternate" type="application/atom+xml" title="Atom feed for Biblioteca Maratona UFMG" href="/index.xml" />
+    
     <script>(()=>{var t=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches,e=localStorage.getItem("theme");t&&e===null&&(localStorage.setItem("theme","dark"),document.documentElement.setAttribute("data-dark-mode","")),t&&e==="dark"&&document.documentElement.setAttribute("data-dark-mode",""),e==="dark"&&document.documentElement.setAttribute("data-dark-mode","")})()</script>
     
     
@@ -79,7 +81,8 @@ Código link bool operator &lt; (const line&amp; a, const line&amp; b) { // comp
     <link rel="stylesheet" href="/Biblioteca/docs/scss/style.css" crossorigin="anonymous">
     
     
-    </head><body>
+    </head>
+<body>
         <div class="content">
             <div class="page-wrapper toggled">
 <nav id="sidebar" class="sidebar-wrapper">
@@ -1272,6 +1275,7 @@ Código link bool operator &lt; (const line&amp; a, const line&amp; b) { // comp
     
 </div>
 
+
                             <div class="container-fluid">
                                 <div class="layout-spacing">
                                     
@@ -1494,6 +1498,7 @@ bool has_intersection(vector&lt;line&gt; v) {
 
 
     <script type="text/javascript" src="http://localhost:1313/Biblioteca/docs/js/bundle.js" defer></script>
+
         
 
         

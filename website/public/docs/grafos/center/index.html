@@ -50,6 +50,8 @@ Link original: center.cpp
 Código link vector&lt;int&gt; g[MAX]; int d[MAX], par[MAX]; pair&lt;int, vector&lt;int&gt;&gt; center() { int f, df; function&lt;void(int)&gt; dfs = [&amp;] (int v) { if (d[v] &gt; df) f = v, df = d[v]; for (int u : g[v]) if (u != par[v]) d[u] = d[v] &#43; 1, par[u] = v, dfs(u); }; f = df = par[0] = -1, d[0] = 0; dfs(0); int root = f; f = df = par[root] = -1, d[root] = 0; dfs(root); vector&lt;int&gt; c; while (f !"/>
 
     
+        <link rel="alternate" type="application/atom+xml" title="Atom feed for Biblioteca Maratona UFMG" href="/index.xml" />
+    
     <script>(()=>{var t=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches,e=localStorage.getItem("theme");t&&e===null&&(localStorage.setItem("theme","dark"),document.documentElement.setAttribute("data-dark-mode","")),t&&e==="dark"&&document.documentElement.setAttribute("data-dark-mode",""),e==="dark"&&document.documentElement.setAttribute("data-dark-mode","")})()</script>
     
     
@@ -79,7 +81,8 @@ Código link vector&lt;int&gt; g[MAX]; int d[MAX], par[MAX]; pair&lt;int, vector
     <link rel="stylesheet" href="/Biblioteca/docs/scss/style.css" crossorigin="anonymous">
     
     
-    </head><body>
+    </head>
+<body>
         <div class="content">
             <div class="page-wrapper toggled">
 <nav id="sidebar" class="sidebar-wrapper">
@@ -1272,6 +1275,7 @@ Código link vector&lt;int&gt; g[MAX]; int d[MAX], par[MAX]; pair&lt;int, vector
     
 </div>
 
+
                             <div class="container-fluid">
                                 <div class="layout-spacing">
                                     
@@ -1484,6 +1488,7 @@ pair&lt;int, vector&lt;int&gt;&gt; center() {
 
 
     <script type="text/javascript" src="http://localhost:1313/Biblioteca/docs/js/bundle.js" defer></script>
+
         
 
         

@@ -54,6 +54,8 @@ Link original: splaytree.cpp
 Código link template&lt;typename T&gt; struct splaytree { struct node { node *ch[2], *p; int sz; T val; node(T v) { ch[0] = ch[1] = p = NULL; sz = 1; val = v; } void update() { sz = 1; for (int i = 0; i &lt; 2; i&#43;&#43;) if (ch[i]) { sz &#43;= ch[i]-&gt;sz; } } }; node* root; splaytree() { root = NULL; } splaytree(const splaytree&amp; t) { throw logic_error(&#34;Nao copiar a splaytree!"/>
 
     
+        <link rel="alternate" type="application/atom+xml" title="Atom feed for Biblioteca Maratona UFMG" href="/index.xml" />
+    
     <script>(()=>{var t=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches,e=localStorage.getItem("theme");t&&e===null&&(localStorage.setItem("theme","dark"),document.documentElement.setAttribute("data-dark-mode","")),t&&e==="dark"&&document.documentElement.setAttribute("data-dark-mode",""),e==="dark"&&document.documentElement.setAttribute("data-dark-mode","")})()</script>
     
     
@@ -83,7 +85,8 @@ Código link template&lt;typename T&gt; struct splaytree { struct node { node *c
     <link rel="stylesheet" href="/Biblioteca/docs/scss/style.css" crossorigin="anonymous">
     
     
-    </head><body>
+    </head>
+<body>
         <div class="content">
             <div class="page-wrapper toggled">
 <nav id="sidebar" class="sidebar-wrapper">
@@ -1276,6 +1279,7 @@ Código link template&lt;typename T&gt; struct splaytree { struct node { node *c
     
 </div>
 
+
                             <div class="container-fluid">
                                 <div class="layout-spacing">
                                     
@@ -1580,6 +1584,7 @@ Código link template&lt;typename T&gt; struct splaytree { struct node { node *c
 
 
     <script type="text/javascript" src="http://localhost:1313/Biblioteca/docs/js/bundle.js" defer></script>
+
         
 
         

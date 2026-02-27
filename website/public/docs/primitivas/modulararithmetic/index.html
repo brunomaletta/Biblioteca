@@ -46,6 +46,8 @@ Link original: modularArithmetic.cpp
 Código link template&lt;int p&gt; struct mod_int { ll expo(ll b, ll e) { ll ret = 1; while (e) { if (e % 2) ret = ret * b % p; e /= 2, b = b * b % p; } return ret; } ll inv(ll b) { return expo(b, p-2); } using m = mod_int; int v; mod_int() : v(0) {} mod_int(ll v_) { if (v_ &gt;= p or v_ &lt;= -p) v_ %= p; if (v_ &lt; 0) v_ &#43;= p; v = v_; } m&amp; operator &#43;=(const m&amp; a) { v &#43;= a."/>
 
     
+        <link rel="alternate" type="application/atom+xml" title="Atom feed for Biblioteca Maratona UFMG" href="/index.xml" />
+    
     <script>(()=>{var t=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches,e=localStorage.getItem("theme");t&&e===null&&(localStorage.setItem("theme","dark"),document.documentElement.setAttribute("data-dark-mode","")),t&&e==="dark"&&document.documentElement.setAttribute("data-dark-mode",""),e==="dark"&&document.documentElement.setAttribute("data-dark-mode","")})()</script>
     
     
@@ -75,7 +77,8 @@ Código link template&lt;int p&gt; struct mod_int { ll expo(ll b, ll e) { ll ret
     <link rel="stylesheet" href="/Biblioteca/docs/scss/style.css" crossorigin="anonymous">
     
     
-    </head><body>
+    </head>
+<body>
         <div class="content">
             <div class="page-wrapper toggled">
 <nav id="sidebar" class="sidebar-wrapper">
@@ -1268,6 +1271,7 @@ Código link template&lt;int p&gt; struct mod_int { ll expo(ll b, ll e) { ll ret
     
 </div>
 
+
                             <div class="container-fluid">
                                 <div class="layout-spacing">
                                     
@@ -1521,6 +1525,7 @@ typedef mod_int&lt;(int)1e9&#43;7&gt; mint;</code>
 
 
     <script type="text/javascript" src="http://localhost:1313/Biblioteca/docs/js/bundle.js" defer></script>
+
         
 
         

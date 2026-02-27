@@ -50,6 +50,8 @@ Link original: lcs.cpp
 Código link int lcs_s[MAX], lcs_t[MAX]; int dp[2][MAX]; // dp[0][j] = max lcs(s[li...ri], t[lj, lj&#43;j]) void dp_top(int li, int ri, int lj, int rj) { memset(dp[0], 0, (rj-lj&#43;1)*sizeof(dp[0][0])); for (int i = li; i &lt;= ri; i&#43;&#43;) { for (int j = rj; j &gt;= lj; j--) dp[0][j - lj] = max(dp[0][j - lj], (lcs_s[i] == lcs_t[j]) &#43; (j &gt; lj ?"/>
 
     
+        <link rel="alternate" type="application/atom+xml" title="Atom feed for Biblioteca Maratona UFMG" href="/index.xml" />
+    
     <script>(()=>{var t=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches,e=localStorage.getItem("theme");t&&e===null&&(localStorage.setItem("theme","dark"),document.documentElement.setAttribute("data-dark-mode","")),t&&e==="dark"&&document.documentElement.setAttribute("data-dark-mode",""),e==="dark"&&document.documentElement.setAttribute("data-dark-mode","")})()</script>
     
     
@@ -79,7 +81,8 @@ Código link int lcs_s[MAX], lcs_t[MAX]; int dp[2][MAX]; // dp[0][j] = max lcs(s
     <link rel="stylesheet" href="/Biblioteca/docs/scss/style.css" crossorigin="anonymous">
     
     
-    </head><body>
+    </head>
+<body>
         <div class="content">
             <div class="page-wrapper toggled">
 <nav id="sidebar" class="sidebar-wrapper">
@@ -1272,6 +1275,7 @@ Código link int lcs_s[MAX], lcs_t[MAX]; int dp[2][MAX]; // dp[0][j] = max lcs(s
     
 </div>
 
+
                             <div class="container-fluid">
                                 <div class="layout-spacing">
                                     
@@ -1527,6 +1531,7 @@ vector&lt;int&gt; lcs(const vector&lt;int&gt;&amp; s, const vector&lt;int&gt;&am
 
 
     <script type="text/javascript" src="http://localhost:1313/Biblioteca/docs/js/bundle.js" defer></script>
+
         
 
         

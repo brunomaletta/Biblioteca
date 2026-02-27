@@ -52,6 +52,8 @@ Link original: directedMst.cpp
 Código link struct node { pair&lt;ll, int&gt; val; ll lazy; node *l, *r; node() {} node(pair&lt;int, int&gt; v) : val(v), lazy(0), l(NULL), r(NULL) {} void prop() { val.first &#43;= lazy; if (l) l-&gt;lazy &#43;= lazy; if (r) r-&gt;lazy &#43;= lazy; lazy = 0; } }; void merge(node*&amp; a, node* b) { if (!"/>
 
     
+        <link rel="alternate" type="application/atom+xml" title="Atom feed for Biblioteca Maratona UFMG" href="/index.xml" />
+    
     <script>(()=>{var t=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches,e=localStorage.getItem("theme");t&&e===null&&(localStorage.setItem("theme","dark"),document.documentElement.setAttribute("data-dark-mode","")),t&&e==="dark"&&document.documentElement.setAttribute("data-dark-mode",""),e==="dark"&&document.documentElement.setAttribute("data-dark-mode","")})()</script>
     
     
@@ -81,7 +83,8 @@ Código link struct node { pair&lt;ll, int&gt; val; ll lazy; node *l, *r; node()
     <link rel="stylesheet" href="/Biblioteca/docs/scss/style.css" crossorigin="anonymous">
     
     
-    </head><body>
+    </head>
+<body>
         <div class="content">
             <div class="page-wrapper toggled">
 <nav id="sidebar" class="sidebar-wrapper">
@@ -1274,6 +1277,7 @@ Código link struct node { pair&lt;ll, int&gt; val; ll lazy; node *l, *r; node()
     
 </div>
 
+
                             <div class="container-fluid">
                                 <div class="layout-spacing">
                                     
@@ -1525,6 +1529,7 @@ ll dmst(int n, int r, vector&lt;pair&lt;pair&lt;int, int&gt;, int&gt;&gt;&amp; a
 
 
     <script type="text/javascript" src="http://localhost:1313/Biblioteca/docs/js/bundle.js" defer></script>
+
         
 
         

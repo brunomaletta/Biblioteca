@@ -54,6 +54,8 @@ Link original: hungarian.cpp
 Código link template&lt;typename T&gt; struct hungarian { int n; vector&lt;vector&lt;T&gt;&gt; a; vector&lt;T&gt; u, v; vector&lt;int&gt; p, way; T inf; hungarian(int n_) : n(n_), u(n&#43;1), v(n&#43;1), p(n&#43;1), way(n&#43;1) { a = vector&lt;vector&lt;T&gt;&gt;(n, vector&lt;T&gt;(n)); inf = numeric_limits&lt;T&gt;::max(); } pair&lt;T, vector&lt;int&gt;&gt; assignment() { for (int i = 1; i &lt;= n; i&#43;&#43;) { p[0] = i; int j0 = 0; vector&lt;T&gt; minv(n&#43;1, inf); vector&lt;int&gt; used(n&#43;1, 0); do { used[j0] = true; int i0 = p[j0], j1 = -1; T delta = inf; for (int j = 1; j &lt;= n; j&#43;&#43;) if (!"/>
 
     
+        <link rel="alternate" type="application/atom+xml" title="Atom feed for Biblioteca Maratona UFMG" href="/index.xml" />
+    
     <script>(()=>{var t=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches,e=localStorage.getItem("theme");t&&e===null&&(localStorage.setItem("theme","dark"),document.documentElement.setAttribute("data-dark-mode","")),t&&e==="dark"&&document.documentElement.setAttribute("data-dark-mode",""),e==="dark"&&document.documentElement.setAttribute("data-dark-mode","")})()</script>
     
     
@@ -83,7 +85,8 @@ Código link template&lt;typename T&gt; struct hungarian { int n; vector&lt;vect
     <link rel="stylesheet" href="/Biblioteca/docs/scss/style.css" crossorigin="anonymous">
     
     
-    </head><body>
+    </head>
+<body>
         <div class="content">
             <div class="page-wrapper toggled">
 <nav id="sidebar" class="sidebar-wrapper">
@@ -1276,6 +1279,7 @@ Código link template&lt;typename T&gt; struct hungarian { int n; vector&lt;vect
     
 </div>
 
+
                             <div class="container-fluid">
                                 <div class="layout-spacing">
                                     
@@ -1507,6 +1511,7 @@ Código link template&lt;typename T&gt; struct hungarian { int n; vector&lt;vect
 
 
     <script type="text/javascript" src="http://localhost:1313/Biblioteca/docs/js/bundle.js" defer></script>
+
         
 
         

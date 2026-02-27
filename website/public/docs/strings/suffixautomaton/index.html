@@ -48,6 +48,8 @@ Link original: suffixAutomaton.cpp
 Código link namespace sam { int cur, sz, len[2*MAX], link[2*MAX], acc[2*MAX]; int nxt[2*MAX][26]; void add(int c) { int at = cur; len[sz] = len[cur]&#43;1, cur = sz&#43;&#43;; while (at != -1 and !nxt[at][c]) nxt[at][c] = cur, at = link[at]; if (at == -1) { link[cur] = 0; return; } int q = nxt[at][c]; if (len[q] == len[at]&#43;1) { link[cur] = q; return; } int qq = sz&#43;&#43;; len[qq] = len[at]&#43;1, link[qq] = link[q]; for (int i = 0; i &lt; 26; i&#43;&#43;) nxt[qq][i] = nxt[q][i]; while (at !"/>
 
     
+        <link rel="alternate" type="application/atom+xml" title="Atom feed for Biblioteca Maratona UFMG" href="/index.xml" />
+    
     <script>(()=>{var t=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches,e=localStorage.getItem("theme");t&&e===null&&(localStorage.setItem("theme","dark"),document.documentElement.setAttribute("data-dark-mode","")),t&&e==="dark"&&document.documentElement.setAttribute("data-dark-mode",""),e==="dark"&&document.documentElement.setAttribute("data-dark-mode","")})()</script>
     
     
@@ -77,7 +79,8 @@ Código link namespace sam { int cur, sz, len[2*MAX], link[2*MAX], acc[2*MAX]; i
     <link rel="stylesheet" href="/Biblioteca/docs/scss/style.css" crossorigin="anonymous">
     
     
-    </head><body>
+    </head>
+<body>
         <div class="content">
             <div class="page-wrapper toggled">
 <nav id="sidebar" class="sidebar-wrapper">
@@ -1270,6 +1273,7 @@ Código link namespace sam { int cur, sz, len[2*MAX], link[2*MAX], acc[2*MAX]; i
     
 </div>
 
+
                             <div class="container-fluid">
                                 <div class="layout-spacing">
                                     
@@ -1516,6 +1520,7 @@ Código link namespace sam { int cur, sz, len[2*MAX], link[2*MAX], acc[2*MAX]; i
 
 
     <script type="text/javascript" src="http://localhost:1313/Biblioteca/docs/js/bundle.js" defer></script>
+
         
 
         

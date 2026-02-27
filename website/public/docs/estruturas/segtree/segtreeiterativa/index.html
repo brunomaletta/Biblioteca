@@ -60,6 +60,8 @@ Link original: segTreeIterativa.cpp
 Código link int seg[2 * MAX]; int n; void build() { for (int i = n - 1; i; i--) seg[i] = seg[2*i] &#43; seg[2*i&#43;1]; } int query(int a, int b) { int ret = 0; for(a &#43;= n, b &#43;= n; a &lt;= b; &#43;&#43;a /= 2, --b /= 2) { if (a % 2 == 1) ret &#43;= seg[a]; if (b % 2 == 0) ret &#43;= seg[b]; } return ret; } void update(int p, int x) { seg[p &#43;= n] = x; while (p /= 2) seg[p] = seg[2*p] &#43; seg[2*p&#43;1]; } "/>
 
     
+        <link rel="alternate" type="application/atom+xml" title="Atom feed for Biblioteca Maratona UFMG" href="/index.xml" />
+    
     <script>(()=>{var t=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches,e=localStorage.getItem("theme");t&&e===null&&(localStorage.setItem("theme","dark"),document.documentElement.setAttribute("data-dark-mode","")),t&&e==="dark"&&document.documentElement.setAttribute("data-dark-mode",""),e==="dark"&&document.documentElement.setAttribute("data-dark-mode","")})()</script>
     
     
@@ -89,7 +91,8 @@ Código link int seg[2 * MAX]; int n; void build() { for (int i = n - 1; i; i--)
     <link rel="stylesheet" href="/Biblioteca/docs/scss/style.css" crossorigin="anonymous">
     
     
-    </head><body>
+    </head>
+<body>
         <div class="content">
             <div class="page-wrapper toggled">
 <nav id="sidebar" class="sidebar-wrapper">
@@ -1282,6 +1285,7 @@ Código link int seg[2 * MAX]; int n; void build() { for (int i = n - 1; i; i--)
     
 </div>
 
+
                             <div class="container-fluid">
                                 <div class="layout-spacing">
                                     
@@ -1502,6 +1506,7 @@ void update(int p, int x) {
 
 
     <script type="text/javascript" src="http://localhost:1313/Biblioteca/docs/js/bundle.js" defer></script>
+
         
 
         

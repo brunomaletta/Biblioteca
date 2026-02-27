@@ -54,6 +54,8 @@ Link original: suffixArray2.cpp
 Código link vector&lt;int&gt; suffix_array(string s) { s &#43;= &#34;$&#34;; int n = s.size(), N = max(n, 260); vector&lt;int&gt; sa(n), ra(n); for(int i = 0; i &lt; n; i&#43;&#43;) sa[i] = i, ra[i] = s[i]; for(int k = 0; k &lt; n; k ? k *= 2 : k&#43;&#43;) { vector&lt;int&gt; nsa(sa), nra(n), cnt(N); for(int i = 0; i &lt; n; i&#43;&#43;) nsa[i] = (nsa[i]-k&#43;n)%n, cnt[ra[i]]&#43;&#43;; for(int i = 1; i &lt; N; i&#43;&#43;) cnt[i] &#43;= cnt[i-1]; for(int i = n-1; i&#43;1; i--) sa[--cnt[ra[nsa[i]]]] = nsa[i]; for(int i = 1, r = 0; i &lt; n; i&#43;&#43;) nra[sa[i]] = r &#43;= ra[sa[i]] !"/>
 
     
+        <link rel="alternate" type="application/atom+xml" title="Atom feed for Biblioteca Maratona UFMG" href="/index.xml" />
+    
     <script>(()=>{var t=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches,e=localStorage.getItem("theme");t&&e===null&&(localStorage.setItem("theme","dark"),document.documentElement.setAttribute("data-dark-mode","")),t&&e==="dark"&&document.documentElement.setAttribute("data-dark-mode",""),e==="dark"&&document.documentElement.setAttribute("data-dark-mode","")})()</script>
     
     
@@ -83,7 +85,8 @@ Código link vector&lt;int&gt; suffix_array(string s) { s &#43;= &#34;$&#34;; in
     <link rel="stylesheet" href="/Biblioteca/docs/scss/style.css" crossorigin="anonymous">
     
     
-    </head><body>
+    </head>
+<body>
         <div class="content">
             <div class="page-wrapper toggled">
 <nav id="sidebar" class="sidebar-wrapper">
@@ -1276,6 +1279,7 @@ Código link vector&lt;int&gt; suffix_array(string s) { s &#43;= &#34;$&#34;; in
     
 </div>
 
+
                             <div class="container-fluid">
                                 <div class="layout-spacing">
                                     
@@ -1499,6 +1503,7 @@ vector&lt;int&gt; kasai(string s, vector&lt;int&gt; sa) {
 
 
     <script type="text/javascript" src="http://localhost:1313/Biblioteca/docs/js/bundle.js" defer></script>
+
         
 
         

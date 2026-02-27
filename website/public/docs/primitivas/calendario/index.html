@@ -50,6 +50,8 @@ Link original: calendario.cpp
 Código link int get_id(int d, int m, int y) { if (m &lt; 3) y--, m &#43;= 12; return 365 * y &#43; y / 4 - y / 100 &#43; y / 400 &#43; (153 * (m - 3) &#43; 2) / 5 &#43; d - 307; } tuple&lt;int, int, int&gt; date(int id) { int x = id &#43; 1789995, n = 4 * x / 146097, i, j, d, m, y; x -= (146097 * n &#43; 3) / 4; i = (4000 * (x &#43; 1)) / 1461001; x -= 1461 * i / 4 - 31; j = 80 * x / 2447, d = x - 2447 * j / 80; x = j / 11; m = j &#43; 2 - 12 * x, y = 100 * (n - 49) &#43; i &#43; x; return {d, m, y}; } "/>
 
     
+        <link rel="alternate" type="application/atom+xml" title="Atom feed for Biblioteca Maratona UFMG" href="/index.xml" />
+    
     <script>(()=>{var t=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches,e=localStorage.getItem("theme");t&&e===null&&(localStorage.setItem("theme","dark"),document.documentElement.setAttribute("data-dark-mode","")),t&&e==="dark"&&document.documentElement.setAttribute("data-dark-mode",""),e==="dark"&&document.documentElement.setAttribute("data-dark-mode","")})()</script>
     
     
@@ -79,7 +81,8 @@ Código link int get_id(int d, int m, int y) { if (m &lt; 3) y--, m &#43;= 12; r
     <link rel="stylesheet" href="/Biblioteca/docs/scss/style.css" crossorigin="anonymous">
     
     
-    </head><body>
+    </head>
+<body>
         <div class="content">
             <div class="page-wrapper toggled">
 <nav id="sidebar" class="sidebar-wrapper">
@@ -1272,6 +1275,7 @@ Código link int get_id(int d, int m, int y) { if (m &lt; 3) y--, m &#43;= 12; r
     
 </div>
 
+
                             <div class="container-fluid">
                                 <div class="layout-spacing">
                                     
@@ -1474,6 +1478,7 @@ tuple&lt;int, int, int&gt; date(int id) {
 
 
     <script type="text/javascript" src="http://localhost:1313/Biblioteca/docs/js/bundle.js" defer></script>
+
         
 
         

@@ -60,6 +60,8 @@ Link original: segTreePersistentComLazy.cpp
 Código link const int MAX = 1e5&#43;10, UPD = 1e5&#43;10, LOG = 18; const int MAXS = 2*MAX &#43; 4*UPD*LOG; namespace perseg { int seg[MAXS]; int rt[UPD], L[MAXS], R[MAXS], cnt, t; int n, *v; int build(int p, int l, int r) { if (l == r) return seg[p] = v[l]; L[p] = cnt&#43;&#43;, R[p] = cnt&#43;&#43;; int m = (l&#43;r)/2; return seg[p] = max(build(L[p], l, m), build(R[p], m&#43;1, r)); } void build(int n2, int *v2) { n = n2, v = v2; rt[0] = cnt&#43;&#43;; build(0, 0, n-1); } int query(int a, int b, int p, int l, int r) { if (b &lt; l or r &lt; a) return -INF; if (a &lt;= l and r &lt;= b) return lazy[p] &#43; seg[p]; int m = (l&#43;r)/2; int ret = lazy[p] &#43; max(query(a, b, L[p], l, m), query(a, b, R[p], m&#43;1, r)); return ret; } int query(int a, int b, int tt) { return query(a, b, rt[tt], 0, n-1); } int update(int a, int b, int x, int lp, int p, int l, int r) { tie(seg[p], lazy[p], L[p], R[p]) = {seg[lp], lazy[lp], L[lp], R[lp]}; if (b &lt; l or r &lt; a) return seg[p] &#43; lazy[p]; if (a &lt;= l and r &lt;= b) return seg[p] &#43; (lazy[p] &#43;= x); int m = (l&#43;r)/2; seg[p] = max(update(a, b, x, L[lp], L[p] = cnt&#43;&#43;, l, m), update(a, b, x, R[lp], R[p] = cnt&#43;&#43;, m&#43;1, r)); lazy[p] = lazy[lp]; return seg[p] &#43; lazy[p]; } int update(int a, int b, int x, int tt=t) { assert(tt &lt;= t); update(a, b, x, rt[tt], rt[&#43;&#43;t]=cnt&#43;&#43;, 0, n-1); return t; } }; "/>
 
     
+        <link rel="alternate" type="application/atom+xml" title="Atom feed for Biblioteca Maratona UFMG" href="/index.xml" />
+    
     <script>(()=>{var t=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches,e=localStorage.getItem("theme");t&&e===null&&(localStorage.setItem("theme","dark"),document.documentElement.setAttribute("data-dark-mode","")),t&&e==="dark"&&document.documentElement.setAttribute("data-dark-mode",""),e==="dark"&&document.documentElement.setAttribute("data-dark-mode","")})()</script>
     
     
@@ -89,7 +91,8 @@ Código link const int MAX = 1e5&#43;10, UPD = 1e5&#43;10, LOG = 18; const int M
     <link rel="stylesheet" href="/Biblioteca/docs/scss/style.css" crossorigin="anonymous">
     
     
-    </head><body>
+    </head>
+<body>
         <div class="content">
             <div class="page-wrapper toggled">
 <nav id="sidebar" class="sidebar-wrapper">
@@ -1282,6 +1285,7 @@ Código link const int MAX = 1e5&#43;10, UPD = 1e5&#43;10, LOG = 18; const int M
     
 </div>
 
+
                             <div class="container-fluid">
                                 <div class="layout-spacing">
                                     
@@ -1528,6 +1532,7 @@ namespace perseg {
 
 
     <script type="text/javascript" src="http://localhost:1313/Biblioteca/docs/js/bundle.js" defer></script>
+
         
 
         

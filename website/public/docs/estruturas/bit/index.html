@@ -58,6 +58,8 @@ Link original: bit.cpp
 Código link struct Bit { int n; vector&lt;ll&gt; bit; Bit(int _n=0) : n(_n), bit(n &#43; 1) {} Bit(vector&lt;int&gt;&amp; v) : n(v.size()), bit(n &#43; 1) { for (int i = 1; i &lt;= n; i&#43;&#43;) { bit[i] &#43;= v[i - 1]; int j = i &#43; (i &amp; -i); if (j &lt;= n) bit[j] &#43;= bit[i]; } } void update(int i, ll x) { // soma x na posicao i for (i&#43;&#43;; i &lt;= n; i &#43;= i &amp; -i) bit[i] &#43;= x; } ll pref(int i) { // soma [0, i] ll ret = 0; for (i&#43;&#43;; i; i -= i &amp; -i) ret &#43;= bit[i]; return ret; } ll query(int l, int r) { // soma [l, r] return pref(r) - pref(l - 1); } int upper_bound(ll x) { int p = 0; for (int i = __lg(n); i&#43;1; i--) if (p &#43; (1&lt;&lt;i) &lt;= n and bit[p &#43; (1&lt;&lt;i)] &lt;= x) x -= bit[p &#43;= (1 &lt;&lt; i)]; return p; } }; "/>
 
     
+        <link rel="alternate" type="application/atom+xml" title="Atom feed for Biblioteca Maratona UFMG" href="/index.xml" />
+    
     <script>(()=>{var t=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches,e=localStorage.getItem("theme");t&&e===null&&(localStorage.setItem("theme","dark"),document.documentElement.setAttribute("data-dark-mode","")),t&&e==="dark"&&document.documentElement.setAttribute("data-dark-mode",""),e==="dark"&&document.documentElement.setAttribute("data-dark-mode","")})()</script>
     
     
@@ -87,7 +89,8 @@ Código link struct Bit { int n; vector&lt;ll&gt; bit; Bit(int _n=0) : n(_n), bi
     <link rel="stylesheet" href="/Biblioteca/docs/scss/style.css" crossorigin="anonymous">
     
     
-    </head><body>
+    </head>
+<body>
         <div class="content">
             <div class="page-wrapper toggled">
 <nav id="sidebar" class="sidebar-wrapper">
@@ -1280,6 +1283,7 @@ Código link struct Bit { int n; vector&lt;ll&gt; bit; Bit(int _n=0) : n(_n), bi
     
 </div>
 
+
                             <div class="container-fluid">
                                 <div class="layout-spacing">
                                     
@@ -1501,6 +1505,7 @@ Código link struct Bit { int n; vector&lt;ll&gt; bit; Bit(int _n=0) : n(_n), bi
 
 
     <script type="text/javascript" src="http://localhost:1313/Biblioteca/docs/js/bundle.js" defer></script>
+
         
 
         

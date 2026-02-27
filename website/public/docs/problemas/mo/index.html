@@ -50,6 +50,8 @@ Link original: mo.cpp
 Código link const int MAX = 1e5&#43;10; const int SQ = sqrt(MAX); int v[MAX]; int ans, freq[MAX]; inline void insert(int p) { int o = v[p]; freq[o]&#43;&#43;; ans &#43;= (freq[o] == 1); } inline void erase(int p) { int o = v[p]; ans -= (freq[o] == 1); freq[o]--; } inline ll hilbert(int x, int y) { static int N = 1 &lt;&lt; (__builtin_clz(0) - __builtin_clz(MAX)); int rx, ry, s; ll d = 0; for (s = N/2; s &gt; 0; s /= 2) { rx = (x &amp; s) &gt; 0, ry = (y &amp; s) &gt; 0; d &#43;= s * ll(s) * ((3 * rx) ^ ry); if (ry == 0) { if (rx == 1) x = N-1 - x, y = N-1 - y; swap(x, y); } } return d; } #define HILBERT true vector&lt;int&gt; MO(vector&lt;pair&lt;int, int&gt;&gt; &amp;q) { ans = 0; int m = q."/>
 
     
+        <link rel="alternate" type="application/atom+xml" title="Atom feed for Biblioteca Maratona UFMG" href="/index.xml" />
+    
     <script>(()=>{var t=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches,e=localStorage.getItem("theme");t&&e===null&&(localStorage.setItem("theme","dark"),document.documentElement.setAttribute("data-dark-mode","")),t&&e==="dark"&&document.documentElement.setAttribute("data-dark-mode",""),e==="dark"&&document.documentElement.setAttribute("data-dark-mode","")})()</script>
     
     
@@ -79,7 +81,8 @@ Código link const int MAX = 1e5&#43;10; const int SQ = sqrt(MAX); int v[MAX]; i
     <link rel="stylesheet" href="/Biblioteca/docs/scss/style.css" crossorigin="anonymous">
     
     
-    </head><body>
+    </head>
+<body>
         <div class="content">
             <div class="page-wrapper toggled">
 <nav id="sidebar" class="sidebar-wrapper">
@@ -1272,6 +1275,7 @@ Código link const int MAX = 1e5&#43;10; const int SQ = sqrt(MAX); int v[MAX]; i
     
 </div>
 
+
                             <div class="container-fluid">
                                 <div class="layout-spacing">
                                     
@@ -1523,6 +1527,7 @@ vector&lt;int&gt; MO(vector&lt;pair&lt;int, int&gt;&gt; &amp;q) {
 
 
     <script type="text/javascript" src="http://localhost:1313/Biblioteca/docs/js/bundle.js" defer></script>
+
         
 
         

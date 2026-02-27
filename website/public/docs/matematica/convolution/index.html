@@ -52,6 +52,8 @@ Link original: convolution.cpp
 Código link void get_roots(bool f, int n, vector&lt;complex&lt;double&gt;&gt;&amp; roots) { const static double PI = acosl(-1); for (int i = 0; i &lt; n/2; i&#43;&#43;) { double alpha = i*((2*PI)/n); if (f) alpha = -alpha; roots[i] = {cos(alpha), sin(alpha)}; } } // Para NTT template&lt;int p&gt; void get_roots(bool f, int n, vector&lt;mod_int&lt;p&gt;&gt;&amp; roots) { mod_int&lt;p&gt; r; int ord; if (p == 998244353) { r = 102292; ord = (1 &lt;&lt; 23); } else if (p == 754974721) { r = 739831874; ord = (1 &lt;&lt; 24); } else if (p == 167772161) { r = 243; ord = (1 &lt;&lt; 25); } else assert(false); if (f) r = r^(p - 1 -ord/n); else r = r^(ord/n); roots[0] = 1; for (int i = 1; i &lt; n/2; i&#43;&#43;) roots[i] = roots[i-1]*r; } template&lt;typename T&gt; void fft(vector&lt;T&gt;&amp; a, bool f, int N, vector&lt;int&gt;&amp; rev) { for (int i = 0; i &lt; N; i&#43;&#43;) if (i &lt; rev[i]) swap(a[i], a[rev[i]]); int l, r, m; vector&lt;T&gt; roots(N); for (int n = 2; n &lt;= N; n *= 2) { get_roots(f, n, roots); for (int pos = 0; pos &lt; N; pos &#43;= n) { l = pos &#43; 0, r = pos &#43; n/2, m = 0; while (m &lt; n/2) { auto t = roots[m] * a[r]; a[r] = a[l] - t; a[l] = a[l] &#43; t; l&#43;&#43;, r&#43;&#43;, m&#43;&#43;; } } } if (f) { auto invN = T(1) / T(N); for (int i = 0; i &lt; N; i&#43;&#43;) a[i] = a[i] * invN; } } template&lt;typename T&gt; vector&lt;T&gt; convolution(vector&lt;T&gt;&amp; a, vector&lt;T&gt;&amp; b) { vector&lt;T&gt; l(a."/>
 
     
+        <link rel="alternate" type="application/atom+xml" title="Atom feed for Biblioteca Maratona UFMG" href="/index.xml" />
+    
     <script>(()=>{var t=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches,e=localStorage.getItem("theme");t&&e===null&&(localStorage.setItem("theme","dark"),document.documentElement.setAttribute("data-dark-mode","")),t&&e==="dark"&&document.documentElement.setAttribute("data-dark-mode",""),e==="dark"&&document.documentElement.setAttribute("data-dark-mode","")})()</script>
     
     
@@ -81,7 +83,8 @@ Código link void get_roots(bool f, int n, vector&lt;complex&lt;double&gt;&gt;&a
     <link rel="stylesheet" href="/Biblioteca/docs/scss/style.css" crossorigin="anonymous">
     
     
-    </head><body>
+    </head>
+<body>
         <div class="content">
             <div class="page-wrapper toggled">
 <nav id="sidebar" class="sidebar-wrapper">
@@ -1274,6 +1277,7 @@ Código link void get_roots(bool f, int n, vector&lt;complex&lt;double&gt;&gt;&a
     
 </div>
 
+
                             <div class="container-fluid">
                                 <div class="layout-spacing">
                                     
@@ -1569,6 +1573,7 @@ vector&lt;T&gt; int_convolution(vector&lt;int&gt;&amp; a, vector&lt;int&gt;&amp;
 
 
     <script type="text/javascript" src="http://localhost:1313/Biblioteca/docs/js/bundle.js" defer></script>
+
         
 
         

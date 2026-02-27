@@ -48,6 +48,8 @@ Link original: ntt.cpp
 Código link const int MOD = 998244353; typedef mod_int&lt;MOD&gt; mint; void ntt(vector&lt;mint&gt;&amp; a, bool rev) { int n = a.size(); auto b = a; assert(!(n&amp;(n-1))); mint g = 1; while ((g^(MOD / 2)) == 1) g &#43;= 1; if (rev) g = 1 / g; for (int step = n / 2; step; step /= 2) { mint w = g^(MOD / (n / step)), wn = 1; for (int i = 0; i &lt; n/2; i &#43;= step) { for (int j = 0; j &lt; step; j&#43;&#43;) { auto u = a[2 * i &#43; j], v = wn * a[2 * i &#43; j &#43; step]; b[i&#43;j] = u &#43; v; b[i &#43; n/2 &#43; j] = u - v; } wn = wn * w; } swap(a, b); } if (rev) { auto n1 = mint(1) / n; for (auto&amp; x : a) x *= n1; } } vector&lt;mint&gt; convolution(const vector&lt;mint&gt;&amp; a, const vector&lt;mint&gt;&amp; b) { vector&lt;mint&gt; l(a."/>
 
     
+        <link rel="alternate" type="application/atom+xml" title="Atom feed for Biblioteca Maratona UFMG" href="/index.xml" />
+    
     <script>(()=>{var t=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches,e=localStorage.getItem("theme");t&&e===null&&(localStorage.setItem("theme","dark"),document.documentElement.setAttribute("data-dark-mode","")),t&&e==="dark"&&document.documentElement.setAttribute("data-dark-mode",""),e==="dark"&&document.documentElement.setAttribute("data-dark-mode","")})()</script>
     
     
@@ -77,7 +79,8 @@ Código link const int MOD = 998244353; typedef mod_int&lt;MOD&gt; mint; void nt
     <link rel="stylesheet" href="/Biblioteca/docs/scss/style.css" crossorigin="anonymous">
     
     
-    </head><body>
+    </head>
+<body>
         <div class="content">
             <div class="page-wrapper toggled">
 <nav id="sidebar" class="sidebar-wrapper">
@@ -1270,6 +1273,7 @@ Código link const int MOD = 998244353; typedef mod_int&lt;MOD&gt; mint; void nt
     
 </div>
 
+
                             <div class="container-fluid">
                                 <div class="layout-spacing">
                                     
@@ -1496,6 +1500,7 @@ vector&lt;mint&gt; convolution(const vector&lt;mint&gt;&amp; a, const vector&lt;
 
 
     <script type="text/javascript" src="http://localhost:1313/Biblioteca/docs/js/bundle.js" defer></script>
+
         
 
         

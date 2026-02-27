@@ -48,6 +48,8 @@ Link original: treapPersistent.cpp
 Código link mt19937_64 rng((int) chrono::steady_clock::now().time_since_epoch().count()); struct node { node *l, *r; ll sz, val, sub; node(ll v) : l(NULL), r(NULL), sz(1), val(v), sub(v) {} node(node* x) : l(x-&gt;l), r(x-&gt;r), sz(x-&gt;sz), val(x-&gt;val), sub(x-&gt;sub) {} void update() { sz = 1, sub = val; if (l) sz &#43;= l-&gt;sz, sub &#43;= l-&gt;sub; if (r) sz &#43;= r-&gt;sz, sub &#43;= r-&gt;sub; sub %= MOD; } }; ll size(node* x) { return x ?"/>
 
     
+        <link rel="alternate" type="application/atom+xml" title="Atom feed for Biblioteca Maratona UFMG" href="/index.xml" />
+    
     <script>(()=>{var t=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches,e=localStorage.getItem("theme");t&&e===null&&(localStorage.setItem("theme","dark"),document.documentElement.setAttribute("data-dark-mode","")),t&&e==="dark"&&document.documentElement.setAttribute("data-dark-mode",""),e==="dark"&&document.documentElement.setAttribute("data-dark-mode","")})()</script>
     
     
@@ -77,7 +79,8 @@ Código link mt19937_64 rng((int) chrono::steady_clock::now().time_since_epoch()
     <link rel="stylesheet" href="/Biblioteca/docs/scss/style.css" crossorigin="anonymous">
     
     
-    </head><body>
+    </head>
+<body>
         <div class="content">
             <div class="page-wrapper toggled">
 <nav id="sidebar" class="sidebar-wrapper">
@@ -1270,6 +1273,7 @@ Código link mt19937_64 rng((int) chrono::steady_clock::now().time_since_epoch()
     
 </div>
 
+
                             <div class="container-fluid">
                                 <div class="layout-spacing">
                                     
@@ -1506,6 +1510,7 @@ void init(const vector&lt;ll&gt;&amp; v) {
 
 
     <script type="text/javascript" src="http://localhost:1313/Biblioteca/docs/js/bundle.js" defer></script>
+
         
 
         

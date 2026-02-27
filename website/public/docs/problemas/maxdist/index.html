@@ -50,6 +50,8 @@ Link original: maxDist.cpp
 Código link ll max_dist2(vector&lt;pt&gt; v) { v = convex_hull(v); if (v.size() &lt;= 2) return dist2(v[0], v[1%v.size()]); ll ans = 0; int n = v.size(), j = 0; for (int i = 0; i &lt; n; i&#43;&#43;) { while (!ccw(v[(i&#43;1)%n]-v[i], pt(0, 0), v[(j&#43;1)%n]-v[j])) j = (j&#43;1)%n; ans = max({ans, dist2(v[i], v[j]), dist2(v[(i&#43;1)%n], v[j])}); } return ans; } // Distancia de Manhattan template&lt;typename T&gt; T max_dist_manhattan(vector&lt;pair&lt;T, T&gt;&gt; v) { T min_sum, max_sum, min_dif, max_dif; min_sum = max_sum = v[0]."/>
 
     
+        <link rel="alternate" type="application/atom+xml" title="Atom feed for Biblioteca Maratona UFMG" href="/index.xml" />
+    
     <script>(()=>{var t=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches,e=localStorage.getItem("theme");t&&e===null&&(localStorage.setItem("theme","dark"),document.documentElement.setAttribute("data-dark-mode","")),t&&e==="dark"&&document.documentElement.setAttribute("data-dark-mode",""),e==="dark"&&document.documentElement.setAttribute("data-dark-mode","")})()</script>
     
     
@@ -79,7 +81,8 @@ Código link ll max_dist2(vector&lt;pt&gt; v) { v = convex_hull(v); if (v.size()
     <link rel="stylesheet" href="/Biblioteca/docs/scss/style.css" crossorigin="anonymous">
     
     
-    </head><body>
+    </head>
+<body>
         <div class="content">
             <div class="page-wrapper toggled">
 <nav id="sidebar" class="sidebar-wrapper">
@@ -1272,6 +1275,7 @@ Código link ll max_dist2(vector&lt;pt&gt; v) { v = convex_hull(v); if (v.size()
     
 </div>
 
+
                             <div class="container-fluid">
                                 <div class="layout-spacing">
                                     
@@ -1484,6 +1488,7 @@ template&lt;typename T&gt; T max_dist_manhattan(vector&lt;pair&lt;T, T&gt;&gt; v
 
 
     <script type="text/javascript" src="http://localhost:1313/Biblioteca/docs/js/bundle.js" defer></script>
+
         
 
         

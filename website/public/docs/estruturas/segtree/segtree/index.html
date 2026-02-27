@@ -62,6 +62,8 @@ Link original: segTree.cpp
 Código link namespace seg { ll seg[4*MAX], lazy[4*MAX]; int n, *v; ll build(int p=1, int l=0, int r=n-1) { lazy[p] = 0; if (l == r) return seg[p] = v[l]; int m = (l&#43;r)/2; return seg[p] = build(2*p, l, m) &#43; build(2*p&#43;1, m&#43;1, r); } void build(int n2, int* v2) { n = n2, v = v2; build(); } void prop(int p, int l, int r) { seg[p] &#43;= lazy[p]*(r-l&#43;1); if (l !"/>
 
     
+        <link rel="alternate" type="application/atom+xml" title="Atom feed for Biblioteca Maratona UFMG" href="/index.xml" />
+    
     <script>(()=>{var t=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches,e=localStorage.getItem("theme");t&&e===null&&(localStorage.setItem("theme","dark"),document.documentElement.setAttribute("data-dark-mode","")),t&&e==="dark"&&document.documentElement.setAttribute("data-dark-mode",""),e==="dark"&&document.documentElement.setAttribute("data-dark-mode","")})()</script>
     
     
@@ -91,7 +93,8 @@ Código link namespace seg { ll seg[4*MAX], lazy[4*MAX]; int n, *v; ll build(int
     <link rel="stylesheet" href="/Biblioteca/docs/scss/style.css" crossorigin="anonymous">
     
     
-    </head><body>
+    </head>
+<body>
         <div class="content">
             <div class="page-wrapper toggled">
 <nav id="sidebar" class="sidebar-wrapper">
@@ -1284,6 +1287,7 @@ Código link namespace seg { ll seg[4*MAX], lazy[4*MAX]; int n, *v; ll build(int
     
 </div>
 
+
                             <div class="container-fluid">
                                 <div class="layout-spacing">
                                     
@@ -1566,6 +1570,7 @@ int lower_bound(int i, ll&amp; val, int p, int l, int r) {
 
 
     <script type="text/javascript" src="http://localhost:1313/Biblioteca/docs/js/bundle.js" defer></script>
+
         
 
         

@@ -48,6 +48,8 @@ Link original: dsu.cpp
 Código link struct dsu { vector&lt;int&gt; id, sz; dsu(int n) : id(n), sz(n, 1) { iota(id.begin(), id.end(), 0); } int find(int a) { return a == id[a] ? a : id[a] = find(id[a]); } void unite(int a, int b) { a = find(a), b = find(b); if (a == b) return; if (sz[a] &lt; sz[b]) swap(a, b); sz[a] &#43;= sz[b], id[b] = a; } }; // DSU de bipartido // // Une dois vertices e acha a qual componente um vertice pertence // Informa se a componente de um vertice e bipartida // // find e unite: O(log(n)) struct dsu { vector&lt;int&gt; id, sz, bip, c; dsu(int n) : id(n), sz(n, 1), bip(n, 1), c(n) { iota(id."/>
 
     
+        <link rel="alternate" type="application/atom+xml" title="Atom feed for Biblioteca Maratona UFMG" href="/index.xml" />
+    
     <script>(()=>{var t=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches,e=localStorage.getItem("theme");t&&e===null&&(localStorage.setItem("theme","dark"),document.documentElement.setAttribute("data-dark-mode","")),t&&e==="dark"&&document.documentElement.setAttribute("data-dark-mode",""),e==="dark"&&document.documentElement.setAttribute("data-dark-mode","")})()</script>
     
     
@@ -77,7 +79,8 @@ Código link struct dsu { vector&lt;int&gt; id, sz; dsu(int n) : id(n), sz(n, 1)
     <link rel="stylesheet" href="/Biblioteca/docs/scss/style.css" crossorigin="anonymous">
     
     
-    </head><body>
+    </head>
+<body>
         <div class="content">
             <div class="page-wrapper toggled">
 <nav id="sidebar" class="sidebar-wrapper">
@@ -1270,6 +1273,7 @@ Código link struct dsu { vector&lt;int&gt; id, sz; dsu(int n) : id(n), sz(n, 1)
     
 </div>
 
+
                             <div class="container-fluid">
                                 <div class="layout-spacing">
                                     
@@ -1573,6 +1577,7 @@ struct dsu {
 
 
     <script type="text/javascript" src="http://localhost:1313/Biblioteca/docs/js/bundle.js" defer></script>
+
         
 
         

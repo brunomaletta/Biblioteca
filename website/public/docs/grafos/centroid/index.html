@@ -48,6 +48,8 @@ Link original: centroid.cpp
 Código link int n, subsize[MAX]; vector&lt;int&gt; g[MAX]; void dfs(int k, int p=-1) { subsize[k] = 1; for (int i : g[k]) if (i != p) { dfs(i, k); subsize[k] &#43;= subsize[i]; } } int centroid(int k, int p=-1, int size=-1) { if (size == -1) size = subsize[k]; for (int i : g[k]) if (i != p) if (subsize[i] &gt; size/2) return centroid(i, k, size); return k; } pair&lt;int, int&gt; centroids(int k=0) { dfs(k); int i = centroid(k), i2 = i; for (int j : g[i]) if (2*subsize[j] == subsize[k]) i2 = j; return {i, i2}; } "/>
 
     
+        <link rel="alternate" type="application/atom+xml" title="Atom feed for Biblioteca Maratona UFMG" href="/index.xml" />
+    
     <script>(()=>{var t=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches,e=localStorage.getItem("theme");t&&e===null&&(localStorage.setItem("theme","dark"),document.documentElement.setAttribute("data-dark-mode","")),t&&e==="dark"&&document.documentElement.setAttribute("data-dark-mode",""),e==="dark"&&document.documentElement.setAttribute("data-dark-mode","")})()</script>
     
     
@@ -77,7 +79,8 @@ Código link int n, subsize[MAX]; vector&lt;int&gt; g[MAX]; void dfs(int k, int 
     <link rel="stylesheet" href="/Biblioteca/docs/scss/style.css" crossorigin="anonymous">
     
     
-    </head><body>
+    </head>
+<body>
         <div class="content">
             <div class="page-wrapper toggled">
 <nav id="sidebar" class="sidebar-wrapper">
@@ -1270,6 +1273,7 @@ Código link int n, subsize[MAX]; vector&lt;int&gt; g[MAX]; void dfs(int k, int 
     
 </div>
 
+
                             <div class="container-fluid">
                                 <div class="layout-spacing">
                                     
@@ -1480,6 +1484,7 @@ pair&lt;int, int&gt; centroids(int k=0) {
 
 
     <script type="text/javascript" src="http://localhost:1313/Biblioteca/docs/js/bundle.js" defer></script>
+
         
 
         

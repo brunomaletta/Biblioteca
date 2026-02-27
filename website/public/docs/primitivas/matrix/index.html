@@ -44,6 +44,8 @@ Código link #define MODULAR false template&lt;typename T&gt; struct matrix : ve
 Código link #define MODULAR false template&lt;typename T&gt; struct matrix : vector&lt;vector&lt;T&gt;&gt; { int n, m; void print() { for (int i = 0; i &lt; n; i&#43;&#43;) { for (int j = 0; j &lt; m; j&#43;&#43;) cout &lt;&lt; (*this)[i][j] &lt;&lt; &#34; &#34;; cout &lt;&lt; endl; } } matrix(int n_, int m_, bool ident = false) : vector&lt;vector&lt;T&gt;&gt;(n_, vector&lt;T&gt;(m_, 0)), n(n_), m(m_) { if (ident) { assert(n == m); for (int i = 0; i &lt; n; i&#43;&#43;) (*this)[i][i] = 1; } } matrix(const vector&lt;vector&lt;T&gt;&gt;&amp; c) : vector&lt;vector&lt;T&gt;&gt;(c), n(c."/>
 
     
+        <link rel="alternate" type="application/atom+xml" title="Atom feed for Biblioteca Maratona UFMG" href="/index.xml" />
+    
     <script>(()=>{var t=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches,e=localStorage.getItem("theme");t&&e===null&&(localStorage.setItem("theme","dark"),document.documentElement.setAttribute("data-dark-mode","")),t&&e==="dark"&&document.documentElement.setAttribute("data-dark-mode",""),e==="dark"&&document.documentElement.setAttribute("data-dark-mode","")})()</script>
     
     
@@ -73,7 +75,8 @@ Código link #define MODULAR false template&lt;typename T&gt; struct matrix : ve
     <link rel="stylesheet" href="/Biblioteca/docs/scss/style.css" crossorigin="anonymous">
     
     
-    </head><body>
+    </head>
+<body>
         <div class="content">
             <div class="page-wrapper toggled">
 <nav id="sidebar" class="sidebar-wrapper">
@@ -1266,6 +1269,7 @@ Código link #define MODULAR false template&lt;typename T&gt; struct matrix : ve
     
 </div>
 
+
                             <div class="container-fluid">
                                 <div class="layout-spacing">
                                     
@@ -1510,6 +1514,7 @@ template&lt;typename T&gt; struct matrix : vector&lt;vector&lt;T&gt;&gt; {
 
 
     <script type="text/javascript" src="http://localhost:1313/Biblioteca/docs/js/bundle.js" defer></script>
+
         
 
         

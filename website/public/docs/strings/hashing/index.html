@@ -50,6 +50,8 @@ Link original: hashing.cpp
 Código link mt19937 rng((int) chrono::steady_clock::now().time_since_epoch().count()); int uniform(int l, int r) { uniform_int_distribution&lt;int&gt; uid(l, r); return uid(rng); } template&lt;int MOD&gt; struct str_hash { // 116fcb static int P; vector&lt;ll&gt; h, p; str_hash(string s) : h(s.size()), p(s.size()) { p[0] = 1, h[0] = s[0]; for (int i = 1; i &lt; s.size(); i&#43;&#43;) p[i] = p[i - 1]*P%MOD, h[i] = (h[i - 1]*P &#43; s[i])%MOD; } ll operator()(int l, int r) { // retorna hash s[l."/>
 
     
+        <link rel="alternate" type="application/atom+xml" title="Atom feed for Biblioteca Maratona UFMG" href="/index.xml" />
+    
     <script>(()=>{var t=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches,e=localStorage.getItem("theme");t&&e===null&&(localStorage.setItem("theme","dark"),document.documentElement.setAttribute("data-dark-mode","")),t&&e==="dark"&&document.documentElement.setAttribute("data-dark-mode",""),e==="dark"&&document.documentElement.setAttribute("data-dark-mode","")})()</script>
     
     
@@ -79,7 +81,8 @@ Código link mt19937 rng((int) chrono::steady_clock::now().time_since_epoch().co
     <link rel="stylesheet" href="/Biblioteca/docs/scss/style.css" crossorigin="anonymous">
     
     
-    </head><body>
+    </head>
+<body>
         <div class="content">
             <div class="page-wrapper toggled">
 <nav id="sidebar" class="sidebar-wrapper">
@@ -1272,6 +1275,7 @@ Código link mt19937 rng((int) chrono::steady_clock::now().time_since_epoch().co
     
 </div>
 
+
                             <div class="container-fluid">
                                 <div class="layout-spacing">
                                     
@@ -1480,6 +1484,7 @@ template&lt;int MOD&gt; int str_hash&lt;MOD&gt;::P = uniform(256, MOD - 1); // l
 
 
     <script type="text/javascript" src="http://localhost:1313/Biblioteca/docs/js/bundle.js" defer></script>
+
         
 
         

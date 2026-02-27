@@ -46,6 +46,8 @@ Link original: closestPairOfPoints.cpp
 Código link pair&lt;pt, pt&gt; closest_pair_of_points(vector&lt;pt&gt; v) { int n = v.size(); sort(v.begin(), v.end()); for (int i = 1; i &lt; n; i&#43;&#43;) if (v[i] == v[i-1]) return {v[i-1], v[i]}; auto cmp_y = [&amp;](const pt &amp;l, const pt &amp;r) { if (l.y != r.y) return l.y &lt; r.y; return l.x &lt; r.x; }; set&lt;pt, decltype(cmp_y)&gt; s(cmp_y); int l = 0, r = -1; ll d2_min = numeric_limits&lt;ll&gt;::max(); pt pl, pr; const int magic = 5; while (r&#43;1 &lt; n) { auto it = s."/>
 
     
+        <link rel="alternate" type="application/atom+xml" title="Atom feed for Biblioteca Maratona UFMG" href="/index.xml" />
+    
     <script>(()=>{var t=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches,e=localStorage.getItem("theme");t&&e===null&&(localStorage.setItem("theme","dark"),document.documentElement.setAttribute("data-dark-mode","")),t&&e==="dark"&&document.documentElement.setAttribute("data-dark-mode",""),e==="dark"&&document.documentElement.setAttribute("data-dark-mode","")})()</script>
     
     
@@ -75,7 +77,8 @@ Código link pair&lt;pt, pt&gt; closest_pair_of_points(vector&lt;pt&gt; v) { int
     <link rel="stylesheet" href="/Biblioteca/docs/scss/style.css" crossorigin="anonymous">
     
     
-    </head><body>
+    </head>
+<body>
         <div class="content">
             <div class="page-wrapper toggled">
 <nav id="sidebar" class="sidebar-wrapper">
@@ -1268,6 +1271,7 @@ Código link pair&lt;pt, pt&gt; closest_pair_of_points(vector&lt;pt&gt; v) { int
     
 </div>
 
+
                             <div class="container-fluid">
                                 <div class="layout-spacing">
                                     
@@ -1486,6 +1490,7 @@ Código link pair&lt;pt, pt&gt; closest_pair_of_points(vector&lt;pt&gt; v) { int
 
 
     <script type="text/javascript" src="http://localhost:1313/Biblioteca/docs/js/bundle.js" defer></script>
+
         
 
         

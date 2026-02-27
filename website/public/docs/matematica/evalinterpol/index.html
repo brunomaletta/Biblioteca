@@ -54,6 +54,8 @@ Link original: evalInterpol.cpp
 Código link mint evaluate_interpolation(int x, vector&lt;mint&gt; y) { int n = y.size(); vector&lt;mint&gt; sulf(n&#43;1, 1), fat(n, 1), ifat(n); for (int i = n-1; i &gt;= 0; i--) sulf[i] = sulf[i&#43;1] * (x - i); for (int i = 1; i &lt; n; i&#43;&#43;) fat[i] = fat[i-1] * i; ifat[n-1] = 1/fat[n-1]; for (int i = n-2; i &gt;= 0; i--) ifat[i] = ifat[i&#43;1] * (i &#43; 1); mint pref = 1, ans = 0; for (int i = 0; i &lt; n; pref *= (x - i&#43;&#43;)) { mint num = pref * sulf[i&#43;1]; mint den = ifat[i] * ifat[n-1 - i]; if ((n-1 - i)%2) den *= -1; ans &#43;= y[i] * num * den; } return ans; } "/>
 
     
+        <link rel="alternate" type="application/atom+xml" title="Atom feed for Biblioteca Maratona UFMG" href="/index.xml" />
+    
     <script>(()=>{var t=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches,e=localStorage.getItem("theme");t&&e===null&&(localStorage.setItem("theme","dark"),document.documentElement.setAttribute("data-dark-mode","")),t&&e==="dark"&&document.documentElement.setAttribute("data-dark-mode",""),e==="dark"&&document.documentElement.setAttribute("data-dark-mode","")})()</script>
     
     
@@ -83,7 +85,8 @@ Código link mint evaluate_interpolation(int x, vector&lt;mint&gt; y) { int n = 
     <link rel="stylesheet" href="/Biblioteca/docs/scss/style.css" crossorigin="anonymous">
     
     
-    </head><body>
+    </head>
+<body>
         <div class="content">
             <div class="page-wrapper toggled">
 <nav id="sidebar" class="sidebar-wrapper">
@@ -1276,6 +1279,7 @@ Código link mint evaluate_interpolation(int x, vector&lt;mint&gt; y) { int n = 
     
 </div>
 
+
                             <div class="container-fluid">
                                 <div class="layout-spacing">
                                     
@@ -1485,6 +1489,7 @@ Código link mint evaluate_interpolation(int x, vector&lt;mint&gt; y) { int n = 
 
 
     <script type="text/javascript" src="http://localhost:1313/Biblioteca/docs/js/bundle.js" defer></script>
+
         
 
         

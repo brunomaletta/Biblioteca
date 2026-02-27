@@ -48,6 +48,8 @@ Link original: gcdLcmConvolution.cpp
 Código link template&lt;typename T&gt; void multiple_transform(vector&lt;T&gt;&amp; v, bool inv = false) { vector&lt;int&gt; I(v.size()-1); iota(I.begin(), I.end(), 1); if (inv) reverse(I.begin(), I.end()); for (int i : I) for (int j = 2; i*j &lt; v.size(); j&#43;&#43;) v[i] &#43;= (inv ? -1 : 1) * v[i*j]; } // gcd_convolution(a, b)[k] = \sum_{gcd(i, j) = k} a_i * b_j template&lt;typename T&gt; vector&lt;T&gt; gcd_convolution(vector&lt;T&gt; a, vector&lt;T&gt; b) { multiple_transform(a), multiple_transform(b); for (int i = 0; i &lt; a."/>
 
     
+        <link rel="alternate" type="application/atom+xml" title="Atom feed for Biblioteca Maratona UFMG" href="/index.xml" />
+    
     <script>(()=>{var t=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches,e=localStorage.getItem("theme");t&&e===null&&(localStorage.setItem("theme","dark"),document.documentElement.setAttribute("data-dark-mode","")),t&&e==="dark"&&document.documentElement.setAttribute("data-dark-mode",""),e==="dark"&&document.documentElement.setAttribute("data-dark-mode","")})()</script>
     
     
@@ -77,7 +79,8 @@ Código link template&lt;typename T&gt; void multiple_transform(vector&lt;T&gt;&
     <link rel="stylesheet" href="/Biblioteca/docs/scss/style.css" crossorigin="anonymous">
     
     
-    </head><body>
+    </head>
+<body>
         <div class="content">
             <div class="page-wrapper toggled">
 <nav id="sidebar" class="sidebar-wrapper">
@@ -1270,6 +1273,7 @@ Código link template&lt;typename T&gt; void multiple_transform(vector&lt;T&gt;&
     
 </div>
 
+
                             <div class="container-fluid">
                                 <div class="layout-spacing">
                                     
@@ -1488,6 +1492,7 @@ template&lt;typename T&gt; vector&lt;T&gt; lcm_convolution(vector&lt;T&gt; a, ve
 
 
     <script type="text/javascript" src="http://localhost:1313/Biblioteca/docs/js/bundle.js" defer></script>
+
         
 
         

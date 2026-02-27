@@ -46,6 +46,8 @@ Link original: minqueueStack.cpp
 Código link template&lt;class T&gt; struct minstack { stack&lt;pair&lt;T, T&gt;&gt; s; void push(T x) { if (!s.size()) s.push({x, x}); else s.emplace(x, std::min(s.top().second, x)); } T top() { return s.top().first;	} T pop() { T ans = s.top().first; s.pop(); return ans; } int size() { return s.size(); } T min() { return s.top().second; } }; template&lt;class T&gt; struct minqueue { minstack&lt;T&gt; s1, s2; void push(T x) { s1."/>
 
     
+        <link rel="alternate" type="application/atom+xml" title="Atom feed for Biblioteca Maratona UFMG" href="/index.xml" />
+    
     <script>(()=>{var t=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches,e=localStorage.getItem("theme");t&&e===null&&(localStorage.setItem("theme","dark"),document.documentElement.setAttribute("data-dark-mode","")),t&&e==="dark"&&document.documentElement.setAttribute("data-dark-mode",""),e==="dark"&&document.documentElement.setAttribute("data-dark-mode","")})()</script>
     
     
@@ -75,7 +77,8 @@ Código link template&lt;class T&gt; struct minstack { stack&lt;pair&lt;T, T&gt;
     <link rel="stylesheet" href="/Biblioteca/docs/scss/style.css" crossorigin="anonymous">
     
     
-    </head><body>
+    </head>
+<body>
         <div class="content">
             <div class="page-wrapper toggled">
 <nav id="sidebar" class="sidebar-wrapper">
@@ -1268,6 +1271,7 @@ Código link template&lt;class T&gt; struct minstack { stack&lt;pair&lt;T, T&gt;
     
 </div>
 
+
                             <div class="container-fluid">
                                 <div class="layout-spacing">
                                     
@@ -1490,6 +1494,7 @@ template&lt;class T&gt; struct minqueue {
 
 
     <script type="text/javascript" src="http://localhost:1313/Biblioteca/docs/js/bundle.js" defer></script>
+
         
 
         

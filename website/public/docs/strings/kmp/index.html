@@ -60,6 +60,8 @@ Link original: kmp.cpp
 Código link template&lt;typename T&gt; vector&lt;int&gt; pi(T s) { vector&lt;int&gt; p(s.size()); for (int i = 1, j = 0; i &lt; s.size(); i&#43;&#43;) { while (j and s[j] != s[i]) j = p[j-1]; if (s[j] == s[i]) j&#43;&#43;; p[i] = j; } return p; } template&lt;typename T&gt; vector&lt;int&gt; matching(T&amp; s, T&amp; t) { vector&lt;int&gt; p = pi(s), match; for (int i = 0, j = 0; i &lt; t."/>
 
     
+        <link rel="alternate" type="application/atom+xml" title="Atom feed for Biblioteca Maratona UFMG" href="/index.xml" />
+    
     <script>(()=>{var t=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches,e=localStorage.getItem("theme");t&&e===null&&(localStorage.setItem("theme","dark"),document.documentElement.setAttribute("data-dark-mode","")),t&&e==="dark"&&document.documentElement.setAttribute("data-dark-mode",""),e==="dark"&&document.documentElement.setAttribute("data-dark-mode","")})()</script>
     
     
@@ -89,7 +91,8 @@ Código link template&lt;typename T&gt; vector&lt;int&gt; pi(T s) { vector&lt;in
     <link rel="stylesheet" href="/Biblioteca/docs/scss/style.css" crossorigin="anonymous">
     
     
-    </head><body>
+    </head>
+<body>
         <div class="content">
             <div class="page-wrapper toggled">
 <nav id="sidebar" class="sidebar-wrapper">
@@ -1282,6 +1285,7 @@ Código link template&lt;typename T&gt; vector&lt;int&gt; pi(T s) { vector&lt;in
     
 </div>
 
+
                             <div class="container-fluid">
                                 <div class="layout-spacing">
                                     
@@ -1505,6 +1509,7 @@ struct KMPaut : vector&lt;vector&lt;int&gt;&gt; {
 
 
     <script type="text/javascript" src="http://localhost:1313/Biblioteca/docs/js/bundle.js" defer></script>
+
         
 
         

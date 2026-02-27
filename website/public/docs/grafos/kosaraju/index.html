@@ -46,6 +46,8 @@ Link original: kosaraju.cpp
 Código link int n; vector&lt;int&gt; g[MAX]; vector&lt;int&gt; gi[MAX]; // grafo invertido int vis[MAX]; stack&lt;int&gt; S; int comp[MAX]; // componente conexo de cada vertice void dfs(int k) { vis[k] = 1; for (int i = 0; i &lt; (int) g[k].size(); i&#43;&#43;) if (!vis[g[k][i]]) dfs(g[k][i]); S.push(k); } void scc(int k, int c) { vis[k] = 1; comp[k] = c; for (int i = 0; i &lt; (int) gi[k]."/>
 
     
+        <link rel="alternate" type="application/atom+xml" title="Atom feed for Biblioteca Maratona UFMG" href="/index.xml" />
+    
     <script>(()=>{var t=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches,e=localStorage.getItem("theme");t&&e===null&&(localStorage.setItem("theme","dark"),document.documentElement.setAttribute("data-dark-mode","")),t&&e==="dark"&&document.documentElement.setAttribute("data-dark-mode",""),e==="dark"&&document.documentElement.setAttribute("data-dark-mode","")})()</script>
     
     
@@ -75,7 +77,8 @@ Código link int n; vector&lt;int&gt; g[MAX]; vector&lt;int&gt; gi[MAX]; // graf
     <link rel="stylesheet" href="/Biblioteca/docs/scss/style.css" crossorigin="anonymous">
     
     
-    </head><body>
+    </head>
+<body>
         <div class="content">
             <div class="page-wrapper toggled">
 <nav id="sidebar" class="sidebar-wrapper">
@@ -1268,6 +1271,7 @@ Código link int n; vector&lt;int&gt; g[MAX]; vector&lt;int&gt; gi[MAX]; // graf
     
 </div>
 
+
                             <div class="container-fluid">
                                 <div class="layout-spacing">
                                     
@@ -1486,6 +1490,7 @@ void kosaraju() {
 
 
     <script type="text/javascript" src="http://localhost:1313/Biblioteca/docs/js/bundle.js" defer></script>
+
         
 
         

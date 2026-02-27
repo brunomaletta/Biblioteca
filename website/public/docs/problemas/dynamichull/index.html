@@ -48,6 +48,8 @@ Link original: dynamicHull.cpp
 Código link struct upper { set&lt;pt&gt; se; set&lt;pt&gt;::iterator it; int is_under(pt p) { // 1 -&gt; inside ; 2 -&gt; border it = se.lower_bound(p); if (it == se.end()) return 0; if (it == se.begin()) return p == *it ? 2 : 0; if (ccw(p, *it, *prev(it))) return 1; return ccw(p, *prev(it), *it) ? 0 : 2; } void insert(pt p) { if (is_under(p)) return; if (it !"/>
 
     
+        <link rel="alternate" type="application/atom+xml" title="Atom feed for Biblioteca Maratona UFMG" href="/index.xml" />
+    
     <script>(()=>{var t=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches,e=localStorage.getItem("theme");t&&e===null&&(localStorage.setItem("theme","dark"),document.documentElement.setAttribute("data-dark-mode","")),t&&e==="dark"&&document.documentElement.setAttribute("data-dark-mode",""),e==="dark"&&document.documentElement.setAttribute("data-dark-mode","")})()</script>
     
     
@@ -77,7 +79,8 @@ Código link struct upper { set&lt;pt&gt; se; set&lt;pt&gt;::iterator it; int is
     <link rel="stylesheet" href="/Biblioteca/docs/scss/style.css" crossorigin="anonymous">
     
     
-    </head><body>
+    </head>
+<body>
         <div class="content">
             <div class="page-wrapper toggled">
 <nav id="sidebar" class="sidebar-wrapper">
@@ -1270,6 +1273,7 @@ Código link struct upper { set&lt;pt&gt; se; set&lt;pt&gt;::iterator it; int is
     
 </div>
 
+
                             <div class="container-fluid">
                                 <div class="layout-spacing">
                                     
@@ -1496,6 +1500,7 @@ struct dyn_hull {
 
 
     <script type="text/javascript" src="http://localhost:1313/Biblioteca/docs/js/bundle.js" defer></script>
+
         
 
         

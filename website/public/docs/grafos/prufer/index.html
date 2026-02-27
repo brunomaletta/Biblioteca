@@ -56,6 +56,8 @@ Link original: prufer.cpp
 Código link vector&lt;int&gt; to_prufer(vector&lt;pair&lt;int, int&gt;&gt; tree) { int n = tree.size()&#43;1; vector&lt;int&gt; d(n, 0); vector&lt;vector&lt;int&gt;&gt; g(n); for (auto [a, b] : tree) d[a]&#43;&#43;, d[b]&#43;&#43;, g[a].push_back(b), g[b].push_back(a); vector&lt;int&gt; pai(n, -1); queue&lt;int&gt; q; q.push(n-1); while (q."/>
 
     
+        <link rel="alternate" type="application/atom+xml" title="Atom feed for Biblioteca Maratona UFMG" href="/index.xml" />
+    
     <script>(()=>{var t=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches,e=localStorage.getItem("theme");t&&e===null&&(localStorage.setItem("theme","dark"),document.documentElement.setAttribute("data-dark-mode","")),t&&e==="dark"&&document.documentElement.setAttribute("data-dark-mode",""),e==="dark"&&document.documentElement.setAttribute("data-dark-mode","")})()</script>
     
     
@@ -85,7 +87,8 @@ Código link vector&lt;int&gt; to_prufer(vector&lt;pair&lt;int, int&gt;&gt; tree
     <link rel="stylesheet" href="/Biblioteca/docs/scss/style.css" crossorigin="anonymous">
     
     
-    </head><body>
+    </head>
+<body>
         <div class="content">
             <div class="page-wrapper toggled">
 <nav id="sidebar" class="sidebar-wrapper">
@@ -1278,6 +1281,7 @@ Código link vector&lt;int&gt; to_prufer(vector&lt;pair&lt;int, int&gt;&gt; tree
     
 </div>
 
+
                             <div class="container-fluid">
                                 <div class="layout-spacing">
                                     
@@ -1508,6 +1512,7 @@ vector&lt;pair&lt;int, int&gt;&gt; from_prufer(vector&lt;int&gt; p) {
 
 
     <script type="text/javascript" src="http://localhost:1313/Biblioteca/docs/js/bundle.js" defer></script>
+
         
 
         

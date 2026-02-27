@@ -52,6 +52,8 @@ Link original: angleRange.cpp
 Código link struct angle_range { static constexpr ld ALL = 1e9, NIL = -1e9; ld l, r; angle_range() : l(ALL), r(ALL) {} angle_range(ld l_, ld r_) : l(l_), r(r_) { fix(l), fix(r); } void fix(ld&amp; theta) { if (theta == ALL or theta == NIL) return; if (theta &gt; 2*pi) theta -= 2*pi; if (theta &lt; 0) theta &#43;= 2*pi; } bool empty() { return l == NIL; } bool contains(ld q) { fix(q); if (l == ALL) return true; if (l == NIL) return false; if (l &lt; r) return l &lt; q and q &lt; r; return q &gt; l or q &lt; r; } friend angle_range operator &amp;(angle_range p, angle_range q) { if (p."/>
 
     
+        <link rel="alternate" type="application/atom+xml" title="Atom feed for Biblioteca Maratona UFMG" href="/index.xml" />
+    
     <script>(()=>{var t=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches,e=localStorage.getItem("theme");t&&e===null&&(localStorage.setItem("theme","dark"),document.documentElement.setAttribute("data-dark-mode","")),t&&e==="dark"&&document.documentElement.setAttribute("data-dark-mode",""),e==="dark"&&document.documentElement.setAttribute("data-dark-mode","")})()</script>
     
     
@@ -81,7 +83,8 @@ Código link struct angle_range { static constexpr ld ALL = 1e9, NIL = -1e9; ld 
     <link rel="stylesheet" href="/Biblioteca/docs/scss/style.css" crossorigin="anonymous">
     
     
-    </head><body>
+    </head>
+<body>
         <div class="content">
             <div class="page-wrapper toggled">
 <nav id="sidebar" class="sidebar-wrapper">
@@ -1274,6 +1277,7 @@ Código link struct angle_range { static constexpr ld ALL = 1e9, NIL = -1e9; ld 
     
 </div>
 
+
                             <div class="container-fluid">
                                 <div class="layout-spacing">
                                     
@@ -1495,6 +1499,7 @@ Código link struct angle_range { static constexpr ld ALL = 1e9, NIL = -1e9; ld 
 
 
     <script type="text/javascript" src="http://localhost:1313/Biblioteca/docs/js/bundle.js" defer></script>
+
         
 
         

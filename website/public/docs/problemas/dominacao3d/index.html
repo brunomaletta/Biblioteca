@@ -54,6 +54,8 @@ Link original: dominacao3d.cpp
 Código link void lis2d(vector&lt;vector&lt;tuple&lt;int, int, int&gt;&gt;&gt;&amp; v, vector&lt;int&gt;&amp; dp, int l, int r) { if (l == r) { for (int i = 0; i &lt; v[l].size(); i&#43;&#43;) { int ii = get&lt;2&gt;(v[l][i]); dp[ii] = max(dp[ii], 1); } return; } int m = (l&#43;r)/2; lis2d(v, dp, l, m); vector&lt;tuple&lt;int, int, int&gt;&gt; vv[2]; vector&lt;int&gt; Z; for (int i = l; i &lt;= r; i&#43;&#43;) for (auto it : v[i]) { vv[i &gt; m]."/>
 
     
+        <link rel="alternate" type="application/atom+xml" title="Atom feed for Biblioteca Maratona UFMG" href="/index.xml" />
+    
     <script>(()=>{var t=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches,e=localStorage.getItem("theme");t&&e===null&&(localStorage.setItem("theme","dark"),document.documentElement.setAttribute("data-dark-mode","")),t&&e==="dark"&&document.documentElement.setAttribute("data-dark-mode",""),e==="dark"&&document.documentElement.setAttribute("data-dark-mode","")})()</script>
     
     
@@ -83,7 +85,8 @@ Código link void lis2d(vector&lt;vector&lt;tuple&lt;int, int, int&gt;&gt;&gt;&a
     <link rel="stylesheet" href="/Biblioteca/docs/scss/style.css" crossorigin="anonymous">
     
     
-    </head><body>
+    </head>
+<body>
         <div class="content">
             <div class="page-wrapper toggled">
 <nav id="sidebar" class="sidebar-wrapper">
@@ -1276,6 +1279,7 @@ Código link void lis2d(vector&lt;vector&lt;tuple&lt;int, int, int&gt;&gt;&gt;&a
     
 </div>
 
+
                             <div class="container-fluid">
                                 <div class="layout-spacing">
                                     
@@ -1525,6 +1529,7 @@ vector&lt;int&gt; solve(vector&lt;tuple&lt;int, int, int&gt;&gt; v) {
 
 
     <script type="text/javascript" src="http://localhost:1313/Biblioteca/docs/js/bundle.js" defer></script>
+
         
 
         

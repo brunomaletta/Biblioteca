@@ -52,6 +52,8 @@ Link original: cover.cpp
 Código link namespace cover { const int MAX = 96; vector&lt;int&gt; g[MAX]; bitset&lt;MAX&gt; bs[MAX]; int n; void add(int i, int j) { if (i == j) return; n = max({n, i&#43;1, j&#43;1}); bs[i][j] = bs[j][i] = 1; } int rec(bitset&lt;MAX&gt; m) { int ans = 0; for (int x = 0; x &lt; n; x&#43;&#43;) if (m[x]) { bitset&lt;MAX&gt; comp; function&lt;void(int)&gt; dfs = [&amp;](int i) { comp[i] = 1, m[i] = 0; for (int j : g[i]) if (m[j]) dfs(j); }; dfs(x); int ma, deg = -1, cyc = 1; for (int i = 0; i &lt; n; i&#43;&#43;) if (comp[i]) { int d = (bs[i]&amp;comp)."/>
 
     
+        <link rel="alternate" type="application/atom+xml" title="Atom feed for Biblioteca Maratona UFMG" href="/index.xml" />
+    
     <script>(()=>{var t=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches,e=localStorage.getItem("theme");t&&e===null&&(localStorage.setItem("theme","dark"),document.documentElement.setAttribute("data-dark-mode","")),t&&e==="dark"&&document.documentElement.setAttribute("data-dark-mode",""),e==="dark"&&document.documentElement.setAttribute("data-dark-mode","")})()</script>
     
     
@@ -81,7 +83,8 @@ Código link namespace cover { const int MAX = 96; vector&lt;int&gt; g[MAX]; bit
     <link rel="stylesheet" href="/Biblioteca/docs/scss/style.css" crossorigin="anonymous">
     
     
-    </head><body>
+    </head>
+<body>
         <div class="content">
             <div class="page-wrapper toggled">
 <nav id="sidebar" class="sidebar-wrapper">
@@ -1274,6 +1277,7 @@ Código link namespace cover { const int MAX = 96; vector&lt;int&gt; g[MAX]; bit
     
 </div>
 
+
                             <div class="container-fluid">
                                 <div class="layout-spacing">
                                     
@@ -1511,6 +1515,7 @@ Código link namespace cover { const int MAX = 96; vector&lt;int&gt; g[MAX]; bit
 
 
     <script type="text/javascript" src="http://localhost:1313/Biblioteca/docs/js/bundle.js" defer></script>
+
         
 
         

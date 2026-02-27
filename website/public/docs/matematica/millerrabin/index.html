@@ -50,6 +50,8 @@ Link original: millerRabin.cpp
 Código link ll mul(ll a, ll b, ll m) { ll ret = a*b - ll((long double)1/m*a*b&#43;0.5)*m; return ret &lt; 0 ? ret&#43;m : ret; } ll pow(ll x, ll y, ll m) { if (!y) return 1; ll ans = pow(mul(x, x, m), y/2, m); return y%2 ? mul(x, ans, m) : ans; } bool prime(ll n) { if (n &lt; 2) return 0; if (n &lt;= 3) return 1; if (n % 2 == 0) return 0; ll r = __builtin_ctzll(n - 1), d = n &gt;&gt; r; // com esses primos, o teste funciona garantido para n &lt;= 2^64 // funciona para n &lt;= 3*10^24 com os primos ate 41 for (int a : {2, 325, 9375, 28178, 450775, 9780504, 1795265022}) { ll x = pow(a, d, n); if (x == 1 or x == n - 1 or a % n == 0) continue; for (int j = 0; j &lt; r - 1; j&#43;&#43;) { x = mul(x, x, n); if (x == n - 1) break; } if (x !"/>
 
     
+        <link rel="alternate" type="application/atom+xml" title="Atom feed for Biblioteca Maratona UFMG" href="/index.xml" />
+    
     <script>(()=>{var t=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches,e=localStorage.getItem("theme");t&&e===null&&(localStorage.setItem("theme","dark"),document.documentElement.setAttribute("data-dark-mode","")),t&&e==="dark"&&document.documentElement.setAttribute("data-dark-mode",""),e==="dark"&&document.documentElement.setAttribute("data-dark-mode","")})()</script>
     
     
@@ -79,7 +81,8 @@ Código link ll mul(ll a, ll b, ll m) { ll ret = a*b - ll((long double)1/m*a*b&#
     <link rel="stylesheet" href="/Biblioteca/docs/scss/style.css" crossorigin="anonymous">
     
     
-    </head><body>
+    </head>
+<body>
         <div class="content">
             <div class="page-wrapper toggled">
 <nav id="sidebar" class="sidebar-wrapper">
@@ -1272,6 +1275,7 @@ Código link ll mul(ll a, ll b, ll m) { ll ret = a*b - ll((long double)1/m*a*b&#
     
 </div>
 
+
                             <div class="container-fluid">
                                 <div class="layout-spacing">
                                     
@@ -1490,6 +1494,7 @@ bool prime(ll n) {
 
 
     <script type="text/javascript" src="http://localhost:1313/Biblioteca/docs/js/bundle.js" defer></script>
+
         
 
         

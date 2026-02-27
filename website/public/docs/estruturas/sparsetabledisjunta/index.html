@@ -54,6 +54,8 @@ Link original: sparseTableDisjunta.cpp
 Código link namespace sparse { int m[MAX2][2*MAX], n, v[2*MAX]; int op(int a, int b) { return min(a, b); } void build(int n2, int* v2) { n = n2; for (int i = 0; i &lt; n; i&#43;&#43;) v[i] = v2[i]; while (n&amp;(n-1)) n&#43;&#43;; for (int j = 0; (1&lt;&lt;j) &lt; n; j&#43;&#43;) { int len = 1&lt;&lt;j; for (int c = len; c &lt; n; c &#43;= 2*len) { m[j][c] = v[c], m[j][c-1] = v[c-1]; for (int i = c&#43;1; i &lt; c&#43;len; i&#43;&#43;) m[j][i] = op(m[j][i-1], v[i]); for (int i = c-2; i &gt;= c-len; i--) m[j][i] = op(v[i], m[j][i&#43;1]); } } } int query(int l, int r) { if (l == r) return v[l]; int j = __builtin_clz(1) - __builtin_clz(l^r); return op(m[j][l], m[j][r]); } } "/>
 
     
+        <link rel="alternate" type="application/atom+xml" title="Atom feed for Biblioteca Maratona UFMG" href="/index.xml" />
+    
     <script>(()=>{var t=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches,e=localStorage.getItem("theme");t&&e===null&&(localStorage.setItem("theme","dark"),document.documentElement.setAttribute("data-dark-mode","")),t&&e==="dark"&&document.documentElement.setAttribute("data-dark-mode",""),e==="dark"&&document.documentElement.setAttribute("data-dark-mode","")})()</script>
     
     
@@ -83,7 +85,8 @@ Código link namespace sparse { int m[MAX2][2*MAX], n, v[2*MAX]; int op(int a, i
     <link rel="stylesheet" href="/Biblioteca/docs/scss/style.css" crossorigin="anonymous">
     
     
-    </head><body>
+    </head>
+<body>
         <div class="content">
             <div class="page-wrapper toggled">
 <nav id="sidebar" class="sidebar-wrapper">
@@ -1276,6 +1279,7 @@ Código link namespace sparse { int m[MAX2][2*MAX], n, v[2*MAX]; int op(int a, i
     
 </div>
 
+
                             <div class="container-fluid">
                                 <div class="layout-spacing">
                                     
@@ -1487,6 +1491,7 @@ Código link namespace sparse { int m[MAX2][2*MAX], n, v[2*MAX]; int op(int a, i
 
 
     <script type="text/javascript" src="http://localhost:1313/Biblioteca/docs/js/bundle.js" defer></script>
+
         
 
         

@@ -52,6 +52,8 @@ Link original: logDiscreto.cpp
 Código link int dlog(int b, int a, int m) {if (a == 0) return b ? -1 : 1; // caso nao definidoa %= m, b %= m;int k = 1, shift = 0;while (1) {int g = gcd(a, m);if (g == 1) break;if (b == k) return shift;if (b % g) return -1;b /= g, m /= g, shift&#43;&#43;;k = (ll) k * a / g % m;}int sq = sqrt(m)&#43;1, giant = 1;for (int i = 0; i &lt; sq; i&#43;&#43;) giant = (ll) giant * a % m;vector&lt;pair&lt;int, int&gt;&gt; baby;for (int i = 0, cur = b; i &lt;= sq; i&#43;&#43;) {baby."/>
 
     
+        <link rel="alternate" type="application/atom+xml" title="Atom feed for Biblioteca Maratona UFMG" href="/index.xml" />
+    
     <script>(()=>{var t=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches,e=localStorage.getItem("theme");t&&e===null&&(localStorage.setItem("theme","dark"),document.documentElement.setAttribute("data-dark-mode","")),t&&e==="dark"&&document.documentElement.setAttribute("data-dark-mode",""),e==="dark"&&document.documentElement.setAttribute("data-dark-mode","")})()</script>
     
     
@@ -81,7 +83,8 @@ Código link int dlog(int b, int a, int m) {if (a == 0) return b ? -1 : 1; // c
     <link rel="stylesheet" href="/Biblioteca/docs/scss/style.css" crossorigin="anonymous">
     
     
-    </head><body>
+    </head>
+<body>
         <div class="content">
             <div class="page-wrapper toggled">
 <nav id="sidebar" class="sidebar-wrapper">
@@ -1274,6 +1277,7 @@ Código link int dlog(int b, int a, int m) {if (a == 0) return b ? -1 : 1; // c
     
 </div>
 
+
                             <div class="container-fluid">
                                 <div class="layout-spacing">
                                     
@@ -1497,6 +1501,7 @@ int dlog(int b, int a, int m) {
 
 
     <script type="text/javascript" src="http://localhost:1313/Biblioteca/docs/js/bundle.js" defer></script>
+
         
 
         

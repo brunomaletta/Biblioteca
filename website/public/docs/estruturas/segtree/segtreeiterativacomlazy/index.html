@@ -60,6 +60,8 @@ Link original: segTreeIterativaComLazy.cpp
 Código link namespace seg { ll seg[2*MAX], lazy[2*MAX]; int n; ll junta(ll a, ll b) { return a&#43;b; } // soma x na posicao p de tamanho tam void poe(int p, ll x, int tam, bool prop=1) { seg[p] &#43;= x*tam; if (prop and p &lt; n) lazy[p] &#43;= x; } // atualiza todos os pais da folha p void sobe(int p) { for (int tam = 2; p /= 2; tam *= 2) { seg[p] = junta(seg[2*p], seg[2*p&#43;1]); poe(p, lazy[p], tam, 0); } } // propaga o caminho da raiz ate a folha p void prop(int p) { int tam = 1 &lt;&lt; (LOG-1); for (int s = LOG; s; s--, tam /= 2) { int i = p &gt;&gt; s; if (lazy[i]) { poe(2*i, lazy[i], tam); poe(2*i&#43;1, lazy[i], tam); lazy[i] = 0; } } } void build(int n2, int* v) { n = n2; for (int i = 0; i &lt; n; i&#43;&#43;) seg[n&#43;i] = v[i]; for (int i = n-1; i; i--) seg[i] = junta(seg[2*i], seg[2*i&#43;1]); for (int i = 0; i &lt; 2*n; i&#43;&#43;) lazy[i] = 0; } ll query(int a, int b) { ll ret = 0; for (prop(a&#43;=n), prop(b&#43;=n); a &lt;= b; &#43;&#43;a/=2, --b/=2) { if (a%2 == 1) ret = junta(ret, seg[a]); if (b%2 == 0) ret = junta(ret, seg[b]); } return ret; } void update(int a, int b, int x) { int a2 = a &#43;= n, b2 = b &#43;= n, tam = 1; for (; a &lt;= b; &#43;&#43;a/=2, --b/=2, tam *= 2) { if (a%2 == 1) poe(a, x, tam); if (b%2 == 0) poe(b, x, tam); } sobe(a2), sobe(b2); } }; "/>
 
     
+        <link rel="alternate" type="application/atom+xml" title="Atom feed for Biblioteca Maratona UFMG" href="/index.xml" />
+    
     <script>(()=>{var t=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches,e=localStorage.getItem("theme");t&&e===null&&(localStorage.setItem("theme","dark"),document.documentElement.setAttribute("data-dark-mode","")),t&&e==="dark"&&document.documentElement.setAttribute("data-dark-mode",""),e==="dark"&&document.documentElement.setAttribute("data-dark-mode","")})()</script>
     
     
@@ -89,7 +91,8 @@ Código link namespace seg { ll seg[2*MAX], lazy[2*MAX]; int n; ll junta(ll a, l
     <link rel="stylesheet" href="/Biblioteca/docs/scss/style.css" crossorigin="anonymous">
     
     
-    </head><body>
+    </head>
+<body>
         <div class="content">
             <div class="page-wrapper toggled">
 <nav id="sidebar" class="sidebar-wrapper">
@@ -1282,6 +1285,7 @@ Código link namespace seg { ll seg[2*MAX], lazy[2*MAX]; int n; ll junta(ll a, l
     
 </div>
 
+
                             <div class="container-fluid">
                                 <div class="layout-spacing">
                                     
@@ -1542,6 +1546,7 @@ Código link namespace seg { ll seg[2*MAX], lazy[2*MAX]; int n; ll junta(ll a, l
 
 
     <script type="text/javascript" src="http://localhost:1313/Biblioteca/docs/js/bundle.js" defer></script>
+
         
 
         

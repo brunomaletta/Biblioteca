@@ -50,6 +50,8 @@ Link original: distinctUpdate.cpp
 Código link #include &lt;ext/pb_ds/assoc_container.hpp&gt; #include &lt;ext/pb_ds/tree_policy.hpp&gt; using namespace __gnu_pbds; template &lt;class T&gt; using ord_set = tree&lt;T, null_type, less&lt;T&gt;, rb_tree_tag, tree_order_statistics_node_update&gt;; int v[MAX], n, nxt[MAX], prv[MAX]; map&lt;int, set&lt;int&gt; &gt; ocor; namespace bit { ord_set&lt;pair&lt;int, int&gt;&gt; bit[MAX]; void build() { for (int i = 1; i &lt;= n; i&#43;&#43;) bit[i].insert({nxt[i-1], i-1}); for (int i = 1; i &lt;= n; i&#43;&#43;) { int j = i &#43; (i&amp;-i); if (j &lt;= n) for (auto x : bit[i]) bit[j]."/>
 
     
+        <link rel="alternate" type="application/atom+xml" title="Atom feed for Biblioteca Maratona UFMG" href="/index.xml" />
+    
     <script>(()=>{var t=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches,e=localStorage.getItem("theme");t&&e===null&&(localStorage.setItem("theme","dark"),document.documentElement.setAttribute("data-dark-mode","")),t&&e==="dark"&&document.documentElement.setAttribute("data-dark-mode",""),e==="dark"&&document.documentElement.setAttribute("data-dark-mode","")})()</script>
     
     
@@ -79,7 +81,8 @@ Código link #include &lt;ext/pb_ds/assoc_container.hpp&gt; #include &lt;ext/pb_
     <link rel="stylesheet" href="/Biblioteca/docs/scss/style.css" crossorigin="anonymous">
     
     
-    </head><body>
+    </head>
+<body>
         <div class="content">
             <div class="page-wrapper toggled">
 <nav id="sidebar" class="sidebar-wrapper">
@@ -1272,6 +1275,7 @@ Código link #include &lt;ext/pb_ds/assoc_container.hpp&gt; #include &lt;ext/pb_
     
 </div>
 
+
                             <div class="container-fluid">
                                 <div class="layout-spacing">
                                     
@@ -1547,6 +1551,7 @@ void update(int p, int x) { // mudar valor na pos. p para x
 
 
     <script type="text/javascript" src="http://localhost:1313/Biblioteca/docs/js/bundle.js" defer></script>
+
         
 
         

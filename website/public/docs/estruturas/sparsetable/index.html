@@ -54,6 +54,8 @@ Link original: sparseTable.cpp
 Código link namespace sparse { int m[MAX2][MAX], n; void build(int n2, int* v) { n = n2; for (int i = 0; i &lt; n; i&#43;&#43;) m[0][i] = v[i]; for (int j = 1; (1&lt;&lt;j) &lt;= n; j&#43;&#43;) for (int i = 0; i&#43;(1&lt;&lt;j) &lt;= n; i&#43;&#43;) m[j][i] = min(m[j-1][i], m[j-1][i&#43;(1&lt;&lt;(j-1))]); } int query(int a, int b) { int j = __builtin_clz(1) - __builtin_clz(b-a&#43;1); return min(m[j][a], m[j][b-(1&lt;&lt;j)&#43;1]); } } "/>
 
     
+        <link rel="alternate" type="application/atom+xml" title="Atom feed for Biblioteca Maratona UFMG" href="/index.xml" />
+    
     <script>(()=>{var t=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches,e=localStorage.getItem("theme");t&&e===null&&(localStorage.setItem("theme","dark"),document.documentElement.setAttribute("data-dark-mode","")),t&&e==="dark"&&document.documentElement.setAttribute("data-dark-mode",""),e==="dark"&&document.documentElement.setAttribute("data-dark-mode","")})()</script>
     
     
@@ -83,7 +85,8 @@ Código link namespace sparse { int m[MAX2][MAX], n; void build(int n2, int* v) 
     <link rel="stylesheet" href="/Biblioteca/docs/scss/style.css" crossorigin="anonymous">
     
     
-    </head><body>
+    </head>
+<body>
         <div class="content">
             <div class="page-wrapper toggled">
 <nav id="sidebar" class="sidebar-wrapper">
@@ -1276,6 +1279,7 @@ Código link namespace sparse { int m[MAX2][MAX], n; void build(int n2, int* v) 
     
 </div>
 
+
                             <div class="container-fluid">
                                 <div class="layout-spacing">
                                     
@@ -1478,6 +1482,7 @@ Código link namespace sparse { int m[MAX2][MAX], n; void build(int n2, int* v) 
 
 
     <script type="text/javascript" src="http://localhost:1313/Biblioteca/docs/js/bundle.js" defer></script>
+
         
 
         

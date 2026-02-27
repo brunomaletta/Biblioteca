@@ -52,6 +52,8 @@ Link original: fwht.cpp
 Código link template&lt;char op, class T&gt; vector&lt;T&gt; FWHT(vector&lt;T&gt; f, bool inv = false) { int n = f.size(); for (int k = 0; (n-1)&gt;&gt;k; k&#43;&#43;) for (int i = 0; i &lt; n; i&#43;&#43;) if (i&gt;&gt;k&amp;1) { int j = i^(1&lt;&lt;k); if (op == &#39;^&#39;) f[j] &#43;= f[i], f[i] = f[j] - 2*f[i]; if (op == &#39;|&#39;) f[i] &#43;= (inv ?"/>
 
     
+        <link rel="alternate" type="application/atom+xml" title="Atom feed for Biblioteca Maratona UFMG" href="/index.xml" />
+    
     <script>(()=>{var t=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches,e=localStorage.getItem("theme");t&&e===null&&(localStorage.setItem("theme","dark"),document.documentElement.setAttribute("data-dark-mode","")),t&&e==="dark"&&document.documentElement.setAttribute("data-dark-mode",""),e==="dark"&&document.documentElement.setAttribute("data-dark-mode","")})()</script>
     
     
@@ -81,7 +83,8 @@ Código link template&lt;char op, class T&gt; vector&lt;T&gt; FWHT(vector&lt;T&g
     <link rel="stylesheet" href="/Biblioteca/docs/scss/style.css" crossorigin="anonymous">
     
     
-    </head><body>
+    </head>
+<body>
         <div class="content">
             <div class="page-wrapper toggled">
 <nav id="sidebar" class="sidebar-wrapper">
@@ -1274,6 +1277,7 @@ Código link template&lt;char op, class T&gt; vector&lt;T&gt; FWHT(vector&lt;T&g
     
 </div>
 
+
                             <div class="container-fluid">
                                 <div class="layout-spacing">
                                     
@@ -1530,6 +1534,7 @@ vector&lt;T&gt; FWHT(vector&lt;T&gt; f, int b, T g, bool inv = false) {
 
 
     <script type="text/javascript" src="http://localhost:1313/Biblioteca/docs/js/bundle.js" defer></script>
+
         
 
         

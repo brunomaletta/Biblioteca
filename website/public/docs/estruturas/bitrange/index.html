@@ -58,6 +58,8 @@ Link original: bitRange.cpp
 Código link namespace bit { ll bit[2][MAX&#43;2]; int n; void build(int n2, int* v) { n = n2; for (int i = 1; i &lt;= n; i&#43;&#43;) bit[1][min(n&#43;1, i&#43;(i&amp;-i))] &#43;= bit[1][i] &#43;= v[i-1]; } ll get(int x, int i) { ll ret = 0; for (; i; i -= i&amp;-i) ret &#43;= bit[x][i]; return ret; } void add(int x, int i, ll val) { for (; i &lt;= n; i &#43;= i&amp;-i) bit[x][i] &#43;= val; } ll get2(int p) { return get(0, p) * p &#43; get(1, p); } ll query(int l, int r) { return get2(r&#43;1) - get2(l); } void update(int l, int r, ll x) { add(0, l&#43;1, x), add(0, r&#43;2, -x); add(1, l&#43;1, -x*l), add(1, r&#43;2, x*(r&#43;1)); } }; "/>
 
     
+        <link rel="alternate" type="application/atom+xml" title="Atom feed for Biblioteca Maratona UFMG" href="/index.xml" />
+    
     <script>(()=>{var t=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches,e=localStorage.getItem("theme");t&&e===null&&(localStorage.setItem("theme","dark"),document.documentElement.setAttribute("data-dark-mode","")),t&&e==="dark"&&document.documentElement.setAttribute("data-dark-mode",""),e==="dark"&&document.documentElement.setAttribute("data-dark-mode","")})()</script>
     
     
@@ -87,7 +89,8 @@ Código link namespace bit { ll bit[2][MAX&#43;2]; int n; void build(int n2, int
     <link rel="stylesheet" href="/Biblioteca/docs/scss/style.css" crossorigin="anonymous">
     
     
-    </head><body>
+    </head>
+<body>
         <div class="content">
             <div class="page-wrapper toggled">
 <nav id="sidebar" class="sidebar-wrapper">
@@ -1280,6 +1283,7 @@ Código link namespace bit { ll bit[2][MAX&#43;2]; int n; void build(int n2, int
     
 </div>
 
+
                             <div class="container-fluid">
                                 <div class="layout-spacing">
                                     
@@ -1499,6 +1503,7 @@ Código link namespace bit { ll bit[2][MAX&#43;2]; int n; void build(int n2, int
 
 
     <script type="text/javascript" src="http://localhost:1313/Biblioteca/docs/js/bundle.js" defer></script>
+
         
 
         

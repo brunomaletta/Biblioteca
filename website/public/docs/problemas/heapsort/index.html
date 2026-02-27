@@ -46,6 +46,8 @@ Link original: heapSort.cpp
 Código link void down(vector&lt;int&gt;&amp; v, int n, int i) { while ((i = 2*i&#43;1) &lt; n) { if (i&#43;1 &lt; n and v[i] &lt; v[i&#43;1]) i&#43;&#43;; if (v[i] &lt; v[(i-1)/2]) break; swap(v[i], v[(i-1)/2]); } } void heap_sort(vector&lt;int&gt;&amp; v) { int n = v.size(); for (int i = n/2-1; i &gt;= 0; i--) down(v, n, i); for (int i = n-1; i &gt; 0; i--) swap(v[0], v[i]), down(v, i, 0); } "/>
 
     
+        <link rel="alternate" type="application/atom+xml" title="Atom feed for Biblioteca Maratona UFMG" href="/index.xml" />
+    
     <script>(()=>{var t=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches,e=localStorage.getItem("theme");t&&e===null&&(localStorage.setItem("theme","dark"),document.documentElement.setAttribute("data-dark-mode","")),t&&e==="dark"&&document.documentElement.setAttribute("data-dark-mode",""),e==="dark"&&document.documentElement.setAttribute("data-dark-mode","")})()</script>
     
     
@@ -75,7 +77,8 @@ Código link void down(vector&lt;int&gt;&amp; v, int n, int i) { while ((i = 2*i
     <link rel="stylesheet" href="/Biblioteca/docs/scss/style.css" crossorigin="anonymous">
     
     
-    </head><body>
+    </head>
+<body>
         <div class="content">
             <div class="page-wrapper toggled">
 <nav id="sidebar" class="sidebar-wrapper">
@@ -1268,6 +1271,7 @@ Código link void down(vector&lt;int&gt;&amp; v, int n, int i) { while ((i = 2*i
     
 </div>
 
+
                             <div class="container-fluid">
                                 <div class="layout-spacing">
                                     
@@ -1466,6 +1470,7 @@ void heap_sort(vector&lt;int&gt;&amp; v) {
 
 
     <script type="text/javascript" src="http://localhost:1313/Biblioteca/docs/js/bundle.js" defer></script>
+
         
 
         

@@ -52,6 +52,8 @@ Link original: blossom.cpp
 Código link vector&lt;int&gt; g[MAX]; int match[MAX]; // match[i] = com quem i esta matchzado ou -1 int n, pai[MAX], base[MAX], vis[MAX]; queue&lt;int&gt; q; void contract(int u, int v, bool first = 1) { static vector&lt;bool&gt; bloss; static int l; if (first) { bloss = vector&lt;bool&gt;(n, 0); vector&lt;bool&gt; teve(n, 0); int k = u; l = v; while (1) { teve[k = base[k]] = 1; if (match[k] == -1) break; k = pai[match[k]]; } while (!"/>
 
     
+        <link rel="alternate" type="application/atom+xml" title="Atom feed for Biblioteca Maratona UFMG" href="/index.xml" />
+    
     <script>(()=>{var t=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches,e=localStorage.getItem("theme");t&&e===null&&(localStorage.setItem("theme","dark"),document.documentElement.setAttribute("data-dark-mode","")),t&&e==="dark"&&document.documentElement.setAttribute("data-dark-mode",""),e==="dark"&&document.documentElement.setAttribute("data-dark-mode","")})()</script>
     
     
@@ -81,7 +83,8 @@ Código link vector&lt;int&gt; g[MAX]; int match[MAX]; // match[i] = com quem i 
     <link rel="stylesheet" href="/Biblioteca/docs/scss/style.css" crossorigin="anonymous">
     
     
-    </head><body>
+    </head>
+<body>
         <div class="content">
             <div class="page-wrapper toggled">
 <nav id="sidebar" class="sidebar-wrapper">
@@ -1274,6 +1277,7 @@ Código link vector&lt;int&gt; g[MAX]; int match[MAX]; // match[i] = com quem i 
     
 </div>
 
+
                             <div class="container-fluid">
                                 <div class="layout-spacing">
                                     
@@ -1539,6 +1543,7 @@ int blossom() {
 
 
     <script type="text/javascript" src="http://localhost:1313/Biblioteca/docs/js/bundle.js" defer></script>
+
         
 
         

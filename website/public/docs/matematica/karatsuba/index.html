@@ -54,6 +54,8 @@ Link original: karatsuba.cpp
 Código link template&lt;typename T&gt; void kar(T* a, T* b, int n, T* r, T* tmp) { if (n &lt;= 64) { for (int i = 0; i &lt; n; i&#43;&#43;) for (int j = 0; j &lt; n; j&#43;&#43;) r[i&#43;j] &#43;= a[i] * b[j]; return; } int mid = n/2; T *atmp = tmp, *btmp = tmp&#43;mid, *E = tmp&#43;n; memset(E, 0, sizeof(E[0])*n); for (int i = 0; i &lt; mid; i&#43;&#43;) { atmp[i] = a[i] &#43; a[i&#43;mid]; btmp[i] = b[i] &#43; b[i&#43;mid]; } kar(atmp, btmp, mid, E, tmp&#43;2*n); kar(a, b, mid, r, tmp&#43;2*n); kar(a&#43;mid, b&#43;mid, mid, r&#43;n, tmp&#43;2*n); for (int i = 0; i &lt; mid; i&#43;&#43;) { T temp = r[i&#43;mid]; r[i&#43;mid] &#43;= E[i] - r[i] - r[i&#43;2*mid]; r[i&#43;2*mid] &#43;= E[i&#43;mid] - temp - r[i&#43;3*mid]; } } template&lt;typename T&gt; vector&lt;T&gt; karatsuba(vector&lt;T&gt; a, vector&lt;T&gt; b) { int n = max(a."/>
 
     
+        <link rel="alternate" type="application/atom+xml" title="Atom feed for Biblioteca Maratona UFMG" href="/index.xml" />
+    
     <script>(()=>{var t=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches,e=localStorage.getItem("theme");t&&e===null&&(localStorage.setItem("theme","dark"),document.documentElement.setAttribute("data-dark-mode","")),t&&e==="dark"&&document.documentElement.setAttribute("data-dark-mode",""),e==="dark"&&document.documentElement.setAttribute("data-dark-mode","")})()</script>
     
     
@@ -83,7 +85,8 @@ Código link template&lt;typename T&gt; void kar(T* a, T* b, int n, T* r, T* tmp
     <link rel="stylesheet" href="/Biblioteca/docs/scss/style.css" crossorigin="anonymous">
     
     
-    </head><body>
+    </head>
+<body>
         <div class="content">
             <div class="page-wrapper toggled">
 <nav id="sidebar" class="sidebar-wrapper">
@@ -1276,6 +1279,7 @@ Código link template&lt;typename T&gt; void kar(T* a, T* b, int n, T* r, T* tmp
     
 </div>
 
+
                             <div class="container-fluid">
                                 <div class="layout-spacing">
                                     
@@ -1496,6 +1500,7 @@ template&lt;typename T&gt; vector&lt;T&gt; karatsuba(vector&lt;T&gt; a, vector&l
 
 
     <script type="text/javascript" src="http://localhost:1313/Biblioteca/docs/js/bundle.js" defer></script>
+
         
 
         

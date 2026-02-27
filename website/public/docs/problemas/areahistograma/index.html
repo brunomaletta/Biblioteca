@@ -50,6 +50,8 @@ Link original: areaHistograma.cpp
 Código link ll area(vector&lt;int&gt; v) { ll ret = 0; stack&lt;int&gt; s; // valores iniciais pra dar tudo certo v.insert(v.begin(), -1); v.insert(v.end(), -1); s.push(0); for(int i = 0; i &lt; (int) v.size(); i&#43;&#43;) { while (v[s.top()] &gt; v[i]) { ll h = v[s.top()]; s.pop(); ret = max(ret, h * (i - s."/>
 
     
+        <link rel="alternate" type="application/atom+xml" title="Atom feed for Biblioteca Maratona UFMG" href="/index.xml" />
+    
     <script>(()=>{var t=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches,e=localStorage.getItem("theme");t&&e===null&&(localStorage.setItem("theme","dark"),document.documentElement.setAttribute("data-dark-mode","")),t&&e==="dark"&&document.documentElement.setAttribute("data-dark-mode",""),e==="dark"&&document.documentElement.setAttribute("data-dark-mode","")})()</script>
     
     
@@ -79,7 +81,8 @@ Código link ll area(vector&lt;int&gt; v) { ll ret = 0; stack&lt;int&gt; s; // v
     <link rel="stylesheet" href="/Biblioteca/docs/scss/style.css" crossorigin="anonymous">
     
     
-    </head><body>
+    </head>
+<body>
         <div class="content">
             <div class="page-wrapper toggled">
 <nav id="sidebar" class="sidebar-wrapper">
@@ -1272,6 +1275,7 @@ Código link ll area(vector&lt;int&gt; v) { ll ret = 0; stack&lt;int&gt; s; // v
     
 </div>
 
+
                             <div class="container-fluid">
                                 <div class="layout-spacing">
                                     
@@ -1477,6 +1481,7 @@ Código link ll area(vector&lt;int&gt; v) { ll ret = 0; stack&lt;int&gt; s; // v
 
 
     <script type="text/javascript" src="http://localhost:1313/Biblioteca/docs/js/bundle.js" defer></script>
+
         
 
         

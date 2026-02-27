@@ -50,6 +50,8 @@ Link original: intervalGraphIndSet.cpp
 Código link vector&lt;int&gt; ind_set(vector&lt;tuple&lt;int, int, int&gt;&gt;&amp; v) { vector&lt;tuple&lt;int, int, int&gt;&gt; w; for (int i = 0; i &lt; v.size(); i&#43;&#43;) { w.push_back(tuple(get&lt;0&gt;(v[i]), 0, i)); w.push_back(tuple(get&lt;1&gt;(v[i]), 1, i)); } sort(w.begin(), w.end()); vector&lt;int&gt; nxt(v.size()); vector&lt;pair&lt;ll, int&gt;&gt; dp(v.size()); int last = -1; for (auto [fim, t, i] : w) { if (t == 0) { nxt[i] = last; continue; } dp[i] = {0, 0}; if (last !"/>
 
     
+        <link rel="alternate" type="application/atom+xml" title="Atom feed for Biblioteca Maratona UFMG" href="/index.xml" />
+    
     <script>(()=>{var t=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches,e=localStorage.getItem("theme");t&&e===null&&(localStorage.setItem("theme","dark"),document.documentElement.setAttribute("data-dark-mode","")),t&&e==="dark"&&document.documentElement.setAttribute("data-dark-mode",""),e==="dark"&&document.documentElement.setAttribute("data-dark-mode","")})()</script>
     
     
@@ -79,7 +81,8 @@ Código link vector&lt;int&gt; ind_set(vector&lt;tuple&lt;int, int, int&gt;&gt;&
     <link rel="stylesheet" href="/Biblioteca/docs/scss/style.css" crossorigin="anonymous">
     
     
-    </head><body>
+    </head>
+<body>
         <div class="content">
             <div class="page-wrapper toggled">
 <nav id="sidebar" class="sidebar-wrapper">
@@ -1272,6 +1275,7 @@ Código link vector&lt;int&gt; ind_set(vector&lt;tuple&lt;int, int, int&gt;&gt;&
     
 </div>
 
+
                             <div class="container-fluid">
                                 <div class="layout-spacing">
                                     
@@ -1495,6 +1499,7 @@ Código link vector&lt;int&gt; ind_set(vector&lt;tuple&lt;int, int, int&gt;&gt;&
 
 
     <script type="text/javascript" src="http://localhost:1313/Biblioteca/docs/js/bundle.js" defer></script>
+
         
 
         

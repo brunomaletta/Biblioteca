@@ -48,6 +48,8 @@ Link original: halfPlaneIntersection.cpp
 Código link vector&lt;pt&gt; hp_intersection(vector&lt;line&gt; &amp;v) { deque&lt;pt&gt; dq = {{INF, INF}, {-INF, INF}, {-INF, -INF}, {INF, -INF}}; #warning considerar trocar por compare_angle sort(v.begin(), v.end(), [&amp;](line r, line s) { return angle(r.q-r.p) &lt; angle(s.q-s.p); }); for(int i = 0; i &lt; v.size() and dq.size() &gt; 1; i&#43;&#43;) { pt p1 = dq."/>
 
     
+        <link rel="alternate" type="application/atom+xml" title="Atom feed for Biblioteca Maratona UFMG" href="/index.xml" />
+    
     <script>(()=>{var t=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches,e=localStorage.getItem("theme");t&&e===null&&(localStorage.setItem("theme","dark"),document.documentElement.setAttribute("data-dark-mode","")),t&&e==="dark"&&document.documentElement.setAttribute("data-dark-mode",""),e==="dark"&&document.documentElement.setAttribute("data-dark-mode","")})()</script>
     
     
@@ -77,7 +79,8 @@ Código link vector&lt;pt&gt; hp_intersection(vector&lt;line&gt; &amp;v) { deque
     <link rel="stylesheet" href="/Biblioteca/docs/scss/style.css" crossorigin="anonymous">
     
     
-    </head><body>
+    </head>
+<body>
         <div class="content">
             <div class="page-wrapper toggled">
 <nav id="sidebar" class="sidebar-wrapper">
@@ -1270,6 +1273,7 @@ Código link vector&lt;pt&gt; hp_intersection(vector&lt;line&gt; &amp;v) { deque
     
 </div>
 
+
                             <div class="container-fluid">
                                 <div class="layout-spacing">
                                     
@@ -1478,6 +1482,7 @@ Código link vector&lt;pt&gt; hp_intersection(vector&lt;line&gt; &amp;v) { deque
 
 
     <script type="text/javascript" src="http://localhost:1313/Biblioteca/docs/js/bundle.js" defer></script>
+
         
 
         

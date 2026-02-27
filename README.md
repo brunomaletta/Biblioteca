@@ -28,104 +28,15 @@ Para ver o hash no vim, seleciona as linhas com `Shift+v`, e aperta `Ctrl+h`.
 ## 📚 Conteúdo
 
 ### 🧠 Programação Dinâmica
-- [Divide & Conquer DP](https://github.com/brunomaletta/Biblioteca/blob/master/Codigo/DP/dcDp.cpp)
-- [Longest Common Subsequence](https://github.com/brunomaletta/Biblioteca/blob/master/Codigo/DP/lcs.cpp)
-- [Knapsack](https://github.com/brunomaletta/Biblioteca/blob/master/Codigo/DP/mochila.cpp)
-- [SOS DP](https://github.com/brunomaletta/Biblioteca/blob/master/Codigo/DP/sosDP.cpp)
-- [Subset Sum](https://github.com/brunomaletta/Biblioteca/blob/master/Codigo/DP/subsetSum.cpp)
-
----
-
-### 🗂️ Estruturas de Dados
-- [Segment Tree](https://github.com/brunomaletta/Biblioteca/blob/master/Codigo/Estruturas/Segtree/segTree.cpp)
-- [Segment Tree 2D](https://github.com/brunomaletta/Biblioteca/blob/master/Codigo/Estruturas/Segtree/segTree2D.cpp)
-- [Segment Tree Beats](https://github.com/brunomaletta/Biblioteca/blob/master/Codigo/Estruturas/Segtree/segTreeBeats.cpp)
-- [Persistent Segment Tree](https://github.com/brunomaletta/Biblioteca/blob/master/Codigo/Estruturas/Segtree/segTreePersistent.cpp)
-- [Fenwick Tree (BIT)](https://github.com/brunomaletta/Biblioteca/blob/master/Codigo/Estruturas/bit.cpp)
-- [DSU](https://github.com/brunomaletta/Biblioteca/blob/master/Codigo/Estruturas/dsu.cpp)
-- [Treap](https://github.com/brunomaletta/Biblioteca/blob/master/Codigo/Estruturas/treap.cpp)
-- [Splay Tree](https://github.com/brunomaletta/Biblioteca/blob/master/Codigo/Estruturas/splaytree.cpp)
-- [Wavelet Tree](https://github.com/brunomaletta/Biblioteca/blob/master/Codigo/Estruturas/waveletTree.cpp)
-- [Li Chao Tree](https://github.com/brunomaletta/Biblioteca/blob/master/Codigo/Estruturas/lichao.cpp)
-- [Convex Hull Trick](https://github.com/brunomaletta/Biblioteca/blob/master/Codigo/Estruturas/cht.cpp)
-- [Sparse Table](https://github.com/brunomaletta/Biblioteca/blob/master/Codigo/Estruturas/sparseTable.cpp)
-- [Merge Sort Tree](https://github.com/brunomaletta/Biblioteca/blob/master/Codigo/Estruturas/mergeSortTree.cpp)
-
----
-
-### 🌳 Grafos
-- [LCA](https://github.com/brunomaletta/Biblioteca/blob/master/Codigo/Grafos/LCA-HLD/lca.cpp)
-- [Heavy Light Decomposition](https://github.com/brunomaletta/Biblioteca/blob/master/Codigo/Grafos/LCA-HLD/hldVertice.cpp)
-- [Dijkstra](https://github.com/brunomaletta/Biblioteca/blob/master/Codigo/Grafos/dijkstra.cpp)
-- [Bellman Ford](https://github.com/brunomaletta/Biblioteca/blob/master/Codigo/Grafos/bellmanFord.cpp)
-- [Floyd Warshall](https://github.com/brunomaletta/Biblioteca/blob/master/Codigo/Grafos/floydWarshall.cpp)
-- [Kosaraju SCC](https://github.com/brunomaletta/Biblioteca/blob/master/Codigo/Grafos/kosaraju.cpp)
-- [Tarjan SCC](https://github.com/brunomaletta/Biblioteca/blob/master/Codigo/Grafos/tarjan.cpp)
-- [Topological Sort](https://github.com/brunomaletta/Biblioteca/blob/master/Codigo/Grafos/topoSort.cpp)
-- [Minimum Spanning Tree (Kruskal)](https://github.com/brunomaletta/Biblioteca/blob/master/Codigo/Grafos/kruskal.cpp)
-- [Centroid Decomposition](https://github.com/brunomaletta/Biblioteca/blob/master/Codigo/Grafos/centroidDecomp.cpp)
-
----
-
-### 🌊 Fluxo & Matching
-- [Dinic](https://github.com/brunomaletta/Biblioteca/blob/master/Codigo/Grafos/dinitz.cpp)
-- [Min Cost Max Flow](https://github.com/brunomaletta/Biblioteca/blob/master/Codigo/Grafos/minCostMaxFlow.cpp)
-- [Hopcroft Karp](https://github.com/brunomaletta/Biblioteca/blob/master/Codigo/Grafos/hopcroftKarp.cpp)
-- [Kuhn Matching](https://github.com/brunomaletta/Biblioteca/blob/master/Codigo/Grafos/kuhn.cpp)
-- [Blossom](https://github.com/brunomaletta/Biblioteca/blob/master/Codigo/Grafos/blossom.cpp)
-- [Hungarian](https://github.com/brunomaletta/Biblioteca/blob/master/Codigo/Problemas/hungarian.cpp)
-
----
-
-### 🔢 Matemática & Polinômios
-- [FFT](https://github.com/brunomaletta/Biblioteca/blob/master/Codigo/Matematica/convolution.cpp)
-- [NTT](https://github.com/brunomaletta/Biblioteca/blob/master/Codigo/Matematica/ntt.cpp)
-- [FWHT](https://github.com/brunomaletta/Biblioteca/blob/master/Codigo/Matematica/fwht.cpp)
-- [CRT](https://github.com/brunomaletta/Biblioteca/blob/master/Codigo/Matematica/chinese.cpp)
-- [Fast Exponentiation](https://github.com/brunomaletta/Biblioteca/blob/master/Codigo/Matematica/fastPow.cpp)
-- [Gaussian Elimination](https://github.com/brunomaletta/Biblioteca/blob/master/Codigo/Matematica/gauss.cpp)
-- [Discrete Log](https://github.com/brunomaletta/Biblioteca/blob/master/Codigo/Matematica/logDiscreto.cpp)
-- [Miller Rabin](https://github.com/brunomaletta/Biblioteca/blob/master/Codigo/Matematica/millerRabin.cpp)
-- [Pollard Rho](https://github.com/brunomaletta/Biblioteca/blob/master/Codigo/Matematica/pollardrho.cpp)
-- [Linear Sieve](https://github.com/brunomaletta/Biblioteca/blob/master/Codigo/Matematica/crivo.cpp)
-
----
-
-### 📐 Geometria
-- [Convex Hull](https://github.com/brunomaletta/Biblioteca/blob/master/Codigo/Problemas/dynamicHull.cpp)
-- [Closest Pair of Points](https://github.com/brunomaletta/Biblioteca/blob/master/Codigo/Problemas/closestPairOfPoints.cpp)
-- [Half Plane Intersection](https://github.com/brunomaletta/Biblioteca/blob/master/Codigo/Problemas/halfPlaneIntersection.cpp)
-- [Minkowski Sum](https://github.com/brunomaletta/Biblioteca/blob/master/Codigo/Problemas/minkowski.cpp)
-- [Minimum Enclosing Circle](https://github.com/brunomaletta/Biblioteca/blob/master/Codigo/Problemas/minCirc.cpp)
-- [Segment Intersection](https://github.com/brunomaletta/Biblioteca/blob/master/Codigo/Problemas/segmentIntersection.cpp)
-
----
-
-### 🔤 Strings
-- [KMP](https://github.com/brunomaletta/Biblioteca/blob/master/Codigo/Strings/kmp.cpp)
-- [Z Algorithm](https://github.com/brunomaletta/Biblioteca/blob/master/Codigo/Strings/z.cpp)
-- [Aho-Corasick](https://github.com/brunomaletta/Biblioteca/blob/master/Codigo/Strings/ahocorasick.cpp)
-- [Trie](https://github.com/brunomaletta/Biblioteca/blob/master/Codigo/Strings/trie.cpp)
-- [Suffix Array](https://github.com/brunomaletta/Biblioteca/blob/master/Codigo/Strings/suffixArray.cpp)
-- [Suffix Automaton](https://github.com/brunomaletta/Biblioteca/blob/master/Codigo/Strings/suffixAutomaton.cpp)
-- [Manacher](https://github.com/brunomaletta/Biblioteca/blob/master/Codigo/Strings/manacher.cpp)
-- [String Hashing](https://github.com/brunomaletta/Biblioteca/blob/master/Codigo/Strings/hashing.cpp)
-
----
-
-<details>
-<summary>📜 Lista completa de arquivos</summary>
-
-### Programação Dinâmica
-
 - [Divide and Conquer DP](https://github.com/brunomaletta/Biblioteca/blob/master/Codigo/DP/dcDp.cpp)
 - [Longest Common Subsequence - O(n+m) de memória](https://github.com/brunomaletta/Biblioteca/blob/master/Codigo/DP/lcs.cpp)
 - [Mochila - O(n+cap) de memória](https://github.com/brunomaletta/Biblioteca/blob/master/Codigo/DP/mochila.cpp)
 - [SOS DP](https://github.com/brunomaletta/Biblioteca/blob/master/Codigo/DP/sosDP.cpp)
 - [Subset Sum](https://github.com/brunomaletta/Biblioteca/blob/master/Codigo/DP/subsetSum.cpp)
 
-### Estruturas de Dados
+---
 
+### 🗂️ Estruturas de Dados
 - Segment Tree
     - [Segtree Padrão (soma)](https://github.com/brunomaletta/Biblioteca/blob/master/Codigo/Estruturas/Segtree/segTree.cpp)
     - [Segtree 2D (iterativa)](https://github.com/brunomaletta/Biblioteca/blob/master/Codigo/Estruturas/Segtree/segTree2D.cpp)
@@ -168,8 +79,9 @@ Para ver o hash no vim, seleciona as linhas com `Shift+v`, e aperta `Ctrl+h`.
 - [Treap Implícita Persistente](https://github.com/brunomaletta/Biblioteca/blob/master/Codigo/Estruturas/treapPersistent.cpp)
 - [Wavelet Tree](https://github.com/brunomaletta/Biblioteca/blob/master/Codigo/Estruturas/waveletTree.cpp)
 
-### Grafos
+---
 
+### 🌳 Grafos
 - LCA/HLD
     - [LCA <O(n), O(1)>](https://github.com/brunomaletta/Biblioteca/blob/master/Codigo/Grafos/LCA-HLD/lca.cpp)
     - [LCA com Binary Lifting](https://github.com/brunomaletta/Biblioteca/blob/master/Codigo/Grafos/LCA-HLD/lcaComBinaryLifting.cpp)
@@ -216,8 +128,9 @@ Para ver o hash no vim, seleciona as linhas com `Shift+v`, e aperta `Ctrl+h`.
 - [Vertex Cover](https://github.com/brunomaletta/Biblioteca/blob/master/Codigo/Grafos/cover.cpp)
 - [Virtual Tree](https://github.com/brunomaletta/Biblioteca/blob/master/Codigo/Grafos/virtualTree.cpp)
 
-### Matemática
+---
 
+### 🔢 Matemática
 - [2-SAT (com recuperação)](https://github.com/brunomaletta/Biblioteca/blob/master/Codigo/Matematica/2sat.cpp)
 - [Algoritmo de Euclides Estendido](https://github.com/brunomaletta/Biblioteca/blob/master/Codigo/Matematica/gcdEstendido.cpp)
 - [Algoritmo Rho de Pollard (Pollard Rho)](https://github.com/brunomaletta/Biblioteca/blob/master/Codigo/Matematica/pollardrho.cpp)
@@ -248,8 +161,9 @@ Para ver o hash no vim, seleciona as linhas com `Shift+v`, e aperta `Ctrl+h`.
 - [Teorema Chines do Resto](https://github.com/brunomaletta/Biblioteca/blob/master/Codigo/Matematica/chinese.cpp)
 - [Totiente](https://github.com/brunomaletta/Biblioteca/blob/master/Codigo/Matematica/totiente.cpp)
 
-### Primitivas
+---
 
+### 🔧 Primitivas
 - [Aritmética Modular](https://github.com/brunomaletta/Biblioteca/blob/master/Codigo/Primitivas/modularArithmetic.cpp)
 - [Big Integer - C++](https://github.com/brunomaletta/Biblioteca/blob/master/Codigo/Primitivas/bigint.cpp)
 - [Fração](https://github.com/brunomaletta/Biblioteca/blob/master/Codigo/Primitivas/frac.cpp)
@@ -260,8 +174,9 @@ Para ver o hash no vim, seleciona as linhas com `Shift+v`, e aperta `Ctrl+h`.
 - [Primitivas Geométricas Inteiras](https://github.com/brunomaletta/Biblioteca/blob/master/Codigo/Primitivas/geometriaInt.cpp)
 - [Primitivas Geométricas 3D](https://github.com/brunomaletta/Biblioteca/blob/master/Codigo/Primitivas/geometria3d.cpp)
 
-### Strings
+---
 
+### 🔤 Strings
 - [Aho-corasick](https://github.com/brunomaletta/Biblioteca/blob/master/Codigo/Strings/ahocorasick.cpp)
 - [Algoritmo Z](https://github.com/brunomaletta/Biblioteca/blob/master/Codigo/Strings/z.cpp)
 - [Autômato de Sufixo](https://github.com/brunomaletta/Biblioteca/blob/master/Codigo/Strings/suffixAutomaton.cpp)
@@ -276,8 +191,9 @@ Para ver o hash no vim, seleciona as linhas com `Shift+v`, e aperta `Ctrl+h`.
 - [Suffix Array Dinâmico](https://github.com/brunomaletta/Biblioteca/blob/master/Codigo/Strings/dynamicSuffixArray.cpp)
 - [Trie](https://github.com/brunomaletta/Biblioteca/blob/master/Codigo/Strings/trie.cpp)
 
-### Problemas
+---
 
+### 📊 Problemas
 - [Algoritmo Húngaro (assignment)](https://github.com/brunomaletta/Biblioteca/blob/master/Codigo/Problemas/hungarian.cpp)
 - [Área da Uniao de Retangulos](https://github.com/brunomaletta/Biblioteca/blob/master/Codigo/Problemas/areaUniaoRetangulo.cpp)
 - [Area Máxima de Histograma](https://github.com/brunomaletta/Biblioteca/blob/master/Codigo/Problemas/areaHistograma.cpp)
@@ -317,8 +233,9 @@ Para ver o hash no vim, seleciona as linhas com `Shift+v`, e aperta `Ctrl+h`.
 - [Triângulos em Grafos](https://github.com/brunomaletta/Biblioteca/blob/master/Codigo/Problemas/graphTriangles.cpp)
 - [Verificação de Polígono Simples](https://github.com/brunomaletta/Biblioteca/blob/master/Codigo/Problemas/simplePolygon.cpp)
 
-### Extra
+---
 
+### 📦 Extra
 - [Debug](https://github.com/brunomaletta/Biblioteca/blob/master/Codigo/Extra/debug.cpp)
 - [fastIO](https://github.com/brunomaletta/Biblioteca/blob/master/Codigo/Extra/fastIO.cpp)
 - [Hash](https://github.com/brunomaletta/Biblioteca/blob/master/Codigo/Extra/hash.sh)
@@ -329,6 +246,4 @@ Para ver o hash no vim, seleciona as linhas com `Shift+v`, e aperta `Ctrl+h`.
 - [Template C++](https://github.com/brunomaletta/Biblioteca/blob/master/Codigo/Extra/template.cpp)
 - [Timer](https://github.com/brunomaletta/Biblioteca/blob/master/Codigo/Extra/timer.cpp)
 - [vimrc](https://github.com/brunomaletta/Biblioteca/blob/master/Codigo/Extra/vimrc)
-
-</details>
 

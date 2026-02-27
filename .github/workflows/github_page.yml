@@ -2,7 +2,7 @@ name: Deploy Hugo site to Pages
 
 on:
   push:
-    branches: [master]
+    branches: [ master ]
   workflow_dispatch:
 
 permissions:
@@ -29,23 +29,30 @@ jobs:
           submodules: recursive
           fetch-depth: 0
 
-      - name: Setup Hugo
-        uses: peaceiris/actions-hugo@v2
-        with:
-          hugo-version: '0.124.0'
-          extended: true
-
-      - name: Setup Go (for Hugo Modules)
+      # Hugo Modules require Go
+      - name: Setup Go
         uses: actions/setup-go@v5
         with:
           go-version: '1.22'
 
-      - name: Download modules
+      # Install real Hugo extended (with embedded Dart Sass)
+      - name: Install Hugo
+        run: |
+          HUGO_VERSION=0.124.1
+          wget https://github.com/gohugoio/hugo/releases/download/v${HUGO_VERSION}/hugo_extended_${HUGO_VERSION}_Linux-64bit.tar.gz
+          tar -xzf hugo_extended_${HUGO_VERSION}_Linux-64bit.tar.gz
+          sudo mv hugo /usr/local/bin/
+          hugo version
+
+      # Download theme modules
+      - name: Download Hugo modules
         run: hugo mod tidy
 
+      # Build site
       - name: Build
         run: hugo --gc --minify --baseURL "https://brunomaletta.github.io/Biblioteca/"
 
+      # Upload for Pages
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
@@ -56,6 +63,7 @@ jobs:
     runs-on: ubuntu-latest
     environment:
       name: github-pages
+
     steps:
       - id: deployment
         uses: actions/deploy-pages@v4

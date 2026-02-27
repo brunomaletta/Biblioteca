@@ -2,6 +2,21 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>http://localhost:1313/Biblioteca/docs/extra/rand/</loc>
+    <lastmod>2026-02-27T16:24:59-03:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/Biblioteca/docs/extra/timer/</loc>
+    <lastmod>2026-02-27T16:24:59-03:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/Biblioteca/docs/grafos/rootedett/</loc>
+    <lastmod>2026-02-27T16:07:11-03:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/Biblioteca/docs/grafos/toptree/</loc>
+    <lastmod>2026-02-27T16:07:11-03:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/Biblioteca/docs/grafos/unrootedett/</loc>
+    <lastmod>2026-02-27T16:07:11-03:00</lastmod>
+  </url><url>
     <loc>http://localhost:1313/Biblioteca/docs/matematica/2sat/</loc>
     <lastmod>2024-05-09T18:39:19-03:00</lastmod>
   </url><url>
@@ -564,7 +579,7 @@
     <lastmod>2024-05-07T00:34:57+01:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/Biblioteca/</loc>
-    <lastmod>2024-05-09T18:39:19-03:00</lastmod>
+    <lastmod>2026-02-27T16:24:59-03:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/Biblioteca/categories/</loc>
   </url><url>

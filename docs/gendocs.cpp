@@ -154,14 +154,14 @@ string get_name(string file) {
 	return line.substr(2);
 }
 
-void dfs(vector<pair<string, string>>& files, string s, bool extra = false) {
+void dfs(vector<pair<string, string>>& files, string s) {
 	struct dirent* entry = nullptr;
 	DIR* dp = nullptr;
 	dp = opendir(s.c_str());
 	if (dp != nullptr) while ((entry = readdir(dp))) {
 		if (entry->d_name[0] == '.') continue;	
 
-		if (entry->d_type == DT_DIR) dfs(files, s + "/" + string(entry->d_name), extra);
+		if (entry->d_type == DT_DIR) dfs(files, s + "/" + string(entry->d_name));
 		else {
 			files.emplace_back(entry->d_name, s + "/" + string(entry->d_name));
 		}
@@ -369,6 +369,40 @@ void create_directory(string path_docs) {
 	}
 }
 
+void print_all_files(vector<pair<string, string>> files, bool extra = false) {
+	// print all files
+	for (auto [f, f_path] : files) {
+		// const fs::path path = inputPath;
+		string title = extra ? f : get_name(f_path);
+		strip(title);
+		string path_docs = extra ? (f_path + ".md") : get_docs_path(f_path);
+		cout << CYAN << "\t" << title << RESET << endl;
+
+		create_directory(path_docs);
+
+
+
+		if (overwrite) {
+			create_code_file(path_docs, f_path, title);
+			cerr << "\t" << f_path << " -> " << path_docs << endl;
+			continue;
+		}
+
+		if (!fs::exists(fs::path(path_docs))) {
+			create_code_file(path_docs, f_path, title);
+			cerr << "\t" << f_path << " -> " << path_docs << endl;
+		}
+		else {
+			if (update) {
+				update_existing_file(path_docs, f_path, title);
+				cerr << "\t" << GREEN << "UPDATING: "<< RESET << f_path << " -> " << path_docs << endl;
+			}
+			else
+				cerr << "\tFile already exists" << path_docs << endl;
+		}
+	}
+}
+
 int main(int argc, char** argv) {
 	if (argc > 1) {
 		string arg1(argv[1]);
@@ -392,47 +426,11 @@ int main(int argc, char** argv) {
 		string dir(entry->d_name);
 		cout << RED << "=== " << dir << " ===" << RESET << endl;
 		create_section(dir);
-		if (dir == "Extra") continue;
 
 		vector<pair<string, string>> files;
 		dfs(files, PATH + dir);
-		
-		// print all files
-		for (auto [f, f_path] : files) {
-			// const fs::path path = inputPath;
-			string title = get_name(f_path);
-			strip(title);
-			string path_docs = get_docs_path(f_path);
-			cout << CYAN << "\t" << title << RESET << endl;
-			
-			create_directory(path_docs);
 
-
-
-			if (overwrite) {
-				create_code_file(path_docs, f_path, title);
-				cerr << "\t" << f_path << " -> " << path_docs << endl;
-				continue;
-			}
-			
-			if (!fs::exists(fs::path(path_docs))) {
-				create_code_file(path_docs, f_path, title);
-				cerr << "\t" << f_path << " -> " << path_docs << endl;
-			}
-			else {
-				if (update) {
-					update_existing_file(path_docs, f_path, title);
-					cerr << "\t" << GREEN << "UPDATING: "<< RESET << f_path << " -> " << path_docs << endl;
-				}
-				else
-					cerr << "\tFile already exists" << path_docs << endl;
-			}
-		}
+		print_all_files(files, dir == "Extra");
 	}
-
-	// printa_section("Extra");
-	// vector<pair<string, string>> files;
-	// dfs(files, path + "Extra", true);
-
 	return 0;
 }

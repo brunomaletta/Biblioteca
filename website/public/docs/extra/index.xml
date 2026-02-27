@@ -6,7 +6,21 @@
     <description>Recent content in Extra on Biblioteca Maratona UFMG</description>
     <generator>Hugo</generator>
     <language>pt</language>
-    <lastBuildDate></lastBuildDate>
+    <lastBuildDate>Fri, 27 Feb 2026 16:24:59 -0300</lastBuildDate>
     <atom:link href="http://localhost:1313/Biblioteca/docs/extra/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>19937 rng((int) chrono::steady_clock::now().time_since_epoch().count());</title>
+      <link>http://localhost:1313/Biblioteca/docs/extra/rand/</link>
+      <pubDate>Fri, 27 Feb 2026 16:24:59 -0300</pubDate>
+      <guid>http://localhost:1313/Biblioteca/docs/extra/rand/</guid>
+      <description>Sobre linkLink original: rand.cpp&#xA;Código link int uniform(int l, int r){ uniform_int_distribution&amp;lt;int&amp;gt; uid(l, r); return uid(rng); } </description>
+    </item>
+    <item>
+      <title>timer T; T() -&gt; retorna o tempo em ms desde que declarou</title>
+      <link>http://localhost:1313/Biblioteca/docs/extra/timer/</link>
+      <pubDate>Fri, 27 Feb 2026 16:24:59 -0300</pubDate>
+      <guid>http://localhost:1313/Biblioteca/docs/extra/timer/</guid>
+      <description>Sobre linkLink original: timer.cpp&#xA;Código link struct timer : high_resolution_clock { const time_point start; timer(): start(now()) {} int operator()() { return duration_cast&amp;lt;milliseconds&amp;gt;(now() - start).count(); } }; </description>
+    </item>
   </channel>
 </rss>

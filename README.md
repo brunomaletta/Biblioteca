@@ -4,6 +4,8 @@ Biblioteca de algoritmos, estruturas de dados e primitivas para Maratona de Prog
 
 Códigos em C++, em maior parte implementados pelos alunos da universidade.
 
+Versão em site [aqui](https://brunomaletta.github.io/Biblioteca/docs/).
+
 ### PDF
 
 Versão em PDF dos algoritmos pode ser encontrada [aqui](https://github.com/brunomaletta/Biblioteca/blob/master/pdf/biblioteca.pdf).

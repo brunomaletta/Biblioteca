@@ -6,8 +6,43 @@
     <description>Recent content on Biblioteca Maratona UFMG</description>
     <generator>Hugo</generator>
     <language>pt</language>
-    <lastBuildDate>Thu, 09 May 2024 18:39:19 -0300</lastBuildDate>
+    <lastBuildDate>Fri, 27 Feb 2026 16:24:59 -0300</lastBuildDate>
     <atom:link href="http://localhost:1313/Biblioteca/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>19937 rng((int) chrono::steady_clock::now().time_since_epoch().count());</title>
+      <link>http://localhost:1313/Biblioteca/docs/extra/rand/</link>
+      <pubDate>Fri, 27 Feb 2026 16:24:59 -0300</pubDate>
+      <guid>http://localhost:1313/Biblioteca/docs/extra/rand/</guid>
+      <description>Sobre linkLink original: rand.cpp&#xA;Código link int uniform(int l, int r){ uniform_int_distribution&amp;lt;int&amp;gt; uid(l, r); return uid(rng); } </description>
+    </item>
+    <item>
+      <title>timer T; T() -&gt; retorna o tempo em ms desde que declarou</title>
+      <link>http://localhost:1313/Biblioteca/docs/extra/timer/</link>
+      <pubDate>Fri, 27 Feb 2026 16:24:59 -0300</pubDate>
+      <guid>http://localhost:1313/Biblioteca/docs/extra/timer/</guid>
+      <description>Sobre linkLink original: timer.cpp&#xA;Código link struct timer : high_resolution_clock { const time_point start; timer(): start(now()) {} int operator()() { return duration_cast&amp;lt;milliseconds&amp;gt;(now() - start).count(); } }; </description>
+    </item>
+    <item>
+      <title>Rooted Euler Tour Tree</title>
+      <link>http://localhost:1313/Biblioteca/docs/grafos/rootedett/</link>
+      <pubDate>Fri, 27 Feb 2026 16:07:11 -0300</pubDate>
+      <guid>http://localhost:1313/Biblioteca/docs/grafos/rootedett/</guid>
+      <description>Sobre linkMantem uma floresta enraizada dinamicamente&#xA;e permite queries/updates em sub-arvore&#xA;Chamar ETT E(n, w), passando n = numero de vertices&#xA;e w = vector com os valores de cada vertice&#xA;link(v, u) cria uma aresta de v pra u, de forma que u se torna&#xA;o pai de v (eh preciso que v seja raiz anteriormente)&#xA;cut(v) corta a resta de v para o pai&#xA;get_root(v) retorna a raiz de v</description>
+    </item>
+    <item>
+      <title>Top Tree</title>
+      <link>http://localhost:1313/Biblioteca/docs/grafos/toptree/</link>
+      <pubDate>Fri, 27 Feb 2026 16:07:11 -0300</pubDate>
+      <guid>http://localhost:1313/Biblioteca/docs/grafos/toptree/</guid>
+      <description>Sobre linklct t(n, w) armazena uma floresta enraizada dinamica com &amp;rsquo;n&#39;&#xA;vertices indexados de 0 a n-1 com peso w[i] do tipo T.&#xA;Varias operacoes podem ser realizadas.&#xA;Complexidades:&#xA;Construcao - O(n) espaco e tempo&#xA;Todas as outras operacoes - O(log(n)) amortizado, \Theta(n) pior caso&#xA;O(n) memoria em qualquer momento&#xA;Consultas estruturais find_root(v): raiz do vertice v (seguindo arestas pai)&#xA;lca(v, u): ancestral comum mais baixo entre v e u, ou -1 se nao existir</description>
+    </item>
+    <item>
+      <title>Unrooted Euler Tour Tree</title>
+      <link>http://localhost:1313/Biblioteca/docs/grafos/unrootedett/</link>
+      <pubDate>Fri, 27 Feb 2026 16:07:11 -0300</pubDate>
+      <guid>http://localhost:1313/Biblioteca/docs/grafos/unrootedett/</guid>
+      <description>Sobre linkMantem uma floresta dinamicamente&#xA;e permite queries/updates em componentes&#xA;Chamar ETT E(n, w), passando n = numero de vertices&#xA;e w = vector com os valores de cada vertice&#xA;link(v, u) cria uma aresta entre v e u&#xA;cut(v, u) corta aresta entre v e u&#xA;get_root(v) retorna a raiz de v&#xA;branc_query(v, u) e branch_update(v, u) operam sobre o componente&#xA;conexo de v se arestas {v, u} fosse removida do grafo</description>
+    </item>
     <item>
       <title>2-SAT</title>
       <link>http://localhost:1313/Biblioteca/docs/matematica/2sat/</link>

@@ -18,8 +18,8 @@ string NO_HASH = "nohash";
 string NO_PRINT = "noprint";
 
 string PATH = "../Codigo/";
-string docs_path = "../content/docs/";
-string link = "https://github.com/brunomaletta/Biblioteca/tree/master/";
+string docs_path = "../website/content/docs/";
+string lib_link = "https://github.com/brunomaletta/Biblioteca/tree/master/";
 
 #ifdef __clang__
 string hash_cmd = "sed -n 1','10000' p' tmp.cpp | sed '/^#w/d' "
@@ -196,7 +196,7 @@ string get_docs_path(string code_path) {
 string get_original_link(string path_code) {
 	// Remove '../' from path_code
 	path_code.replace(path_code.find("../"), sizeof("../") - 1, "");
-	return link + path_code;
+	return lib_link + path_code;
 }
 
 pair<int, int> get_code_range(string path_docs) {

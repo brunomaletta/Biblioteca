@@ -29,13 +29,16 @@ jobs:
           submodules: recursive
           fetch-depth: 0
 
-      # Hugo Modules require Go
+      # NEW STEP
+      - name: Generate documentation
+        working-directory: website/docs
+        run: bash gendocs.sh
+
       - name: Setup Go
         uses: actions/setup-go@v5
         with:
           go-version: '1.22'
 
-      # Install real Hugo extended (with embedded Dart Sass)
       - name: Install Hugo
         run: |
           HUGO_VERSION=0.128.2
@@ -44,15 +47,12 @@ jobs:
           sudo mv hugo /usr/local/bin/
           hugo version
 
-      # Download theme modules
       - name: Download Hugo modules
         run: hugo mod tidy
 
-      # Build site
       - name: Build
         run: hugo --gc --minify --baseURL "https://brunomaletta.github.io/Biblioteca/"
 
-      # Upload for Pages
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
@@ -63,7 +63,6 @@ jobs:
     runs-on: ubuntu-latest
     environment:
       name: github-pages
-
     steps:
       - id: deployment
         uses: actions/deploy-pages@v4

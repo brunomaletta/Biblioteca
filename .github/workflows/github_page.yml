@@ -46,9 +46,9 @@ jobs:
             npm ci
           fi
 
-      - name: Download Hugo modules
+      - name: Get Hugo modules
         working-directory: website
-        run: hugo mod download
+        run: hugo mod get
 
       - name: Build site
         working-directory: website

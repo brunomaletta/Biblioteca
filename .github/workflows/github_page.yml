@@ -28,8 +28,7 @@ jobs:
           submodules: recursive
           fetch-depth: 0
 
-      # REQUIRED FOR HUGO MODULES
-      - name: Setup Go
+      - name: Setup Go (required for Hugo modules)
         uses: actions/setup-go@v5
         with:
           go-version: "1.22"
@@ -47,22 +46,16 @@ jobs:
             npm ci
           fi
 
-      - name: Initialize Hugo Modules
+      - name: Download Hugo modules
         working-directory: website
-        run: |
-          hugo mod tidy
-          hugo mod download
-
-      - name: Read baseURL from config
-        run: |
-          echo "HUGO_BASE_URL=$(grep -Po '(?<=^baseURL = ")[^"]*' website/hugo.toml)" >> $GITHUB_ENV
+        run: hugo mod download
 
       - name: Build site
+        working-directory: website
         env:
           HUGO_ENVIRONMENT: production
           HUGO_ENV: production
-          HUGO_BASE_URL: ${{ env.HUGO_BASE_URL }}
-        run: hugo --gc --minify --source website --baseURL "${{ env.HUGO_BASE_URL }}/"
+        run: hugo --gc --minify
 
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v3

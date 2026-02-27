@@ -28,13 +28,18 @@ jobs:
           submodules: recursive
           fetch-depth: 0
 
+      # REQUIRED FOR HUGO MODULES
+      - name: Setup Go
+        uses: actions/setup-go@v5
+        with:
+          go-version: "1.22"
+
       - name: Setup Hugo
         uses: peaceiris/actions-hugo@v2
         with:
           hugo-version: ${{ env.HUGO_VERSION }}
           extended: true
 
-      # Node deps (inside website)
       - name: Install Node.js dependencies
         working-directory: website
         run: |
@@ -42,17 +47,16 @@ jobs:
             npm ci
           fi
 
-      # Hugo modules MUST run inside site directory
-      - name: Get Hugo modules
+      - name: Initialize Hugo Modules
         working-directory: website
-        run: hugo mod get
+        run: |
+          hugo mod tidy
+          hugo mod download
 
-      # Read baseURL
       - name: Read baseURL from config
         run: |
           echo "HUGO_BASE_URL=$(grep -Po '(?<=^baseURL = ")[^"]*' website/hugo.toml)" >> $GITHUB_ENV
 
-      # Build (source flag here is correct)
       - name: Build site
         env:
           HUGO_ENVIRONMENT: production

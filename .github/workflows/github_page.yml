@@ -34,20 +34,25 @@ jobs:
           hugo-version: ${{ env.HUGO_VERSION }}
           extended: true
 
+      # Node deps (inside website)
       - name: Install Node.js dependencies
+        working-directory: website
         run: |
-          cd website
           if [ -f package-lock.json ] || [ -f npm-shrinkwrap.json ]; then
             npm ci
           fi
 
+      # Hugo modules MUST run inside site directory
       - name: Get Hugo modules
-        run: hugo mod get --source website
+        working-directory: website
+        run: hugo mod get
 
+      # Read baseURL
       - name: Read baseURL from config
         run: |
           echo "HUGO_BASE_URL=$(grep -Po '(?<=^baseURL = ")[^"]*' website/hugo.toml)" >> $GITHUB_ENV
 
+      # Build (source flag here is correct)
       - name: Build site
         env:
           HUGO_ENVIRONMENT: production

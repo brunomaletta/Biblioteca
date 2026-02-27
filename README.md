@@ -1,4 +1,11 @@
-# Biblioteca
+<h1 align="center">
+    Biblioteca UFMG
+    <br>
+    <a href="https://opensource.org/license/mit" target="_blank" rel="noopener noreferrer nofollow" style="display:inline-block"><img src="https://img.shields.io/badge/License-MIT-yellow.svg" alt="MIT License" style="max-width: 100%;"></a>
+    <a href="https://github.com/brunomaletta/Biblioteca/tree/master/Codigo" target="_blank" rel="noopener noreferrer nofollow" style="display:inline-block"><img src="https://img.shields.io/badge/C%2B%2B-17-blue" alt="C++17" style="max-width: 100%;"></a>
+    <a href="https://github.com/brunomaletta/Biblioteca/blob/master/pdf/biblioteca.pdf" target="_blank" rel="noopener noreferrer nofollow" style="display:inline-block"><img src="https://img.shields.io/badge/latex-green" alt="PDF" style="max-width: 100%;"></a>
+    <a href="https://github.com/brunomaletta/Biblioteca/stargazers"><img src="https://img.shields.io/github/stars/brunomaletta/Biblioteca?style=social" alt="GitHub stars"></a>
+</h1>
 
 Biblioteca de algoritmos, estruturas de dados e primitivas para Maratona de Programação da UFMG.
 

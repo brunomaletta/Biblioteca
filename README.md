@@ -7,67 +7,30 @@
     <a href="https://github.com/brunomaletta/Biblioteca/stargazers"><img src="https://img.shields.io/github/stars/brunomaletta/Biblioteca?style=social" alt="GitHub stars"></a>
 </h1>
 
+<p align="center">
+  <a href="https://brunomaletta.github.io/Biblioteca/docs/" target="_blank">
+    <img src="https://img.shields.io/badge/🌐_Online_Notebook-Open-2ea44f?style=for-the-badge">
+  </a>
+  <a href="https://github.com/brunomaletta/Biblioteca/blob/master/pdf/biblioteca.pdf" target="_blank">
+    <img src="https://img.shields.io/badge/📄_PDF_Notebook-Open-blue?style=for-the-badge">
+  </a>
+  <a href="https://github.com/brunomaletta/Biblioteca/blob/master/pdf/theoretical.pdf" target="_blank">
+    <img src="https://img.shields.io/badge/📚_Theoretical_Guide-Open-purple?style=for-the-badge">
+  </a>
+</p>
+
 Biblioteca de algoritmos, estruturas de dados e primitivas para Maratona de Programação da UFMG.
 
 Códigos em C++, em maior parte implementados pelos alunos da universidade.
 
-Versão em site [aqui](https://brunomaletta.github.io/Biblioteca/docs/).
-
-### PDF
-
-Versão em PDF dos algoritmos pode ser encontrada [aqui](https://github.com/brunomaletta/Biblioteca/blob/master/pdf/biblioteca.pdf).
-
-O *theoretical guide* (documento com teoremas, identidades e informações teóricas relevantes) pode ser encontrado [aqui](https://github.com/brunomaletta/Biblioteca/blob/master/pdf/theoretical.pdf).
-
-Link para o latex do theoretical: [link](https://github.com/brunomaletta/Biblioteca/blob/master/theoretical/theoretical.tex).
-
-#### Atualizar os PDFs
-
 <details>
-<summary>Detalhes</summary>
-
-Para atualizar os PDFs primeiro instale o latex executando
-```
-sudo apt install texlive-full
-```
-O pdf da biblioteca é gerado usando a ferramenta [rubber](https://gitlab.com/latex-rubber/rubber). Para baixá-la execute:
-
-```
-sudo apt install rubber
-```
-ou 
-```
-pip install latex-rubber
-```
-
-Por fim, execute
-
-```
-cd latex
-./getlatex.sh
-```
-
-##### Customização
-
-Caso queira customizar o nome do time, integrantes e universidade, basta definir as seguintes variáveis de ambiente:
-
-- `TEAMNAME`: nome do time (default: `Xerebêlerebébis`)
-- `MEMBERS`: lista de membros (default: `Emanuel Silva, Bruno Monteiro \\& Rafael Grandsire`)
-- `UNIVERSITY`: universidade (default: `UFMG`)
-
-Por exemplo, o comando abaixo compila os PDFs customizando as três variáveis para outros valores:
-
-```
-TEAMNAME="Amigos Pessoais" MEMBERS="Laila Melo, Luis Higino \\& Thiago Assis" UNIVERSITY="HGH" ./getlatex.sh 
-```
-
-</details>
-
-### Hash
+<summary>Hash</summary>
 
 No PDF, a coluna de hash é o hash de cada linha, exceto se a linha contem um caractere `}`. Nesse caso, o hash da linha é o hash a partir da linha que fecha o último `}` da linha atual.
 
 Para ver o hash no vim, seleciona as linhas com `Shift+v`, e aperta `Ctrl+h`.
+
+</details>
 
 ## Conteúdo
 

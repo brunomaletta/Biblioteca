@@ -24,6 +24,7 @@ jobs:
     runs-on: ubuntu-latest
     env:
       HUGO_VERSION: 0.124.0
+	  HUGO_WORKING_DIR: website
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>LCT on Biblioteca Maratona UFMG</title>
+    <link>http://localhost:1313/Biblioteca/docs/grafos/lct/</link>
+    <description>Recent content in LCT on Biblioteca Maratona UFMG</description>
+    <generator>Hugo</generator>
+    <language>pt</language>
+    <lastBuildDate>Thu, 09 May 2024 18:39:18 -0300</lastBuildDate>
+    <atom:link href="http://localhost:1313/Biblioteca/docs/grafos/lct/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Link-cut Tree</title>
+      <link>http://localhost:1313/Biblioteca/docs/grafos/lct/lct/</link>
+      <pubDate>Thu, 09 May 2024 18:39:18 -0300</pubDate>
+      <guid>http://localhost:1313/Biblioteca/docs/grafos/lct/lct/</guid>
+      <description>Sobre linkLink-cut tree padrao&#xA;Todas as operacoes sao O(log(n)) amortizado&#xA;Link original: lct.cpp&#xA;Código link namespace lct { struct node { int p, ch[2]; node() { p = ch[0] = ch[1] = -1; } }; node t[MAX]; bool is_root(int x) { return t[x].p == -1 or (t[t[x].p].ch[0] != x and t[t[x].p].ch[1] != x); } void rotate(int x) { int p = t[x].p, pp = t[p].p; if (!is_root(p)) t[pp].ch[t[pp].ch[1] == p] = x; bool d = t[p].</description>
+    </item>
+    <item>
+      <title>Link-cut Tree - aresta</title>
+      <link>http://localhost:1313/Biblioteca/docs/grafos/lct/lctaresta/</link>
+      <pubDate>Thu, 09 May 2024 18:39:18 -0300</pubDate>
+      <guid>http://localhost:1313/Biblioteca/docs/grafos/lct/lctaresta/</guid>
+      <description>Sobre linkValores nas arestas&#xA;rootify(v) torna v a raiz de sua arvore&#xA;query(v, w) retorna a soma do caminho v&amp;ndash;w&#xA;update(v, w, x) soma x nas arestas do caminho v&amp;ndash;w&#xA;Todas as operacoes sao O(log(n)) amortizado&#xA;Link original: lctAresta.cpp&#xA;Código link namespace lct { struct node { int p, ch[2]; ll val, sub; bool rev; int sz, ar; ll lazy; node() {} node(int v, int ar_) : p(-1), val(v), sub(v), rev(0), sz(ar_), ar(ar_), lazy(0) { ch[0] = ch[1] = -1; } }; node t[2*MAX]; // MAXN &amp;#43; MAXQ map&amp;lt;pair&amp;lt;int, int&amp;gt;, int&amp;gt; aresta; int sz; void prop(int x) { if (t[x].</description>
+    </item>
+    <item>
+      <title>Link-cut Tree - vertice</title>
+      <link>http://localhost:1313/Biblioteca/docs/grafos/lct/lctvertice/</link>
+      <pubDate>Thu, 09 May 2024 18:39:18 -0300</pubDate>
+      <guid>http://localhost:1313/Biblioteca/docs/grafos/lct/lctvertice/</guid>
+      <description>Sobre linkValores nos vertices&#xA;make_tree(v, w) cria uma nova arvore com um&#xA;vertice soh com valor &amp;lsquo;w&amp;rsquo;&#xA;rootify(v) torna v a raiz de sua arvore&#xA;query(v, w) retorna a soma do caminho v&amp;ndash;w&#xA;update(v, w, x) soma x nos vertices do caminho v&amp;ndash;w&#xA;Todas as operacoes sao O(log(n)) amortizado&#xA;Link original: lctVertice.cpp&#xA;Código link namespace lct { struct node { int p, ch[2]; ll val, sub; bool rev; int sz; ll lazy; node() {} node(int v) : p(-1), val(v), sub(v), rev(0), sz(1), lazy(0) { ch[0] = ch[1] = -1; } }; node t[MAX]; void prop(int x) { if (t[x].</description>
+    </item>
+  </channel>
+</rss>

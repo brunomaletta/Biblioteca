@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Segtree on Biblioteca Maratona UFMG</title>
+    <link>http://localhost:1313/Biblioteca/docs/estruturas/segtree/</link>
+    <description>Recent content in Segtree on Biblioteca Maratona UFMG</description>
+    <generator>Hugo</generator>
+    <language>pt</language>
+    <lastBuildDate>Thu, 09 May 2024 18:39:18 -0300</lastBuildDate>
+    <atom:link href="http://localhost:1313/Biblioteca/docs/estruturas/segtree/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>SegTreap</title>
+      <link>http://localhost:1313/Biblioteca/docs/estruturas/segtree/segtreap/</link>
+      <pubDate>Thu, 09 May 2024 18:39:18 -0300</pubDate>
+      <guid>http://localhost:1313/Biblioteca/docs/estruturas/segtree/segtreap/</guid>
+      <description>Sobre linkMuda uma posicao do plano, e faz query de operacao&#xA;associativa e comutativa em retangulo&#xA;Mudar ZERO e op&#xA;Esparso nas duas coordenadas, inicialmente eh tudo ZERO&#xA;Para query com distancia de manhattan &amp;lt;= d, faca&#xA;nx = x+y, ny = x-y&#xA;Update em (nx, ny), query em ((nx-d, ny-d), (nx+d, ny+d))&#xA;Valores no X tem que ser de 0 ateh NX&#xA;Para q operacoes, usa O(q log(NX)) de memoria, e as</description>
+    </item>
+    <item>
+      <title>SegTree</title>
+      <link>http://localhost:1313/Biblioteca/docs/estruturas/segtree/segtree/</link>
+      <pubDate>Thu, 09 May 2024 18:39:18 -0300</pubDate>
+      <guid>http://localhost:1313/Biblioteca/docs/estruturas/segtree/segtree/</guid>
+      <description>Sobre linkRecursiva com Lazy Propagation&#xA;Query: soma do range [a, b]&#xA;Update: soma x em cada elemento do range [a, b]&#xA;Pode usar a seguinte funcao para indexar os nohs:&#xA;f(l, r) = (l+r)|(l!=r), usando 2N de memoria&#xA;Complexidades:&#xA;build - O(n)&#xA;query - O(log(n))&#xA;update - O(log(n))&#xA;Link original: segTree.cpp&#xA;Código link namespace seg { ll seg[4*MAX], lazy[4*MAX]; int n, *v; ll build(int p=1, int l=0, int r=n-1) { lazy[p] = 0; if (l == r) return seg[p] = v[l]; int m = (l&amp;#43;r)/2; return seg[p] = build(2*p, l, m) &amp;#43; build(2*p&amp;#43;1, m&amp;#43;1, r); } void build(int n2, int* v2) { n = n2, v = v2; build(); } void prop(int p, int l, int r) { seg[p] &amp;#43;= lazy[p]*(r-l&amp;#43;1); if (l !</description>
+    </item>
+    <item>
+      <title>SegTree 2D Iterativa</title>
+      <link>http://localhost:1313/Biblioteca/docs/estruturas/segtree/segtree2d/</link>
+      <pubDate>Thu, 09 May 2024 18:39:18 -0300</pubDate>
+      <guid>http://localhost:1313/Biblioteca/docs/estruturas/segtree/segtree2d/</guid>
+      <description>Sobre linkConsultas 0-based&#xA;Um valor inicial em (x, y) deve ser colocado em seg[x+n][y+n]&#xA;Query: soma do retangulo ((x1, y1), (x2, y2))&#xA;Update: muda o valor da posicao (x, y) para val&#xA;Nao pergunte como que essa coisa funciona&#xA;Para query com distancia de manhattan &amp;lt;= d, faca&#xA;nx = x+y, ny = x-y&#xA;Update em (nx, ny), query em ((nx-d, ny-d), (nx+d, ny+d))&#xA;Se for de min/max, pode tirar os if&amp;rsquo;s da &amp;lsquo;query&amp;rsquo;, e fazer</description>
+    </item>
+    <item>
+      <title>SegTree Beats</title>
+      <link>http://localhost:1313/Biblioteca/docs/estruturas/segtree/segtreebeats/</link>
+      <pubDate>Thu, 09 May 2024 18:39:18 -0300</pubDate>
+      <guid>http://localhost:1313/Biblioteca/docs/estruturas/segtree/segtreebeats/</guid>
+      <description>Sobre linkquery(a, b) - {{min(v[a..b]), max(v[a..b])}, sum(v[a..b])}&#xA;updatemin(a, b, x) faz com que v[i] &amp;lt;- min(v[i], x),&#xA;para i em [a, b]&#xA;updatemax faz o mesmo com max, e updatesum soma x&#xA;em todo mundo do intervalo [a, b]&#xA;Complexidades:&#xA;build - O(n)&#xA;query - O(log(n))&#xA;update - O(log^2 (n)) amortizado&#xA;(se nao usar updatesum, fica log(n) amortizado)&#xA;Link original: segTreeBeats.cpp&#xA;Código link #define f first #define s second namespace beats { struct node { int tam; ll sum, lazy; // lazy pra soma ll mi1, mi2, mi; // mi = #mi1 ll ma1, ma2, ma; // ma = #ma1 node(ll x = 0) { sum = mi1 = ma1 = x; mi2 = LINF, ma2 = -LINF; mi = ma = tam = 1; lazy = 0; } node(const node&amp;amp; l, const node&amp;amp; r) { sum = l.</description>
+    </item>
+    <item>
+      <title>SegTree Colorida</title>
+      <link>http://localhost:1313/Biblioteca/docs/estruturas/segtree/segtreecolor/</link>
+      <pubDate>Thu, 09 May 2024 18:39:18 -0300</pubDate>
+      <guid>http://localhost:1313/Biblioteca/docs/estruturas/segtree/segtreecolor/</guid>
+      <description>Sobre linkCada posicao tem um valor e uma cor&#xA;O construtor receve um vector de {valor, cor}&#xA;e o numero de cores (as cores devem estar em [0, c-1])&#xA;query(c, a, b) retorna a soma dos valores&#xA;de todo mundo em [a, b] que tem cor c&#xA;update(c, a, b, x) soma x em todo mundo em&#xA;[a, b] que tem cor c&#xA;paint(c1, c2, a, b) faz com que todo mundo</description>
+    </item>
+    <item>
+      <title>SegTree Esparsa - Lazy</title>
+      <link>http://localhost:1313/Biblioteca/docs/estruturas/segtree/segtreeesparsa/</link>
+      <pubDate>Thu, 09 May 2024 18:39:18 -0300</pubDate>
+      <guid>http://localhost:1313/Biblioteca/docs/estruturas/segtree/segtreeesparsa/</guid>
+      <description>Sobre linkQuery: soma do range [a, b]&#xA;Update: flipa os valores de [a, b]&#xA;O MAX tem q ser Q log N para Q updates&#xA;Complexidades:&#xA;build - O(1)&#xA;query - O(log(n))&#xA;update - O(log(n))&#xA;Link original: segTreeEsparsa.cpp&#xA;Código link namespace seg { int seg[MAX], lazy[MAX], R[MAX], L[MAX], ptr; int get_l(int i){ if (L[i] == 0) L[i] = ptr&amp;#43;&amp;#43;; return L[i]; } int get_r(int i){ if (R[i] == 0) R[i] = ptr&amp;#43;&amp;#43;; return R[i]; } void build() { ptr = 2; } void prop(int p, int l, int r) { if (!</description>
+    </item>
+    <item>
+      <title>SegTree Esparsa - O(q) memoria</title>
+      <link>http://localhost:1313/Biblioteca/docs/estruturas/segtree/segtreeesparsa2/</link>
+      <pubDate>Thu, 09 May 2024 18:39:18 -0300</pubDate>
+      <guid>http://localhost:1313/Biblioteca/docs/estruturas/segtree/segtreeesparsa2/</guid>
+      <description>Sobre linkQuery: min do range [a, b]&#xA;Update: troca o valor de uma posicao&#xA;Usa O(q) de memoria para q updates&#xA;Complexidades:&#xA;query - O(log(n))&#xA;update - O(log(n))&#xA;Link original: segTreeEsparsa2.cpp&#xA;Código link template&amp;lt;typename T&amp;gt; struct seg { struct node { node* ch[2]; char d; T v; T mi; node(int d_, T v_, T val) : d(d_), v(v_) { ch[0] = ch[1] = NULL; mi = val; } node(node* x) : d(x-&amp;gt;d), v(x-&amp;gt;v), mi(x-&amp;gt;mi) { ch[0] = x-&amp;gt;ch[0], ch[1] = x-&amp;gt;ch[1]; } void update() { mi = numeric_limits&amp;lt;T&amp;gt;::max(); for (int i = 0; i &amp;lt; 2; i&amp;#43;&amp;#43;) if (ch[i]) mi = min(mi, ch[i]-&amp;gt;mi); } }; node* root; char n; seg() : root(NULL), n(0) {} ~seg() { std::vector&amp;lt;node*&amp;gt; q = {root}; while (q.</description>
+    </item>
+    <item>
+      <title>SegTree Iterativa</title>
+      <link>http://localhost:1313/Biblioteca/docs/estruturas/segtree/segtreeiterativa/</link>
+      <pubDate>Thu, 09 May 2024 18:39:18 -0300</pubDate>
+      <guid>http://localhost:1313/Biblioteca/docs/estruturas/segtree/segtreeiterativa/</guid>
+      <description>Sobre linkConsultas 0-based&#xA;Valores iniciais devem estar em (seg[n], &amp;hellip; , seg[2*n-1])&#xA;Query: soma do range [a, b]&#xA;Update: muda o valor da posicao p para x&#xA;Complexidades:&#xA;build - O(n)&#xA;query - O(log(n))&#xA;update - O(log(n))&#xA;Link original: segTreeIterativa.cpp&#xA;Código link int seg[2 * MAX]; int n; void build() { for (int i = n - 1; i; i--) seg[i] = seg[2*i] &amp;#43; seg[2*i&amp;#43;1]; } int query(int a, int b) { int ret = 0; for(a &amp;#43;= n, b &amp;#43;= n; a &amp;lt;= b; &amp;#43;&amp;#43;a /= 2, --b /= 2) { if (a % 2 == 1) ret &amp;#43;= seg[a]; if (b % 2 == 0) ret &amp;#43;= seg[b]; } return ret; } void update(int p, int x) { seg[p &amp;#43;= n] = x; while (p /= 2) seg[p] = seg[2*p] &amp;#43; seg[2*p&amp;#43;1]; } </description>
+    </item>
+    <item>
+      <title>SegTree Iterativa com Lazy Propagation</title>
+      <link>http://localhost:1313/Biblioteca/docs/estruturas/segtree/segtreeiterativacomlazy/</link>
+      <pubDate>Thu, 09 May 2024 18:39:18 -0300</pubDate>
+      <guid>http://localhost:1313/Biblioteca/docs/estruturas/segtree/segtreeiterativacomlazy/</guid>
+      <description>Sobre linkQuery: soma do range [a, b]&#xA;Update: soma x em cada elemento do range [a, b]&#xA;Para mudar, mudar as funcoes junta, poe e query&#xA;LOG = ceil(log2(MAX))&#xA;Complexidades:&#xA;build - O(n)&#xA;query - O(log(n))&#xA;update - O(log(n))&#xA;Link original: segTreeIterativaComLazy.cpp&#xA;Código link namespace seg { ll seg[2*MAX], lazy[2*MAX]; int n; ll junta(ll a, ll b) { return a&amp;#43;b; } // soma x na posicao p de tamanho tam void poe(int p, ll x, int tam, bool prop=1) { seg[p] &amp;#43;= x*tam; if (prop and p &amp;lt; n) lazy[p] &amp;#43;= x; } // atualiza todos os pais da folha p void sobe(int p) { for (int tam = 2; p /= 2; tam *= 2) { seg[p] = junta(seg[2*p], seg[2*p&amp;#43;1]); poe(p, lazy[p], tam, 0); } } // propaga o caminho da raiz ate a folha p void prop(int p) { int tam = 1 &amp;lt;&amp;lt; (LOG-1); for (int s = LOG; s; s--, tam /= 2) { int i = p &amp;gt;&amp;gt; s; if (lazy[i]) { poe(2*i, lazy[i], tam); poe(2*i&amp;#43;1, lazy[i], tam); lazy[i] = 0; } } } void build(int n2, int* v) { n = n2; for (int i = 0; i &amp;lt; n; i&amp;#43;&amp;#43;) seg[n&amp;#43;i] = v[i]; for (int i = n-1; i; i--) seg[i] = junta(seg[2*i], seg[2*i&amp;#43;1]); for (int i = 0; i &amp;lt; 2*n; i&amp;#43;&amp;#43;) lazy[i] = 0; } ll query(int a, int b) { ll ret = 0; for (prop(a&amp;#43;=n), prop(b&amp;#43;=n); a &amp;lt;= b; &amp;#43;&amp;#43;a/=2, --b/=2) { if (a%2 == 1) ret = junta(ret, seg[a]); if (b%2 == 0) ret = junta(ret, seg[b]); } return ret; } void update(int a, int b, int x) { int a2 = a &amp;#43;= n, b2 = b &amp;#43;= n, tam = 1; for (; a &amp;lt;= b; &amp;#43;&amp;#43;a/=2, --b/=2, tam *= 2) { if (a%2 == 1) poe(a, x, tam); if (b%2 == 0) poe(b, x, tam); } sobe(a2), sobe(b2); } }; </description>
+    </item>
+    <item>
+      <title>SegTree PA</title>
+      <link>http://localhost:1313/Biblioteca/docs/estruturas/segtree/segtreepa/</link>
+      <pubDate>Thu, 09 May 2024 18:39:18 -0300</pubDate>
+      <guid>http://localhost:1313/Biblioteca/docs/estruturas/segtree/segtreepa/</guid>
+      <description>Sobre linkSegtree de PA&#xA;update_set(l, r, A, R) seta [l, r] para PA(A, R),&#xA;update_add soma PA(A, R) em [l, r]&#xA;query(l, r) retorna a soma de [l, r]&#xA;PA(A, R) eh a PA: [A+R, A+2R, A+3R, &amp;hellip; ]&#xA;Complexidades:&#xA;construir - O(n)&#xA;update_set, update_add, query - O(log(n))&#xA;Link original: segTreePa.cpp&#xA;Código link struct seg_pa { struct Data { ll sum; ll set_a, set_r, add_a, add_r; Data() : sum(0), set_a(LINF), set_r(0), add_a(0), add_r(0) {} }; vector&amp;lt;Data&amp;gt; seg; int n; seg_pa(int n_) { n = n_; seg = vector&amp;lt;Data&amp;gt;(4*n); } void prop(int p, int l, int r) { int tam = r-l&amp;#43;1; ll &amp;amp;sum = seg[p].</description>
+    </item>
+    <item>
+      <title>SegTree Persistente</title>
+      <link>http://localhost:1313/Biblioteca/docs/estruturas/segtree/segtreepersistent/</link>
+      <pubDate>Thu, 09 May 2024 18:39:18 -0300</pubDate>
+      <guid>http://localhost:1313/Biblioteca/docs/estruturas/segtree/segtreepersistent/</guid>
+      <description>Sobre linkSegTree de soma, update de somar numa posicao&#xA;query(a, b, t) retorna a query de [a, b] na versao t&#xA;update(a, x, t) faz um update v[a]+=x a partir da&#xA;versao de t, criando uma nova versao e retornando seu id&#xA;Por default, faz o update a partir da ultima versao&#xA;build - O(n)&#xA;query - O(log(n))&#xA;update - O(log(n))&#xA;Link original: segTreePersistent.cpp&#xA;Código link const int MAX = 1e5&amp;#43;10, UPD = 1e5&amp;#43;10, LOG = 18; const int MAXS = 2*MAX&amp;#43;UPD*LOG; namespace perseg { ll seg[MAXS]; int rt[UPD], L[MAXS], R[MAXS], cnt, t; int n, *v; ll build(int p, int l, int r) { if (l == r) return seg[p] = v[l]; L[p] = cnt&amp;#43;&amp;#43;, R[p] = cnt&amp;#43;&amp;#43;; int m = (l&amp;#43;r)/2; return seg[p] = build(L[p], l, m) &amp;#43; build(R[p], m&amp;#43;1, r); } void build(int n2, int* v2) { n = n2, v = v2; rt[0] = cnt&amp;#43;&amp;#43;; build(0, 0, n-1); } ll query(int a, int b, int p, int l, int r) { if (b &amp;lt; l or r &amp;lt; a) return 0; if (a &amp;lt;= l and r &amp;lt;= b) return seg[p]; int m = (l&amp;#43;r)/2; return query(a, b, L[p], l, m) &amp;#43; query(a, b, R[p], m&amp;#43;1, r); } ll query(int a, int b, int tt) { return query(a, b, rt[tt], 0, n-1); } ll update(int a, int x, int lp, int p, int l, int r) { if (l == r) return seg[p] = seg[lp]&amp;#43;x; int m = (l&amp;#43;r)/2; if (a &amp;lt;= m) return seg[p] = update(a, x, L[lp], L[p]=cnt&amp;#43;&amp;#43;, l, m) &amp;#43; seg[R[p]=R[lp]]; return seg[p] = seg[L[p]=L[lp]] &amp;#43; update(a, x, R[lp], R[p]=cnt&amp;#43;&amp;#43;, m&amp;#43;1, r); } int update(int a, int x, int tt=t) { update(a, x, rt[tt], rt[&amp;#43;&amp;#43;t]=cnt&amp;#43;&amp;#43;, 0, n-1); return t; } }; </description>
+    </item>
+    <item>
+      <title>SegTree Persistente com Lazy</title>
+      <link>http://localhost:1313/Biblioteca/docs/estruturas/segtree/segtreepersistentcomlazy/</link>
+      <pubDate>Thu, 09 May 2024 18:39:18 -0300</pubDate>
+      <guid>http://localhost:1313/Biblioteca/docs/estruturas/segtree/segtreepersistentcomlazy/</guid>
+      <description>Sobre linkNao propaga, meio estranho de mexer, mas da&#xA;query(a, b, t) retorna a query de [a, b] na versao t&#xA;update(a, b, x, t) faz um update v[a..b]+=x a partir da&#xA;versao de t, criando uma nova versao e retornando seu id&#xA;Por default, faz o update a partir da ultima versao&#xA;build - O(n)&#xA;query - O(log(n))&#xA;update - O(log(n))&#xA;Link original: segTreePersistentComLazy.cpp&#xA;Código link const int MAX = 1e5&amp;#43;10, UPD = 1e5&amp;#43;10, LOG = 18; const int MAXS = 2*MAX &amp;#43; 4*UPD*LOG; namespace perseg { int seg[MAXS]; int rt[UPD], L[MAXS], R[MAXS], cnt, t; int n, *v; int build(int p, int l, int r) { if (l == r) return seg[p] = v[l]; L[p] = cnt&amp;#43;&amp;#43;, R[p] = cnt&amp;#43;&amp;#43;; int m = (l&amp;#43;r)/2; return seg[p] = max(build(L[p], l, m), build(R[p], m&amp;#43;1, r)); } void build(int n2, int *v2) { n = n2, v = v2; rt[0] = cnt&amp;#43;&amp;#43;; build(0, 0, n-1); } int query(int a, int b, int p, int l, int r) { if (b &amp;lt; l or r &amp;lt; a) return -INF; if (a &amp;lt;= l and r &amp;lt;= b) return lazy[p] &amp;#43; seg[p]; int m = (l&amp;#43;r)/2; int ret = lazy[p] &amp;#43; max(query(a, b, L[p], l, m), query(a, b, R[p], m&amp;#43;1, r)); return ret; } int query(int a, int b, int tt) { return query(a, b, rt[tt], 0, n-1); } int update(int a, int b, int x, int lp, int p, int l, int r) { tie(seg[p], lazy[p], L[p], R[p]) = {seg[lp], lazy[lp], L[lp], R[lp]}; if (b &amp;lt; l or r &amp;lt; a) return seg[p] &amp;#43; lazy[p]; if (a &amp;lt;= l and r &amp;lt;= b) return seg[p] &amp;#43; (lazy[p] &amp;#43;= x); int m = (l&amp;#43;r)/2; seg[p] = max(update(a, b, x, L[lp], L[p] = cnt&amp;#43;&amp;#43;, l, m), update(a, b, x, R[lp], R[p] = cnt&amp;#43;&amp;#43;, m&amp;#43;1, r)); lazy[p] = lazy[lp]; return seg[p] &amp;#43; lazy[p]; } int update(int a, int b, int x, int tt=t) { assert(tt &amp;lt;= t); update(a, b, x, rt[tt], rt[&amp;#43;&amp;#43;t]=cnt&amp;#43;&amp;#43;, 0, n-1); return t; } }; </description>
+    </item>
+  </channel>
+</rss>

@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Primitivas on Biblioteca Maratona UFMG</title>
+    <link>http://localhost:1313/Biblioteca/docs/primitivas/</link>
+    <description>Recent content in Primitivas on Biblioteca Maratona UFMG</description>
+    <generator>Hugo</generator>
+    <language>pt</language>
+    <lastBuildDate>Thu, 09 May 2024 18:39:19 -0300</lastBuildDate>
+    <atom:link href="http://localhost:1313/Biblioteca/docs/primitivas/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Aritmetica Modular</title>
+      <link>http://localhost:1313/Biblioteca/docs/primitivas/modulararithmetic/</link>
+      <pubDate>Thu, 09 May 2024 18:39:19 -0300</pubDate>
+      <guid>http://localhost:1313/Biblioteca/docs/primitivas/modulararithmetic/</guid>
+      <description>Sobre linkO mod tem q ser primo&#xA;Link original: modularArithmetic.cpp&#xA;Código link template&amp;lt;int p&amp;gt; struct mod_int { ll expo(ll b, ll e) { ll ret = 1; while (e) { if (e % 2) ret = ret * b % p; e /= 2, b = b * b % p; } return ret; } ll inv(ll b) { return expo(b, p-2); } using m = mod_int; int v; mod_int() : v(0) {} mod_int(ll v_) { if (v_ &amp;gt;= p or v_ &amp;lt;= -p) v_ %= p; if (v_ &amp;lt; 0) v_ &amp;#43;= p; v = v_; } m&amp;amp; operator &amp;#43;=(const m&amp;amp; a) { v &amp;#43;= a.</description>
+    </item>
+    <item>
+      <title>Big Integer</title>
+      <link>http://localhost:1313/Biblioteca/docs/primitivas/bigint/</link>
+      <pubDate>Thu, 09 May 2024 18:39:19 -0300</pubDate>
+      <guid>http://localhost:1313/Biblioteca/docs/primitivas/bigint/</guid>
+      <description>Sobre linkComplexidades: (para n digitos)&#xA;Soma, subtracao, comparacao - O(n)&#xA;Multiplicacao - O(n log(n))&#xA;Divisao, resto - O(n^2)&#xA;Link original: bigint.cpp&#xA;Código link struct bint { static const int BASE = 1e9; vector&amp;lt;int&amp;gt; v; bool neg; bint() : neg(0) {} bint(int val) : bint() { *this = val; } bint(long long val) : bint() { *this = val; } void trim() { while (v.size() and v.back() == 0) v.pop_back(); if (!</description>
+    </item>
+    <item>
+      <title>Calendario</title>
+      <link>http://localhost:1313/Biblioteca/docs/primitivas/calendario/</link>
+      <pubDate>Thu, 09 May 2024 18:39:19 -0300</pubDate>
+      <guid>http://localhost:1313/Biblioteca/docs/primitivas/calendario/</guid>
+      <description>Sobre linkCongruencia de Zeller&#xA;Os dias da semana correspondem aos restos % 7&#xA;Segunda=0, Terca=1, &amp;hellip;, Domingo=6&#xA;Link original: calendario.cpp&#xA;Código link int get_id(int d, int m, int y) { if (m &amp;lt; 3) y--, m &amp;#43;= 12; return 365 * y &amp;#43; y / 4 - y / 100 &amp;#43; y / 400 &amp;#43; (153 * (m - 3) &amp;#43; 2) / 5 &amp;#43; d - 307; } tuple&amp;lt;int, int, int&amp;gt; date(int id) { int x = id &amp;#43; 1789995, n = 4 * x / 146097, i, j, d, m, y; x -= (146097 * n &amp;#43; 3) / 4; i = (4000 * (x &amp;#43; 1)) / 1461001; x -= 1461 * i / 4 - 31; j = 80 * x / 2447, d = x - 2447 * j / 80; x = j / 11; m = j &amp;#43; 2 - 12 * x, y = 100 * (n - 49) &amp;#43; i &amp;#43; x; return {d, m, y}; } </description>
+    </item>
+    <item>
+      <title>Fracao</title>
+      <link>http://localhost:1313/Biblioteca/docs/primitivas/frac/</link>
+      <pubDate>Thu, 09 May 2024 18:39:19 -0300</pubDate>
+      <guid>http://localhost:1313/Biblioteca/docs/primitivas/frac/</guid>
+      <description>Sobre linkFunciona com o Big Int&#xA;Link original: frac.cpp&#xA;Código link template&amp;lt;typename T = int&amp;gt; struct frac { T num, den; template&amp;lt;class U, class V&amp;gt; frac(U num_ = 0, V den_ = 1) : num(num_), den(den_) { assert(den != 0); if (den &amp;lt; 0) num *= -1, den *= -1; T g = gcd(abs(num), den); num /= g, den /= g; } friend bool operator&amp;lt;(const frac&amp;amp; l, const frac&amp;amp; r) { return l.</description>
+    </item>
+    <item>
+      <title>Geometria</title>
+      <link>http://localhost:1313/Biblioteca/docs/primitivas/geometria/</link>
+      <pubDate>Thu, 09 May 2024 18:39:19 -0300</pubDate>
+      <guid>http://localhost:1313/Biblioteca/docs/primitivas/geometria/</guid>
+      <description>Sobre linkLink original: geometria.cpp&#xA;Código link typedef double ld; const ld DINF = 1e18; const ld pi = acos(-1.0); const ld eps = 1e-9; #define sq(x) ((x)*(x)) bool eq(ld a, ld b) { return abs(a - b) &amp;lt;= eps; } struct pt { // ponto ld x, y; pt(ld x_ = 0, ld y_ = 0) : x(x_), y(y_) {} bool operator &amp;lt; (const pt p) const { if (!eq(x, p.</description>
+    </item>
+    <item>
+      <title>Geometria - inteiro</title>
+      <link>http://localhost:1313/Biblioteca/docs/primitivas/geometriaint/</link>
+      <pubDate>Thu, 09 May 2024 18:39:19 -0300</pubDate>
+      <guid>http://localhost:1313/Biblioteca/docs/primitivas/geometriaint/</guid>
+      <description>Sobre linkLink original: geometriaInt.cpp&#xA;Código link #define sq(x) ((x)*(ll)(x)) struct pt { // ponto int x, y; pt(int x_ = 0, int y_ = 0) : x(x_), y(y_) {} bool operator &amp;lt; (const pt p) const { if (x != p.x) return x &amp;lt; p.x; return y &amp;lt; p.y; } bool operator == (const pt p) const { return x == p.x and y == p.y; } pt operator &amp;#43; (const pt p) const { return pt(x&amp;#43;p.</description>
+    </item>
+    <item>
+      <title>Geometria 3D</title>
+      <link>http://localhost:1313/Biblioteca/docs/primitivas/geometria3d/</link>
+      <pubDate>Thu, 09 May 2024 18:39:19 -0300</pubDate>
+      <guid>http://localhost:1313/Biblioteca/docs/primitivas/geometria3d/</guid>
+      <description>Sobre linkLink original: geometria3d.cpp&#xA;Código link typedef double ld; const ld DINF = 1e18; const ld eps = 1e-9; #define sq(x) ((x)*(x)) bool eq(ld a, ld b) { return abs(a - b) &amp;lt;= eps; } struct pt { // ponto ld x, y, z; pt(ld x_ = 0, ld y_ = 0, ld z_ = 0) : x(x_), y(y_), z(z_) {} bool operator &amp;lt; (const pt p) const { if (!</description>
+    </item>
+    <item>
+      <title>Matriz</title>
+      <link>http://localhost:1313/Biblioteca/docs/primitivas/matrix/</link>
+      <pubDate>Thu, 09 May 2024 18:39:19 -0300</pubDate>
+      <guid>http://localhost:1313/Biblioteca/docs/primitivas/matrix/</guid>
+      <description>Sobre linkLink original: matrix.cpp&#xA;Código link #define MODULAR false template&amp;lt;typename T&amp;gt; struct matrix : vector&amp;lt;vector&amp;lt;T&amp;gt;&amp;gt; { int n, m; void print() { for (int i = 0; i &amp;lt; n; i&amp;#43;&amp;#43;) { for (int j = 0; j &amp;lt; m; j&amp;#43;&amp;#43;) cout &amp;lt;&amp;lt; (*this)[i][j] &amp;lt;&amp;lt; &amp;#34; &amp;#34;; cout &amp;lt;&amp;lt; endl; } } matrix(int n_, int m_, bool ident = false) : vector&amp;lt;vector&amp;lt;T&amp;gt;&amp;gt;(n_, vector&amp;lt;T&amp;gt;(m_, 0)), n(n_), m(m_) { if (ident) { assert(n == m); for (int i = 0; i &amp;lt; n; i&amp;#43;&amp;#43;) (*this)[i][i] = 1; } } matrix(const vector&amp;lt;vector&amp;lt;T&amp;gt;&amp;gt;&amp;amp; c) : vector&amp;lt;vector&amp;lt;T&amp;gt;&amp;gt;(c), n(c.</description>
+    </item>
+    <item>
+      <title>Matroid</title>
+      <link>http://localhost:1313/Biblioteca/docs/primitivas/matroid/</link>
+      <pubDate>Thu, 09 May 2024 18:39:19 -0300</pubDate>
+      <guid>http://localhost:1313/Biblioteca/docs/primitivas/matroid/</guid>
+      <description>Sobre linkMatroids de Grafo e Particao&#xA;De modo geral, toda Matroid contem um build() linear&#xA;e uma funcao constante oracle()&#xA;oracle(i) responde se o conjunto continua independente&#xA;apos adicao do elemento i&#xA;oracle(i, j) responde se o conjunto continua indepente&#xA;apos trocar o elemento i pelo elemento j&#xA;Intersecao sem peso O(r^2 n)&#xA;em que n eh o tamanho do conjunto e r eh o tamanho da resposta&#xA;Matroid Grafica</description>
+    </item>
+  </channel>
+</rss>

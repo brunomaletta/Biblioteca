@@ -1,0 +1,215 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Matematica on Biblioteca Maratona UFMG</title>
+    <link>http://localhost:1313/Biblioteca/docs/matematica/</link>
+    <description>Recent content in Matematica on Biblioteca Maratona UFMG</description>
+    <generator>Hugo</generator>
+    <language>pt</language>
+    <lastBuildDate>Thu, 09 May 2024 18:39:19 -0300</lastBuildDate>
+    <atom:link href="http://localhost:1313/Biblioteca/docs/matematica/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>2-SAT</title>
+      <link>http://localhost:1313/Biblioteca/docs/matematica/2sat/</link>
+      <pubDate>Thu, 09 May 2024 18:39:19 -0300</pubDate>
+      <guid>http://localhost:1313/Biblioteca/docs/matematica/2sat/</guid>
+      <description>Sobre linksolve() retorna um par, o first fala se eh possivel&#xA;atribuir, o second fala se cada variavel eh verdadeira&#xA;O(|V|+|E|) = O(#variaveis + #restricoes)&#xA;Link original: 2sat.cpp&#xA;Código link struct sat { int n, tot; vector&amp;lt;vector&amp;lt;int&amp;gt;&amp;gt; g; vector&amp;lt;int&amp;gt; vis, comp, id, ans; stack&amp;lt;int&amp;gt; s; sat() {} sat(int n_) : n(n_), tot(n), g(2*n) {} int dfs(int i, int&amp;amp; t) { int lo = id[i] = t&amp;#43;&amp;#43;; s.push(i), vis[i] = 2; for (int j : g[i]) { if (!</description>
+    </item>
+    <item>
+      <title>Avaliacao de Interpolacao</title>
+      <link>http://localhost:1313/Biblioteca/docs/matematica/evalinterpol/</link>
+      <pubDate>Thu, 09 May 2024 18:39:19 -0300</pubDate>
+      <guid>http://localhost:1313/Biblioteca/docs/matematica/evalinterpol/</guid>
+      <description>Sobre linkDado &amp;rsquo;n&amp;rsquo; pontos (i, y[i]), i \in [0, n),&#xA;avalia o polinomio de grau n-1 que passa&#xA;por esses pontos em &amp;lsquo;x&amp;rsquo;&#xA;Tudo modular, precisa do mint&#xA;O(n)&#xA;Link original: evalInterpol.cpp&#xA;Código link mint evaluate_interpolation(int x, vector&amp;lt;mint&amp;gt; y) { int n = y.size(); vector&amp;lt;mint&amp;gt; sulf(n&amp;#43;1, 1), fat(n, 1), ifat(n); for (int i = n-1; i &amp;gt;= 0; i--) sulf[i] = sulf[i&amp;#43;1] * (x - i); for (int i = 1; i &amp;lt; n; i&amp;#43;&amp;#43;) fat[i] = fat[i-1] * i; ifat[n-1] = 1/fat[n-1]; for (int i = n-2; i &amp;gt;= 0; i--) ifat[i] = ifat[i&amp;#43;1] * (i &amp;#43; 1); mint pref = 1, ans = 0; for (int i = 0; i &amp;lt; n; pref *= (x - i&amp;#43;&amp;#43;)) { mint num = pref * sulf[i&amp;#43;1]; mint den = ifat[i] * ifat[n-1 - i]; if ((n-1 - i)%2) den *= -1; ans &amp;#43;= y[i] * num * den; } return ans; } </description>
+    </item>
+    <item>
+      <title>Berlekamp-Massey</title>
+      <link>http://localhost:1313/Biblioteca/docs/matematica/berlekampmassey/</link>
+      <pubDate>Thu, 09 May 2024 18:39:19 -0300</pubDate>
+      <guid>http://localhost:1313/Biblioteca/docs/matematica/berlekampmassey/</guid>
+      <description>Sobre linkguess_kth(s, k) chuta o k-esimo (0-based) termo&#xA;de uma recorrencia linear que gera s&#xA;Para uma rec. lin. de ordem x, se passar 2x termos&#xA;vai gerar a certa&#xA;Usar aritmetica modular&#xA;Pro fast_evaluate, precisa de ntt e divmod (powerSeries.cpp)&#xA;Complexidades: (n = |s|)&#xA;evaluate: O(n^2 log k)&#xA;fast_evaluate: O(n log n log k)&#xA;berlekampMassey: O(n^2 + O(evaluate))&#xA;Link original: berlekampMassey.cpp&#xA;Código link template&amp;lt;typename T&amp;gt; T evaluate(vector&amp;lt;T&amp;gt; c, vector&amp;lt;T&amp;gt; s, ll k) { int n = c.</description>
+    </item>
+    <item>
+      <title>Binomial Distribution</title>
+      <link>http://localhost:1313/Biblioteca/docs/matematica/probabilitybinomial/</link>
+      <pubDate>Thu, 09 May 2024 18:39:19 -0300</pubDate>
+      <guid>http://localhost:1313/Biblioteca/docs/matematica/probabilitybinomial/</guid>
+      <description>Sobre linkbinom(n, k, p) retorna a probabilidade de k sucessos&#xA;numa binomial(n, p)&#xA;Link original: probabilityBinomial.cpp&#xA;Código link double logfact[MAX]; void calc() { logfact[0] = 0; for (int i = 1; i &amp;lt; MAX; i&amp;#43;&amp;#43;) logfact[i] = logfact[i-1] &amp;#43; log(i); } double binom(int n, int k, double p) { return exp(logfact[n] - logfact[k] - logfact[n-k] &amp;#43; k * log(p) &amp;#43; (n-k) * log(1 - p)); } </description>
+    </item>
+    <item>
+      <title>Convolucao de GCD / LCM</title>
+      <link>http://localhost:1313/Biblioteca/docs/matematica/gcdlcmconvolution/</link>
+      <pubDate>Thu, 09 May 2024 18:39:19 -0300</pubDate>
+      <guid>http://localhost:1313/Biblioteca/docs/matematica/gcdlcmconvolution/</guid>
+      <description>Sobre linkO(n log(n))&#xA;multiple_transform(a)[i] = \sum_d a[d * i]&#xA;Link original: gcdLcmConvolution.cpp&#xA;Código link template&amp;lt;typename T&amp;gt; void multiple_transform(vector&amp;lt;T&amp;gt;&amp;amp; v, bool inv = false) { vector&amp;lt;int&amp;gt; I(v.size()-1); iota(I.begin(), I.end(), 1); if (inv) reverse(I.begin(), I.end()); for (int i : I) for (int j = 2; i*j &amp;lt; v.size(); j&amp;#43;&amp;#43;) v[i] &amp;#43;= (inv ? -1 : 1) * v[i*j]; } // gcd_convolution(a, b)[k] = \sum_{gcd(i, j) = k} a_i * b_j template&amp;lt;typename T&amp;gt; vector&amp;lt;T&amp;gt; gcd_convolution(vector&amp;lt;T&amp;gt; a, vector&amp;lt;T&amp;gt; b) { multiple_transform(a), multiple_transform(b); for (int i = 0; i &amp;lt; a.</description>
+    </item>
+    <item>
+      <title>Coprime Basis</title>
+      <link>http://localhost:1313/Biblioteca/docs/matematica/coprimebasis/</link>
+      <pubDate>Thu, 09 May 2024 18:39:19 -0300</pubDate>
+      <guid>http://localhost:1313/Biblioteca/docs/matematica/coprimebasis/</guid>
+      <description>Sobre linkDado um conjunto de elementos A constroi uma base B&#xA;de fatores coprimos tal que todo elemento A[i]&#xA;pode ser fatorado como A[i] = \prod B[j]^p_ij&#xA;Sendo n o numero de inserts, a complexidade esperada fica&#xA;O(n*(n*loglog(MAX) + log(MAX)^2))&#xA;No pior caso, podemos trocar n*loglog(MAX) por&#xA;8n, se MAX &amp;lt;= 1e6&#xA;10n, se MAX &amp;lt;= 1e9&#xA;16n, se MAX &amp;lt;= 1e18&#xA;26n, se MAX &amp;lt;= 1e36&#xA;Link original: coprimeBasis.cpp</description>
+    </item>
+    <item>
+      <title>Crivo de Eratosthenes</title>
+      <link>http://localhost:1313/Biblioteca/docs/matematica/crivo/</link>
+      <pubDate>Thu, 09 May 2024 18:39:19 -0300</pubDate>
+      <guid>http://localhost:1313/Biblioteca/docs/matematica/crivo/</guid>
+      <description>Sobre link&amp;ldquo;O&amp;rdquo; crivo&#xA;Encontra maior divisor primo&#xA;Um numero eh primo sse divi[x] == x&#xA;fact fatora um numero &amp;lt;= lim&#xA;A fatoracao sai ordenada&#xA;crivo - O(n log(log(n)))&#xA;fact - O(log(n))&#xA;Link original: crivo.cpp&#xA;Código link int divi[MAX]; void crivo(int lim) { for (int i = 1; i &amp;lt;= lim; i&amp;#43;&amp;#43;) divi[i] = 1; for (int i = 2; i &amp;lt;= lim; i&amp;#43;&amp;#43;) if (divi[i] == 1) for (int j = i; j &amp;lt;= lim; j &amp;#43;= i) divi[j] = i; } #warning A funcao fact ira adicionar o 1 no vetor se voce tentar fatorar especificamente o numero 1 void fact(vector&amp;lt;int&amp;gt;&amp;amp; v, int n) { if (n !</description>
+    </item>
+    <item>
+      <title>Deteccao de ciclo - Tortoise and Hare</title>
+      <link>http://localhost:1313/Biblioteca/docs/matematica/cycledetection/</link>
+      <pubDate>Thu, 09 May 2024 18:39:19 -0300</pubDate>
+      <guid>http://localhost:1313/Biblioteca/docs/matematica/cycledetection/</guid>
+      <description>Sobre linkLinear no tanto que tem que andar pra ciclar,&#xA;O(1) de memoria&#xA;Retorna um par com o tanto que tem que andar&#xA;do f0 ate o inicio do ciclo e o tam do ciclo&#xA;Link original: cycleDetection.cpp&#xA;Código link pair&amp;lt;ll, ll&amp;gt; find_cycle() { ll tort = f(f0); ll hare = f(f(f0)); ll t = 0; while (tort != hare) { tort = f(tort); hare = f(f(hare)); t&amp;#43;&amp;#43;; } ll st = 0; tort = f0; while (tort !</description>
+    </item>
+    <item>
+      <title>Division Trick</title>
+      <link>http://localhost:1313/Biblioteca/docs/matematica/divisiontrick/</link>
+      <pubDate>Thu, 09 May 2024 18:39:19 -0300</pubDate>
+      <guid>http://localhost:1313/Biblioteca/docs/matematica/divisiontrick/</guid>
+      <description>Sobre linkGera o conjunto n/i, pra todo i, em O(sqrt(n))&#xA;copiei do github do tfg50&#xA;Link original: divisionTrick.cpp&#xA;Código link for(int l = 1, r; l &amp;lt;= n; l = r &amp;#43; 1) { r = n / (n / l); // n / i has the same value for l &amp;lt;= i &amp;lt;= r } </description>
+    </item>
+    <item>
+      <title>Equacao Diofantina Linear</title>
+      <link>http://localhost:1313/Biblioteca/docs/matematica/diofantina/</link>
+      <pubDate>Thu, 09 May 2024 18:39:19 -0300</pubDate>
+      <guid>http://localhost:1313/Biblioteca/docs/matematica/diofantina/</guid>
+      <description>Sobre linkEncontra o numero de solucoes de ax + by = c,&#xA;em que x \in [lx, rx] e y \in [ly, ry]&#xA;Usar o comentario para recuperar as solucoes&#xA;(note que o b ao final eh b/gcd(a, b))&#xA;Cuidado com overflow! Tem que caber o quadrado dos valores&#xA;O(log(min(a, b)))&#xA;Link original: diofantina.cpp&#xA;Código link template&amp;lt;typename T&amp;gt; tuple&amp;lt;ll, T, T&amp;gt; ext_gcd(ll a, ll b) { if (!a) return {b, 0, 1}; auto [g, x, y] = ext_gcd&amp;lt;T&amp;gt;(b%a, a); return {g, y - b/a*x, x}; } // numero de solucoes de a*[lx, rx] &amp;#43; b*[ly, ry] = c template&amp;lt;typename T = ll&amp;gt; // usar __int128 se for ate 1e18 ll diophantine(ll a, ll b, ll c, ll lx, ll rx, ll ly, ll ry) { if (lx &amp;gt; rx or ly &amp;gt; ry) return 0; if (a == 0 and b == 0) return c ?</description>
+    </item>
+    <item>
+      <title>Euclides estendido</title>
+      <link>http://localhost:1313/Biblioteca/docs/matematica/gcdestendido/</link>
+      <pubDate>Thu, 09 May 2024 18:39:19 -0300</pubDate>
+      <guid>http://localhost:1313/Biblioteca/docs/matematica/gcdestendido/</guid>
+      <description>Sobre linkAcha x e y tal que ax + by = mdc(a, b) (nao eh unico)&#xA;Assume a, b &amp;gt;= 0&#xA;O(log(min(a, b)))&#xA;Link original: gcdEstendido.cpp&#xA;Código link tuple&amp;lt;ll, ll, ll&amp;gt; ext_gcd(ll a, ll b) { if (!a) return {b, 0, 1}; auto [g, x, y] = ext_gcd(b%a, a); return {g, y - b/a*x, x}; } </description>
+    </item>
+    <item>
+      <title>Exponenciacao rapida</title>
+      <link>http://localhost:1313/Biblioteca/docs/matematica/fastpow/</link>
+      <pubDate>Thu, 09 May 2024 18:39:19 -0300</pubDate>
+      <guid>http://localhost:1313/Biblioteca/docs/matematica/fastpow/</guid>
+      <description>Sobre link(x^y mod m) em O(log(y))&#xA;Link original: fastPow.cpp&#xA;Código link ll pow(ll x, ll y, ll m) { // iterativo ll ret = 1; while (y) { if (y &amp;amp; 1) ret = (ret * x) % m; y &amp;gt;&amp;gt;= 1; x = (x * x) % m; } return ret; } ll pow(ll x, ll y, ll m) { // recursivo if (!y) return 1; ll ans = pow(x*x%m, y/2, m); return y%2 ?</description>
+    </item>
+    <item>
+      <title>Fast Walsh Hadamard Transform</title>
+      <link>http://localhost:1313/Biblioteca/docs/matematica/fwht/</link>
+      <pubDate>Thu, 09 May 2024 18:39:19 -0300</pubDate>
+      <guid>http://localhost:1313/Biblioteca/docs/matematica/fwht/</guid>
+      <description>Sobre linkFWHT&amp;lt;&amp;rsquo;|&amp;rsquo;&amp;gt;(f) eh SOS DP&#xA;FWHT&amp;lt;&amp;rsquo;&amp;amp;&amp;rsquo;&amp;gt;(f) eh soma de superset DP&#xA;Se chamar com ^, usar tamanho potencia de 2!!&#xA;O(n log(n))&#xA;Link original: fwht.cpp&#xA;Código link template&amp;lt;char op, class T&amp;gt; vector&amp;lt;T&amp;gt; FWHT(vector&amp;lt;T&amp;gt; f, bool inv = false) { int n = f.size(); for (int k = 0; (n-1)&amp;gt;&amp;gt;k; k&amp;#43;&amp;#43;) for (int i = 0; i &amp;lt; n; i&amp;#43;&amp;#43;) if (i&amp;gt;&amp;gt;k&amp;amp;1) { int j = i^(1&amp;lt;&amp;lt;k); if (op == &amp;#39;^&amp;#39;) f[j] &amp;#43;= f[i], f[i] = f[j] - 2*f[i]; if (op == &amp;#39;|&amp;#39;) f[i] &amp;#43;= (inv ?</description>
+    </item>
+    <item>
+      <title>FFT</title>
+      <link>http://localhost:1313/Biblioteca/docs/matematica/convolution/</link>
+      <pubDate>Thu, 09 May 2024 18:39:19 -0300</pubDate>
+      <guid>http://localhost:1313/Biblioteca/docs/matematica/convolution/</guid>
+      <description>Sobre linkChamar convolution com vector&amp;lt;complex&amp;gt; para FFT&#xA;Precisa do mint para NTT&#xA;O(n log(n))&#xA;Para FFT&#xA;Link original: convolution.cpp&#xA;Código link void get_roots(bool f, int n, vector&amp;lt;complex&amp;lt;double&amp;gt;&amp;gt;&amp;amp; roots) { const static double PI = acosl(-1); for (int i = 0; i &amp;lt; n/2; i&amp;#43;&amp;#43;) { double alpha = i*((2*PI)/n); if (f) alpha = -alpha; roots[i] = {cos(alpha), sin(alpha)}; } } // Para NTT template&amp;lt;int p&amp;gt; void get_roots(bool f, int n, vector&amp;lt;mod_int&amp;lt;p&amp;gt;&amp;gt;&amp;amp; roots) { mod_int&amp;lt;p&amp;gt; r; int ord; if (p == 998244353) { r = 102292; ord = (1 &amp;lt;&amp;lt; 23); } else if (p == 754974721) { r = 739831874; ord = (1 &amp;lt;&amp;lt; 24); } else if (p == 167772161) { r = 243; ord = (1 &amp;lt;&amp;lt; 25); } else assert(false); if (f) r = r^(p - 1 -ord/n); else r = r^(ord/n); roots[0] = 1; for (int i = 1; i &amp;lt; n/2; i&amp;#43;&amp;#43;) roots[i] = roots[i-1]*r; } template&amp;lt;typename T&amp;gt; void fft(vector&amp;lt;T&amp;gt;&amp;amp; a, bool f, int N, vector&amp;lt;int&amp;gt;&amp;amp; rev) { for (int i = 0; i &amp;lt; N; i&amp;#43;&amp;#43;) if (i &amp;lt; rev[i]) swap(a[i], a[rev[i]]); int l, r, m; vector&amp;lt;T&amp;gt; roots(N); for (int n = 2; n &amp;lt;= N; n *= 2) { get_roots(f, n, roots); for (int pos = 0; pos &amp;lt; N; pos &amp;#43;= n) { l = pos &amp;#43; 0, r = pos &amp;#43; n/2, m = 0; while (m &amp;lt; n/2) { auto t = roots[m] * a[r]; a[r] = a[l] - t; a[l] = a[l] &amp;#43; t; l&amp;#43;&amp;#43;, r&amp;#43;&amp;#43;, m&amp;#43;&amp;#43;; } } } if (f) { auto invN = T(1) / T(N); for (int i = 0; i &amp;lt; N; i&amp;#43;&amp;#43;) a[i] = a[i] * invN; } } template&amp;lt;typename T&amp;gt; vector&amp;lt;T&amp;gt; convolution(vector&amp;lt;T&amp;gt;&amp;amp; a, vector&amp;lt;T&amp;gt;&amp;amp; b) { vector&amp;lt;T&amp;gt; l(a.</description>
+    </item>
+    <item>
+      <title>Gauss</title>
+      <link>http://localhost:1313/Biblioteca/docs/matematica/gauss/</link>
+      <pubDate>Thu, 09 May 2024 18:39:19 -0300</pubDate>
+      <guid>http://localhost:1313/Biblioteca/docs/matematica/gauss/</guid>
+      <description>Sobre linkResolve sistema linear&#xA;Retornar um par com o numero de solucoes&#xA;e alguma solucao, caso exista&#xA;O(n^2 * m)&#xA;Link original: gauss.cpp&#xA;Código link template&amp;lt;typename T&amp;gt; pair&amp;lt;int, vector&amp;lt;T&amp;gt;&amp;gt; gauss(vector&amp;lt;vector&amp;lt;T&amp;gt;&amp;gt; a, vector&amp;lt;T&amp;gt; b) { const double eps = 1e-6; int n = a.size(), m = a[0].size(); for (int i = 0; i &amp;lt; n; i&amp;#43;&amp;#43;) a[i].push_back(b[i]); vector&amp;lt;int&amp;gt; where(m, -1); for (int col = 0, row = 0; col &amp;lt; m and row &amp;lt; n; col&amp;#43;&amp;#43;) { int sel = row; for (int i=row; i&amp;lt;n; &amp;#43;&amp;#43;i) if (abs(a[i][col]) &amp;gt; abs(a[sel][col])) sel = i; if (abs(a[sel][col]) &amp;lt; eps) continue; for (int i = col; i &amp;lt;= m; i&amp;#43;&amp;#43;) swap(a[sel][i], a[row][i]); where[col] = row; for (int i = 0; i &amp;lt; n; i&amp;#43;&amp;#43;) if (i !</description>
+    </item>
+    <item>
+      <title>Gauss - Z2</title>
+      <link>http://localhost:1313/Biblioteca/docs/matematica/gaussz2/</link>
+      <pubDate>Thu, 09 May 2024 18:39:19 -0300</pubDate>
+      <guid>http://localhost:1313/Biblioteca/docs/matematica/gaussz2/</guid>
+      <description>Sobre linkD eh dimensao do espaco vetorial&#xA;add(v) - adiciona o vetor v na base (retorna se ele jah pertencia ao span da base)&#xA;coord(v) - retorna as coordenadas (c) de v na base atual (basis^T.c = v)&#xA;recover(v) - retorna as coordenadas de v nos vetores na ordem em que foram inseridos&#xA;coord(v).first e recover(v).first - se v pertence ao span&#xA;Complexidade:&#xA;add, coord, recover: O(D^2 / 64)&#xA;Link original: gaussZ2.</description>
+    </item>
+    <item>
+      <title>Integracao Numerica</title>
+      <link>http://localhost:1313/Biblioteca/docs/matematica/integral/</link>
+      <pubDate>Thu, 09 May 2024 18:39:19 -0300</pubDate>
+      <guid>http://localhost:1313/Biblioteca/docs/matematica/integral/</guid>
+      <description>Sobre linkMetodo de Simpson 3/8&#xA;Integra f no intervalo [a, b], erro cresce proporcional a (b - a)^5&#xA;Link original: integral.cpp&#xA;Código link const int N = 3*100; // multiplo de 3 ld integrate(ld a, ld b, function&amp;lt;ld(ld)&amp;gt; f) { ld s = 0, h = (b - a)/N; for (int i = 1 ; i &amp;lt; N; i&amp;#43;&amp;#43;) s &amp;#43;= f(a &amp;#43; i*h)*(i%3 ? 3 : 2); return (f(a) &amp;#43; s &amp;#43; f(b))*3*h/8; } </description>
+    </item>
+    <item>
+      <title>Inverso Modular</title>
+      <link>http://localhost:1313/Biblioteca/docs/matematica/modinverse/</link>
+      <pubDate>Thu, 09 May 2024 18:39:19 -0300</pubDate>
+      <guid>http://localhost:1313/Biblioteca/docs/matematica/modinverse/</guid>
+      <description>Sobre linkComputa o inverso de a modulo b&#xA;Se b eh primo, basta fazer&#xA;a^(b-2)&#xA;Link original: modInverse.cpp&#xA;Código link ll inv(ll a, ll b) { return a &amp;gt; 1 ? b - inv(b%a, a)*b/a : 1; } // computa o inverso modular de 1..MAX-1 modulo um primo ll inv[MAX]: inv[1] = 1; for (int i = 2; i &amp;lt; MAX; i&amp;#43;&amp;#43;) inv[i] = MOD - MOD/i*inv[MOD%i]%MOD; </description>
+    </item>
+    <item>
+      <title>Karatsuba</title>
+      <link>http://localhost:1313/Biblioteca/docs/matematica/karatsuba/</link>
+      <pubDate>Thu, 09 May 2024 18:39:19 -0300</pubDate>
+      <guid>http://localhost:1313/Biblioteca/docs/matematica/karatsuba/</guid>
+      <description>Sobre linkOs pragmas podem ajudar&#xA;Para n ~ 2e5, roda em &amp;lt; 1 s&#xA;O(n^1.58)&#xA;#pragma GCC optimize(&amp;ldquo;Ofast&amp;rdquo;)&#xA;#pragma GCC target (&amp;ldquo;avx,avx2&amp;rdquo;)&#xA;Link original: karatsuba.cpp&#xA;Código link template&amp;lt;typename T&amp;gt; void kar(T* a, T* b, int n, T* r, T* tmp) { if (n &amp;lt;= 64) { for (int i = 0; i &amp;lt; n; i&amp;#43;&amp;#43;) for (int j = 0; j &amp;lt; n; j&amp;#43;&amp;#43;) r[i&amp;#43;j] &amp;#43;= a[i] * b[j]; return; } int mid = n/2; T *atmp = tmp, *btmp = tmp&amp;#43;mid, *E = tmp&amp;#43;n; memset(E, 0, sizeof(E[0])*n); for (int i = 0; i &amp;lt; mid; i&amp;#43;&amp;#43;) { atmp[i] = a[i] &amp;#43; a[i&amp;#43;mid]; btmp[i] = b[i] &amp;#43; b[i&amp;#43;mid]; } kar(atmp, btmp, mid, E, tmp&amp;#43;2*n); kar(a, b, mid, r, tmp&amp;#43;2*n); kar(a&amp;#43;mid, b&amp;#43;mid, mid, r&amp;#43;n, tmp&amp;#43;2*n); for (int i = 0; i &amp;lt; mid; i&amp;#43;&amp;#43;) { T temp = r[i&amp;#43;mid]; r[i&amp;#43;mid] &amp;#43;= E[i] - r[i] - r[i&amp;#43;2*mid]; r[i&amp;#43;2*mid] &amp;#43;= E[i&amp;#43;mid] - temp - r[i&amp;#43;3*mid]; } } template&amp;lt;typename T&amp;gt; vector&amp;lt;T&amp;gt; karatsuba(vector&amp;lt;T&amp;gt; a, vector&amp;lt;T&amp;gt; b) { int n = max(a.</description>
+    </item>
+    <item>
+      <title>Logaritmo Discreto</title>
+      <link>http://localhost:1313/Biblioteca/docs/matematica/logdiscreto/</link>
+      <pubDate>Thu, 09 May 2024 18:39:19 -0300</pubDate>
+      <guid>http://localhost:1313/Biblioteca/docs/matematica/logdiscreto/</guid>
+      <description>Sobre linkResolve logaritmo discreto com o algoritmo baby step giant step&#xA;Encontra o menor x tal que a^x = b (mod m)&#xA;Se nao tem, retorna -1&#xA;O(sqrt(m) * log(sqrt(m))&#xA;Link original: logDiscreto.cpp&#xA;Código link int dlog(int b, int a, int m) {&#xD;if (a == 0) return b ? -1 : 1; // caso nao definido&#xD;a %= m, b %= m;&#xD;int k = 1, shift = 0;&#xD;while (1) {&#xD;int g = gcd(a, m);&#xD;if (g == 1) break;&#xD;if (b == k) return shift;&#xD;if (b % g) return -1;&#xD;b /= g, m /= g, shift&amp;#43;&amp;#43;;&#xD;k = (ll) k * a / g % m;&#xD;}&#xD;int sq = sqrt(m)&amp;#43;1, giant = 1;&#xD;for (int i = 0; i &amp;lt; sq; i&amp;#43;&amp;#43;) giant = (ll) giant * a % m;&#xD;vector&amp;lt;pair&amp;lt;int, int&amp;gt;&amp;gt; baby;&#xD;for (int i = 0, cur = b; i &amp;lt;= sq; i&amp;#43;&amp;#43;) {&#xD;baby.</description>
+    </item>
+    <item>
+      <title>Miller-Rabin</title>
+      <link>http://localhost:1313/Biblioteca/docs/matematica/millerrabin/</link>
+      <pubDate>Thu, 09 May 2024 18:39:19 -0300</pubDate>
+      <guid>http://localhost:1313/Biblioteca/docs/matematica/millerrabin/</guid>
+      <description>Sobre linkTesta se n eh primo, n &amp;lt;= 3 * 10^18&#xA;O(log(n)), considerando multiplicacao&#xA;e exponenciacao constantes&#xA;Link original: millerRabin.cpp&#xA;Código link ll mul(ll a, ll b, ll m) { ll ret = a*b - ll((long double)1/m*a*b&amp;#43;0.5)*m; return ret &amp;lt; 0 ? ret&amp;#43;m : ret; } ll pow(ll x, ll y, ll m) { if (!y) return 1; ll ans = pow(mul(x, x, m), y/2, m); return y%2 ? mul(x, ans, m) : ans; } bool prime(ll n) { if (n &amp;lt; 2) return 0; if (n &amp;lt;= 3) return 1; if (n % 2 == 0) return 0; ll r = __builtin_ctzll(n - 1), d = n &amp;gt;&amp;gt; r; // com esses primos, o teste funciona garantido para n &amp;lt;= 2^64 // funciona para n &amp;lt;= 3*10^24 com os primos ate 41 for (int a : {2, 325, 9375, 28178, 450775, 9780504, 1795265022}) { ll x = pow(a, d, n); if (x == 1 or x == n - 1 or a % n == 0) continue; for (int j = 0; j &amp;lt; r - 1; j&amp;#43;&amp;#43;) { x = mul(x, x, n); if (x == n - 1) break; } if (x !</description>
+    </item>
+    <item>
+      <title>Multipoint Evaluation And Interpolation</title>
+      <link>http://localhost:1313/Biblioteca/docs/matematica/multipointevaluation/</link>
+      <pubDate>Thu, 09 May 2024 18:39:19 -0300</pubDate>
+      <guid>http://localhost:1313/Biblioteca/docs/matematica/multipointevaluation/</guid>
+      <description>Sobre linkEvaluation:&#xA;Avalia o polinomio f(x) nos pontos p[0], p[1], ..., p[n-1] Interpolation:&#xA;Retorna o polinomio f(x) de grau n que satisfaz f(x) = y pra o conjunto de pontos x, y Precisa do ntt e&#xA;do divmod pro evaluate&#xA;da derivada pro interpolate&#xA;O divmod e a derivada estao no arquivo powerSeries.cpp&#xA;O(n log^2(n))&#xA;Link original: multipointEvaluation.cpp&#xA;Código link namespace multipoint { vector&amp;lt;poly&amp;gt; tree; void build(vector&amp;lt;mint&amp;gt;&amp;amp; p) { int n = p.</description>
+    </item>
+    <item>
+      <title>NTT</title>
+      <link>http://localhost:1313/Biblioteca/docs/matematica/ntt/</link>
+      <pubDate>Thu, 09 May 2024 18:39:19 -0300</pubDate>
+      <guid>http://localhost:1313/Biblioteca/docs/matematica/ntt/</guid>
+      <description>Sobre linkPrecisa do mint (primitivas de aritmetica modular)&#xA;O(n log (n))&#xA;Link original: ntt.cpp&#xA;Código link const int MOD = 998244353; typedef mod_int&amp;lt;MOD&amp;gt; mint; void ntt(vector&amp;lt;mint&amp;gt;&amp;amp; a, bool rev) { int n = a.size(); auto b = a; assert(!(n&amp;amp;(n-1))); mint g = 1; while ((g^(MOD / 2)) == 1) g &amp;#43;= 1; if (rev) g = 1 / g; for (int step = n / 2; step; step /= 2) { mint w = g^(MOD / (n / step)), wn = 1; for (int i = 0; i &amp;lt; n/2; i &amp;#43;= step) { for (int j = 0; j &amp;lt; step; j&amp;#43;&amp;#43;) { auto u = a[2 * i &amp;#43; j], v = wn * a[2 * i &amp;#43; j &amp;#43; step]; b[i&amp;#43;j] = u &amp;#43; v; b[i &amp;#43; n/2 &amp;#43; j] = u - v; } wn = wn * w; } swap(a, b); } if (rev) { auto n1 = mint(1) / n; for (auto&amp;amp; x : a) x *= n1; } } vector&amp;lt;mint&amp;gt; convolution(const vector&amp;lt;mint&amp;gt;&amp;amp; a, const vector&amp;lt;mint&amp;gt;&amp;amp; b) { vector&amp;lt;mint&amp;gt; l(a.</description>
+    </item>
+    <item>
+      <title>Operacoes em Polinomios e Series de Potencias</title>
+      <link>http://localhost:1313/Biblioteca/docs/matematica/powerseries/</link>
+      <pubDate>Thu, 09 May 2024 18:39:19 -0300</pubDate>
+      <guid>http://localhost:1313/Biblioteca/docs/matematica/powerseries/</guid>
+      <description>Sobre linkPrecisa do NTT&#xA;O exp nao foi bem testado&#xA;Fonte: github.com/celiopassos/competitive-programming/blob/master/algorithms/mathematics/formal_power_series.hpp&#xA;D, I: O(n)&#xA;inv, divmod, log e exp: O(n log(n))&#xA;Link original: powerSeries.cpp&#xA;Código link using poly = vector&amp;lt;mint&amp;gt;; const int MAGIC = 512; poly D(poly p) { if (p.empty()) return p; for (int i = 0; i &amp;#43; 1 &amp;lt; p.size(); i&amp;#43;&amp;#43;) p[i] = (i &amp;#43; 1) * p[i &amp;#43; 1]; p.pop_back(); return p; } poly I(poly p) { int n = p.</description>
+    </item>
+    <item>
+      <title>Pollard&#39;s Rho Alg</title>
+      <link>http://localhost:1313/Biblioteca/docs/matematica/pollardrho/</link>
+      <pubDate>Thu, 09 May 2024 18:39:19 -0300</pubDate>
+      <guid>http://localhost:1313/Biblioteca/docs/matematica/pollardrho/</guid>
+      <description>Sobre linkUsa o algoritmo de deteccao de ciclo de Floyd&#xA;com uma otimizacao na qual o gcd eh acumulado&#xA;A fatoracao nao sai necessariamente ordenada&#xA;O algoritmo rho encontra um fator de n,&#xA;e funciona muito bem quando n possui um fator pequeno&#xA;Complexidades (considerando mul constante):&#xA;rho - esperado O(n^(1/4)) no pior caso&#xA;fact - esperado menos que O(n^(1/4) log(n)) no pior caso&#xA;Link original: pollardrho.cpp&#xA;Código link ll mul(ll a, ll b, ll m) { ll ret = a*b - ll((long double)1/m*a*b&amp;#43;0.</description>
+    </item>
+    <item>
+      <title>Produto de dois long long mod m</title>
+      <link>http://localhost:1313/Biblioteca/docs/matematica/mulmod/</link>
+      <pubDate>Thu, 09 May 2024 18:39:19 -0300</pubDate>
+      <guid>http://localhost:1313/Biblioteca/docs/matematica/mulmod/</guid>
+      <description>Sobre linkO(1)&#xA;Link original: mulmod.cpp&#xA;Código link ll mul(ll a, ll b, ll m) { // a*b % m ll ret = a*b - ll((long double)1/m*a*b&amp;#43;0.5)*m; return ret &amp;lt; 0 ? ret&amp;#43;m : ret; } </description>
+    </item>
+    <item>
+      <title>Simplex</title>
+      <link>http://localhost:1313/Biblioteca/docs/matematica/simplex/</link>
+      <pubDate>Thu, 09 May 2024 18:39:19 -0300</pubDate>
+      <guid>http://localhost:1313/Biblioteca/docs/matematica/simplex/</guid>
+      <description>Sobre linkMaximiza c^T x s.t. Ax &amp;lt;= b, x &amp;gt;= 0&#xA;O(2^n), porem executa em O(n^3) no caso medio&#xA;Link original: simplex.cpp&#xA;Código link const double eps = 1e-7; namespace Simplex { vector&amp;lt;vector&amp;lt;double&amp;gt;&amp;gt; T; int n, m; vector&amp;lt;int&amp;gt; X, Y; void pivot(int x, int y) { swap(X[y], Y[x-1]); for (int i = 0; i &amp;lt;= m; i&amp;#43;&amp;#43;) if (i != y) T[x][i] /= T[x][y]; T[x][y] = 1/T[x][y]; for (int i = 0; i &amp;lt;= n; i&amp;#43;&amp;#43;) if (i !</description>
+    </item>
+    <item>
+      <title>Teorema Chines do Resto</title>
+      <link>http://localhost:1313/Biblioteca/docs/matematica/chinese/</link>
+      <pubDate>Thu, 09 May 2024 18:39:19 -0300</pubDate>
+      <guid>http://localhost:1313/Biblioteca/docs/matematica/chinese/</guid>
+      <description>Sobre linkCombina equacoes modulares lineares: x = a (mod m)&#xA;O m final eh o lcm dos m&amp;rsquo;s, e a resposta eh unica mod o lcm&#xA;Os m nao precisam ser coprimos&#xA;Se nao tiver solucao, o &amp;lsquo;a&amp;rsquo; vai ser -1&#xA;Link original: chinese.cpp&#xA;Código link template&amp;lt;typename T&amp;gt; tuple&amp;lt;T, T, T&amp;gt; ext_gcd(T a, T b) { if (!a) return {b, 0, 1}; auto [g, x, y] = ext_gcd(b%a, a); return {g, y - b/a*x, x}; } template&amp;lt;typename T = ll&amp;gt; struct crt { T a, m; crt() : a(0), m(1) {} crt(T a_, T m_) : a(a_), m(m_) {} crt operator * (crt C) { auto [g, x, y] = ext_gcd(m, C.</description>
+    </item>
+    <item>
+      <title>Totiente</title>
+      <link>http://localhost:1313/Biblioteca/docs/matematica/totiente/</link>
+      <pubDate>Thu, 09 May 2024 18:39:19 -0300</pubDate>
+      <guid>http://localhost:1313/Biblioteca/docs/matematica/totiente/</guid>
+      <description>Sobre linkO(sqrt(n))&#xA;Link original: totiente.cpp&#xA;Código link int tot(int n){ int ret = n; for (int i = 2; i*i &amp;lt;= n; i&amp;#43;&amp;#43;) if (n % i == 0) { while (n % i == 0) n /= i; ret -= ret / i; } if (n &amp;gt; 1) ret -= ret / n; return ret; } </description>
+    </item>
+  </channel>
+</rss>

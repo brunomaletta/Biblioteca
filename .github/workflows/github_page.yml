@@ -31,7 +31,7 @@ jobs:
 
       # NEW STEP
       - name: Generate documentation
-        working-directory: website/docs
+        working-directory: docs
         run: bash gendocs.sh
 
       - name: Setup Go

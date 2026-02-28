@@ -17,7 +17,7 @@ hero:
 
   titleLogo:
     path: "images/"
-    filename: "balloon.png"
+    filename: "logo_black.png"
     alt: "Balloon Logo - Balloon icons created by Stockio - Flaticon"
     height: 80px
 

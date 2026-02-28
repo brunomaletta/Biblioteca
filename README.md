@@ -1,3 +1,7 @@
+<p align="center">
+	<img src="docs/logo_white.svg" alt="ufmg" width="300">
+</p>
+
 <h1 align="center">
     Biblioteca UFMG
     <br>

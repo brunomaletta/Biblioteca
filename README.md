@@ -1,5 +1,5 @@
 <p align="center">
-	<img src="docs/logo_white.svg" alt="ufmg" width="300">
+	<img src="docs/logo_white.png" alt="ufmg" width="200">
 </p>
 
 <h1 align="center">

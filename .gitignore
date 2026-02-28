@@ -77,3 +77,8 @@ Temporary Items
 latex/biblioteca.tex
 latex/biblioteca.log
 latex/getlatex
+
+# Stuff for the website
+website/public
+website/resources
+website/.hugo_build.lock

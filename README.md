@@ -1,6 +1,11 @@
 <p align="center">
-	<img src="docs/logo_white.png" alt="ufmg" width="200">
+  <picture>
+    <source media="(prefers-color-scheme: dark)" width="200" srcset="docs/logo_white.png">
+    <source media="(prefers-color-scheme: light)" width="200" srcset="docs/logo_black.png">
+    <img alt="ufmg" width="200" src="docs/logo_white.png">
+  </picture>
 </p>
+
 
 <h1 align="center">
     Biblioteca UFMG

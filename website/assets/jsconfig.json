@@ -3,8 +3,8 @@
   "baseUrl": ".",
   "paths": {
    "*": [
-    "../_vendor/github.com/gohugoio/hugo-mod-jslibs-dist/popperjs/v2/package/dist/cjs/*",
-    "../_vendor/github.com/twbs/bootstrap/js/*"
+    "../../../../.cache/hugo_cache/modules/filecache/modules/pkg/mod/github.com/gohugoio/hugo-mod-jslibs-dist/popperjs/v2@v2.21100.20000/package/dist/cjs/*",
+    "../../../../.cache/hugo_cache/modules/filecache/modules/pkg/mod/github.com/twbs/bootstrap@v5.3.3+incompatible/js/*"
    ]
   }
  }

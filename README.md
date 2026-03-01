@@ -11,14 +11,14 @@
     Biblioteca UFMG
     <br>
     <a href="https://opensource.org/license/mit" target="_blank" rel="noopener noreferrer nofollow" style="display:inline-block"><img src="https://img.shields.io/badge/License-MIT-yellow.svg" alt="MIT License" style="max-width: 100%;"></a>
-    <a href="https://github.com/brunomaletta/Biblioteca/tree/master/Codigo" target="_blank" rel="noopener noreferrer nofollow" style="display:inline-block"><img src="https://img.shields.io/badge/C%2B%2B-17-blue" alt="C++17" style="max-width: 100%;"></a>
-    <a href="https://github.com/brunomaletta/Biblioteca/stargazers"><img src="https://img.shields.io/github/stars/brunomaletta/Biblioteca?style=social" alt="GitHub stars"></a>
+    <a href="https://github.com/brunomaletta/biblioteca/tree/master/Codigo" target="_blank" rel="noopener noreferrer nofollow" style="display:inline-block"><img src="https://img.shields.io/badge/C%2B%2B-17-blue" alt="C++17" style="max-width: 100%;"></a>
+    <a href="https://github.com/brunomaletta/biblioteca/stargazers"><img src="https://img.shields.io/github/stars/brunomaletta/biblioteca?style=social" alt="GitHub stars"></a>
 </h1>
 
 <p align="center">
-    <a href="https://brunomaletta.github.io/Biblioteca/docs/" target="_blank"><img src="https://img.shields.io/badge/🌐_Online_Notebook-Open-2ea44f?style=for-the-badge"></a>
-    <a href="https://github.com/brunomaletta/Biblioteca/blob/master/pdf/biblioteca.pdf" target="_blank"><img src="https://img.shields.io/badge/📄_PDF_Notebook-Open-blue?style=for-the-badge"></a>
-    <a href="https://github.com/brunomaletta/Biblioteca/blob/master/pdf/theoretical.pdf" target="_blank"><img src="https://img.shields.io/badge/📚_Theoretical_Guide-Open-purple?style=for-the-badge"></a>
+    <a href="https://brunomaletta.github.io/biblioteca/docs/" target="_blank"><img src="https://img.shields.io/badge/🌐_Online_Notebook-Open-2ea44f?style=for-the-badge"></a>
+    <a href="https://github.com/brunomaletta/biblioteca/blob/master/pdf/biblioteca.pdf" target="_blank"><img src="https://img.shields.io/badge/📄_PDF_Notebook-Open-blue?style=for-the-badge"></a>
+    <a href="https://github.com/brunomaletta/biblioteca/blob/master/pdf/theoretical.pdf" target="_blank"><img src="https://img.shields.io/badge/📚_Theoretical_Guide-Open-purple?style=for-the-badge"></a>
 </p>
 
 Biblioteca de algoritmos, estruturas de dados e primitivas para Maratona de Programação (ICPC) da UFMG.

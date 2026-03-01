@@ -1,4 +1,4 @@
-baseURL = "https://brunomaletta.github.io/Biblioteca" # (or set via env variable HUGO_BASEURL)
+baseURL = "https://brunomaletta.github.io/biblioteca" # (or set via env variable HUGO_BASEURL)
 languageCode = "pt-BR"
 title = "Biblioteca"
 contentDir = "content"
@@ -61,7 +61,7 @@ defaultContentLanguage = 'pt'
         version   = true # include git commit info in footer
 
     [params.social]
-        github = "brunomaletta/Biblioteca" # github.com/YOUR_GITHUB_ID
+        github = "brunomaletta/biblioteca" # github.com/YOUR_GITHUB_ID
         # twitter = ""            # twitter.com/YOUR_TWITTER_ID
         # instagram = ""      # instagram.com/YOUR_INSTAGRAM_ID
         # rss = true                     # show rss icon with link
@@ -80,7 +80,7 @@ defaultContentLanguage = 'pt'
         prismTheme      = "lotusdocs"                         # (optional) - Set theme for PrismJS. Options include: lotusdocs (default), solarized-light, twilight, lucario
 
 #         # gitinfo
-        repoURL         = "https://github.com/brunomaletta/Biblioteca"  # Git repository URL for your site [support for GitHub, GitLab, and BitBucket]
+        repoURL         = "https://github.com/brunomaletta/biblioteca"  # Git repository URL for your site [support for GitHub, GitLab, and BitBucket]
         repoBranch      = "release"                           # Name of your Git repository branch
         editPage        = true                                # enable 'Edit this page' feature - default false
         lastMod         = true                                # enable 'Last modified' date on pages - default false

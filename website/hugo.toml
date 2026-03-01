@@ -26,6 +26,9 @@ defaultContentLanguage = 'pt'
   [[module.imports]]
     path = "github.com/gohugoio/hugo-mod-bootstrap-scss/v5"
     disable = false
+  [[module.mounts]]
+    source = "assets"
+    target = "assets"
 
 [markup]
     [markup.tableOfContents]
@@ -39,6 +42,7 @@ defaultContentLanguage = 'pt'
   [markup.goldmark.parser]
     [markup.goldmark.parser.attribute]
       block = true
+
 
 [params]
 
@@ -106,6 +110,7 @@ defaultContentLanguage = 'pt'
         intLinkTooltip  = true                                # Enable a tooltip for internal links that displays info about the destination? default false
         extLinkNewTab   = true                               # Open external links in a new Tab? default true
         # logoLinkURL = ""                                      # Set a custom URL destination for the top header logo link.
+
 
     [params.flexsearch] # Parameters for FlexSearch
         enabled             = true

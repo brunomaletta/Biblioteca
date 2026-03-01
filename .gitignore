@@ -79,6 +79,7 @@ latex/biblioteca.log
 latex/getlatex
 
 # Stuff for the website
+website/_vendor/
 website/public
 website/resources
 website/.hugo_build.lock

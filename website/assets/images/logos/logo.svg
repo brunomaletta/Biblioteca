@@ -6,7 +6,7 @@
     html[data-dark-mode] #dark { display:inline; }
   </style>
 
-  <image id="light" href="/Biblioteca/images/logo_black.png" width="100%" height="100%"/>
-  <image id="dark"  href="/Biblioteca/images/logo_white.png" width="100%" height="100%"/>
+  <image id="light" href="/biblioteca/images/logo_black.png" width="100%" height="100%"/>
+  <image id="dark"  href="/biblioteca/images/logo_white.png" width="100%" height="100%"/>
 
 </svg>

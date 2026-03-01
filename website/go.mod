@@ -1,4 +1,4 @@
-module github.com/brunomaletta/Biblioteca
+module github.com/brunomaletta/biblioteca
 
 go 1.24.4
 

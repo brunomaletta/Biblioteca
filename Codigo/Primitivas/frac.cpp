@@ -2,9 +2,9 @@
 //
 // Funciona com o Big Int
 
-template<typename T = int> struct frac {
+template<typename T = ll> struct frac {
 	T num, den;
-	template<class U, class V>
+	template<class U = T, class V = T>
 	frac(U num_ = 0, V den_ = 1) : num(num_), den(den_) {
 		assert(den != 0);
 		if (den < 0) num *= -1, den *= -1;
@@ -32,3 +32,4 @@ template<typename T = int> struct frac {
 		return out;
 	}
 };
+

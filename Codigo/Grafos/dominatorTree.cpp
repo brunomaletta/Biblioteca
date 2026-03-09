@@ -1,11 +1,16 @@
 // Dominator Tree
 //
-// Codigo do Kawakami. Se vira pra usar ai
+// Codigo do Kawakami. Constroi a partir de uma raiz s.
+// Dizemos que um noh u domina v (u >> v) se todo caminho
+// de s a v passa por u. Dizemos que u = idom(v) se u >> v
+// (estritamente) e nao existe x tal que u >> x >> v (estritamente).
+// idom(v) eh unico (menos s, que nao possui idom).
+// A dominator tree eh uma arvore tal que o pai de v eh idom(v).
+// dominates(u, v) responde se u >> v, que equivale a u estar
+// no caminho de s ate v na dominator tree.
 //
 // build - O(m log(n))
 // dominates - O(1)
-
-int n;
 
 namespace d_tree {
 	vector<int> g[MAX];
@@ -83,6 +88,6 @@ namespace d_tree {
 	// Whether every path from s to v passes through u
 	bool dominates(int u, int v) {
 		if (pre[v] == -1) return 1; // vacuously true
-		return dfs_l[u] <= dfs_l[v] && dfs_r[v] <= dfs_r[u];
+		return dfs_l[u] <= dfs_l[v] and dfs_r[v] <= dfs_r[u];
 	}
 };

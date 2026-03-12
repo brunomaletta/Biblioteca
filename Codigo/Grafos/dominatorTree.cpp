@@ -52,7 +52,7 @@ namespace d_tree {
 		for (int nxt: tree[v]) dfs2(nxt);
 		dfs_r[v] = t++;
 	}
-	void build(int s) {
+	void build(int n, int s) {
 		for (int i = 0; i < n; i++) {
 			sdom[i] = pre[i] = ancestor[i] = -1;
 			rg[i].clear();

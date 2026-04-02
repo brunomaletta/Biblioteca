@@ -256,3 +256,12 @@ Para ver o hash no vim, seleciona as linhas com `Shift+v`, e aperta `Ctrl+h`.
 - [Timer](https://github.com/brunomaletta/Biblioteca/blob/master/Codigo/Extra/timer.cpp)
 - [vimrc](https://github.com/brunomaletta/Biblioteca/blob/master/Codigo/Extra/vimrc)
 
+## Histórico de Estrelas
+
+<a href="https://www.star-history.com/?repos=brunomaletta%2Fbiblioteca&type=date&legend=top-left">
+ <picture>
+   <source media="(prefers-color-scheme: dark)" srcset="https://api.star-history.com/image?repos=brunomaletta/biblioteca&type=date&theme=dark&legend=top-left" />
+   <source media="(prefers-color-scheme: light)" srcset="https://api.star-history.com/image?repos=brunomaletta/biblioteca&type=date&legend=top-left" />
+   <img alt="Star History Chart" src="https://api.star-history.com/image?repos=brunomaletta/biblioteca&type=date&legend=top-left" />
+ </picture>
+</a>

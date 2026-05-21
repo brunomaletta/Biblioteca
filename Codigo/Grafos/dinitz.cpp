@@ -38,12 +38,12 @@ struct dinitz {
 		}
 		return lev[t] != -1;
 	}
-	int dfs(int v, int s, int f = INF) {
-		if (!f or v == s) return f;
+	int dfs(int v, int t, int f = INF) {
+		if (!f or v == t) return f;
 		for (int& i = beg[v]; i < g[v].size(); i++) {
 			auto& e = g[v][i];
 			if (lev[e.to] != lev[v] + 1) continue;
-			int foi = dfs(e.to, s, min(f, e.cap - e.flow));
+			int foi = dfs(e.to, t, min(f, e.cap - e.flow));
 			if (!foi) continue;
 			e.flow += foi, g[e.to][e.rev].flow -= foi;
 			return foi;

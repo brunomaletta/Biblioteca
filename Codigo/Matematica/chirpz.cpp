@@ -1,4 +1,5 @@
 // Chirp-Z Transform
+//
 // https://judge.yosupo.jp/submission/374113
 //
 // Precisa de NTT
@@ -38,6 +39,7 @@ poly chirpz(poly p, mint c, mint d, int m){
 
 
 // Inverse Chirp-Z Transform
+//
 // https://judge.yosupo.jp/submission/374110
 //
 // Precisa de NTT e da derivada de serie formal (powerSeries.cpp)
